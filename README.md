@@ -1,1 +1,0 @@
-# Recetas_Sudamerica_Django
