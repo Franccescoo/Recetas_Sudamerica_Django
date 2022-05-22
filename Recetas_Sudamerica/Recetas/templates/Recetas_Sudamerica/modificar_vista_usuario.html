@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>Recetas de Sudamérica</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/core-img/cocinero.png">
+
+    <!-- Core Stylesheet -->
+    <link href="style.css" rel="stylesheet">
+
+    <!-- Responsive CSS -->
+    <link href="css/responsive/responsive.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/Usuario.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="caviar-load"></div>
+        <div class="preload-icons">
+            <img class="preload-1" src="img/core-img/preload-1.png" alt="">
+            <img class="preload-2" src="img/core-img/preload-2.png" alt="">
+            <img class="preload-3" src="img/core-img/preload-3.png" alt="">
+        </div>
+    </div>
+
+    <!-- ***** Search Form Area ***** -->
+    <div class="caviar-search-form d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="search-close-btn" id="closeBtn">
+                        <i class="pe-7s-close-circle" aria-hidden="true"></i>
+                    </div>
+                    <form action="#" method="get">
+                        <input type="search" name="caviarSearch" id="search"
+                            placeholder="Search Your Favourite Dish ...">
+                        <input type="submit" class="d-none" value="submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header_area" id="header">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col-12 h-100">
+                    <nav class="h-100 navbar navbar-expand-lg align-items-center">
+                        <a class="navbar-brand" href="index.html">Recetas de Sudamérica</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#caviarNav"
+                            aria-controls="caviarNav" aria-expanded="false" aria-label="Toggle navigation"><span
+                                class="fa fa-bars"></span></button>
+                        <div class="collapse navbar-collapse" id="caviarNav">
+                            <ul class="navbar-nav ml-auto" id="caviarMenu">
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="index.html">Inicio <span
+                                            class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="menu.html">Países</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contáctanos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Cerrar Sesion</a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ***** Breadcumb Area Start ***** -->
+    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/hero-4.jpg)">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-md-7 col-sm-12">
+                    <img class="perfil" src="img/Token/Mattheus.png" alt="">
+
+                    <p id="texto">Mattheus1</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Breadcumb Area End ***** -->
+
+    <!-- ***** Contact Area Start ***** 
+
+    <h1 class="Title">Mi Cuenta</h1>
+
+    <div class="vertical-menu">
+        <div class="row">
+            <div class="col"><a href="#" class="active">Perfil</a></div>
+            <div class="col"><a href="#">Ver Recetas</a></div>
+            <div class="col"><a href="#">Subir Receta</a></div>
+            <div class="col"><a href="#">Eliminar Receta</a></div>
+            <div class="col"><a href="#">Configuracion</a></div>
+            <div class="col"><a href="#">Cerrar Sesión</a></div>
+        </div>
+    </div>
+-->
+
+
+    <div class="topnav">
+        <a href="Vista_de_Usuario.html">Ver Perfil</a>
+        <a href="Ver_Receta_Usuario.html">Ver Recetas</a>
+        <a href="Creacion_Recetas.html">Subir Recetas</a>
+    </div>
+
+    <div class="caviar-contact-area d-md-flex align-items-center" id="contact">
+        <div class="contact-form-area d-flex justify-content-end">
+            <div class="contact-form">
+                <div class="contact-form-title">
+                    <p style="margin-top: 20px;">Datos </p>
+                </div>
+                <form action="/action_page.php" method="post" id="formRegi">
+                    <div class="row">
+                        <div class="col-12">
+                            <p>Nombre(s): Matias Ignacio</p>
+                            <input type="text" class="form-control" placeholder="Ej: Alexander" value="Matias Ignacio" id="nomUser" required>
+                        </div>
+                        <div class="col-12">
+                            <p>Apellido(s): Peñaloza Jara</p>
+                            <input type="text" class="form-control" placeholder="Ej: Lara" value="Peñaloza Jara" id="apeUser">
+                        </div>
+                        <div class="col-12">
+                            <p>Nombre de Usuario: Mattheus1</p>
+                            <input type="text" class="form-control" placeholder="Ej: Noditian1" value="Mattheus1" id="nickUserName"
+                                required>
+                        </div>
+                        <div class="col-12">
+                            <p>Email: matpenaloza@duocuc.cl</p>
+                            <input type="email" class="form-control" placeholder="Ej: Alexios@gmail.com" value="matpenaloza@duocuc.cl" id="email"
+                                required>
+                        </div>
+                        <div class="col-12">
+                            <p>Contraseña: ************</p>
+                            <input type="password" class="form-control" placeholder="Ej: Patatun1" value="Abc123456789" id="password1"
+                                required>
+                            <p>Confirmar Contraseña:</p>
+                            <input type="password" class="form-control" placeholder="Ej: Patatun1" value="Abc123456789" id="password2"
+                                required>
+                        </div>
+
+
+
+
+
+
+                        <div class="col-12">
+                            <input type="submit" class="btn btn-primary" value="Confirmar">
+                            <input type="reset">
+                            <p id="mensajeReg"></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Contact Area End ***** -->
+
+    <!-- ***** Footer Area Start ***** -->
+    <footer class="caviar-footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer-text">
+                        <a href="index.html" class="navbar-brand">Recetas de Sudamérica</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <p style="color: beige;">Copyright Recetas de Sudamérica&copy;
+                            <script>document.write(new Date().getFullYear());</script>
+                        </p>
+                        <p style="color: beige;">
+                            Todos los derechos reservados
+                        </p>
+                    </div>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ***** Footer Area End ***** -->
+
+    <!-- jQuery-2.2.4 js -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plugins js -->
+    <script src="js/others/plugins.js"></script>
+    <!-- Google Maps js -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk9KNSL1jTv4MY9Pza6w8DJkpI_nHyCnk"></script>
+    <script src="js/google-map/map-active.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+    <!--Validaciones-->
+    <script src="js/jquery/RegUser.js"></script>
+</body>

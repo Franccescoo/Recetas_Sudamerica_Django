@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>Recetas de Sudamérica - Editar</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/core-img/cocinero.png">
+
+    <!-- Core Stylesheet -->
+    <link href="style.css" rel="stylesheet">
+
+    <!-- Responsive CSS -->
+    <link href="css/responsive/responsive.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/Usuario.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="caviar-load"></div>
+        <div class="preload-icons">
+            <img class="preload-1" src="img/core-img/preload-1.png" alt="">
+            <img class="preload-2" src="img/core-img/preload-2.png" alt="">
+            <img class="preload-3" src="img/core-img/preload-3.png" alt="">
+        </div>
+    </div>
+
+    <!-- ***** Search Form Area ***** -->
+    <div class="caviar-search-form d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="search-close-btn" id="closeBtn">
+                        <i class="pe-7s-close-circle" aria-hidden="true"></i>
+                    </div>
+                    <form action="#" method="get">
+                        <input type="search" name="caviarSearch" id="search"
+                            placeholder="Search Your Favourite Dish ...">
+                        <input type="submit" class="d-none" value="submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header_area" id="header">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col-12 h-100">
+                    <nav class="h-100 navbar navbar-expand-lg align-items-center">
+                        <a class="navbar-brand" href="index.html">Recetas de Sudamérica</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#caviarNav"
+                            aria-controls="caviarNav" aria-expanded="false" aria-label="Toggle navigation"><span
+                                class="fa fa-bars"></span></button>
+                        <div class="collapse navbar-collapse" id="caviarNav">
+                            <ul class="navbar-nav ml-auto" id="caviarMenu">
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="menu.html">Países</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contáctanos</a>
+                                </li>
+                                <li class="nav-item dropdown active show">
+                                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa-solid fa-user"></i>  Mi Cuenta</a>
+                                    <div class="dropdown-menu show" aria-labelledby="navbarDropdown">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-12"><a class="dropdown-item" href="Login.html">Iniciar Sesión</a></div>
+                                                <div class="col-md-12"><a class="dropdown-item" href="registrarse.html">Registrarse</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ***** Breadcumb Area Start ***** -->
+    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/food/FondoChile.png)">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcumb-content">
+                        <h2>Editar</h2>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="topnav">
+        <a href="Vista_de_Admin.html">Ver Perfil</a>
+        <a href="Ver_Receta_Admin.html">Ver Recetas</a>
+    </div>
+    <!-- ***** Breadcumb Area End ***** -->
+    <h3 style="text-align: center; margin-top: 40px;">Cambio de recetas</h3>
+
+    <!-- ***** Menu Area Start ***** -->
+
+    <div class="caviar-food-menu section-padding-100 clearfix">
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-12">
+
+                    <form action="/action_page.php">
+                        <center>
+                            <div>
+                                <img src="img/imgVenezuela/pabelelonn.jpg" alt=""
+                                    style="width: 100%;max-width: 400px; margin: auto;">
+
+                            </div>
+                            <div style="margin-bottom: 30px;">
+                                <div>
+                                    <label for="imagen">Imagen(URL):</label>
+                                </div>
+                                <input type="text" id="imagen" name="imagen">
+                            </div>
+                            <div style="margin-bottom: 30px;">
+                                <div>
+                                    <label for="nombreReceta">Nombre De La Receta:</label>
+                                </div>
+                                <input type="text" id="nombreReceta" name="nombreReceta">
+                            </div>
+                            <div style="margin-bottom: 30px;">
+                                <div>
+                                    <label for="tiempo">Tiempo De Preparacion (minutos):</label>
+                                </div>
+                                <input type="text" id="tiempo" name="tiempo">
+                            </div>
+                            <div style="margin-bottom: 30px;">
+                                <label for="idTipoAlimento">Tipo De Alimento:</label>
+                                <select name="idTipoAlimento" id="idTipoAlimento">
+                                    <option value="1">Comida</option>
+                                    <option value="2">Postre</option>
+                                    <option value="3">Bebida</option>
+                                </select>
+                            </div>
+                            <div style="margin-bottom: 30px;">
+                                <label for="idNacionalidad">Nacionalidad:</label>
+                                <select name="idNacionalidad" id="idNacionalidad">
+                                    <option value="1">Chile</option>
+                                    <option value="2">Argentina</option>
+                                    <option value="3">Venezuela</option>
+                                    <option value="4">Brasil</option>
+                                    <option value="5">Perú</option>
+                                    <option value="6">Ecuador</option>
+                                    <option value="7">Uruguay</option>
+                                    <option value="8">Colombia</option>
+                                </select>
+                            </div>
+                            <div style="margin-bottom: 30px;">
+                                <label for="idTipoDieta">Dieta:</label>
+                                <select name="idTipoDieta" id="idTipoDieta">
+                                    <option value="1">N/A</option>
+                                    <option value="2">Kosher</option>
+                                    <option value="3">Vegetariana</option>
+                                    <option value="4">Vegana</option>
+                                </select>
+                            </div>
+                            <div style="margin-bottom: 30px;">
+                                <label for="idDificultad">Dificultad:</label>
+                                <select name="idDificultad" id="idDificultad">
+                                    <option value="1">Facil</option>
+                                    <option value="2">Media</option>
+                                    <option value="3">Dificil</option>
+                                </select>
+                            </div>
+
+                            <div class="row" style="margin-bottom: 30px;">
+                                <div class="col-12 col-md-6 col-sm-12">
+                                    <div>
+                                        <label for="ingredientes">Ingredientes:</label>
+                                    </div>
+                                    <textarea id="ingredientes" name="ingredientes" rows="5" cols="40"></textarea>
+                                </div>
+
+                                <div class="col-12 col-md-6 col-sm-12">
+                                    <div>
+                                        <label for="preparacion">Preparacion:</label>
+                                    </div>
+                                    <textarea id="preparacion" name="preparacion" rows="5" cols="40">
+                                        Paso 1
+Limpiar las caraotas y seleccionar los granos. Desechar todas las que floten en el agua. Colocarlas en una olla con agua, la cebolla picada por la mitad y el pimentón.
+
+Paso 2
+Cocinar a fuego alto hasta que hiervan. Luego, bajar la llama y cocinar aproximadamente una hora hasta que los granos ablanden.
+
+Paso 3
+Retirar la cebolla y el pimentón; Añadir la sal, la pimienta y el papelón o el comino (el que desee).
+
+Paso 4
+Cocinar hasta ablandar y agregar más agua si hace falta. Retirar la espuma que se va formando encima con una espumadera.
+
+Paso 5
+Freír en un caldero la tocineta y cuando suelte la grasa, agregar los ajos, la cebolla rallada y cristalizar; añadir el sofrito a las caraotas y cocinar 20 minutos más o hasta lograr el espesor que se desee.
+
+
+                                    </textarea> <br>
+                                    <br>
+                                </div>
+                            </div>
+
+
+                            <a href="Ver_Receta_Admin.html">
+                                <h5>Guardar</h5>
+                            </a>
+
+                            <a href="Ver_Receta_Admin.html">
+                                <h5>Descartar</h5>
+                            </a>
+                        </center>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Menu Area End ***** -->
+
+    <!-- ***** Footer Area Start ***** -->
+    <footer class="caviar-footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer-text">
+                        <a href="index.html" class="navbar-brand">Recetas de Sudamérica</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <p style="color: beige;">Copyright Recetas de Sudamérica&copy;
+                            <script>document.write(new Date().getFullYear());</script>
+                        </p>
+                        <p style="color: beige;">
+                            Todos los derechos reservados
+                        </p>
+                    </div>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ***** Footer Area End ***** -->
+
+    <!-- jQuery-2.2.4 js -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plugins js -->
+    <script src="js/others/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+</body>
