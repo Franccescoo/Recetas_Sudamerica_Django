@@ -1,0 +1,57 @@
+{% extends 'Recetas_Sudamerica/PlantillaRecetas.html' %}
+{% load static %}
+
+{% block titulo %}
+<title>{{ }}</title>
+{% endblock titulo %}
+
+{% block nomPais %}
+<h2>{{ }}</h2>
+{% endblock nomPais %}
+
+{% block imagComida %}
+<img src="{{  }}" alt="Sin imagen" class="imagen">
+{% endblock imagComida %}
+
+{% block nomReceta %}
+<h2>{{ }}</h2>
+{% endblock nomReceta %}
+
+<div>
+    <div style="text-align: center;">
+        <i class="bi-alarm"></i>: 30M |
+        <i class="bi bi-bar-chart-fill"></i> Dificultad: facil |
+        Favorito: <i class="bi bi-heart"></i>
+    </div>
+    <div style="text-align: center;">
+        <i class="bi bi-map"></i> Pais : Ecuador |
+        <i class="bi bi-egg"></i> Alimento: Comida |
+        <i class="bi bi-basket"></i> Dieta: N/A
+    </div>
+
+</div>
+
+{% block ingredienteTitulo %}
+<h2>{{ }}</h2>
+{% endblock ingredienteTitulo %}
+
+{% block ingredientesReceta %}
+<ul>{{ }}</ul>
+{% endblock ingredientesReceta %}
+
+{% block tituloPreparacion %}
+<h2>{{ }}</h2>
+{% endblock tituloPreparacion %}
+
+<p>Se ralla la yuca y le agregamos los 2 huevos, la sal y el azúcar al gusto.</p>
+<h2>Paso 2</h2>
+<p>
+    Aparte cortamos en trozos pequeñitos la cebolla blanca o sofrito y el queso fresco con sal,
+    lo mezclamos y este será el relleno del muchín de yuca rallada.</p>
+<h2>Paso 3</h2>
+<p>Formamos pequeñas tortillas no redondas sino cilíndricas casi como las croquetas españolas pero más grandes,
+    en el centro ponemos un poco de relleno y en una sartén con aceite de girasol bien caliente cocinamos
+    los muchines de yuca con queso hasta que estén dorados.</p>
+<h2>Paso 4</h2>
+<p>Puedes acompañar los muchines de yuca con miel de caña de azúcar o de abejas.
+    Ten en cuenta que este postre se sirve caliente.</p>
