@@ -167,11 +167,6 @@ img {
     margin-left: 100px;
 }
 
-ul,
-ol {
-    margin: 0;
-    padding: 0;
-}
 
 .pt-200 {
     padding-top: 200px;
@@ -200,10 +195,6 @@ a:active {
     transition-duration: 500ms;
     font-weight: 600;
     outline: none;
-}
-
-li {
-    list-style: none;
 }
 
 .caviar-table {
@@ -1293,3 +1284,6 @@ blockquote img {
     text-transform: uppercase;
     font-size: 12px;
 }
+ol li::marker { 
+    color: red;
+  }
