@@ -32,3 +32,28 @@ def menu(request):
 def aatest(request):
     return render(request,'Recetas/aatest.html')
 
+    
+
+def listado(request):
+    mascotas = Mascota.objects.all()
+    contexto = {"lista_m":mascotas}
+    return render(request,"Ventas/listadoM.html", contexto)
+
+def formulario(request):
+    razas = Raza.objects.all()
+    contexto = {"lista_r": razas}
+    return render(request,"Ventas/formulario.html",contexto)
+
+def registrar(request):
+    chip2 = request.POST['chip1']
+    nombre2 = request.POST['nombre1']
+    edad2 = request.POST['edad1']
+    color2 = request.POST['color1']
+    raza2 = request.POST['raza1']
+    foto2 = request.FILES['foto1']
+
+    raza3 = Raza.objects.get(idRaza = raza2)
+    Mascota.objects.create(chip = chip2, nombreMascota = nombre2, edad = edad2, colorPelo = color2, foto = foto2, raza = raza3)
+    return redirect('formulario')
+
+    
