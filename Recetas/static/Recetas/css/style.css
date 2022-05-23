@@ -1284,6 +1284,7 @@ blockquote img {
     text-transform: uppercase;
     font-size: 12px;
 }
+
 ol li::marker { 
     color: red;
   }
