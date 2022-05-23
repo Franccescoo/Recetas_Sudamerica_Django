@@ -12,5 +12,7 @@ urlpatterns = [
     path('Editar_Recetas_Admin/',Editar_Recetas_Admin,name="Editar_Recetas_Admin"),
     path('menu/',menu,name="menu"),
     
+    
+    
 
 ]

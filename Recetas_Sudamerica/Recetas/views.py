@@ -28,3 +28,4 @@ def Editar_Recetas_Admin(request):
 
 def menu(request):
     return render(request,'Recetas/menu.html')
+
