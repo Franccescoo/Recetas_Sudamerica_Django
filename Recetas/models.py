@@ -21,6 +21,13 @@ class USUARIO(models.Model):
     def __str__(self) :
             return self.nomUsuario
 
+class NACIONALIDAD(models.Model):
+    idNacionalidad = models.AutoField(primary_key=True)
+    nomNacionalidad = models.CharField(max_length=20, null=False, blank=False)
+
+    def __str__(self) :
+            return self.nomNacionalidad
+
 class RECETA(models.Model):
     idReceta = models.AutoField(primary_key=True)
     nomReceta = models.CharField(max_length=30, blank=False, null=False)
@@ -33,12 +40,7 @@ class RECETA(models.Model):
     def __str__(self) :
             return self.nomReceta
 
-class NACIONALIDAD(models.Model):
-    idNacionalidad = models.AutoField(primary_key=True)
-    nomNacionalidad = models.CharField(max_length=20, null=False, blank=False)
 
-    def __str__(self) :
-            return self.nomNacionalidad
 
 
 
