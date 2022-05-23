@@ -16,6 +16,7 @@ class USUARIO(models.Model):
     username = models.CharField(max_length=20, null=False, blank=False)
     email = models.EmailField(max_length=30, null=False)
     foto = models.ImageField(upload_to="foto_perfil")
+    contrasena = models.CharField(max_length=20, null=False, blank=False)
     TIPO_USUARIO = models.ForeignKey(TIPO_USUARIO, on_delete= models.CASCADE)
 
     def __str__(self) :

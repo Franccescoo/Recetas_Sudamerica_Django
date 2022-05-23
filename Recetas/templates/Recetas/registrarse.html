@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -114,7 +115,8 @@
                 <div class="contact-form-title">
                     <p style="margin-top: 20px;">Registrarse</p>
                 </div>
-                <form action="/action_page.php" method="post" name="formRegi" id="formRegi">
+                <form action="{% url 'registrar' %}" method="POST" name="formRegi" id="formRegi" enctype="multipart/form-data">
+                    {% csrf_token %}
                     <div class="row">
                         <div class="col-12">
                             <p>Nombre(s)</p>
@@ -128,10 +130,13 @@
                             <p>Nombre de Usuario</p>
                             <input type="text" class="form-control" placeholder="Ej: Noditian1" id="nickUserName" required>
                         </div>
-
                         <div class="col-12">
                             <p>Email</p>
                             <input type="email" class="form-control" placeholder="Ej: Alexios@gmail.com" id="email" required>
+                        </div>
+                        <div class="col-12">
+                            <p>Foto</p>
+                            <input class="form-control" type="file" id="foto1" name="foto1">
                         </div>
                         <div class="col-12">
                             <p>Contraseña</p>
@@ -141,11 +146,6 @@
                             <p>Confirme su contraseña</p>
                             <input type="password" class="form-control" placeholder="Ej: Patatun1" id="password2" required>
                         </div>
-
-
-
-
-
                         <div class="col-12">
                             <input type="submit" class="btn btn-primary" value="Confirmar">
                             <input type="reset">
