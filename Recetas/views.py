@@ -94,5 +94,5 @@ def Ver_Usuario_Admin(request):
 def Vista_de_Admin(request):
     return render(request,'Recetas/Vista_de_Admin.html')
 
-def Vista_deVista_de_UsuarioAdmin(request):
+def Vista_de_Usuario(request):
     return render(request,'Recetas/Vista_de_Usuario.html')
