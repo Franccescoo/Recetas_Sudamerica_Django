@@ -28,4 +28,7 @@ def Editar_Recetas_Admin(request):
 
 def menu(request):
     return render(request,'Recetas/menu.html')
+    
+def aatest(request):
+    return render(request,'Recetas/aatest.html')
 
