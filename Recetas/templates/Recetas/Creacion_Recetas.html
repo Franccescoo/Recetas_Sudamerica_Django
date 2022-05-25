@@ -22,13 +22,15 @@
 
     <link rel="stylesheet" href="css/Usuario.css">
 
+    <!--Popup-->
+    <link rel="stylesheet" href="css/popup.css" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
@@ -114,118 +116,112 @@
         <a href="Creacion_Recetas.html">Subir Recetas</a>
     </div>
     <!-- ***** Breadcumb Area End ***** -->
-    <h3 style="text-align: center; margin-top: 40px;">Creacion de recetas</h3>
+    <h3 style="text-align: center; margin-top: 40px;">Creación de recetas</h3>
 
     <!-- ***** Menu Area Start ***** -->
 
-    <div class="caviar-food-menu section-padding-100 clearfix">
+    <div class="caviar-contact-area d-md-flex align-items-center" id="contact">
+        <div class="contact-form-area d-flex justify-content-end">
+            <div class="contact-form">
+                <div class="contact-form-title">
 
-        <div class="container">
-            <div class="row">
+                </div>
+                <form action="/action_page.php" method="post" name="formRegi" id="formRegi">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="contact-form-title">
+                                <p style="margin-bottom: 10px;">Imagen:</p>
+                            </div>
+                            <input type="file" class="form-control" placeholder="Ej: Alexander" id="imagen" required>
+                        </div>
 
-                <div class="col-12">
+                        <div class="col-12">
+                            <div class="contact-form-title">
+                                <p style="margin-bottom: 10px;">Nombre De La Receta:</p>
+                            </div>
+                            
+                            <input type="text" class="form-control" placeholder="Ej: Asado" id="nomreceta">
+                        </div>
+                        <div class="col-12">
+                            <div class="contact-form-title">
+                                <p style="margin-bottom: 10px;">Tiempo De Preparacion (minutos):</p>
+                            </div>
+                            
+                            <input type="number" class="form-control" placeholder="Ej: 15" id="tiempo" name="tiempo"
+                                required>
+                        </div>
 
-                    <form action="/action_page.php" method="post" name="formulario" id="formCreRec">
-                        <center>
-                            <div style="margin-bottom: 30px;">
-                                <div>
-                                    <label for="imagen">Imagen(URL):</label>
+                        <div class="col-12">
+                            <div class="contact-form-title">
+                                <p style="margin-bottom: 10px;">Nacionalidad:</p>
+                            </div>
+                            
+                            <select class="form-control" style="height: 51px;" name="idNacionalidad"
+                                id="idNacionalidad">
+                                <option value="1">Chile</option>
+                                <option value="2">Argentina</option>
+                                <option value="3">Venezuela</option>
+                                <option value="4">Brasil</option>
+                                <option value="5">Perú</option>
+                                <option value="6">Ecuador</option>
+                                <option value="7">Uruguay</option>
+                                <option value="8">Colombia</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <div class="contact-form-title">
+                                <p style="margin-bottom: 10px;">Dificultad:</p>
+                            </div>
+                            
+                            <select class="form-control" style="height: 51px;" name="idDificultad" id="idDificultad">
+                                <option value="1">Facil</option>
+                                <option value="2">Media</option>
+                                <option value="3">Dificil</option>
+                            </select>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="contact-form-title">
+                                    <p style="margin-bottom: 10px;">Ingredientes:</p>
                                 </div>
-                                <input type="text" id="imagen" placeholder="Ej: https://URL.jpg" name="imagen">
-                            </div>
-                            <div style="margin-bottom: 30px;">
-                                <div>
-                                    <label for="nombreReceta">Nombre De La Receta:</label>
-                                </div>
-                                <input type="text" id="nombreReceta" name="nombreReceta" placeholder="Ej: Completo" required>
-                            </div>
-                            <div style="margin-bottom: 30px;">
-                                <div>
-                                    <label for="tiempo">Tiempo De Preparacion (minutos):</label>
-                                </div>
-                                <input type="number" id="tiempo" name="tiempo" placeholder="Ej: 15" required>
-                            </div>
-                            <div style="margin-bottom: 30px;">
-                                <label for="idTipoAlimento">Tipo De Alimento:</label>
-                                <select name="idTipoAlimento" id="idTipoAlimento">
-                                    <option value="1">Comida</option>
-                                    <option value="2">Postre</option>
-                                    <option value="3">Bebida</option>
-                                </select>
-                            </div>
-                            <div style="margin-bottom: 30px;">
-                                <label for="idNacionalidad">Nacionalidad:</label>
-                                <select name="idNacionalidad" id="idNacionalidad">
-                                    <option value="1">Chile</option>
-                                    <option value="2">Argentina</option>
-                                    <option value="3">Venezuela</option>
-                                    <option value="4">Brasil</option>
-                                    <option value="5">Perú</option>
-                                    <option value="6">Ecuador</option>
-                                    <option value="7">Uruguay</option>
-                                    <option value="8">Colombia</option>
-                                </select>
-                            </div>
-                            <div style="margin-bottom: 30px;">
-                                <label for="idTipoDieta">Dieta:</label>
-                                <select name="idTipoDieta" id="idTipoDieta">
-                                    <option value="1">N/A</option>
-                                    <option value="2">Kosher</option>
-                                    <option value="3">Vegetariana</option>
-                                    <option value="4">Vegana</option>
-                                </select>
-                            </div>
-                            <div style="margin-bottom: 30px;">
-                                <label for="idDificultad">Dificultad:</label>
-                                <select name="idDificultad" id="idDificultad">
-                                    <option value="1">Facil</option>
-                                    <option value="2">Media</option>
-                                    <option value="3">Dificil</option>
-                                </select>
-                            </div>
-
-                            <div class="row" style="margin-bottom: 30px;">
-                                <div class="col-12 col-md-6 col-sm-12">
-                                    <div>
-                                        <label for="ingredientes">Ingredientes:</label>
-                                    </div>
-                                    <textarea id="ingredientes" name="ingredientes" rows="5" cols="40"
+                                
+                                <textarea class="form-control" id="ingredientes" name="ingredientes" rows="5" cols="40"
                                     placeholder="EJ: 1 Camello. 
  10 oregano. 
  1 litro de aceite. 
  3 calamares. 
- 2 pepinos."
-                                        required></textarea>
+ 2 pepinos." required></textarea>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="contact-form-title">
+                                    <p style="margin-bottom: 10px;">Preparación:</p>
                                 </div>
-
-                                <div class="col-12 col-md-6 col-sm-12">
-                                    <div>
-                                        <label for="preparacion">Preparacion:</label>
-                                    </div>
-                                    <textarea id="preparacion" name="preparacion" rows="5" cols="40" placeholder="Ej: -- Paso 1 
+                                
+                                <textarea class="form-control" id="preparacion" name="preparacion" rows="5" cols="40"
+                                    placeholder="Ej: -- Paso 1 
     Ajndfhlsadh jjnfvhb kjvbs 
     ewafbrefbdgwhd dwfuvwfvwge 
     dwevfugwe renfuwbfvuei" required></textarea> <br>
-                                    <br>
-                                </div>
+                                <br>
                             </div>
+                        </div>
 
 
-                            <a href="Vista_de_Usuario.html">
-                                <input type="submit" class="btn btn-primary">
-                            </a>
-                            <div>
-                                <a href="Vista_de_Usuario.html">
-                                    <input type="reset">
-                                </a>
+                        <div class="col-12" style="text-align: center;">
+                            <div class="popup" onclick="myFunction1()">
+                                <input type="submit" class="gradient-button gradient-button-1" value="Confirmar">
+                                <span class="popupcre" id="myPopup1"><p id="mensajeReg" style="color: white;"></p></span>
                             </div>
-                            <p id="mensaje"></p>
-                        </center>
-
-                    </form>
-                </div>
+                            <input type="reset" class="gradient-button gradient-button-2" value="Cancelar">
+                        </div> 
+                </form>
             </div>
         </div>
+    </div>
+    </div>
+    </div>
+    </div>
     </div>
     <!-- ***** Menu Area End ***** -->
 
@@ -263,4 +259,12 @@
     <script src="js/active.js"></script>
     <!-- Creacion de recetas js -->
     <script src="js/jquery/RecCreacion.js"></script>
+    <!--Popup-->
+    <script>
+        // When the user clicks on div, open the popup
+        function myFunction1() {
+            var popup = document.getElementById("myPopup1");
+            popup.classList.toggle("show");
+        }
+    </script>
 </body>
