@@ -116,7 +116,7 @@
         <a href="Creacion_Recetas.html">Subir Recetas</a>
     </div>
     <!-- ***** Breadcumb Area End ***** -->
-    <h3 style="text-align: center; margin-top: 40px;">Creacion de recetas</h3>
+    <h3 style="text-align: center; margin-top: 40px;">Creación de recetas</h3>
 
     <!-- ***** Menu Area Start ***** -->
 
@@ -124,27 +124,38 @@
         <div class="contact-form-area d-flex justify-content-end">
             <div class="contact-form">
                 <div class="contact-form-title">
-                    <p style="margin-top: 20px;">Registrar nueva receta</p>
+
                 </div>
                 <form action="/action_page.php" method="post" name="formRegi" id="formRegi">
                     <div class="row">
                         <div class="col-12">
-                            <p>Imagen:</p>
+                            <div class="contact-form-title">
+                                <p style="margin-bottom: 10px;">Imagen:</p>
+                            </div>
                             <input type="file" class="form-control" placeholder="Ej: Alexander" id="imagen" required>
                         </div>
 
                         <div class="col-12">
-                            <p>Nombre De La Receta:</p>
+                            <div class="contact-form-title">
+                                <p style="margin-bottom: 10px;">Nombre De La Receta:</p>
+                            </div>
+                            
                             <input type="text" class="form-control" placeholder="Ej: Asado" id="nomreceta">
                         </div>
                         <div class="col-12">
-                            <p>Tiempo De Preparacion (minutos):</p>
+                            <div class="contact-form-title">
+                                <p style="margin-bottom: 10px;">Tiempo De Preparacion (minutos):</p>
+                            </div>
+                            
                             <input type="number" class="form-control" placeholder="Ej: 15" id="tiempo" name="tiempo"
                                 required>
                         </div>
 
                         <div class="col-12">
-                            <p>Nacionalidad:</p>
+                            <div class="contact-form-title">
+                                <p style="margin-bottom: 10px;">Nacionalidad:</p>
+                            </div>
+                            
                             <select class="form-control" style="height: 51px;" name="idNacionalidad"
                                 id="idNacionalidad">
                                 <option value="1">Chile</option>
@@ -158,7 +169,10 @@
                             </select>
                         </div>
                         <div class="col-12">
-                            <p>Dificultad:</p>
+                            <div class="contact-form-title">
+                                <p style="margin-bottom: 10px;">Dificultad:</p>
+                            </div>
+                            
                             <select class="form-control" style="height: 51px;" name="idDificultad" id="idDificultad">
                                 <option value="1">Facil</option>
                                 <option value="2">Media</option>
@@ -168,7 +182,10 @@
 
                         <div class="row">
                             <div class="col-md-6 col-sm-12">
-                                <p>Ingredientes:</p>
+                                <div class="contact-form-title">
+                                    <p style="margin-bottom: 10px;">Ingredientes:</p>
+                                </div>
+                                
                                 <textarea class="form-control" id="ingredientes" name="ingredientes" rows="5" cols="40"
                                     placeholder="EJ: 1 Camello. 
  10 oregano. 
@@ -177,7 +194,10 @@
  2 pepinos." required></textarea>
                             </div>
                             <div class="col-md-6 col-sm-12">
-                                <p>Preparacion:</p>
+                                <div class="contact-form-title">
+                                    <p style="margin-bottom: 10px;">Preparación:</p>
+                                </div>
+                                
                                 <textarea class="form-control" id="preparacion" name="preparacion" rows="5" cols="40"
                                     placeholder="Ej: -- Paso 1 
     Ajndfhlsadh jjnfvhb kjvbs 
