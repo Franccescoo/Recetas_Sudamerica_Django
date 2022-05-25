@@ -6,12 +6,12 @@
 
 /* Import CSS */
 
-@import 'bootstrap/bootstrap.min.css';
-@import 'others/animate.css';
-@import 'others/magnific-popup.css';
-@import 'others/owl.carousel.min.css';
-@import 'others/font-awesome.min.css';
-@import 'others/pe-icon-7-stroke.css';
+@import url('bootstrap/bootstrap.min.css');
+@import url('others/animate.css');
+@import url('others/magnific-popup.css');
+@import url('others/owl.carousel.min.css');
+@import url('others/font-awesome.min.css');
+@import url('others/pe-icon-7-stroke.css');
 
 #bg{
     background-repeat: no-repeat;
