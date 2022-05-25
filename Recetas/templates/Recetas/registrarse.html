@@ -115,12 +115,12 @@
                 <div class="contact-form-title">
                     <p style="margin-top: 20px;">Registrarse</p>
                 </div>
-                <form action="{% url 'registrar' %}" method="POST" name="formRegi" id="formRegi" enctype="multipart/form-data">
+                <form action="{% url 'registrarUsuario' %}" method="POST" name="formRegi" id="formRegi" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="row">
                         <div class="col-12">
                             <p>Nombre(s)</p>
-                            <input type="text" class="form-control" placeholder="Ej: Alexander" id="nomUser" required>
+                            <input type="text" class="form-control" placeholder="Ej: Alexander" id="nomUser" name="nomUser" required>
                         </div>
                         <div class="col-12">
                             <p>Apellido(s)</p>

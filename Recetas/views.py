@@ -107,7 +107,7 @@ def Vista_de_Usuario(request):
 
 
 def listadoUsuario(request):
-    usuario = USUARIO.objects.all()
+    usuario = Usuario.objects.all()
     contexto = {"lista_u":usuario}
     return render(request,"Recetas/Ver_Usuario_Admin.html", contexto)
 
@@ -119,5 +119,5 @@ def registrarUsuario(request):
     email2 = request.EMAIL['email']
     contra2 = request.PASSWORD['password1']
 
-    USUARIO.objects.create(nomUsuario = nombre2, apellidoCompleto = apellido2, username = nick, email = email2, foto = foto2, contrasena = contra2)
+    Usuario.objects.create(nomUsuario = nombre2, apellidoCompleto = apellido2, username = nick, email = email2, foto = foto2, contrasena = contra2)
     return redirect('formRegi')

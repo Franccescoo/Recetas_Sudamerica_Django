@@ -1,7 +1,6 @@
 $(document).ready(function () {
 
     $("#formRegi").submit(function (e) {
-        e.preventDefault();
         var nombre = $("#nomUser").val();
         var ape = $("#apeUser").val();
         var nick = $("#nickUserName").val();
