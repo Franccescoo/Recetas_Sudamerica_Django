@@ -1,10 +1,4 @@
-/* ----------------------------------------------
-:: Template Name: Caviar - Premium Restaurant Template
-:: Template Author: Colorlib
-:: Template Author URI: https://colorlib.com
-:: Version: v1.0
-:: Last Updated: 12-13-2017
----------------------------------------------- */
+
 
 /* Fonts */
 
@@ -458,7 +452,7 @@ a:active {
 .bg-img {
     background-position: center center;
     background-size: cover;
-    
+    background-image: url(../img/bg-img/hero-4.jpg);
 }
 
 .bg-overlay {
@@ -1292,3 +1286,4 @@ blockquote img {
 ol li::marker { 
     color: red;
   }
+
