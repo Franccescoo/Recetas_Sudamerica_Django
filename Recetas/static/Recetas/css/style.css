@@ -452,7 +452,22 @@ a:active {
 .bg-img {
     background-position: center center;
     background-size: cover;
+}
+
+.foto{
+    background-image: url(img/food/plato_3.jpg);
+}
+
+.foto12{
     background-image: url(../img/bg-img/hero-4.jpg);
+}
+
+.slide1{
+    background-image: url(img/food/Fondo.2.jpg);
+}
+
+.slide2{
+    background-image: url(img/food/plato_3.jpg);
 }
 
 .bg-overlay {

@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,45 +13,21 @@
     <title>Recetas de Sudamérica</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="img/core-img/cocinero.png">
+    <link rel="icon" href="{% static 'Recetas/img/core-img/cocinero.png' %}">
 
     <!-- Core Stylesheet -->
-    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'Recetas/css/style.css' %}" >
 
     <!-- Responsive CSS -->
-    <link href="css/responsive/responsive.css" rel="stylesheet">
+    <link href="{% static 'Recetas/css/responsive/responsive.css' %}" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css' %}">
 
 </head>
 
 <body>
     <!-- Preloader -->
-    <div id="preloader">
-        <div class="caviar-load"></div>
-        <div class="preload-icons">
-            <img class="preload-1" src="img/core-img/preload-1.png" alt="">
-            <img class="preload-2" src="img/core-img/preload-2.png" alt="">
-            <img class="preload-3" src="img/core-img/preload-3.png" alt="">
-        </div>
-    </div>
 
-    <!-- ***** Search Form Area ***** -->
-    <div class="caviar-search-form d-flex align-items-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="search-close-btn" id="closeBtn">
-                        <i class="fa-solid fa-bars"></i>
-                    </div>
-                    <form action="#" method="get">
-                        <input type="search" name="caviarSearch" id="search" placeholder="Search Your Favourite Dish ...">
-                        <input type="submit" class="d-none" value="submit">
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- ***** Header Area Start ***** -->
     <header class="header_area" id="header">
@@ -103,16 +80,16 @@
 
     <!-- ****** Welcome Area Start ****** -->
     <section class="caviar-hero-area" id="home">
-        <!-- Welcome Social Info -->
+        <!-- Welcome Social Info 
         <div class="welcome-social-info">
             <a href="https://www.facebook.com"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
             <a href="https://www.instagram.com"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
             <a href="https://www.twitter.com"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a>
-        </div>
+        </div>-->
         <!-- Welcome Slides -->
         <div class="caviar-hero-slides owl-carousel">
             <!-- Single Slides -->
-            <div class="single-hero-slides bg-img" style="background-image: url(img/food/plato_3.jpg);">
+            <div class="single-hero-slides bg-img foto">
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
                         <div class="col-11 col-md-6 col-lg-4">
@@ -124,10 +101,10 @@
                     </div>
                 </div>
                 <!-- Slider Nav -->
-                <div class="hero-slides-nav bg-img" style="background-image: url(img/food/Fondo.2.jpg);"></div>
+                <div class="hero-slides-nav bg-img slide1">
             </div>
             <!-- Single Slides -->
-            <div class="single-hero-slides bg-img" style="background-image: url(img/food/Fondo.2.jpg);">
+            <div class="single-hero-slides bg-img slide1">
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
                         <div class="col-11 col-md-6 col-lg-4">
@@ -139,7 +116,7 @@
                     </div>
                 </div>
                 <!-- Slider Nav -->
-                <div class="hero-slides-nav bg-img" style="background-image: url(img/food/plato_3.jpg);"></div>
+                <div class="hero-slides-nav bg-img slide2"></div>
             </div>
         </div>
     </section>
@@ -152,7 +129,7 @@
             <div class="row align-items-center">
                 <div class="col-12 col-md-6">
                     <div class="about-us-thumbnail wow fadeInUp" data-wow-delay="0.5s">
-                        <img src="img/food/mundo_food.jpg" alt="" style="border-radius: 8px;">
+                        <img src="{% static 'Recetas/img/food/mundo_food.jpg' %}" alt="" style="border-radius: 8px;">
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-5 ml-md-auto">
@@ -176,7 +153,7 @@
                     </div>
                     <div class="col-12 col-md-6 ml-md-auto">
                         <div class="about-us-thumbnail wow fadeInUp" data-wow-delay="0.5s">
-                            <img src="img/bg-img/about-2.jpg" alt="" style="border-radius: 8px;">
+                            <img src="{% static 'Recetas/img/bg-img/about-2.jpg' %}" alt="" style="border-radius: 8px;">
                         </div>
                     </div>
                 </div>
@@ -200,7 +177,7 @@
             <div class="row">
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="caviar-single-dish wow fadeInUp" data-wow-delay="0.5s">
-                        <img src="img/paises/Chile1.png" alt="">
+                        <img src="{% static 'Recetas/img/paises/Chile1.png' %}" alt="">
                         <div class="dish-info">
                             <h6 class="dish-name">Chile</h6>
                             <a href="RecetaChile.html">
@@ -211,7 +188,7 @@
                 </div>
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="caviar-single-dish wow fadeInUp" data-wow-delay="1s">
-                        <img src="img/paises/Argentina1.png" alt="">
+                        <img src="{% static 'Recetas/img/paises/Argentina1.png' %}" alt="">
                         <div class="dish-info">
                             <h6 class="dish-name">Argentina</h6>
                             <a href="RecetaArgentina.html">
@@ -222,7 +199,7 @@
                 </div>
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="caviar-single-dish wow fadeInUp" data-wow-delay="1.5s">
-                        <img src="img/paises/Brasil1.png" alt="">
+                        <img src="{% static 'Recetas/img/paises/Brasil1.png' %}" alt="">
                         <div class="dish-info">
                             <h6 class="dish-name">Brazil</h6>
                             <a href="RecetasBrasil.html">
@@ -249,7 +226,7 @@
                             <!-- Single Testimonial Area -->
                             <div class="single-testimonial">
                                 <div class="testimonial-thumb-name d-flex align-items-center">
-                                    <img src="img/testimonial-img/3.jpg" alt="">
+                                    <img src="{% static 'Recetas/img/testimonial-img/3.jpg' %}" alt="">
                                     <div class="tes-name">
                                         <h5>Robert Jonson</h5>
                                         <p>02/04/2020</p>
@@ -260,7 +237,7 @@
                             <!-- Single Testimonial Area -->
                             <div class="single-testimonial">
                                 <div class="testimonial-thumb-name d-flex align-items-center">
-                                    <img src="img/testimonial-img/2.jpg" alt="">
+                                    <img src="{% static 'Recetas/img/testimonial-img/2.jpg' %}" alt="">
                                     <div class="tes-name">
                                         <h5>Clara Hudson</h5>
                                         <p>20/02/2021</p>
@@ -271,7 +248,7 @@
                             <!-- Single Testimonial Area -->
                             <div class="single-testimonial">
                                 <div class="testimonial-thumb-name d-flex align-items-center">
-                                    <img src="img/testimonial-img/1.jpg" alt="">
+                                    <img src="{% static 'Recetas/img/testimonial-img/1.jpg' %}" alt="">
                                     <div class="tes-name">
                                         <h5>Jane Black</h5>
                                         <p>15/10/2020</p>
@@ -312,13 +289,13 @@
     <!-- ***** Footer Area End ***** -->
 
     <!-- Jquery-2.2.4 js -->
-    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="/static/js/jquery/jquery-2.2.4.min.js"></script>
     <!-- Popper js -->
-    <script src="js/bootstrap/popper.min.js"></script>
+    <script src="/static/js/bootstrap/popper.min.js"></script>
     <!-- Bootstrap-4 js -->
-    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="/static/js/bootstrap/bootstrap.min.js"></script>
     <!-- All Plugins js -->
-    <script src="js/others/plugins.js"></script>
+    <script src="/static/js/others/plugins.js"></script>
     <!-- Active JS -->
-    <script src="js/active.js"></script>
+    <script src="/static/js/active.js"></script>
 </body>
