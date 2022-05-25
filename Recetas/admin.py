@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import USUARIO, TIPO_USUARIO, NACIONALIDAD, RECETA
+from .models import Usuario, TipoUsuario, Nacionalidad, Receta
 # Register your models here.
-admin.site.register(USUARIO)
-admin.site.register(TIPO_USUARIO)
-admin.site.register(NACIONALIDAD)
-admin.site.register(RECETA)
+admin.site.register(Usuario)
+admin.site.register(TipoUsuario)
+admin.site.register(Nacionalidad)
+admin.site.register(Receta)

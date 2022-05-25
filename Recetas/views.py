@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import USUARIO
+from .models import Usuario
 # Create your views here.
 
 def index(request):
