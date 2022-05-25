@@ -30,6 +30,7 @@
 
 <body>
     <!-- Preloader -->
+    <!--
     <div id="preloader">
         <div class="caviar-load"></div>
         <div class="preload-icons">
@@ -38,6 +39,7 @@
             <img class="preload-3" src="img/core-img/preload-3.png" alt="">
         </div>
     </div>
+    -->
 
     <!-- ***** Search Form Area ***** -->
     <div class="caviar-search-form d-flex align-items-center">
@@ -48,7 +50,7 @@
                         <i class="pe-7s-close-circle" aria-hidden="true"></i>
                     </div>
                     <form action="#" method="get">
-                        <input type="search" name="caviarSearch" id="search" placeholder="Search Your Favourite Dish ...">
+                        <input type="search" name="caviarSearch" id="search" placeholder="Busca tu platillo favorito ...">
                         <input type="submit" class="d-none" value="submit">
                     </form>
                 </div>
@@ -62,26 +64,26 @@
             <div class="row h-100">
                 <div class="col-12 h-100">
                     <nav class="h-100 navbar navbar-expand-lg align-items-center">
-                        <a class="navbar-brand" href="index.html">Recetas de Sudamérica</a>
+                        <a class="navbar-brand" href=" {% url 'index' %}">Recetas de Sudamérica</a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#caviarNav" aria-controls="caviarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
                         <div class="collapse navbar-collapse" id="caviarNav">
                             <ul class="navbar-nav ml-auto" id="caviarMenu">
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href=" {% url 'index' %}">Inicio <span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="menu.html">Países</a>
+                                    <a class="nav-link" href="{% url 'menu' %}">Países</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Contáctanos</a>
+                                    <a class="nav-link" href="{% url 'contact' %}">Contáctanos</a>
                                 </li>
                                 <li class="nav-item dropdown active show">
                                     <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa-solid fa-user"></i>  Mi Cuenta</a>
                                     <div class="dropdown-menu show" aria-labelledby="navbarDropdown">
                                         <div class="container">
                                             <div class="row">
-                                                <div class="col-md-12"><a class="dropdown-item" href="Login.html">Iniciar Sesión</a></div>
-                                                <div class="col-md-12"><a class="dropdown-item" href="registrarse.html">Registrarse</a></div>
+                                                <div class="col-md-12"><a class="dropdown-item" href=" {% url 'Login' %}">Iniciar Sesión</a></div>
+                                                <div class="col-md-12"><a class="dropdown-item" href=" {% url 'registrarse' %}">Registrarse</a></div>
                                             </div>
                                         </div>
                                     </div>
@@ -97,7 +99,7 @@
     <!-- ***** Header Area End ***** -->
 
     <!-- ***** Breadcumb Area Start ***** -->
-    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/hero-4.jpg)">
+    <div class="breadcumb-area bg-img bg-overlay foto12">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -146,7 +148,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="footer-text">
-                        <a href="index.html" class="navbar-brand">Recetas de Sudamérica</a>
+                        <a href="{% url 'index'%}" class="navbar-brand">Recetas de Sudamérica</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         <p style="color: beige;">Copyright Recetas de Sudamérica&copy;
                             <script>document.write(new Date().getFullYear());</script>
