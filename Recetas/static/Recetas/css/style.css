@@ -19,6 +19,10 @@
 @import 'others/font-awesome.min.css';
 @import 'others/pe-icon-7-stroke.css';
 
+#bg{
+    background-repeat: no-repeat;
+}
+
 /* Base CSS */
 
 * {
