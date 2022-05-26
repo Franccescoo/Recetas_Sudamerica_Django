@@ -6,12 +6,13 @@
 
 /* Import CSS */
 
-@import url('bootstrap/bootstrap.min.css');
-@import url('others/animate.css');
-@import url('others/magnific-popup.css');
-@import url('others/owl.carousel.min.css');
-@import url('others/font-awesome.min.css');
-@import url('others/pe-icon-7-stroke.css');
+@import url('../../../static/Recetas/css/bootstrap/bootstrap.min.css');
+@import url('../../../static/Recetas/css/bootstrap/bootstrap.min.css');
+@import url('../../../static/Recetas/css/others/animate.css');
+@import url('../../../static/Recetas/css/others/magnific-popup.css');
+@import url('../../../static/Recetas/css/others/owl.carousel.min.css');
+@import url('../../../static/Recetas/css/others/font-awesome.min.css');
+@import url('../../../static/Recetas/css/others/pe-icon-7-stroke.css');
 
 #bg{
     background-repeat: no-repeat;

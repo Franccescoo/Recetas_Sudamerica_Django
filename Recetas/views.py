@@ -103,6 +103,17 @@ def Vista_de_Admin(request):
 def Vista_de_Usuario(request):
     return render(request,'Recetas/Vista_de_Usuario.html')
 
+    
+
+def registrarRecetas(request):
+    imagen2 = request.FILE['imagen']
+    nomreceta2 = request.POST['nomreceta']
+    tiempo2 = request.POST['tiempo']
+    idNacionalidad2 = request.POST['idNacionalidad']
+    idDificultad2 = request.POST['idDificultad']
+    ingredientes2 = request.POST['ingredientes']
+    preparacion2 = request.POST['preparacion']
+
 
 
 def listadoUsuario(request):
