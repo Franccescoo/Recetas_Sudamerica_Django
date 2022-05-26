@@ -105,7 +105,8 @@
                 <div class="contact-form-title">
 
                 </div>
-                <form action="/action_page.php" method="post" name="formRegi" id="formRegi">
+                <form action="{% url 'registrarRecetas %}" method="POST" name="formRegi" id="formRegi">
+                    {% csrf_token %}
                     <div class="row">
                         <div class="col-12">
                             <div class="contact-form-title">
@@ -133,18 +134,13 @@
                         <div class="col-12">
                             <div class="contact-form-title">
                                 <p style="margin-bottom: 10px;">Nacionalidad:</p>
-                            </div>
-                            
+                            </div>    
                             <select class="form-control" style="height: 50px;" name="idNacionalidad"
                                 id="idNacionalidad">
-                                <option value="1">Chile</option>
-                                <option value="2">Argentina</option>
-                                <option value="3">Venezuela</option>
-                                <option value="4">Brasil</option>
-                                <option value="5">Perú</option>
-                                <option value="6">Ecuador</option>
-                                <option value="7">Uruguay</option>
-                                <option value="8">Colombia</option>
+                                {% for i in lista_r %}
+                                <option value="{{i.idNacionalidad}}">{{i.nomNacionalidad}}</option>
+                                {% endfor %}
+                                
                             </select>
                         </div>
                         <div class="col-12">
