@@ -30,4 +30,5 @@ urlpatterns = [
     path('Vista_de_Admin/',Vista_de_Admin,name="Vista_de_Admin"),
     path('Vista_de_Usuario/',Vista_de_Usuario,name="Vista_de_Usuario"),
     path('listadoRecetas/',listadoRecetas, name="listadoRecetas"),
+    path('registrarRecetas',registrarRecetas,name="registrarRecetas"),
 ]

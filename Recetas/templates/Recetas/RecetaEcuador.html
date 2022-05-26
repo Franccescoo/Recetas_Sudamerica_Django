@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    {% load static%}
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,16 +13,16 @@
     <title>Recetas de Sudamérica - Ecuador | Menu</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="img/core-img/cocinero.png">
+    <link rel="icon" href="{% static 'Recetas/img/core-img/cocinero.png' %} ">
 
     <!-- Core Stylesheet -->
-    <link href="style.css" rel="stylesheet">
+    <link href="{% static 'Recetas/css/style.css' %}" rel="stylesheet">
 
     <!-- Responsive CSS -->
-    <link href="css/responsive/responsive.css" rel="stylesheet">
+    <link href="{% static 'Recetas/css/responsive/responsive.css' %}" rel="stylesheet">
 
     <!--Popup-->
-    <link rel="stylesheet" href="css/popup.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'Recetas/css/popup.css' %}" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
@@ -29,7 +30,7 @@
 </head>
 
 <body>
-    <!-- Preloader -->
+    <!-- Preloader 
     <div id="preloader">
         <div class="caviar-load"></div>
         <div class="preload-icons">
@@ -38,7 +39,7 @@
             <img class="preload-3" src="img/core-img/preload-3.png" alt="">
         </div>
     </div>
-
+-->
     <!-- ***** Search Form Area ***** -->
     <div class="caviar-search-form d-flex align-items-center">
         <div class="container">
@@ -63,29 +64,29 @@
             <div class="row h-100">
                 <div class="col-12 h-100">
                     <nav class="h-100 navbar navbar-expand-lg align-items-center">
-                        <a class="navbar-brand" href="index.html">Recetas de Sudamérica</a>
+                        <a class="navbar-brand" href="{% url 'index' %}">Recetas de Sudamérica</a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#caviarNav"
                             aria-controls="caviarNav" aria-expanded="false" aria-label="Toggle navigation"><span
                                 class="fa fa-bars"></span></button>
                         <div class="collapse navbar-collapse" id="caviarNav">
                             <ul class="navbar-nav ml-auto" id="caviarMenu">
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="{% url 'index' %}">Inicio <span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item dropdown">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="menu.html">Países</a>
+                                    <a class="nav-link" href="{% url 'menu' %}">Países</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Contáctanos</a>
+                                    <a class="nav-link" href="{% url 'contact' %}">Contáctanos</a>
                                 </li>
                                 <li class="nav-item dropdown active show">
                                     <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa-solid fa-user"></i>  Mi Cuenta</a>
                                     <div class="dropdown-menu show" aria-labelledby="navbarDropdown">
                                         <div class="container">
                                             <div class="row">
-                                                <div class="col-md-12"><a class="dropdown-item" href="Login.html">Iniciar Sesión</a></div>
-                                                <div class="col-md-12"><a class="dropdown-item" href="registrarse.html">Registrarse</a></div>
+                                                <div class="col-md-12"><a class="dropdown-item" href="{% url 'Login' %}">Iniciar Sesión</a></div>
+                                                <div class="col-md-12"><a class="dropdown-item" href="{% url 'registrarse' %}">Registrarse</a></div>
                                             </div>
                                         </div>
                                     </div>
@@ -129,7 +130,7 @@
 
             <div class="col-12 col-sm-12 col-md-4">
                 <div class="caviar-single-dish wow fadeInUp" data-wow-delay="0.5s">
-                    <img src="img/imgEcuador/cevi.png" alt="">
+                    <img src="{% static 'Recetas/img/imgEcuador/cevi.png' %}" alt="">
                     <div class="dish-info">
                         <h6 class="dish-name">Ceviche de pescado Ecuatoriano</h6>
                         <div class="popup" onclick="myFunction1()">
@@ -147,7 +148,7 @@
             </div>
             <div class="col-12 col-sm-12 col-md-4">
                 <div class="caviar-single-dish wow fadeInUp" data-wow-delay="1s">
-                    <img src="img/imgEcuador/encebo.png" alt="">
+                    <img src="{% static 'Recetas/img/imgEcuador/encebo.png' %}" alt="">
                     <div class="dish-info">
                         <h6 class="dish-name">Encebollado Ecuatoriano</h6>
                         <div class="popup" onclick="myFunction2()">
@@ -166,7 +167,7 @@
             </div>
             <div class="col-12 col-sm-12 col-md-4">
                 <div class="caviar-single-dish wow fadeInUp" data-wow-delay="1.5s">
-                    <img src="img/imgEcuador/MUCHINES.png" alt="">
+                    <img src="{% static 'Recetas/img/imgEcuador/MUCHINES.png' %}" alt="">
                     <div class="dish-info">
                         <h6 class="dish-name">Muchines De Yuca</h6>
                         <div class="popup" onclick="myFunction3()">
@@ -185,7 +186,7 @@
             </div>
             <div class="col-12 col-sm-12 col-md-4" style="margin-top: 15px;">
                 <div class="caviar-single-dish wow fadeInUp" data-wow-delay="0.5s">
-                    <img src="img/imgEcuador/SECO.png" alt="">
+                    <img src="{% static 'Recetas/img/imgEcuador/SECO.png' %}" alt="">
                     <div class="dish-info">
                         <h6 class="dish-name">Seco De Chivo</h6>
                         <div class="popup" onclick="myFunction4()">
@@ -204,7 +205,7 @@
             </div>
             <div class="col-12 col-sm-12 col-md-4">
                 <div class="caviar-single-dish wow fadeInUp" data-wow-delay="1s">
-                    <img src="img/imgEcuador/torta.png" alt="">
+                    <img src="{% static 'Recetas/img/imgEcuador/torta.png' %}" alt="">
                     <div class="dish-info">
                         <h6 class="dish-name">Torta de Maqueño</h6>
                         <div class="popup" onclick="myFunction5()">
@@ -239,7 +240,7 @@
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-4">
                     <div class="caviar-single-dish wow fadeInUp" data-wow-delay="0.5s">
-                        <img src="img/imgEcuador/encebo.png" alt="">
+                        <img src="{% static 'Recetas/img/imgEcuador/encebo.png' %}" alt="">
                         <div class="dish-info">
                             <h6 class="dish-name">Encebollado Ecuatoriano</h6>
                             <a href="ECU_Encebollado_ecuatoriano.html">
@@ -250,7 +251,7 @@
                 </div>
                 <div class="col-12 col-sm-12 col-md-4">
                     <div class="caviar-single-dish wow fadeInUp" data-wow-delay="1s">
-                        <img src="img/imgEcuador/SECO.png" alt="">
+                        <img src="{% static 'Recetas/img/imgEcuador/SECO.png' %}" alt="">
                         <div class="dish-info">
                             <h6 class="dish-name">Seco de Chivo</h6>
                             <a href="ECU_Seco_de_chivo.html">
@@ -261,7 +262,7 @@
                 </div>
                 <div class="col-12 col-sm-12 col-md-4">
                     <div class="caviar-single-dish wow fadeInUp" data-wow-delay="1.5s">
-                        <img src="img/imgEcuador/MUCHINES.png" alt="">
+                        <img src="{% static 'Recetas/img/imgEcuador/MUCHINES.png' %}" alt="">
                         <div class="dish-info">
                             <h6 class="dish-name">Muchines de Yuca</h6>
                             <a href="ECU_Muchines_de_yuca.html">
@@ -281,7 +282,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="footer-text">
-                        <a href="index.html" class="navbar-brand">Recetas de Sudamérica</a>
+                        <a href="{% url 'index' %}" class="navbar-brand">Recetas de Sudamérica</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         <p style="color: beige;">Copyright Recetas de Sudamérica&copy;
                             <script>document.write(new Date().getFullYear());</script>
@@ -298,15 +299,15 @@
     <!-- ***** Footer Area End ***** -->
 
     <!-- jQuery-2.2.4 js -->
-    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="{% static 'Recetas/js/jquery/jquery-2.2.4.min.js' %}"></script>
     <!-- Popper js -->
-    <script src="js/bootstrap/popper.min.js"></script>
+    <script src="{% static 'Recetas/js/bootstrap/popper.min.js' %}"></script>
     <!-- Bootstrap js -->
-    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="{% static 'Recetas/js/bootstrap/bootstrap.min.js' %}"></script>
     <!-- All Plugins js -->
-    <script src="js/others/plugins.js"></script>
+    <script src="{% static 'Recetas/js/others/plugins.js' %}"></script>
     <!-- Active js -->
-    <script src="js/active.js"></script>
+    <script src="{% static 'Recetas/js/active.js' %}"></script>
 
     <!--Popup-->
     <script>

@@ -115,11 +115,11 @@ def listadoRecetas(request):
     return render(request,"Recetas/Creacion_Recetas.html",contexto)
 
 def registrarRecetas(request):
-    imagen2 = request.FILE['imagen']
+    imagen2 = request.FILES['imagen']
     nomreceta2 = request.POST['nomreceta']
     tiempo2 = request.POST['tiempo']
-    idNacionalidad2 = request.POST['idNacionalidad']
-    idDificultad2 = request.POST['idDificultad']
+    idNacionalidad2 = request.POST['idNacio']
+    idDificultad2 = request.POST['idDif']
     ingredientes2 = request.POST['ingredientes']
     preparacion2 = request.POST['preparacion']
 
