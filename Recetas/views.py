@@ -126,7 +126,7 @@ def registrarRecetas(request):
     Nacionalidad3 = Nacionalidad.objects.get(idNacionalidad = idNacionalidad2)
     idDificultad3 = Dificultad.objects.get(idDificultad =idDificultad2 )
     Receta.objects.create(fotoReceta =imagen2, nomReceta =nomreceta2,ingrediente =ingredientes2,preparacion=preparacion2,tiempo=tiempo2,Nacionalidad=Nacionalidad3,Dificultad=idDificultad3)
-    return redirect('formRegi')
+    return redirect('')
 
 
 
@@ -140,8 +140,8 @@ def registrarUsuario(request):
     apellido2 = request.POST['apeUser']
     nick = request.POST['nickUserName']
     foto2 = request.FILES['foto1']
-    email2 = request.EMAIL['email']
-    contra2 = request.PASSWORD['password1']
+    email2 = request.POST['email']
+    contra2 = request.POST['password1']
 
     Usuario.objects.create(nomUsuario = nombre2, apellidoCompleto = apellido2, username = nick, email = email2, foto = foto2, contrasena = contra2)
-    return redirect('formRegi')
+    return render(request,'Recetas/Vista_de_Usuario.html')
