@@ -1,5 +1,5 @@
 from django.urls import URLPattern, path
-from .views import aamate,index, aatest, contact, Creacion_Recetas, Editar_Recetas_Admin, Editar_Recetas, Login, menu, modificar_usuario_admin, modificar_vista_usuario, RecetaArgentina, RecetaChile, RecetaEcuador, RecetaPeru, RecetasBrasil, RecetasColombia, RecetasVenezuela, RecetaUruguay, registrarse, Ver_Receta_Admin, Ver_Receta_Usuario, Ver_Usuario_Admin, Vista_de_Admin, Vista_de_Usuario, registrarUsuario
+from .views import aamate,index, aatest, contact, Creacion_Recetas, Editar_Recetas_Admin, Editar_Recetas, Login, listadoRecetas, menu, modificar_usuario_admin, modificar_vista_usuario, RecetaArgentina, RecetaChile, RecetaEcuador, RecetaPeru, RecetasBrasil, RecetasColombia, RecetasVenezuela, RecetaUruguay, registrarse, Ver_Receta_Admin, Ver_Receta_Usuario, Ver_Usuario_Admin, Vista_de_Admin, Vista_de_Usuario, registrarUsuario,listadoRecetas
 
 
 urlpatterns = [
@@ -29,4 +29,5 @@ urlpatterns = [
     path('Ver_Usuario_Admin/',Ver_Usuario_Admin,name="Ver_Usuario_Admin"),
     path('Vista_de_Admin/',Vista_de_Admin,name="Vista_de_Admin"),
     path('Vista_de_Usuario/',Vista_de_Usuario,name="Vista_de_Usuario"),
+    path('listadoRecetas/',listadoRecetas, name="listadoRecetas"),
 ]

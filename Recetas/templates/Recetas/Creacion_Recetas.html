@@ -149,9 +149,10 @@
                             </div>
                             
                             <select class="form-control" style="height: 51px;" name="idDificultad" id="idDificultad">
-                                <option value="1">Facil</option>
-                                <option value="2">Media</option>
-                                <option value="3">Dificil</option>
+                                {% for i in lista_r %}
+                                <option value="{{i.idDificultad}}">{{i.nomDificultad}}</option>
+                                {% endfor %}
+                                
                             </select>
                         </div>
 

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Usuario
+from .models import Dificultad, Usuario,Receta,Nacionalidad
 # Create your views here.
 
 def aamate(request):
@@ -42,7 +42,10 @@ def contact(request):
     return render(request,'Recetas/contact.html')
 
 def Creacion_Recetas(request):
-    return render(request,'Recetas/Creacion_Recetas.html')
+    receta = Receta.objects.all()
+    contexto = {"lista_r":receta}
+    return render(request,"Recetas/Creacion_Recetas.html",contexto)
+
 
 def Editar_Recetas_Admin(request):
     return render(request,'Recetas/Editar_Recetas_Admin.html')
@@ -106,7 +109,10 @@ def Vista_de_Admin(request):
 def Vista_de_Usuario(request):
     return render(request,'Recetas/Vista_de_Usuario.html')
 
-    
+def listadoRecetas(request):
+    receta = Receta.objects.all()
+    contexto = {"lista_m":receta}
+    return render(request,"Recetas/Creacion_Recetas.html",contexto)
 
 def registrarRecetas(request):
     imagen2 = request.FILE['imagen']
@@ -116,6 +122,11 @@ def registrarRecetas(request):
     idDificultad2 = request.POST['idDificultad']
     ingredientes2 = request.POST['ingredientes']
     preparacion2 = request.POST['preparacion']
+
+    Nacionalidad3 = Nacionalidad.objects.get(idNacionalidad = idNacionalidad2)
+    idDificultad3 = Dificultad.objects.get(idDificultad =idDificultad2 )
+    Receta.objects.create(fotoReceta =imagen2, nomReceta =nomreceta2,ingrediente =ingredientes2,preparacion=preparacion2,tiempo=tiempo2,Nacionalidad=Nacionalidad3,Dificultad=idDificultad3)
+    return redirect('formRegi')
 
 
 

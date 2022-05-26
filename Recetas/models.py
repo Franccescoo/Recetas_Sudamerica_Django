@@ -46,6 +46,7 @@ class Receta(models.Model):
     fotoReceta = models.ImageField(upload_to="foto_receta")
     Usuario = models.ForeignKey(Usuario, on_delete= models.CASCADE)
     Nacionalidad = models.ForeignKey(Nacionalidad, on_delete= models.CASCADE)
+    Dificultad = models.ForeignKey(Dificultad, on_delete=models.CASCADE)
 
     def __str__(self) :
             return self.nomReceta
