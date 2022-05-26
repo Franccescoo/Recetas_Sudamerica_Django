@@ -115,18 +115,18 @@ def listadoRecetas(request):
     return render(request,"Recetas/Creacion_Recetas.html",contexto)
 
 def registrarRecetas(request):
-    imagen2 = request.FILE['imagen']
+    imagen2 = request.FILES['imagen']
     nomreceta2 = request.POST['nomreceta']
     tiempo2 = request.POST['tiempo']
-    idNacionalidad2 = request.POST['idNacionalidad']
-    idDificultad2 = request.POST['idDificultad']
+    idNacionalidad2 = request.POST['idNacio']
+    idDificultad2 = request.POST['idDif']
     ingredientes2 = request.POST['ingredientes']
     preparacion2 = request.POST['preparacion']
 
     Nacionalidad3 = Nacionalidad.objects.get(idNacionalidad = idNacionalidad2)
     idDificultad3 = Dificultad.objects.get(idDificultad =idDificultad2 )
     Receta.objects.create(fotoReceta =imagen2, nomReceta =nomreceta2,ingrediente =ingredientes2,preparacion=preparacion2,tiempo=tiempo2,Nacionalidad=Nacionalidad3,Dificultad=idDificultad3)
-    return redirect('formRegi')
+    return redirect('formRegiRec')
 
 
 

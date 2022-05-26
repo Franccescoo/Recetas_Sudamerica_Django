@@ -16,12 +16,23 @@
     <link rel="icon" href="{% static 'Recetas/img/core-img/cocinero.png' %}">
 
     <!-- Core Stylesheet -->
-    <link rel="stylesheet" type="text/css" href="{% static 'Recetas/css/style.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'Recetas/css/style.css' %}">
 
     <!-- Responsive CSS -->
     <link href="{% static 'Recetas/css/responsive/responsive.css' %}" rel="stylesheet">
 
-    <link rel="stylesheet" href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Recetas/css/Usuario.css' %}">
+
+    <!--Popup-->
+    <link rel="stylesheet" href="{% static 'Recetas/css/popup.css' %}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 </head>
 
@@ -35,8 +46,10 @@
             <div class="row h-100">
                 <div class="col-12 h-100">
                     <nav class="h-100 navbar navbar-expand-lg align-items-center">
-                        <a class="navbar-brand" href="{% url 'index'%}">Recetas de Sudamérica</a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#caviarNav" aria-controls="caviarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
+                        <a class="navbar-brand" href="{% url 'index' %}">Recetas de Sudamérica</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#caviarNav"
+                            aria-controls="caviarNav" aria-expanded="false" aria-label="Toggle navigation"><span
+                                class="fa fa-bars"></span></button>
                         <div class="collapse navbar-collapse" id="caviarNav">
                             <ul class="navbar-nav ml-auto" id="caviarMenu">
                                 <li class="nav-item active">
@@ -52,21 +65,10 @@
                                     <a class="nav-link" href="#testimonial">Reseñas</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href=" {% url 'menu'%}">Países</a>
+                                    <a class="nav-link" href="menu.html">Países</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'contact'%}">Contáctanos</a>
-                                </li>
-                                <li class="nav-item dropdown active show">
-                                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa-solid fa-user"></i>  Mi Cuenta</a>
-                                    <div class="dropdown-menu show" aria-labelledby="navbarDropdown">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-md-12"><a class="dropdown-item" href="{% url 'Login'%}">Iniciar Sesión</a></div>
-                                                <div class="col-md-12"><a class="dropdown-item" href="{% url 'registrarse'%}">Registrarse</a></div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <a class="nav-link" href="contact.html">Contáctanos</a>
                                 </li>
                             </ul>
 
@@ -79,47 +81,18 @@
     <!-- ***** Header Area End ***** -->
 
     <!-- ****** Welcome Area Start ****** -->
-    <section class="caviar-hero-area" id="home">
-        <!-- Welcome Social Info 
-        <div class="welcome-social-info">
-            <a href="https://www.facebook.com"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
-            <a href="https://www.instagram.com"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-            <a href="https://www.twitter.com"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a>
-        </div>-->
-        <!-- Welcome Slides -->
-        <div class="caviar-hero-slides owl-carousel">
-            <!-- Single Slides -->
-            <div class="single-hero-slides bg-img foto">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-11 col-md-6 col-lg-4">
-                            <div class="hero-content">
-                                <h2>Bienvenid@</h2>
-                                <p>Aqui encontraras diferentes recetas del mundo para <strong> preparar, subir o valorar </strong> platos de otros usuarios</p>
-                            </div>
-                        </div>
+    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(../../static/Recetas/img/food/plato_3.jpg)">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcumb-content">
+                        <h2>Creación</h2>
+
                     </div>
                 </div>
-                <!-- Slider Nav -->
-                <div class="hero-slides-nav bg-img slide1">
-            </div>
-            <!-- Single Slides -->
-            <div class="single-hero-slides bg-img slide1">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-11 col-md-6 col-lg-4">
-                            <div class="hero-content">
-                                <h2>Bienvenid@</h2>
-                                <p>Aqui encontraras diferentes recetas del mundo para <strong> preparar, subir o valorar </strong> platos de otros usuarios</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Slider Nav -->
-                <div class="hero-slides-nav bg-img slide2"></div>
             </div>
         </div>
-    </section>
+    </div>
     <!-- ****** Welcome Area End ****** -->
 
     <!-- ****** About Us Area Start ****** -->
@@ -128,8 +101,7 @@
             <!-- About Us Single Area -->
             <div class="row align-items-center">
                 <div class="col-12 col-md-6">
-                    <div class="about-us-thumbnail wow fadeInUp" data-wow-delay="0.5s">
-                        <img src="{% static 'Recetas/img/food/mundo_food.jpg' %}" alt="" style="border-radius: 8px;">
+                    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(../../static/Recetas/img/food/mundo_food.jpg)">
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-5 ml-md-auto">

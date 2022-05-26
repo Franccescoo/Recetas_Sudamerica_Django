@@ -105,14 +105,14 @@
                 <div class="contact-form-title">
 
                 </div>
-                <form action="{% url 'registrarRecetas %}" method="POST" name="formRegi" id="formRegi">
+                <form action="{% url 'registrarRecetas' %}" method="POST" name="formRegiRec" id="formRegiRec">
                     {% csrf_token %}
                     <div class="row">
                         <div class="col-12">
                             <div class="contact-form-title">
                                 <p style="margin-bottom: 10px;">Imagen:</p>
                             </div>
-                            <input type="file" class="form-control" placeholder="Ej: Alexander" id="imagen" required>
+                            <input type="file" class="form-control" placeholder="Ej: Alexander" id="imagen" name="imagen" required>
                         </div>
 
                         <div class="col-12">
@@ -120,7 +120,7 @@
                                 <p style="margin-bottom: 10px;">Nombre De La Receta:</p>
                             </div>
                             
-                            <input type="text" class="form-control" placeholder="Ej: Asado" id="nomreceta">
+                            <input type="text" class="form-control" placeholder="Ej: Asado" id="nomreceta" name="nomreceta">
                         </div>
                         <div class="col-12">
                             <div class="contact-form-title">
@@ -135,8 +135,8 @@
                             <div class="contact-form-title">
                                 <p style="margin-bottom: 10px;">Nacionalidad:</p>
                             </div>    
-                            <select class="form-control" style="height: 50px;" name="idNacionalidad"
-                                id="idNacionalidad">
+                            <select class="form-control" style="height: 50px;" name="idNacio"
+                                id="idNacio">
                                 {% for i in lista_r %}
                                 <option value="{{i.idNacionalidad}}">{{i.nomNacionalidad}}</option>
                                 {% endfor %}
@@ -148,9 +148,9 @@
                                 <p style="margin-bottom: 10px;">Dificultad:</p>
                             </div>
                             
-                            <select class="form-control" style="height: 51px;" name="idDificultad" id="idDificultad">
-                                {% for i in lista_r %}
-                                <option value="{{i.idDificultad}}">{{i.nomDificultad}}</option>
+                            <select class="form-control" style="height: 51px;" name="idDif" id="idDif">
+                                {% for s in lista_r %}
+                                <option value="{{s.idDificultad}}">{{s.nomDificultad}}</option>
                                 {% endfor %}
                                 
                             </select>
