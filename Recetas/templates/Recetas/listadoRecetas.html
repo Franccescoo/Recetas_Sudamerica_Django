@@ -32,6 +32,7 @@
 <body>
     <table>
         <tr>
+            <th>Id Receta</th>
             <th>Imagen</th>
             <th>Nombre De La Receta</th>
             <th>Tiempo De Preparacion (minutos)</th>
@@ -42,17 +43,19 @@
         </tr>
         {% for m in lista_m %}
         <tr>
+            <td>{{ m.idReceta }}</td>
             <td>
                 {% if m.fotoReceta %}
                 <img src="{{ m.fotoReceta.url }}" alt="Sin Foto">
                 {% endif %}
             </td>
             <td>{{ m.nomReceta }}</td>
-            <td>{{ m.idReceta }}</td>        
+            <td>{{ m.Nacionalidad.nomNacionalidad }}</td>
+            <td>{{ m.Dificultad.nomDificultad}}</td>    
             <td>{{ m.ingrediente }}</td>
             <td>{{ m.preparacion }}</td>
             
-            <td>{{ m.Nacionalidad.nomNacionalidad }}</td>
+            
             <td>
                 <a href="" class="btn btn-primary">Modificar</a>
                 <a href="" class="btn btn-danger">Eliminar</a>
