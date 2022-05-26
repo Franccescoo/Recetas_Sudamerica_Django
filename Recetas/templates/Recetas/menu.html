@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,13 +13,13 @@
     <title>Recetas de Sudamérica - Paises</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="img/core-img/cocinero.png">
+    <link rel="icon" href="{% static 'Recetas/img/core-img/cocinero.png' %} ">
 
     <!-- Core Stylesheet -->
-    <link href="style.css" rel="stylesheet">
+    <link href="{% static 'Recetas/css/style.css' %} " rel="stylesheet">
 
     <!-- Responsive CSS -->
-    <link href="css/responsive/responsive.css" rel="stylesheet">
+    <link href="{% static 'Recetas/css/responsive/responsive.css' %}" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
@@ -26,14 +27,15 @@
 
 <body>
     <!-- Preloader -->
-    <div id="preloader">
+    <!-- <div id="preloader">
         <div class="caviar-load"></div>
         <div class="preload-icons">
             <img class="preload-1" src="img/core-img/preload-1.png" alt="">
             <img class="preload-2" src="img/core-img/preload-2.png" alt="">
             <img class="preload-3" src="img/core-img/preload-3.png" alt="">
         </div>
-    </div>
+    </div> -->
+    
 
     <!-- ***** Search Form Area ***** -->
     <div class="caviar-search-form d-flex align-items-center">
@@ -59,25 +61,25 @@
             <div class="row h-100">
                 <div class="col-12 h-100">
                     <nav class="h-100 navbar navbar-expand-lg align-items-center">
-                        <a class="navbar-brand" href="index.html">Recetas de Sudamérica</a>
+                        <a class="navbar-brand" href="{% url 'index' %}">Recetas de Sudamérica</a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#caviarNav"
                             aria-controls="caviarNav" aria-expanded="false" aria-label="Toggle navigation"><span
                                 class="fa fa-bars"></span></button>
                         <div class="collapse navbar-collapse" id="caviarNav">
                             <ul class="navbar-nav ml-auto" id="caviarMenu">
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="{% url 'index' %}">Inicio <span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Contáctanos</a>
+                                    <a class="nav-link" href="{% url 'contact' %}">Contáctanos</a>
                                 </li>
                                 <li class="nav-item dropdown active show">
                                     <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa-solid fa-user"></i>  Mi Cuenta</a>
                                     <div class="dropdown-menu show" aria-labelledby="navbarDropdown">
                                         <div class="container">
                                             <div class="row">
-                                                <div class="col-md-12"><a class="dropdown-item" href="Login.html">Iniciar Sesión</a></div>
-                                                <div class="col-md-12"><a class="dropdown-item" href="registrarse.html">Registrarse</a></div>
+                                                <div class="col-md-12"><a class="dropdown-item" href="{% url 'Login' %}">Iniciar Sesión</a></div>
+                                                <div class="col-md-12"><a class="dropdown-item" href="{% url 'registrarse' %}">Registrarse</a></div>
                                             </div>
                                         </div>
                                     </div>
@@ -114,10 +116,10 @@
                   <h6 class="Title_menu">Paises los cuales nuestra pagina posee recetas</h6>
                     <!-- Single Gallery Item -->
                     <div class="breakfast wow fadeInUp">
-                        <a href="RecetaChile.html">
+                        <a href="{% url 'RecetaChile' %}">
                             <div class="d-sm-flex align-items-center">
                                 <div class="dish-thumb">
-                                    <img style="max-width: 100%; min-width: 400px; width: 400px;" src="img/paises/Chile1.png" alt="">
+                                    <img style="max-width: 100%; min-width: 400px; width: 400px;" src="{% static 'Recetas/img/paises/Chile1.png' %}" alt="">
                                 </div>
                                 <div class="dish-description" style="margin-left: 40px;">
                                     <h3>Chile</h3>
@@ -129,10 +131,10 @@
                     </div>
                     <!-- Single Gallery Item -->
                     <div class="breakfast wow fadeInUp">
-                        <a href="RecetaArgentina.html">
+                        <a href="{% url 'RecetaArgentina' %}">
                         <div class="d-sm-flex align-items-center">
                             <div class="dish-thumb">
-                                <img style="max-width: 100%; min-width: 400px; width: 400px;" src="img/paises/Argentina1.png" alt="">
+                                <img style="max-width: 100%; min-width: 400px; width: 400px;" src="{% static 'Recetas/img/paises/Argentina1.png' %}" alt="">
                             </div>
                             <div class="dish-description" style="margin-left: 40px;">
                                 <h3>Argentina</h3>
@@ -145,10 +147,10 @@
                     
                     <!-- Single Gallery Item -->
                     <div class="lunch wow fadeInUp">
-                        <a href="RecetasVenezuela.html">
+                        <a href="{% url 'RecetasVenezuela' %}">
                             <div class="d-sm-flex align-items-center">
                                 <div class="dish-thumb">
-                                    <img style="max-width: 100%; min-width: 400px; width: 400px;" src="img/paises/Venezuela1.png" alt="">
+                                    <img style="max-width: 100%; min-width: 400px; width: 400px;" src="{% static 'Recetas/img/paises/Venezuela1.png' %}" alt="">
                                 </div>
                                 <div class="dish-description" style="margin-left: 40px;">
                                     <h3>Venezuela</h3>
@@ -160,10 +162,10 @@
                     </div>
                     <!-- Single Gallery Item -->
                     <div class="lunch wow fadeInUp">
-                        <a href="RecetasBrasil.html">
+                        <a href="{% url 'RecetasBrasil' %}">
                         <div class="d-sm-flex align-items-center">
                             <div class="dish-thumb">
-                                <img style="max-width: 100%; min-width: 400px; width: 400px;" src="img/paises/Brasil1.png" alt="">
+                                <img style="max-width: 100%; min-width: 400px; width: 400px;" src="{% static 'Recetas/img/paises/Brasil1.png' %}" alt="">
                             </div>
                             <div class="dish-description" style="margin-left: 40px;">
                                 <h3>Brasil</h3>
@@ -174,10 +176,10 @@
                     </div>
                     <!-- Single Gallery Item -->
                     <div class="lunch wow fadeInUp">
-                        <a href="RecetaPeru.html">
+                        <a href="{% url 'RecetaPeru' %}">
                         <div class="d-sm-flex align-items-center">
                             <div class="dish-thumb">
-                                <img style="max-width: 100%; min-width: 400px; width: 400px;" src="img/paises/banderaperu.png" alt="">
+                                <img style="max-width: 100%; min-width: 400px; width: 400px;" src="{% static 'Recetas/img/paises/banderaperu.png' %}" alt="">
                             </div>
                             <div class="dish-description" style="margin-left: 40px;">
                                 <h3>Perú</h3>
@@ -188,10 +190,10 @@
                     </div>
                     <!-- Single Gallery Item -->
                     <div class="lunch wow fadeInUp">
-                        <a href="RecetaEcuador.html">
+                        <a href="{% url 'RecetaEcuador' %}">
                         <div class="d-sm-flex align-items-center">
                             <div class="dish-thumb">
-                                <img style="max-width: 100%; min-width: 400px; width: 400px;" src="img/paises/ecuador.png" alt="">
+                                <img style="max-width: 100%; min-width: 400px; width: 400px;" src="{% static 'Recetas/img/paises/ecuador.png' %}" alt="">
                             </div>
                             <div class="dish-description" style="margin-left: 40px;">
                                 <h3>Ecuador</h3>
@@ -202,10 +204,10 @@
                     </div>
                     <!-- Single Gallery Item -->
                     <div class="lunch wow fadeInUp">
-                        <a href="RecetaUruguay.html">
+                        <a href="{% url 'RecetaUruguay' %}">
                         <div class="d-sm-flex align-items-center">
                             <div class="dish-thumb">
-                                <img style="max-width: 100%; min-width: 400px; width: 400px;" src="img/paises/banderauruguay.png" alt="">
+                                <img style="max-width: 100%; min-width: 400px; width: 400px;" src="{% static 'Recetas/img/paises/banderauruguay.png' %}" alt="">
                             </div>
                             <div class="dish-description" style="margin-left: 40px;">
                                 <h3>Uruguay</h3>
@@ -216,10 +218,10 @@
                     </div>
                     <!-- Single Gallery Item -->
                     <div class="lunch wow fadeInUp">
-                        <a href="RecetasColombia.html">
+                        <a href="{% url 'RecetasColombia' %}">
                         <div class="d-sm-flex align-items-center">
                             <div class="dish-thumb">
-                                <img style="max-width: 100%; min-width: 400px; width: 400px;" src="img/paises/colombia.png" alt="">
+                                <img style="max-width: 100%; min-width: 400px; width: 400px;" src="{% static 'Recetas/img/paises/colombia.png' %}" alt="">
                             </div>
                             <div class="dish-description" style="margin-left: 40px;">
                                 <h3>Colombia</h3>
@@ -228,15 +230,7 @@
                         </div>
                         </a>
                     </div>
-
-
-
-
-
-                    
                 </div>
-
-
             </div>
         </div>
     </div>
@@ -250,7 +244,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="footer-text">
-                        <a href="index.html" class="navbar-brand">Recetas de Sudamérica</a>
+                        <a href="{% url 'index' %}" class="navbar-brand">Recetas de Sudamérica</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         <p style="color: beige;">Copyright Recetas de Sudamérica&copy;
                             <script>document.write(new Date().getFullYear());</script>
@@ -267,13 +261,13 @@
     <!-- ***** Footer Area End ***** -->
 
     <!-- jQuery-2.2.4 js -->
-    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="{% static 'Recetas/js/jquery/jquery-2.2.4.min.js' %}"></script>
     <!-- Popper js -->
-    <script src="js/bootstrap/popper.min.js"></script>
+    <script src="{% static 'Recetas/js/bootstrap/popper.min.js' %}"></script>
     <!-- Bootstrap js -->
-    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="{% static 'Recetas/js/bootstrap/bootstrap.min.js' %}"></script>
     <!-- All Plugins js -->
-    <script src="js/others/plugins.js"></script>
+    <script src="{% static 'Recetas/js/others/plugins.js' %}"></script>
     <!-- Active js -->
-    <script src="js/active.js"></script>
+    <script src="{% static 'Recetas/js/active.js' %}"></script>
 </body>

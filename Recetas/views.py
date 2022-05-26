@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from .models import Usuario
 # Create your views here.
 
+def aamate(request):
+    return render(request,'Recetas/aamate.html')
+
 def index(request):
     return render(request,'Recetas/index.html')
 
