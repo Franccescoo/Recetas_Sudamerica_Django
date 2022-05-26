@@ -1,5 +1,7 @@
 from django.urls import URLPattern, path
 from .views import index, aatest, contact, Creacion_Recetas, Editar_Recetas_Admin, Editar_Recetas, Login, menu, modificar_usuario_admin, modificar_vista_usuario, RecetaArgentina, RecetaChile, RecetaEcuador, RecetaPeru, RecetasBrasil, RecetasColombia, RecetasVenezuela, RecetaUruguay, registrarse, Ver_Receta_Admin, Ver_Receta_Usuario, Ver_Usuario_Admin, Vista_de_Admin, Vista_de_Usuario, registrarUsuario
+
+
 urlpatterns = [
     path('',index,name="index"),
     path('aatest/',aatest,name="aatest"),

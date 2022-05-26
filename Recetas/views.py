@@ -50,8 +50,7 @@ def Editar_Recetas(request):
 def index(request):
     return render(request,'Recetas/index.html')
 
-def Login(request):
-    return render(request,'Recetas/Login.html')
+
 
 def menu(request):
     return render(request,'Recetas/menu.html')
