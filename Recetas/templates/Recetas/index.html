@@ -13,7 +13,7 @@
     <title>Recetas de Sudamérica</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="{% static 'Recetasimg/core-img/cocinero.png' %}">
+    <link rel="icon" href="{% static 'Recetas/img/core-img/cocinero.png' %}">
 
     <!-- Core Stylesheet -->
     <link href="{% static 'Recetas/css/style.css' %}" rel="stylesheet">
@@ -57,10 +57,10 @@
                                     <a class="nav-link" href="#testimonial">Reseñas</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="menu.html">Países</a>
+                                    <a class="nav-link" href="{% url 'menu' %}">Países</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Contáctanos</a>
+                                    <a class="nav-link" href="{% url 'contact' %}">Contáctanos</a>
                                 </li>
                             </ul>
 

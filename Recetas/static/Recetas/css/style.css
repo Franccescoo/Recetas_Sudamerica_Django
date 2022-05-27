@@ -7,7 +7,6 @@
 /* Import CSS */
 
 @import url('../../../static/Recetas/css/bootstrap/bootstrap.min.css');
-@import url('../../../static/Recetas/css/bootstrap/bootstrap.min.css');
 @import url('../../../static/Recetas/css/others/animate.css');
 @import url('../../../static/Recetas/css/others/magnific-popup.css');
 @import url('../../../static/Recetas/css/others/owl.carousel.min.css');
@@ -849,7 +848,7 @@ a:active {
 }
 
 .about-us-second-part:after {
-    content: 'Acerda De';
+    content: 'Acerca De';
     position: absolute;
     top: 110px;
     font-size: 150px;
