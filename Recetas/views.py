@@ -101,8 +101,6 @@ def Vista_de_Admin(request):
 def Vista_de_Usuario(request):
     return render(request,'Recetas/Vista_de_Usuario.html')
     
-def Creacion_Recetas(request):
-    return render(request,'Recetas/Creacion_Recetas.html')
 
 def Creacion_Recetas(request):
     Nacio = Nacionalidad.objects.all()
@@ -141,5 +139,9 @@ def registrarUsuario(request):
     email2 = request.POST['email']
     contra2 = request.POST['password1']
 
+
     Usuario.objects.create(nomUsuario = nombre2, apellidoCompleto = apellido2, username = nick, email = email2, foto = foto2, contrasena = contra2)
-    return render(request,'Recetas/Creacion_Recetas.html')
+    Nacio = Nacionalidad.objects.all()
+    contexto = {"lista_r":Nacio}
+    return render(request,"Recetas/Creacion_Recetas.html",contexto)
+
