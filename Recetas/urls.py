@@ -1,5 +1,5 @@
 from django.urls import URLPattern, path
-from .views import aamate,index, aatest, contact, Creacion_Recetas, Editar_Recetas_Admin, Editar_Recetas, Login, listadoRecetas, menu, modificar_usuario_admin, modificar_vista_usuario, RecetaArgentina, RecetaChile, RecetaEcuador, RecetaPeru, RecetasBrasil, RecetasColombia, RecetasVenezuela, RecetaUruguay, registrarse, Ver_Receta_Admin, Ver_Receta_Usuario, Ver_Usuario_Admin, Vista_de_Admin, Vista_de_Usuario, registrarUsuario,listadoRecetas
+from .views import aamate,index, aatest, contact, registrarRecetas, Creacion_Recetas, registrarRecetas, Editar_Recetas_Admin, Editar_Recetas, Login, listadoRecetas, menu, modificar_usuario_admin, modificar_vista_usuario, RecetaArgentina, RecetaChile, RecetaEcuador, RecetaPeru, RecetasBrasil, RecetasColombia, RecetasVenezuela, RecetaUruguay, registrarse, Ver_Receta_Admin, Ver_Receta_Usuario, Ver_Usuario_Admin, Vista_de_Admin, Vista_de_Usuario, registrarUsuario,listadoRecetas
 from . import views
 
 urlpatterns = [
@@ -24,6 +24,7 @@ urlpatterns = [
     path('RecetaUruguay/',RecetaUruguay,name="RecetaUruguay"),
     path('registrarse/',registrarse,name="registrarse"),
     path('registrarUsuario', views.registrarUsuario, name="registrarUsuario"),
+    path('registrarRecetas', views.registrarRecetas, name="registrarRecetas"),
     path('Ver_Receta_Admin/',Ver_Receta_Admin,name="Ver_Receta_Admin"),
     path('Ver_Receta_Usuario/',Ver_Receta_Usuario,name="Ver_Receta_Usuario"),
     path('Ver_Usuario_Admin/',Ver_Usuario_Admin,name="Ver_Usuario_Admin"),

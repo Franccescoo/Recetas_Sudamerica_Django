@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Dificultad, Usuario,Receta,Nacionalidad
+from .models import Usuario,Receta,Nacionalidad
 # Create your views here.
 
 def aamate(request):
@@ -41,12 +41,6 @@ def aatest(request):
 def contact(request):
     return render(request,'Recetas/contact.html')
 
-def Creacion_Recetas(request):
-    receta = Receta.objects.all()
-    contexto = {"lista_r":receta}
-    return render(request,"Recetas/Creacion_Recetas.html",contexto)
-
-
 def Editar_Recetas_Admin(request):
     return render(request,'Recetas/Editar_Recetas_Admin.html')
 
@@ -55,8 +49,6 @@ def Editar_Recetas(request):
 
 def index(request):
     return render(request,'Recetas/index.html')
-
-
 
 def menu(request):
     return render(request,'Recetas/menu.html')
@@ -108,6 +100,14 @@ def Vista_de_Admin(request):
 
 def Vista_de_Usuario(request):
     return render(request,'Recetas/Vista_de_Usuario.html')
+    
+def Creacion_Recetas(request):
+    return render(request,'Recetas/Creacion_Recetas.html')
+
+def Creacion_Recetas(request):
+    Nacio = Nacionalidad.objects.all()
+    contexto = {"lista_r":Nacio}
+    return render(request,"Recetas/Creacion_Recetas.html",contexto)
 
 def listadoRecetas(request):
     receta = Receta.objects.all()
@@ -119,14 +119,12 @@ def registrarRecetas(request):
     nomreceta2 = request.POST['nomreceta']
     tiempo2 = request.POST['tiempo']
     idNacionalidad2 = request.POST['idNacio']
-    idDificultad2 = request.POST['idDif']
     ingredientes2 = request.POST['ingredientes']
     preparacion2 = request.POST['preparacion']
 
     Nacionalidad3 = Nacionalidad.objects.get(idNacionalidad = idNacionalidad2)
-    idDificultad3 = Dificultad.objects.get(idDificultad =idDificultad2 )
-    Receta.objects.create(fotoReceta =imagen2, nomReceta =nomreceta2,ingrediente =ingredientes2,preparacion=preparacion2,tiempo=tiempo2,Nacionalidad=Nacionalidad3,Dificultad=idDificultad3)
-    return redirect('')
+
+    Receta.objects.create(fotoReceta =imagen2, nomReceta =nomreceta2, ingrediente =ingredientes2, preparacion=preparacion2, tiempo=tiempo2, Nacionalidad=Nacionalidad3)
 
 
 
@@ -144,4 +142,4 @@ def registrarUsuario(request):
     contra2 = request.POST['password1']
 
     Usuario.objects.create(nomUsuario = nombre2, apellidoCompleto = apellido2, username = nick, email = email2, foto = foto2, contrasena = contra2)
-    return render(request,'Recetas/Vista_de_Usuario.html')
+    return render(request,'Recetas/Creacion_Recetas.html')

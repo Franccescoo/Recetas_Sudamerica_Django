@@ -20,13 +20,6 @@ class Nacionalidad(models.Model):
 
     def __str__(self) :
             return self.nomNacionalidad
-
-class Dificultad(models.Model):
-    idDificultad = models.AutoField(primary_key=True)
-    nomDificultad = models.CharField(max_length=20, null=False, blank=False)
-
-    def __str__(self) :
-            return self.nomDificultad
             
 
 class Receta(models.Model):
@@ -38,7 +31,6 @@ class Receta(models.Model):
     fotoReceta = models.ImageField(upload_to="foto_receta")
     Usuario = models.ForeignKey(Usuario, on_delete= models.CASCADE)
     Nacionalidad = models.ForeignKey(Nacionalidad, on_delete= models.CASCADE)
-    Dificultad = models.ForeignKey(Dificultad, on_delete=models.CASCADE)
 
     def __str__(self) :
             return self.nomReceta
