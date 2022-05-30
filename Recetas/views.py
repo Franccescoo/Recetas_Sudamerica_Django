@@ -122,7 +122,7 @@ def registrarRecetas(request):
 
     Nacionalidad3 = Nacionalidad.objects.get(idNacionalidad = idNacionalidad2)
 
-    Receta.objects.create(fotoReceta =imagen2, nomReceta =nomreceta2, ingrediente =ingredientes2, preparacion=preparacion2, tiempo=tiempo2, Nacionalidad=Nacionalidad3)
+    Receta.objects.create(fotoReceta =imagen2, nomReceta =nomreceta2, ingrediente =ingredientes2, preparacion=preparacion2, tiempo=tiempo2, Nacionalidad=Nacionalidad3 )
 
 
 

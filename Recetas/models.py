@@ -25,8 +25,8 @@ class Nacionalidad(models.Model):
 class Receta(models.Model):
     idReceta = models.AutoField(primary_key=True)
     nomReceta = models.CharField(max_length=30, blank=False, null=False)
-    ingrediente = models.CharField(max_length=100, null=False, blank=False)
-    preparacion = models.CharField(max_length=250, null=False, blank=False)
+    ingrediente = models.CharField(max_length=1000, null=False, blank=False)
+    preparacion = models.CharField(max_length=2000, null=False, blank=False)
     tiempo = models.IntegerField(null=False, blank=False)
     fotoReceta = models.ImageField(upload_to="foto_receta")
     Usuario = models.ForeignKey(Usuario, on_delete= models.CASCADE)
