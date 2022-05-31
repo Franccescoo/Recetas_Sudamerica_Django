@@ -8,7 +8,7 @@ class Usuario(models.Model):
     apellidoCompleto = models.CharField(max_length=50, blank=True, null=True)
     username = models.CharField(max_length=20, null=False, blank=False)
     email = models.CharField(max_length=30, null=False)
-    foto = models.ImageField(upload_to="foto_perfil", default="foto_perfil/foto_perfil_default", blank='')
+    foto = models.ImageField(upload_to="foto_perfil", default="foto_perfil/foto_perfil_default.png", blank='')
     contrasena = models.CharField(max_length=20, null=False, blank=False)
 
     def __str__(self) :

@@ -1339,3 +1339,10 @@ ol li::marker {
     color: red;
   }
 
+.profile{
+    height: 100px;
+    width: 100px;
+    margin-right: 10px;
+    border-radius: 50%;
+    margin: 20px;
+}
