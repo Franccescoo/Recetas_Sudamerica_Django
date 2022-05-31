@@ -86,22 +86,22 @@
             <div class="row h-100">
                 <div class="col-12 h-100">
                     <nav class="h-100 navbar navbar-expand-lg align-items-center">
-                        <a class="navbar-brand" href="index.html">Recetas de Sudamérica</a>
+                        <a class="navbar-brand" href="{% url 'index' %}">Recetas de Sudamérica</a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#caviarNav"
                             aria-controls="caviarNav" aria-expanded="false" aria-label="Toggle navigation"><span
                                 class="fa fa-bars"></span></button>
                         <div class="collapse navbar-collapse" id="caviarNav">
                             <ul class="navbar-nav ml-auto" id="caviarMenu">
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="index.html">Inicio <span
+                                    <a class="nav-link" href="{% url 'index' %}">Inicio <span
                                             class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item dropdown">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="menu.html">Países</a>
+                                    <a class="nav-link" href="{% url 'menu' %}">Países</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Contáctanos</a>
+                                    <a class="nav-link" href="{% url 'contact' %}">Contáctanos</a>
                                 </li>
                             </ul>
 
@@ -127,9 +127,9 @@
     </div>
     <!-- ***** Breadcumb Area End ***** -->
     <div class="topnav">
-        <a href="Vista_de_Admin.html">Ver Perfil</a>
-        <a href="Ver_Receta_Admin.html">Ver Recetas</a>
-        <a href="Ver_Usuario_Admin.html">Ver Usuarios</a>
+        <a href="{% url 'Vista_de_Admin' %}">Ver Perfil</a>
+        <a href="{% url 'Ver_Receta_Admin' %}">Ver Recetas</a>
+        <a href="{% url 'Ver_Usuario_Admin' %}">Ver Usuarios</a>
     </div>
 
     <!-- ***** Menu Area Start ***** -->
@@ -187,7 +187,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="footer-text">
-                        <a href="index.html" class="navbar-brand">Recetas de Sudamérica</a>
+                        <a href="{% url 'index' %}" class="navbar-brand">Recetas de Sudamérica</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         <p style="color: beige;">Copyright Recetas de Sudamérica&copy;
                             <script>document.write(new Date().getFullYear());</script>
@@ -204,14 +204,14 @@
     <!-- ***** Footer Area End ***** -->
 
     <!-- jQuery-2.2.4 js -->
-    <script src="/static/Recetas/js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="{% static 'Recetas/js/jquery/jquery-2.2.4.min.js' %}"></script>
     <!-- Popper js -->
-    <script src="/static/Recetas/js/bootstrap/popper.min.js"></script>
+    <script src="{% static 'Recetas/js/bootstrap/popper.min.js' %}"></script>
     <!-- Bootstrap js -->
-    <script src="/static/Recetas/js/bootstrap/bootstrap.min.js"></script>
+    <script src="{% static 'Recetas/js/bootstrap/bootstrap.min.js' %}"></script>
     <!-- All Plugins js -->
-    <script src="/static/Recetas/js/others/plugins.js"></script>
+    <script src="{% static 'Recetas/js/others/plugins.js' %}"></script>
     <!-- Active js -->
-    <script src="/static/Recetas/js/active.js"></script>
+    <script src="{% static 'Recetas/js/active.js' %}"></script>
 
 </body>
