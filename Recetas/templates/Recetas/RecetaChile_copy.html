@@ -132,6 +132,7 @@
 
             {% if RecetasChile %}
                 {% for Receta in RecetasChile %}
+                    {% if forloop.first %}<div class="row">{% endif %}
                     <div class="col-4">
                         <div class="card">
                             <img class="card-img-top" height="180" src="{{ Receta.fotoReceta.url }}" alt="{{ Receta.nomReceta }}">    
@@ -142,6 +143,8 @@
                             </div>
                         </div>
                     </div>
+                    {% if forloop.counter|divisibleby:3 %}</div><div class="row">{% endif %}
+                    {% if forloop.last %}</div>{% endif %}
                 {% endfor %}
             {% endif %}
 
