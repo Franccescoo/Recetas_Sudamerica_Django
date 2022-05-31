@@ -2,6 +2,10 @@ from django.shortcuts import render, redirect
 from .models import Usuario,Receta,Nacionalidad
 # Create your views here.
 
+def RecetaChile_copy(request):
+    RecetasChile = Receta.objects.all()
+    return render(request,'Recetas/RecetaChile_copy.html', {"RecetasChile": RecetasChile})
+
 def aamate(request):
     return render(request,'Recetas/aamate.html')
 
@@ -107,10 +111,12 @@ def Creacion_Recetas(request):
     contexto = {"lista_r":Nacio}
     return render(request,"Recetas/Creacion_Recetas.html",contexto)
 
+
 def listadoRecetas(request):
     receta = Receta.objects.all()
     contexto = {"lista_m":receta}
     return render(request,"Recetas/Creacion_Recetas.html",contexto)
+
 
 def registrarRecetas(request):
     imagen2 = request.FILES['imagen']
@@ -125,11 +131,11 @@ def registrarRecetas(request):
     Receta.objects.create(fotoReceta =imagen2, nomReceta =nomreceta2, ingrediente =ingredientes2, preparacion=preparacion2, tiempo=tiempo2, Nacionalidad=Nacionalidad3 )
 
 
-
 def listadoUsuario(request):
     usuario = Usuario.objects.all()
     contexto = {"lista_u":usuario}
     return render(request,"Recetas/Ver_Usuario_Admin.html", contexto)
+
 
 def registrarUsuario(request):
     nombre2 = request.POST['nomUser']
@@ -139,9 +145,7 @@ def registrarUsuario(request):
     email2 = request.POST['email']
     contra2 = request.POST['password1']
 
-
     Usuario.objects.create(nomUsuario = nombre2, apellidoCompleto = apellido2, username = nick, email = email2, foto = foto2, contrasena = contra2)
     Nacio = Nacionalidad.objects.all()
     contexto = {"lista_r":Nacio}
     return render(request,"Recetas/Creacion_Recetas.html",contexto)
-
