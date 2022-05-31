@@ -1,9 +1,10 @@
 from django.urls import URLPattern, path
-from .views import aamate, RecetaChile_copy, index, aatest, contact, registrarRecetas, Creacion_Recetas, registrarRecetas, Editar_Recetas_Admin, Editar_Recetas, Login, listadoRecetas, menu, modificar_usuario_admin, modificar_vista_usuario, RecetaArgentina, RecetaChile, RecetaEcuador, RecetaPeru, RecetasBrasil, RecetasColombia, RecetasVenezuela, RecetaUruguay, registrarse, Ver_Receta_Admin, Ver_Receta_Usuario, Ver_Usuario_Admin, Vista_de_Admin, Vista_de_Usuario, registrarUsuario,listadoRecetas
+from .views import aamate, Menu_Recetas, index, aatest, contact, registrarRecetas, Creacion_Recetas, registrarRecetas, Editar_Recetas_Admin, Editar_Recetas, Login, listadoRecetas, menu, modificar_usuario_admin, modificar_vista_usuario, RecetaArgentina, RecetaChile, RecetaEcuador, RecetaPeru, RecetasBrasil, RecetasColombia, RecetasVenezuela, RecetaUruguay, registrarse, Ver_Receta_Admin, Ver_Receta_Usuario, Ver_Usuario_Admin, Vista_de_Admin, Vista_de_Usuario, registrarUsuario,listadoRecetas
 from . import views
+from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
-    path('RecetaChile_copy/',RecetaChile_copy,name="RecetaChile_copy"),
+    path('Menu_Recetas/',Menu_Recetas,name="Menu_Recetas"),
     path('aamate/',aamate,name="aamate"),
     path('',index,name="index"),
     path('aatest/',aatest,name="aatest"),
@@ -30,7 +31,7 @@ urlpatterns = [
     path('Ver_Receta_Usuario/',Ver_Receta_Usuario,name="Ver_Receta_Usuario"),
     path('Ver_Usuario_Admin/',Ver_Usuario_Admin,name="Ver_Usuario_Admin"),
     path('Vista_de_Admin/',Vista_de_Admin,name="Vista_de_Admin"),
-    path('Vista_de_Usuario/',Vista_de_Usuario,name="Vista_de_Usuario"),
+    path('Vista_de_Usuario/',views.Vista_de_Usuario,name="Vista_de_Usuario"),
     path('listadoRecetas/',listadoRecetas, name="listadoRecetas"),
     path('registrarRecetas',registrarRecetas,name="registrarRecetas"),
 ]

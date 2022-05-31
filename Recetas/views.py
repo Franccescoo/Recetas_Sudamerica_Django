@@ -2,9 +2,9 @@ from django.shortcuts import render, redirect
 from .models import Usuario,Receta,Nacionalidad
 # Create your views here.
 
-def RecetaChile_copy(request):
+def Menu_Recetas(request):
     RecetasChile = Receta.objects.all()
-    return render(request,'Recetas/RecetaChile_copy.html', {"RecetasChile": RecetasChile})
+    return render(request,'Recetas/Menu_Recetas.html', {"RecetasChile": RecetasChile})
 
 def aamate(request):
     return render(request,'Recetas/aamate.html')

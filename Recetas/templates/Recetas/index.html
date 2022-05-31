@@ -51,16 +51,21 @@
                                     <a class="nav-link" href="#about">Sobre Nosotros</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#menu">Países más valorados</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#testimonial">Reseñas</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'menu' %}">Países</a>
+                                    <a class="nav-link" href="{% url 'Menu_Recetas' %}">Recetas</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'contact' %}">Contáctanos</a>
+                                </li>
+                                <li class="nav-item dropdown active show">
+                                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa-solid fa-user"></i>  Mi Cuenta</a>
+                                    <div class="dropdown-menu show" aria-labelledby="navbarDropdown">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-12"><a class="dropdown-item" href="{% url 'Login' %}">Iniciar Sesión</a></div>
+                                                <div class="col-md-12"><a class="dropdown-item" href="{% url 'registrarse' %}">Registrarse</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </li>
                             </ul>
 
@@ -134,7 +139,7 @@
     </section>
     <!-- ****** About Us Area End ****** -->
 
-    <!-- ****** Dish Menu Area Start ****** -->
+    <!-- ****** Dish Menu Area Start ****** 
     <section class="caviar-dish-menu" id="menu">
         <div class="container">
             <div class="row">
@@ -142,8 +147,8 @@
                     <div class="section-heading text-center">
 
                     </div>
-                    <!-- btn -->
-                    <a href="{% url 'menu'%}" class="btn caviar-btn"><span></span>Ver los Países</a>
+                    <!-- btn 
+                    <a href="{% url 'menu'%}" class="btn caviar-btn"><span></span>Todas las recetas</a>
                 </div>
             </div>
             <div class="row">
@@ -185,58 +190,6 @@
     </section>
     <!-- ****** Dish Menu Area End ****** -->
 
-    <!-- ****** Testimonials Area Start ****** -->
-    <section class="caviar-testimonials-area" id="testimonial">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="testimonials-content">
-                        <div class="section-heading text-center">
-                            <h2>Reseñas</h2>
-                        </div>
-                        <div class="caviar-testimonials-slides owl-carousel">
-                            <!-- Single Testimonial Area -->
-                            <div class="single-testimonial">
-                                <div class="testimonial-thumb-name d-flex align-items-center">
-                                    <img src="{% static 'Recetas/img/testimonial-img/3.jpg' %}" alt="">
-                                    <div class="tes-name">
-                                        <h5>Robert Jonson</h5>
-                                        <p>02/04/2020</p>
-                                    </div>
-                                </div>
-                                <p>Gracias por la información útil y completa como lo de el ácido fitico, ya que sin esa información en vez de hacernos bien, podríamos perjudicar nuestro cuerpo.</p>
-                            </div>
-                            <!-- Single Testimonial Area -->
-                            <div class="single-testimonial">
-                                <div class="testimonial-thumb-name d-flex align-items-center">
-                                    <img src="{% static 'Recetas/img/testimonial-img/2.jpg' %}" alt="">
-                                    <div class="tes-name">
-                                        <h5>Clara Hudson</h5>
-                                        <p>20/02/2021</p>
-                                    </div>
-                                </div>
-                                <p>Gracias por la receta, probaré hacerla y esperar el tiempo si es eficaz, ya que he probado de todo, como muy saludable y esto va a proceso rebote, me acorde del agua de avena y me gusta como lo explicaron.</p>
-                            </div>
-                            <!-- Single Testimonial Area -->
-                            <div class="single-testimonial">
-                                <div class="testimonial-thumb-name d-flex align-items-center">
-                                    <img src="{% static 'Recetas/img/testimonial-img/1.jpg' %}" alt="">
-                                    <div class="tes-name">
-                                        <h5>Jane Black</h5>
-                                        <p>15/10/2020</p>
-                                    </div>
-                                </div>
-                                <p>Podrías perfectamente preparar el agua de avena con agua hervida en casa o agua filtrada, pero si quieres hacerlo con agua mineral es mejor aún. Igualmente se aplica para enjuagar las hojuelas.
-                                    ¡Saludos!
-                                    </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ****** Testimonials Area End ****** -->
 
     <!-- ***** Footer Area Start ***** -->
     <footer class="caviar-footer-area">
