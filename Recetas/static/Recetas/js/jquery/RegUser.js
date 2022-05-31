@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
     $("#formRegi").submit(function (e) {
+
         var nombre = $("#nomUser").val();
         var ape = $("#apeUser").val();
         var nick = $("#nickUserName").val();
@@ -79,11 +80,13 @@ $(document).ready(function () {
 
         if (entrar) {
             $("#mensajeReg").html("Registro exitoso");
+            
 
 
         }
         else {
             $("#mensajeReg").html(mensajeMostrar);
+            e.preventDefault();
         }
 
     });
