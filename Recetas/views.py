@@ -119,14 +119,14 @@ def listadoRecetas(request):
 
 
 def registrarRecetas(request):
-    imagen2 = request.FILES['imagen']
-    nomreceta2 = request.POST['nomreceta']
-    tiempo2 = request.POST['tiempo']
-    idNacionalidad2 = request.POST['idNacio']
-    ingredientes2 = request.POST['ingredientes']
-    preparacion2 = request.POST['preparacion']
+    imagen2          = request.FILES['imagen']
+    nomreceta2       = request.POST['nomreceta']
+    tiempo2          = request.POST['tiempo']
+    idNacionalidad2  = request.POST['idNacio']
+    ingredientes2    = request.POST['ingredientes']
+    preparacion2     = request.POST['preparacion']
 
-    Nacionalidad3 = Nacionalidad.objects.get(idNacionalidad = idNacionalidad2)
+    Nacionalidad3    = Nacionalidad.objects.get(idNacionalidad = idNacionalidad2)
 
     Receta.objects.create(fotoReceta =imagen2, nomReceta =nomreceta2, ingrediente =ingredientes2, preparacion=preparacion2, tiempo=tiempo2, Nacionalidad=Nacionalidad3 )
 
@@ -138,12 +138,12 @@ def listadoUsuario(request):
 
 
 def registrarUsuario(request):
-    nombre2 = request.POST['nomUser']
-    apellido2 = request.POST['apeUser']
-    nick = request.POST['nickUserName']
-    foto2 = request.FILES['foto1']
-    email2 = request.POST['email']
-    contra2 = request.POST['password1']
+    nombre2     = request.POST['nomUser']
+    apellido2   = request.POST['apeUser']
+    nick        = request.POST['nickUserName']
+    foto2       = request.FILES['foto1']
+    email2      = request.POST['email']
+    contra2     = request.POST['password1']
 
     Usuario.objects.create(nomUsuario = nombre2, apellidoCompleto = apellido2, username = nick, email = email2, foto = foto2, contrasena = contra2)
     Nacio = Nacionalidad.objects.all()
