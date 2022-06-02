@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $("#form1").submit(function(e){
-        e.preventDefault();
+        
         var nomb = $("#nom").val();
         let mensajesMostrar = "";
         let entrar = false;

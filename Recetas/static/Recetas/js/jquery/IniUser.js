@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     $("#log").submit(function (e) {
-        e.preventDefault();
+        
         var nomb = $("#nomUser").val();
         var pass = $("#pass").val();
     

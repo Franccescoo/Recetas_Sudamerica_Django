@@ -27,9 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-LOGIN_REDIRECT_URL = '/Vista_de_Usuario' 
-LOGOUT_REDIRECT_URL = '/' 
-
 
 # Application definition
 
