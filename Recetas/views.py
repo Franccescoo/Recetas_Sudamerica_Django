@@ -1,6 +1,25 @@
 from django.shortcuts import render, redirect
-from .models import Usuario,Receta,Nacionalidad
+from .models import Usuario,Receta,Nacionalidad,RolUsuario
 # Create your views here.
+
+def login_app(request):
+    us = request.POST['username']
+    cl = request.POST['pass']
+    try:
+        x = Usuario.objects.get(username = us, contrasena = cl)
+        rol2 = RolUsuario.objects.get(nomRolUsuario = 'Administrador')
+
+        if x.nomRolUsuario == rol2:
+            contexto ={"usuario":x}
+            return render(request, 'Recetas/Vista_de_Admin.html',contexto)
+        else:
+            contexto ={"usuario":x}
+            return render(request, 'Recetas/Vista_de_Usuario.html',contexto)
+
+    except Usuario.DoesNotExist:
+        # messages.error(request, 'Usuario y/o clave incorrecta')
+        return redirect ('login')
+
 
 def Menu_Recetas(request):
     RecetasChile = Receta.objects.all()
