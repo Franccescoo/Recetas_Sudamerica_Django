@@ -1,5 +1,6 @@
+from unicodedata import name
 from django.urls import URLPattern, path
-from .views import login_app,aamate, Menu_Recetas, index, aatest, contact, registrarRecetas, Creacion_Recetas, registrarRecetas, Editar_Recetas_Admin, Editar_Recetas, Login, listadoRecetas, menu, modificar_usuario_admin, modificar_vista_usuario, RecetaArgentina, RecetaChile, RecetaEcuador, RecetaPeru, RecetasBrasil, RecetasColombia, RecetasVenezuela, RecetaUruguay, registrarse, Ver_Receta_Admin, Ver_Receta_Usuario, Ver_Usuario_Admin, Vista_de_Admin, Vista_de_Usuario, registrarUsuario,listadoRecetas
+from .views import login_app,aamate, Menu_Recetas, index, aatest, contact, registrarRecetas, Creacion_Recetas, registrarRecetas, Editar_Recetas_Admin, Editar_Recetas, Login, listadoRecetas, menu, modificar_usuario_admin, modificar_vista_usuario, RecetaArgentina, RecetaChile, RecetaEcuador, RecetaPeru, RecetasBrasil, RecetasColombia, RecetasVenezuela, RecetaUruguay, registrarse, Ver_Receta_Admin, Ver_Receta_Usuario, Ver_Usuario_Admin, Vista_de_Admin, Vista_de_Usuario, registrarUsuario,listadoRecetas,eliminar_usuario
 from . import views
 from django.contrib.auth.views import LoginView, LogoutView
 
@@ -35,4 +36,5 @@ urlpatterns = [
     path('Vista_de_Usuario/',views.Vista_de_Usuario,name="Vista_de_Usuario"),
     path('listadoRecetas/',listadoRecetas, name="listadoRecetas"),
     path('registrarRecetas',registrarRecetas,name="registrarRecetas"),
+    path('eliminar_usuario/<int:id>',eliminar_usuario, name="eliminar_usuario"),
 ]

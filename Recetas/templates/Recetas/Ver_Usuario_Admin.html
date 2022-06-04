@@ -124,21 +124,23 @@
     
     
                     <div class="row">
-                        <h1>Listado de Usuario</h1>
+                        <center><h1 style="color: rgb(179, 53, 53);">Listado de Usuario</h1></center>
                     </div>
     
-                    <div class="row">
-                        <table>
+                    <div class="row" style="overflow-x:auto;">
+                        <table class="table table-striped">
                             <tr>
                                 <td>ID</td>
                                 <td>Nombre</td>
                                 <td>Nombre de Usuario</td>
                                 <td>Correo</td>
                                 <td>Foto</td>
+                                <td>Acción</td>
                             </tr>
-                            {% for m in Usuario %}
+                            {% for m in usuario %}
                             <tr>
                                 <td>{{ m.idUsuario }}</td>
+                                <td>{{ m.nomUsuario }}</td>
                                 <td>{{ m.username }}</td>
                                 <td>{{ m.email }}</td>
                                 <td>
@@ -146,8 +148,9 @@
                                     <img src="{{ m.foto.url }}" style="width: 100%;max-width: 100px;">
                                     {% endif %}
                                 </td>
-                                <td><a href="{% url 'eliminar_usuario' m.idUsuario %}">Eliminar</a><br>
-                                    <a href="{% url 'modificar_usuario' m.idUsuario  %}">Modificar</a>
+                                <td><a class="btn btn-danger" href="{% url 'eliminar_usuario' m.idUsuario %}">Eliminar</a><br>
+
+
                                 </td>
                             </tr>
                             {% endfor %}

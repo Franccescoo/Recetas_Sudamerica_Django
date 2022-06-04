@@ -1,5 +1,7 @@
+from email import message
 from django.shortcuts import render, redirect
 from .models import Usuario,Receta,Nacionalidad,RolUsuario
+from django.contrib import messages
 # Create your views here.
 
 def login_app(request):
@@ -31,7 +33,8 @@ def Menu_Recetas(request):
 
 def Ver_Usuario_Admin(request):
     UserAdmin = Usuario.objects.all()
-    return render(request,'Recetas/Ver_Usuario_Admin.html', {"UserAdmin": UserAdmin})
+    contexto = {"usuario":UserAdmin}
+    return render(request,'Recetas/Ver_Usuario_Admin.html',contexto)
 
 
 def aamate(request):
@@ -118,8 +121,6 @@ def registrarse(request):
 def Ver_Receta_Usuario(request):
     return render(request,'Recetas/Ver_Receta_Usuario.html')
 
-def Ver_Usuario_Admin(request):
-    return render(request,'Recetas/Ver_Usuario_Admin.html')
 
 def Vista_de_Admin(request):
     return render(request,'Recetas/Vista_de_Admin.html')
@@ -171,3 +172,11 @@ def registrarUsuario(request):
     Nacio = Nacionalidad.objects.all()
     contexto = {"lista_r":Nacio}
     return render(request,"Recetas/Creacion_Recetas.html",contexto)
+
+
+def eliminar_usuario(request,id):
+    usuar = Usuario.objects.get(idUsuario = id)
+    usuar.delete() #Elimina registro
+    messages.success(request,'Usuario Eliminado')
+
+    return redirect('Ver_Usuario_Admin')
