@@ -34,7 +34,8 @@ def Menu_Recetas(request):
 
 def Ver_Usuario_Admin(request):
     UserAdmin = Usuario.objects.all()
-    return render(request,'Recetas/Ver_Usuario_Admin.html', {"UserAdmin": UserAdmin})
+    contexto = {"usuario":UserAdmin}
+    return render(request,'Recetas/Ver_Usuario_Admin.html',contexto)
 
 
 
