@@ -179,3 +179,10 @@ def eliminar_usuario(request,id):
     messages.success(request,'Usuario Eliminado')
 
     return redirect('Ver_Usuario_Admin')
+
+def eliminar_receta(request,id):
+    rec = Receta.objects.get(idReceta = id)
+    rec.delete() #Elimina registro
+    messages.success(request,'Receta Eliminada')
+
+    return redirect('Ver_Receta_Admin')

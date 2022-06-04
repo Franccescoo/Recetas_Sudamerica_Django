@@ -112,6 +112,14 @@
         <div class="row">
             <div class="col-12 menu-heading">
                 <div class="section-heading text-center">
+                    {% if messages %}
+                    <div>
+                        {% for i in messages %}
+                        <p style="color: red;">{{ i }}</p>
+                        {% endfor %}
+                    </div>
+    
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -122,7 +130,7 @@
             {% for Receta in RecetasAdmin %}
             {% if forloop.first %}<div class="row">{% endif %}
                 <div class="col-lg-3 col-md-5 col-sm-12" style="padding-top: 20px;">
-                    <a href="">
+                    <a href="{% url 'Editar_Recetas_Admin' %}">
                         <div class="card">
                             <img class="card-img-top" src="{{ Receta.fotoReceta.url }}"
                                 style="height: 220px;" alt="{{ Receta.nomReceta }}">
@@ -131,6 +139,16 @@
                                 <hr />
                                 <h6 class="card-subtittle">Autor: {{ Receta.Usuario.nomUsuario }}</h6>
                                 <h6 class="card-subtittle">País: {{ Receta.Nacionalidad }}</h6>
+                                <div class="container">
+                                    <div class="col-md-12">
+                                        <a class="btn btn-danger" style="margin-bottom: 10px;" href="{% url 'eliminar_receta' Receta.idReceta %} ">Eliminar</a><br>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <a class="btn btn-primary" href="{% url 'Editar_Recetas_Admin' %}">Modificar</a><br>
+                                    </div>
+                                </div>
+                               
+                                
                             </div>
                     </a>
                 </div>
