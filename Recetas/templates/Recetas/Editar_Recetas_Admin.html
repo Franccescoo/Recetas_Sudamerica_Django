@@ -62,32 +62,22 @@
             <div class="row h-100">
                 <div class="col-12 h-100">
                     <nav class="h-100 navbar navbar-expand-lg align-items-center">
-                        <a class="navbar-brand" href="index.html">Recetas de Sudamérica</a>
+                        <a class="navbar-brand" href="{% url 'index' %}">Recetas de Sudamérica</a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#caviarNav"
                             aria-controls="caviarNav" aria-expanded="false" aria-label="Toggle navigation"><span
                                 class="fa fa-bars"></span></button>
                         <div class="collapse navbar-collapse" id="caviarNav">
                             <ul class="navbar-nav ml-auto" id="caviarMenu">
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="{% url 'index' %}">Inicio <span
+                                            class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item dropdown">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="menu.html">Países</a>
+                                    <a class="nav-link" href="{% url 'menu' %}">Países</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Contáctanos</a>
-                                </li>
-                                <li class="nav-item dropdown active show">
-                                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa-solid fa-user"></i>  Mi Cuenta</a>
-                                    <div class="dropdown-menu show" aria-labelledby="navbarDropdown">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-md-12"><a class="dropdown-item" href="Login.html">Iniciar Sesión</a></div>
-                                                <div class="col-md-12"><a class="dropdown-item" href="registrarse.html">Registrarse</a></div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <a class="nav-link" href="{% url 'contact' %}">Contáctanos</a>
                                 </li>
                             </ul>
 
@@ -100,7 +90,7 @@
     <!-- ***** Header Area End ***** -->
 
     <!-- ***** Breadcumb Area Start ***** -->
-    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/food/FondoChile.png)">
+    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(../../static/Recetas/img/food/FondoChile.png)">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -122,124 +112,93 @@
 
     <!-- ***** Menu Area Start ***** -->
 
-    <div class="caviar-food-menu section-padding-100 clearfix">
+    <div class="caviar-contact-area d-md-flex align-items-center" id="contact">
+        <div class="contact-form-area d-flex justify-content-end">
+            <div class="contact-form">
+                <div class="contact-form-title">
 
-        <div class="container">
-            <div class="row">
-
-                <div class="col-12">
-
-                    <form action="/action_page.php">
-                        <center>
-                            <div>
-                                <img src="img/imgVenezuela/pabelelonn.jpg" alt=""
-                                    style="width: 100%;max-width: 400px; margin: auto;">
-
-                            </div>
-                            <div style="margin-bottom: 30px;">
-                                <div>
-                                    <label for="imagen">Imagen(URL):</label>
-                                </div>
-                                <input type="text" id="imagen" name="imagen">
-                            </div>
-                            <div style="margin-bottom: 30px;">
-                                <div>
-                                    <label for="nombreReceta">Nombre De La Receta:</label>
-                                </div>
-                                <input type="text" id="nombreReceta" name="nombreReceta">
-                            </div>
-                            <div style="margin-bottom: 30px;">
-                                <div>
-                                    <label for="tiempo">Tiempo De Preparacion (minutos):</label>
-                                </div>
-                                <input type="text" id="tiempo" name="tiempo">
-                            </div>
-                            <div style="margin-bottom: 30px;">
-                                <label for="idTipoAlimento">Tipo De Alimento:</label>
-                                <select name="idTipoAlimento" id="idTipoAlimento">
-                                    <option value="1">Comida</option>
-                                    <option value="2">Postre</option>
-                                    <option value="3">Bebida</option>
-                                </select>
-                            </div>
-                            <div style="margin-bottom: 30px;">
-                                <label for="idNacionalidad">Nacionalidad:</label>
-                                <select name="idNacionalidad" id="idNacionalidad">
-                                    <option value="1">Chile</option>
-                                    <option value="2">Argentina</option>
-                                    <option value="3">Venezuela</option>
-                                    <option value="4">Brasil</option>
-                                    <option value="5">Perú</option>
-                                    <option value="6">Ecuador</option>
-                                    <option value="7">Uruguay</option>
-                                    <option value="8">Colombia</option>
-                                </select>
-                            </div>
-                            <div style="margin-bottom: 30px;">
-                                <label for="idTipoDieta">Dieta:</label>
-                                <select name="idTipoDieta" id="idTipoDieta">
-                                    <option value="1">N/A</option>
-                                    <option value="2">Kosher</option>
-                                    <option value="3">Vegetariana</option>
-                                    <option value="4">Vegana</option>
-                                </select>
-                            </div>
-                            <div style="margin-bottom: 30px;">
-                                <label for="idDificultad">Dificultad:</label>
-                                <select name="idDificultad" id="idDificultad">
-                                    <option value="1">Facil</option>
-                                    <option value="2">Media</option>
-                                    <option value="3">Dificil</option>
-                                </select>
-                            </div>
-
-                            <div class="row" style="margin-bottom: 30px;">
-                                <div class="col-12 col-md-6 col-sm-12">
-                                    <div>
-                                        <label for="ingredientes">Ingredientes:</label>
-                                    </div>
-                                    <textarea id="ingredientes" name="ingredientes" rows="5" cols="40"></textarea>
-                                </div>
-
-                                <div class="col-12 col-md-6 col-sm-12">
-                                    <div>
-                                        <label for="preparacion">Preparacion:</label>
-                                    </div>
-                                    <textarea id="preparacion" name="preparacion" rows="5" cols="40">
-                                        Paso 1
-Limpiar las caraotas y seleccionar los granos. Desechar todas las que floten en el agua. Colocarlas en una olla con agua, la cebolla picada por la mitad y el pimentón.
-
-Paso 2
-Cocinar a fuego alto hasta que hiervan. Luego, bajar la llama y cocinar aproximadamente una hora hasta que los granos ablanden.
-
-Paso 3
-Retirar la cebolla y el pimentón; Añadir la sal, la pimienta y el papelón o el comino (el que desee).
-
-Paso 4
-Cocinar hasta ablandar y agregar más agua si hace falta. Retirar la espuma que se va formando encima con una espumadera.
-
-Paso 5
-Freír en un caldero la tocineta y cuando suelte la grasa, agregar los ajos, la cebolla rallada y cristalizar; añadir el sofrito a las caraotas y cocinar 20 minutos más o hasta lograr el espesor que se desee.
-
-
-                                    </textarea> <br>
-                                    <br>
-                                </div>
-                            </div>
-
-
-                            <a href="Ver_Receta_Admin.html">
-                                <h5>Guardar</h5>
-                            </a>
-
-                            <a href="Ver_Receta_Admin.html">
-                                <h5>Descartar</h5>
-                            </a>
-                        </center>
-                    </form>
                 </div>
+                <form action="{% url 'modificar' %}" method="POST" name="formRegiRec" id="formRegiRec" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="contact-form-title">
+                                <p style="margin-bottom: 10px;">Id:</p>
+                            </div>
+                            <input type="number" class="form-control" value="{{ receta.idReceta }}" id="imagen" name="imagen" required readonly>
+                        </div>
+                        <div class="col-12">
+                            <div class="contact-form-title">
+                                <p style="margin-bottom: 10px;">Imagen:</p>
+                            </div>
+                            <input type="file" class="form-control" value="{{ receta.fotoReceta }}" id="imagen" name="imagen" required >
+                        </div>
+
+                        <div class="col-12">
+                            <div class="contact-form-title">
+                                <p style="margin-bottom: 10px;">Nombre De La Receta:</p>
+                            </div>
+                            
+                            <input type="text" class="form-control" value="{{ receta.nomReceta }}" id="nomreceta" name="nomreceta" required>
+                        </div>
+                        <div class="col-12">
+                            <div class="contact-form-title">
+                                <p style="margin-bottom: 10px;">Tiempo De Preparacion (minutos):</p>
+                            </div>
+                            
+                            <input type="number" class="form-control" value="{{ receta.tiempo }}" id="tiempo" name="tiempo"
+                                required>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="contact-form-title">
+                                <p style="margin-bottom: 10px;">Nacionalidad:</p>
+                            </div>    
+                            <select class="form-control" style="height: 50px;" name="idNacio" id="idNacio">
+                                {% for x in nacionalidades %}
+                                    {% if x.idNacionalidad == Receta.Nacionalidad.idNacionalidad %}
+                                        <option value="{{ x.idNacionalidad }}" selected>{{ x.nomNacionalidad }}</option>
+                                    {% else %}
+                                        <option value="{{ x.idNacionalidad }}">{{ x.nomNacionalidad }}<option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="contact-form-title">
+                                    <p style="margin-bottom: 10px;">Ingredientes:</p>
+                                </div>
+                                
+                                <textarea class="form-control" id="ingredientes" name="ingredientes" rows="5" cols="40"
+                                    values="{{ receta.ingrediente }}" required></textarea>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="contact-form-title">
+                                    <p style="margin-bottom: 10px;">Preparación:</p>
+                                </div>
+                                
+                                <textarea class="form-control" id="preparacion" name="preparacion" rows="5" cols="40"
+                                    values="{{ receta.preparacion }}" required></textarea> <br>
+                                <br>
+                            </div>
+                        </div>
+
+
+                        <div class="col-12" style="text-align: center;">
+                                <button type="submit" class="btn btn-primary" style="margin-bottom: 10px;">Modificar Receta</button>
+                            </div>
+                        </div> 
+                </form>
             </div>
         </div>
+    </div>
+    </div>
+    </div>
+    </div>
     </div>
     <!-- ***** Menu Area End ***** -->
 

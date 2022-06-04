@@ -103,6 +103,14 @@
         <div class="contact-form-area d-flex justify-content-end">
             <div class="contact-form">
                 <div class="contact-form-title">
+                    {% if messages %}
+            <div>
+                {% for i in messages %}
+                    <p style="color: red;">{{ i }}</p>
+                {% endfor %}
+            </div>
+
+            {% endif %}
 
                 </div>
                 <form action="{% url 'registrarRecetas' %}" method="POST" name="formRegiRec" id="formRegiRec" enctype="multipart/form-data">

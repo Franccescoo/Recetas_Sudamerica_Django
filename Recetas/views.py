@@ -152,6 +152,10 @@ def registrarRecetas(request):
 
     Receta.objects.create(fotoReceta =imagen2, nomReceta =nomreceta2, ingrediente =ingredientes2, preparacion=preparacion2, tiempo=tiempo2, Nacionalidad=Nacionalidad3 )
 
+    messages.success(request, 'Receta Registrada')
+
+    return redirect('Creacion_Recetas')
+
 
 def listadoUsuario(request):
     usuario = Usuario.objects.all()
@@ -185,4 +189,39 @@ def eliminar_receta(request,id):
     rec.delete() #Elimina registro
     messages.success(request,'Receta Eliminada')
 
+    return redirect('Ver_Receta_Admin')
+
+def modificar_receta_admin(request,id):
+    receta1 = Receta.objects.get(idReceta = id)
+    Nacio1 = Nacionalidad.objects.all()
+    
+    contexto = {
+        "receta" :receta1,
+        'nacionalidades' : Nacio1
+
+    }
+    return render(request,'Recetas/Editar_Recetas_Admin.html',contexto)
+
+def modificar(request, id):
+    imagen2          = request.FILES['imagen']
+    nom_r       = request.POST['nomreceta']
+    tiempo_r          = request.POST['tiempo']
+    idNacio_r  = request.POST['idNacio']
+    ingre_r    = request.POST['ingredientes']
+    prepa_r     = request.POST['preparacion']
+
+    receta = Receta.objects.get(idReceta = id)
+
+    receta.nomReceta = nom_r
+    receta.ingrediente = ingre_r
+    receta.preparacion = prepa_r
+    receta.tiempo = tiempo_r
+    receta.fotoReceta = imagen2
+    
+    idNacio_r2 = Nacionalidad.objects.get(idNacionalidad = idNacio_r)
+
+    receta.Nacionalidad = idNacio_r2
+    receta.save() #update
+
+    messages.succes(request, 'Receta modificada')
     return redirect('Ver_Receta_Admin')
