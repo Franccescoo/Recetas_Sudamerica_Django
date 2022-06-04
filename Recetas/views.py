@@ -21,9 +21,18 @@ def login_app(request):
         return redirect ('login')
 
 
+def Ver_Receta_Admin(request):
+    RecetasChile = Receta.objects.all()
+    return render(request,'Recetas/Ver_Receta_Admin.html', {"RecetasChile": RecetasChile})
+
 def Menu_Recetas(request):
     RecetasChile = Receta.objects.all()
     return render(request,'Recetas/Menu_Recetas.html', {"RecetasChile": RecetasChile})
+
+def Ver_Usuario_Admin(request):
+    UserAdmin = Usuario.objects.all()
+    return render(request,'Recetas/Ver_Usuario_Admin.html', {"UserAdmin": UserAdmin})
+
 
 def aamate(request):
     return render(request,'Recetas/aamate.html')
@@ -45,9 +54,6 @@ def Vista_de_Admin(request):
 
 def Ver_Receta_Admin(request):
     return render(request,'Recetas/Ver_Receta_Admin.html')
-
-def Ver_Usuario_Admin(request):
-    return render(request,'Recetas/Ver_Usuario_Admin.html')
 
 def Editar_Recetas_Admin(request):
     return render(request,'Recetas/Editar_Recetas_Admin.html')
@@ -108,9 +114,6 @@ def RecetaUruguay(request):
 
 def registrarse(request):
     return render(request,'Recetas/registrarse.html')
-
-def Ver_Receta_Admin(request):
-    return render(request,'Recetas/Ver_Receta_Admin.html')
 
 def Ver_Receta_Usuario(request):
     return render(request,'Recetas/Ver_Receta_Usuario.html')

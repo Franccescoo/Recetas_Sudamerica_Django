@@ -123,116 +123,44 @@
 
                     <div>
                         <!-- Single Gallery Item -->
-
                         <div class="container" style="margin-bottom: 100px;">
                             <div class="row">
                                 <div class="col-12 menu-heading">
                                     <div class="section-heading text-center">
-
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-
-                                <div class="col-12 col-sm-12 col-md-4">
-                                    <div class="caviar-single-dish wow fadeInUp" data-wow-delay="0.5s">
-                                        <img src="{% static 'Recetas/img/imgVenezuela/pabellon1.png' %}" alt="Sin Imagen">
-                                        <div class="dish-info">
-                                            <h6 class="dish-name">Pabellón Criollo</h6>
-                                            <a href="Editar_Recetas_Admin.html">
-                                                <p class="dish-price">Editar</p>
-                                            </a>
-                                            <a href="Vista_de_Admin.html">
-                                                <p class="dish-price" style="font-size: 12PX;">Eliminar</p>
-                                            </a>
+                
+                            <!-- ***** Ciclo para plantilla de recetas ***** -->
+                
+                            {% if RecetasChile %}
+                                {% for Receta in RecetasChile %}
+                                    {% if forloop.first %}<div class="row">{% endif %}
+                                    <div class="col-lg-3 col-md-5 col-sm-12" style="padding-top: 20px;">
+                                        <a href="">
+                                                <div class="card">
+                                                <img class="card-img-top"  src="{{ Receta.fotoReceta.url }}" style="height: 220px;" alt="{{ Receta.nomReceta }}">    
+                                                <div class="card-body">
+                                                    <h5 class="card-tittle">{{ Receta.nomReceta}}</h5>
+                                                    <hr />
+                                                    <h6 class="card-subtittle" >Autor: {{ Receta.Usuario.nomUsuario }}</h6>
+                                                    <h6 class="card-subtittle" >País: {{ Receta.Nacionalidad }}</h6>
+                                                </div>
+                                        </a>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="col-12 col-sm-12 col-md-4">
-                                    <div class="caviar-single-dish wow fadeInUp" data-wow-delay="1s">
-                                        <img src="{% static 'Recetas/img/imgVenezuela/arepa.png' %}" alt="Sin Imagen">
-                                        <div class="dish-info">
-                                            <h6 class="dish-name">Arepa</h6>
-                                            <a href="Editar_Recetas_Admin.html">
-                                                <p class="dish-price">Editar</p>
-                                            </a>
-                                            <a href="Vista_de_Admin.html">
-                                                <p class="dish-price" style="font-size: 12PX;">Eliminar</p>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-12 col-md-4">
-                                    <div class="caviar-single-dish wow fadeInUp" data-wow-delay="1.5s">
-                                        <img src="{% static 'Recetas/img/imgVenezuela/asado_negro.png' %}" alt="Sin Imagen">
-                                        <div class="dish-info">
-                                            <h6 class="dish-name">Asado Negro</h6>
-                                            <a href="Editar_Recetas_Admin.html">
-                                                <p class="dish-price">Editar</p>
-                                            </a>
-                                            <a href="Vista_de_Admin.html">
-                                                <p class="dish-price" style="font-size: 12PX;">Eliminar</p>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-sm-12 col-md-4" style="margin-top: 10px;">
-                                    <div class="caviar-single-dish wow fadeInUp" data-wow-delay="0.5s">
-                                        <img src="{% static 'Recetas/img/imgVenezuela/bollon.png' %}" alt="Sin Imagen">
-                                        <div class="dish-info">
-                                            <h6 class="dish-name">Bollo pelón</h6>
-                                            <a href="Editar_Recetas_Admin.html">
-                                                <p class="dish-price">Editar</p>
-                                            </a>
-                                            <a href="Vista_de_Admin.html">
-                                                <p class="dish-price" style="font-size: 12PX;">Eliminar</p>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-                                <div class="col-12 col-sm-12 col-md-4"style="margin-top: 10px;">
-                                    <div class="caviar-single-dish wow fadeInUp" data-wow-delay="1s">
-                                        <img src="{% static 'Recetas/img/imgBrasil/caipirinha.png' %}" alt="Sin Imagen">
-                                        <div class="dish-info">
-                                            <h6 class="dish-name">Caipiriña</h6>
-                                            <a href="Editar_Recetas_Admin.html">
-                                                <p class="dish-price">Editar</p>
-                                            </a>
-                                            <a href="Vista_de_Admin.html">
-                                                <p class="dish-price" style="font-size: 12PX;">Eliminar</p>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-12 col-md-4"style="margin-top: 10px;">
-                                    <div class="caviar-single-dish wow fadeInUp" data-wow-delay="1.5s">
-                                        <img src="{% static 'Recetas/img/imgBrasil/Acaraje.png' %}" alt="Sin Imagen">
-                                        <div class="dish-info">
-                                            <h6 class="dish-name">Aracajé</h6>
-                                            <a href="Editar_Recetas_Admin.html">
-                                                <p class="dish-price">Editar</p>
-                                            </a>
-                                            <a href="Vista_de_Admin.html">
-                                                <p class="dish-price" style="font-size: 12PX;">Eliminar</p>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-                            </div>
+                                    {% if forloop.counter|divisibleby:4 %}</div><div class="row">{% endif %}
+                                    {% if forloop.last %}</div>{% endif %}
+                                {% endfor %}
+                            {% endif %}
+                
+                            <!-- ***** FIN FIN Ciclo para plantilla de recetas ***** 
+                            <img class="profile" src="{{ Receta.Usuario.foto.url }}" width="60" height="60"  alt="no hay">    
+                            -->
+                
+                
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                    
     <!-- ***** Menu Area End ***** -->
 
     <!-- ***** Special Menu Area Start ***** -->
