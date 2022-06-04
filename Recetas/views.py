@@ -23,10 +23,9 @@ def login_app(request):
         return redirect ('login')
 
 
-
 def Ver_Receta_Admin(request):
-    RecetasAdmin = Receta.objects.all()
-    return render(request,'Recetas/Ver_Receta_Admin.html', {"RecetasAdmin": RecetasAdmin})
+    RecetasChile = Receta.objects.all()
+    return render(request,'Recetas/Ver_Receta_Admin.html', {"RecetasChile": RecetasChile})
 
 def Menu_Recetas(request):
     RecetasChile = Receta.objects.all()
@@ -34,8 +33,8 @@ def Menu_Recetas(request):
 
 def Ver_Usuario_Admin(request):
     UserAdmin = Usuario.objects.all()
-    return render(request,'Recetas/Ver_Usuario_Admin.html', {"UserAdmin": UserAdmin})
-
+    contexto = {"usuario":UserAdmin}
+    return render(request,'Recetas/Ver_Usuario_Admin.html',contexto)
 
 
 def aamate(request):
@@ -55,6 +54,9 @@ def contact(request):
 
 def Vista_de_Admin(request):
     return render(request,'Recetas/Vista_de_Admin.html')
+
+def Ver_Receta_Admin(request):
+    return render(request,'Recetas/Ver_Receta_Admin.html')
 
 def Editar_Recetas_Admin(request):
     return render(request,'Recetas/Editar_Recetas_Admin.html')
