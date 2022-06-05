@@ -45,6 +45,7 @@ def registrarUsuario(request):
         x = Usuario.objects.get(username = nick)
         x = Usuario.objects.get(email = email2)
         # messages.error(request, 'Nombre de usuario o correo ya ocupados')
+        messages.success(request, 'El nombre de usuario o correo ya estan ocupados')
         return redirect ('registrarse')
 
     except Usuario.DoesNotExist:
@@ -54,6 +55,7 @@ def registrarUsuario(request):
         contexto ={
         "sesion":sesion
         }
+        messages.success(request, 'Cuenta registrada')
         return render(request,"Recetas/Vista_de_Usuario.html",contexto)
 
 def login_app(request):

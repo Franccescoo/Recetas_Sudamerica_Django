@@ -112,7 +112,16 @@
                 </div>
                 <form action="{% url 'registrarUsuario' %}" method="POST" name="formRegi" id="formRegi" enctype="multipart/form-data">
                     {% csrf_token %}
+                    {% if messages %}
+                    <div>
+                        {% for i in messages %}
+                        <p style="color: red;">{{ i }}</p>
+                        {% endfor %}
+                    </div>
+    
+                    {% endif %}
                     <div class="row">
+                        
                         <div class="col-12 contact-form-title" >
                             <p style="margin-bottom: 10px;">Nombre(s):</p>
                             <input type="text" class="form-control" placeholder="Ej: Alexander" id="nomUser" name="nomUser" required>
