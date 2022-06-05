@@ -266,7 +266,8 @@ def modificar_receta_admin(request,id):
     }
     return render(request,'Recetas/Editar_Recetas_Admin.html',contexto)
 
-def modificar(request, id):
+def modificar(request):
+    iden          = request.POST['identificador']
     imagen2          = request.FILES['imagen']
     nom_r       = request.POST['nomreceta']
     tiempo_r          = request.POST['tiempo']
@@ -274,7 +275,7 @@ def modificar(request, id):
     ingre_r    = request.POST['ingredientes']
     prepa_r     = request.POST['preparacion']
 
-    receta = Receta.objects.get(idReceta = id)
+    receta = Receta.objects.get(idReceta = iden)
 
     receta.nomReceta = nom_r
     receta.ingrediente = ingre_r
@@ -287,5 +288,5 @@ def modificar(request, id):
     receta.Nacionalidad = idNacio_r2
     receta.save() #update
 
-    messages.succes(request, 'Receta modificada')
+    #messages.succes(request, 'Receta modificada')
     return redirect('Ver_Receta_Admin')
