@@ -25,6 +25,8 @@
 
     <!-- Core Stylesheet -->
     <link href="{% static 'Recetas/css/style.css' %}" rel="stylesheet">
+    <!-- Core Stylesheet -->
+    <link href="{% static 'Recetas/css/boton.css' %}" rel="stylesheet">
 
     <!-- Responsive CSS -->
     <link href="{% static 'Recetas/css/responsive/responsive.css' %}" rel="stylesheet">
@@ -141,10 +143,10 @@
                                 <h6 class="card-subtittle">País: {{ Receta.Nacionalidad }}</h6>
                                 <div class="container">
                                     <div class="col-md-12">
-                                        <a class="btn btn-danger" style="margin-bottom: 10px;" href="{% url 'eliminar_receta' Receta.idReceta %} ">Eliminar</a><br>
+                                        <a class="gradient-button gradient-button-2" style="margin-bottom: 10px;" href="{% url 'eliminar_receta' Receta.idReceta %} ">Eliminar</a><br>
                                     </div>
                                     <div class="col-md-12">
-                                        <a class="btn btn-primary" href="{% url 'modificar_receta' Receta.idReceta %}">Modificar</a><br>
+                                        <a class="gradient-button gradient-button-1" href="{% url 'modificar_receta' Receta.idReceta %}">Modificar</a><br>
                                     </div>
                                 </div>
                                
