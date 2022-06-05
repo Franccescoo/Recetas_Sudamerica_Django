@@ -26,18 +26,7 @@ def usuario(request,id):
     
     return render(request,'Recetas/usuario.html',contexto)
 
-def recetas(request,id):
-    receta1 = Receta.objects.get(idReceta=id)
-    nacionalidad1 = Nacionalidad.objects.all()
-    usuario1 = Usuario.objects.all()
 
-    contexto = {
-        "receta":receta1,
-        "nacionalidad":nacionalidad1,
-        "usuario":usuario1
-    }
-    
-    return render(request,'Recetas/recetas.html',contexto)
 
 def Login(request):
     return render(request,'Recetas/Login.html')
@@ -63,13 +52,7 @@ def login_app(request):
 
 
 
-def Ver_Receta_Admin(request):
-    RecetasAdmin = Receta.objects.all()
-    return render(request,'Recetas/Ver_Receta_Admin.html', {"RecetasAdmin": RecetasAdmin})
 
-def Menu_Recetas(request):
-    RecetasChile = Receta.objects.all()
-    return render(request,'Recetas/Menu_Recetas.html', {"RecetasChile": RecetasChile})
 
 def Ver_Usuario_Admin(request):
     UserAdmin = Usuario.objects.all()
@@ -94,10 +77,53 @@ def registrarse(request):
 def contact(request):
     return render(request,'Recetas/contact.html')
 
+def recetas(request,id):
+    receta1 = Receta.objects.get(idReceta=id)
+    nacionalidad1 = Nacionalidad.objects.all()
+    usuario1 = Usuario.objects.all()
+
+    contexto = {
+        "receta":receta1,
+        "nacionalidad":nacionalidad1,
+        "usuario":usuario1
+    }
+    
+    return render(request,'Recetas/recetas.html',contexto)
+
+def modificar_receta(request,id):
+    receta1 = Receta.objects.get(idReceta=id)
+    nacionalidad1 = Nacionalidad.objects.all()
+    usuario1 = Usuario.objects.all()
+
+    contexto = {
+        "receta":receta1,
+        "nacionalidad":nacionalidad1,
+        "usuario":usuario1
+    }
+    
+    return render(request,'Recetas/modificar_receta.html',contexto)
+
+def Ver_Receta_Admin(request):
+    RecetasAdmin = Receta.objects.all()
+    return render(request,'Recetas/Ver_Receta_Admin.html', {"RecetasAdmin": RecetasAdmin})
+
+def Menu_Recetas(request):
+    RecetasChile = Receta.objects.all()
+    return render(request,'Recetas/Menu_Recetas.html', {"RecetasChile": RecetasChile})
 
 
-def Editar_Recetas_Admin(request):
-    return render(request,'Recetas/Editar_Recetas_Admin.html')
+def Editar_Recetas_Admin(request,id):
+    receta1 = Receta.objects.get(idReceta=id)
+    nacionalidad1 = Nacionalidad.objects.all()
+    usuario1 = Usuario.objects.all()
+
+    contexto = {
+        "receta":receta1,
+        "nacionalidad":nacionalidad1,
+        "usuario":usuario1
+    }
+
+    return render(request,'Recetas/Editar_Recetas_Admin.html',contexto)
 
 def menu(request):
     return render(request,'Recetas/menu.html')

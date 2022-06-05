@@ -1,10 +1,12 @@
 from unicodedata import name
 from django.urls import URLPattern, path
-from .views import usuario,recetas,login_app,aamate,eliminar_receta, Menu_Recetas, index, aatest, contact, registrarRecetas, Creacion_Recetas, registrarRecetas, Editar_Recetas_Admin, Editar_Recetas, Login, listadoRecetas, menu, modificar_usuario_admin, modificar_vista_usuario, RecetaArgentina, RecetaChile, RecetaEcuador, RecetaPeru, RecetasBrasil, RecetasColombia, RecetasVenezuela, RecetaUruguay, registrarse, Ver_Receta_Admin, Ver_Receta_Usuario, Ver_Usuario_Admin, Vista_de_Admin, Vista_de_Usuario, registrarUsuario,listadoRecetas,eliminar_usuario,modificar_receta_admin,modificar
+from .views import modificar_receta,usuario,recetas,login_app,aamate,eliminar_receta, Menu_Recetas, index, aatest, contact, registrarRecetas, Creacion_Recetas, registrarRecetas, Editar_Recetas_Admin, Editar_Recetas, Login, listadoRecetas, menu, modificar_usuario_admin, modificar_vista_usuario, RecetaArgentina, RecetaChile, RecetaEcuador, RecetaPeru, RecetasBrasil, RecetasColombia, RecetasVenezuela, RecetaUruguay, registrarse, Ver_Receta_Admin, Ver_Receta_Usuario, Ver_Usuario_Admin, Vista_de_Admin, Vista_de_Usuario, registrarUsuario,listadoRecetas,eliminar_usuario,modificar_receta_admin,modificar
 from . import views
 from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
+    path('modificar_receta/<int:id>',modificar_receta,name="modificar_receta"),
+    path('Editar_Recetas_Admin/<int:id>',Editar_Recetas_Admin,name="Editar_Recetas_Admin"),
     path('usuario/<int:id>',usuario,name="usuario"),
     path('recetas/<int:id>',recetas,name="recetas"),
     path('Menu_Recetas/',Menu_Recetas,name="Menu_Recetas"),
@@ -15,7 +17,7 @@ urlpatterns = [
     path('aatest/',aatest,name="aatest"),
     path('contact/',contact,name="contact"),
     path('Creacion_Recetas/',Creacion_Recetas,name="Creacion_Recetas"),
-    path('Editar_Recetas_Admin/',Editar_Recetas_Admin,name="Editar_Recetas_Admin"),
+    
     path('Editar_Recetas/',Editar_Recetas,name="Editar_Recetas"),
     
     path('menu/',menu,name="menu"),
