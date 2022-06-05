@@ -3,7 +3,12 @@ from django.shortcuts import render, redirect
 from .models import Usuario,Receta,Nacionalidad,RolUsuario
 from django.contrib import messages
 # Create your views here.
-
+def Vista_de_Admin(request,id):
+    sesion = Usuario.objects.get(idUsuario=id)
+    contexto={
+        "sesion":sesion
+    }
+    return render(request,'Recetas/Vista_de_Admin.html',contexto)
 
 
 def usuario(request,id):
@@ -89,8 +94,7 @@ def registrarse(request):
 def contact(request):
     return render(request,'Recetas/contact.html')
 
-def Vista_de_Admin(request):
-    return render(request,'Recetas/Vista_de_Admin.html')
+
 
 def Editar_Recetas_Admin(request):
     return render(request,'Recetas/Editar_Recetas_Admin.html')
