@@ -31,6 +31,31 @@ def usuario(request,id):
 def Login(request):
     return render(request,'Recetas/Login.html')
 
+
+
+def registrarUsuario(request):
+    nombre2     = request.POST['nomUser']
+    apellido2   = request.POST['apeUser']
+    nick        = request.POST['nickUserName']
+    foto2       = request.FILES['foto1']
+    email2      = request.POST['email']
+    contra2     = request.POST['password1']
+
+    try:
+        x = Usuario.objects.get(username = nick)
+        x = Usuario.objects.get(email = email2)
+        # messages.error(request, 'Nombre de usuario o correo ya ocupados')
+        return redirect ('registrarse')
+
+    except Usuario.DoesNotExist:
+        # messages.error(request, 'Cargando')
+        Usuario.objects.create(nomUsuario = nombre2, apellidoCompleto = apellido2, username = nick, email = email2, foto = foto2, contrasena = contra2)
+        sesion = Usuario.objects.get(username=nick)
+        contexto ={
+        "sesion":sesion
+        }
+        return render(request,"Recetas/Vista_de_Usuario.html",contexto)
+
 def login_app(request):
     us = request.POST['nomUser']
     cl = request.POST['pass']
@@ -227,18 +252,9 @@ def listadoUsuario(request):
     return render(request,"Recetas/Ver_Usuario_Admin.html", contexto)
 
 
-def registrarUsuario(request):
-    nombre2     = request.POST['nomUser']
-    apellido2   = request.POST['apeUser']
-    nick        = request.POST['nickUserName']
-    foto2       = request.FILES['foto1']
-    email2      = request.POST['email']
-    contra2     = request.POST['password1']
 
-    Usuario.objects.create(nomUsuario = nombre2, apellidoCompleto = apellido2, username = nick, email = email2, foto = foto2, contrasena = contra2)
-    Nacio = Nacionalidad.objects.all()
-    contexto = {"lista_r":Nacio}
-    return render(request,"Recetas/Creacion_Recetas.html",contexto)
+    
+    
 
 
 def eliminar_usuario(request,id):
