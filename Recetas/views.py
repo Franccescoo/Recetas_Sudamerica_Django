@@ -4,14 +4,47 @@ from .models import Usuario,Receta,Nacionalidad,RolUsuario
 from django.contrib import messages
 # Create your views here.
 
+
+
+def usuario(request,id):
+    usuario1 = Usuario.objects.get(idUsuario=id)
+    receta1 = Receta.objects.all()
+    RolUsuario1 = RolUsuario.objects.all()
+    Recet = Receta.objects.all()
+    
+    contexto = {
+        "receta":receta1,
+        "RolUsuario":RolUsuario1,
+        "usuario":usuario1,
+        "Recetas":Recet
+    }
+    
+    return render(request,'Recetas/usuario.html',contexto)
+
+def recetas(request,id):
+    receta1 = Receta.objects.get(idReceta=id)
+    nacionalidad1 = Nacionalidad.objects.all()
+    usuario1 = Usuario.objects.all()
+
+    contexto = {
+        "receta":receta1,
+        "nacionalidad":nacionalidad1,
+        "usuario":usuario1
+    }
+    
+    return render(request,'Recetas/recetas.html',contexto)
+
+def Login(request):
+    return render(request,'Recetas/Login.html')
+
 def login_app(request):
-    us = request.POST['username']
+    us = request.POST['nomUser']
     cl = request.POST['pass']
     try:
         x = Usuario.objects.get(username = us, contrasena = cl)
-        rol2 = RolUsuario.objects.get(nomRolUsuario = 'Administrador')
+        rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
 
-        if x.nomRolUsuario == rol2:
+        if x.RolUsuario.nomRol == rol2.nomRol:
             contexto ={"usuario":x}
             return render(request, 'Recetas/Vista_de_Admin.html',contexto)
         else:
@@ -20,7 +53,8 @@ def login_app(request):
 
     except Usuario.DoesNotExist:
         # messages.error(request, 'Usuario y/o clave incorrecta')
-        return redirect ('login')
+        return redirect ('Login')
+        
 
 
 
@@ -45,8 +79,9 @@ def aamate(request):
 def index(request):
     return render(request,'Recetas/index.html')
 
-def Login(request):
-    return render(request,'Recetas/Login.html')
+def Vista_de_Admin(request):
+    return render(request,'Recetas/Vista_de_Admin.html')
+
 
 def registrarse(request):
     return render(request,'Recetas/registrarse.html')
@@ -121,8 +156,7 @@ def Ver_Receta_Usuario(request):
     return render(request,'Recetas/Ver_Receta_Usuario.html')
 
 
-def Vista_de_Admin(request):
-    return render(request,'Recetas/Vista_de_Admin.html')
+
 
 def Vista_de_Usuario(request):
     return render(request,'Recetas/Vista_de_Usuario.html')

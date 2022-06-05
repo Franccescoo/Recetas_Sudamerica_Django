@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Recetas'
+    'Recetas',
+    
 ]
 
 MIDDLEWARE = [
@@ -78,7 +79,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
         'NAME': '127.0.0.1:1521/xe',
-        'USER': 'recetaSudamerica',
+        'USER': 'recetaSudamer',
         'PASSWORD': 'oracle',
         'TEST':{
             'USER': 'default_test',

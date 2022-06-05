@@ -135,32 +135,21 @@
                 <div class="contact-form-title">
                     <p style="margin-top: 20px;">Iniciar Sesión</p>
                 </div>
-                <form action="" method="POST" id="log">
+                <form action="{% url 'login_app' %}" method="POST" id="log">
                     <div class="row">
                        {% csrf_token %} 
-                       {{ form }}
+                       
                         <div>
                             <label>Nombre de Usuario</label>
-                            <input type="text" class="form-control" id="nomUser" placeholder="ej: Noditian1" required>
+                            <input type="text" class="form-control" id="nomUser" name="nomUser" placeholder="ej: Noditian1" required>
                         </div>
                         <div>
                             <label>Contraseña</label>
-                            <input type="password" class="form-control" id="pass" placeholder="ej: Patatun1" required>
+                            <input type="password" class="form-control" id="pass" name="pass" placeholder="ej: Patatun1" required>
                         </div>
                         <div>
                             <input type="submit" class="btn btn-primary">
-                        </div>
-                        <div>
-                            <p id="mensajeLog"></p>
-                        </div>
-                        <div>
-
-                            <a href="{% url 'Vista_de_Usuario' %}" style="margin-bottom: 20px;">
-                                <p id="iniUser"></p>
-                            </a>
-                            <a href="{% url 'Vista_de_Admin' %}" style="margin-bottom: 20px;">
-                                <p id="iniAdmin"></p>
-                            </a>
+                           
                         </div>
 
                     </div>

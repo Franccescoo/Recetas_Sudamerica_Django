@@ -148,7 +148,10 @@
                                     <img src="{{ m.foto.url }}" style="width: 100%;max-width: 100px;">
                                     {% endif %}
                                 </td>
-                                <td><a class="btn btn-danger" href="{% url 'eliminar_usuario' m.idUsuario %}">Eliminar</a><br>
+                                
+                                <td>
+                                    <a class="btn" href="{% url 'usuario' m.idUsuario %}">Ver</a>
+                                    <a class="btn btn-danger" href="{% url 'eliminar_usuario' m.idUsuario %}">Eliminar</a><br>
 
 
                                 </td>

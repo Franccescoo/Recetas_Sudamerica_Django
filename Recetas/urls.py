@@ -1,12 +1,15 @@
 from unicodedata import name
 from django.urls import URLPattern, path
-from .views import login_app,aamate,eliminar_receta, Menu_Recetas, index, aatest, contact, registrarRecetas, Creacion_Recetas, registrarRecetas, Editar_Recetas_Admin, Editar_Recetas, Login, listadoRecetas, menu, modificar_usuario_admin, modificar_vista_usuario, RecetaArgentina, RecetaChile, RecetaEcuador, RecetaPeru, RecetasBrasil, RecetasColombia, RecetasVenezuela, RecetaUruguay, registrarse, Ver_Receta_Admin, Ver_Receta_Usuario, Ver_Usuario_Admin, Vista_de_Admin, Vista_de_Usuario, registrarUsuario,listadoRecetas,eliminar_usuario,modificar_receta_admin,modificar
+from .views import usuario,recetas,login_app,aamate,eliminar_receta, Menu_Recetas, index, aatest, contact, registrarRecetas, Creacion_Recetas, registrarRecetas, Editar_Recetas_Admin, Editar_Recetas, Login, listadoRecetas, menu, modificar_usuario_admin, modificar_vista_usuario, RecetaArgentina, RecetaChile, RecetaEcuador, RecetaPeru, RecetasBrasil, RecetasColombia, RecetasVenezuela, RecetaUruguay, registrarse, Ver_Receta_Admin, Ver_Receta_Usuario, Ver_Usuario_Admin, Vista_de_Admin, Vista_de_Usuario, registrarUsuario,listadoRecetas,eliminar_usuario,modificar_receta_admin,modificar
 from . import views
 from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
-    path('login_app/',login_app,name="login_app"),
+    path('usuario/<int:id>',usuario,name="usuario"),
+    path('recetas/<int:id>',recetas,name="recetas"),
     path('Menu_Recetas/',Menu_Recetas,name="Menu_Recetas"),
+    path('Login/',Login,name="Login"),
+    path('login_app/',login_app,name="login_app"),
     path('aamate/',aamate,name="aamate"),
     path('',index,name="index"),
     path('aatest/',aatest,name="aatest"),
@@ -14,7 +17,7 @@ urlpatterns = [
     path('Creacion_Recetas/',Creacion_Recetas,name="Creacion_Recetas"),
     path('Editar_Recetas_Admin/',Editar_Recetas_Admin,name="Editar_Recetas_Admin"),
     path('Editar_Recetas/',Editar_Recetas,name="Editar_Recetas"),
-    path('Login/',Login,name="Login"),
+    
     path('menu/',menu,name="menu"),
     path('modificar_usuario_admin/',modificar_usuario_admin,name="modificar_usuario_admin"),
     path('modificar_vista_usuario/',modificar_vista_usuario,name="modificar_vista_usuario"),

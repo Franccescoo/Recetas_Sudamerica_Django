@@ -3,17 +3,17 @@
 
 
 {% block titulo %}
-<title>Alfajor - Recetas de Sudamérica</title>
+<title>{{receta.nomReceta}} - Recetas de Sudamérica</title>
 {% endblock titulo %}
 
 {% block cuerpo %}
 <!-- ***** Breadcumb Area Start ***** -->
-<div class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/hero-5.jpg)">
+<div class="breadcumb-area bg-img bg-overlay" style="background-image: url(../../static/Recetas/img/bg-img/hero-5.jpg)">
     <div class="container h-100">
         <div class="row h-100 align-items-center">
             <div class="col-12">
                 <div class="breadcumb-content">
-                    <h2>Argentina</h2>
+                    <h2>{{receta.Nacionalidad.nomNacionalidad}}</h2>
                 </div>
             </div>
         </div>
@@ -28,16 +28,19 @@
             <div class="col-12 col-md-8">
                 <div class="regular-page-content">
                     <div class="post-title">
+                        <center>
+                            <img src="/media/{{receta.fotoReceta}}" alt="">
+                        </center>
 
-                        <img src="img/food/Alfajor.png" alt="">
-                        <h2>Alfajor</h2>
+                        <h2>{{receta.nomReceta}}</h2>
                         <div>
                             <div style="text-align: center;">
-                                <i class="bi-alarm"></i>Tiempo : 30M |
-                                <i class="bi bi-bar-chart-fill"></i>Autor de la receta : <!-- poner el usuario --> |
+                                <i class="bi-alarm"></i>Tiempo : {{receta.tiempo}}M |
+                                <i class="bi bi-bar-chart-fill"></i>Autor de la receta : {{receta.Usuario.username}}
+                                <!-- poner el usuario --> |
                             </div>
                             <div style="text-align: center;">
-                                <i class="bi bi-map"></i> Pais : Argentina |
+                                <i class="bi bi-map"></i> Pais : {{receta.Nacionalidad.nomNacionalidad}} |
                             </div>
 
                         </div>
@@ -45,37 +48,15 @@
                     <div class="post-content">
                         <h2>Ingredientes</h2>
                         <ul>
-                            <li type="disc">3/4 taza de harina</li> 
-
-                            <li type="disc">4 cucharadas de maicena</li>
-
-                            <li type="disc">1/2 taza de margarina bonella</li>
-
-                            <li type="disc">esencia de vainilla</li>
-
-                            <li type="disc">1 unidad de yemas de huevo</li>
-
-                            <li type="disc">1/2 taza de azúcar impalpable</li>
-                        </ul>>
+                            {{receta.ingrediente}}
+                        </ul>
 
                         <h2>Pasos a seguir</h2>
                         <ol>
-                            <li>
-                                Mezclar el azúcar impalpable, la harina, la maicena, y hacer un pequeño volcán.
-                            </li>
-                            <li>
-                                Batir por 3 minutos a velocidad media la margarina Bonella con la yema y la esencia de
-                                vainilla, e incorporar los ingredientes secos: la harina, la maicena y el azúcar
-                                impalpable, hasta obtener una masa homogénea.
-                            </li>
-                            <li>
-                                Poner la masa en la mesa, con la ayuda de un poco de harina, y con el rodillo estirar y
-                                formar los círculos del tamaño deseado.
-                            </li>
-                            <li>
-                                Llevar al horno a 150 °C de 10 a 12 minutos, dejar enfriar, colocar el manjar y
-                                espolvorear con azúcar impalpable.
-                            </li>
+
+                            {{receta.preparacion}}
+
+
                         </ol>
                     </div>
                 </div>

@@ -54,26 +54,31 @@
             <div class="row h-100">
                 <div class="col-12 h-100">
                     <nav class="h-100 navbar navbar-expand-lg align-items-center">
-                        <a class="navbar-brand" href="{% url 'index' %}">Recetas de Sudamérica</a> 
+                        <a class="navbar-brand" href="{% url 'index' %}">Recetas de Sudamérica</a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#caviarNav"
                             aria-controls="caviarNav" aria-expanded="false" aria-label="Toggle navigation"><span
                                 class="fa fa-bars"></span></button>
                         <div class="collapse navbar-collapse" id="caviarNav">
                             <ul class="navbar-nav ml-auto" id="caviarMenu">
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="{% url 'index' %}">Inicio <span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="{% url 'index' %}">Inicio <span
+                                            class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item dropdown">
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'contact' %}">Contáctanos</a>
                                 </li>
                                 <li class="nav-item dropdown active show">
-                                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa-solid fa-user"></i>  Mi Cuenta</a>
+                                    <a class="nav-link" href="#" id="navbarDropdown" role="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i
+                                            class="fa-solid fa-user"></i> Mi Cuenta</a>
                                     <div class="dropdown-menu show" aria-labelledby="navbarDropdown">
                                         <div class="container">
                                             <div class="row">
-                                                <div class="col-md-12"><a class="dropdown-item" href="{% url 'Login' %}">Iniciar Sesión</a></div>
-                                                <div class="col-md-12"><a class="dropdown-item" href="{% url 'registrarse' %}">Registrarse</a></div>
+                                                <div class="col-md-12"><a class="dropdown-item"
+                                                        href="{% url 'Login' %}">Iniciar Sesión</a></div>
+                                                <div class="col-md-12"><a class="dropdown-item"
+                                                        href="{% url 'registrarse' %}">Registrarse</a></div>
                                             </div>
                                         </div>
                                     </div>
@@ -89,7 +94,8 @@
     <!-- ***** Header Area End ***** -->
 
     <!-- ***** Breadcumb Area Start ***** -->
-    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(../../static/Recetas/img/food/FondoChile.png)">
+    <div class="breadcumb-area bg-img bg-overlay"
+        style="background-image: url(../../static/Recetas/img/food/FondoChile.png)">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -103,45 +109,54 @@
     <!-- ***** Breadcumb Area End ***** -->
 
     <!-- ***** Menu Area Start ***** -->
-    
-        <div class="container" style="margin-bottom: 100px;">
-            <div class="row">
-                <div class="col-12 menu-heading">
-                    <div class="section-heading text-center">
-                    </div>
+
+    <div class="container" style="margin-bottom: 100px;">
+        <div class="row">
+            <div class="col-12 menu-heading">
+                <div class="section-heading text-center">
                 </div>
             </div>
+        </div>
 
-            <!-- ***** Ciclo para plantilla de recetas ***** -->
+        <!-- ***** Ciclo para plantilla de recetas ***** -->
 
-            {% if RecetasChile %}
-                {% for Receta in RecetasChile %}
-                    {% if forloop.first %}<div class="row">{% endif %}
-                    <div class="col-lg-3 col-md-5 col-sm-12" style="padding-top: 20px;">
-                        <a href="">
-                                <div class="card">
-                                <img class="card-img-top"  src="{{ Receta.fotoReceta.url }}" style="height: 220px;" alt="{{ Receta.nomReceta }}">    
-                                <div class="card-body">
-                                    <h5 class="card-tittle">{{ Receta.nomReceta}}</h5>
-                                    <hr />
-                                    <h6 class="card-subtittle" >Autor: {{ Receta.Usuario.nomUsuario }}</h6>
-                                    <h6 class="card-subtittle" >País: {{ Receta.Nacionalidad }}</h6>
-                                </div>
-                        </a>
+        {% if RecetasChile %}
+        {% for Receta in RecetasChile %}
+        {% if forloop.first %}<div class="row">{% endif %}
+            <div class="col-lg-3 col-md-5 col-sm-12" style="padding-top: 20px;">
+                
+                    <div class="card">
+                        <img class="card-img-top" src="{{ Receta.fotoReceta.url }}" style="height: 220px;"
+                            alt="{{ Receta.nomReceta }}">
+                        <div class="card-body">
+                            <h5 class="card-tittle">{{ Receta.nomReceta}}</h5>
+                            <hr />
+                            <h6 class="card-subtittle">Autor: {{ Receta.Usuario.nomUsuario }}</h6>
+                            <h6 class="card-subtittle">País: {{ Receta.Nacionalidad }}</h6>
+                            <a href="{% url 'recetas' Receta.idReceta %}">
+                                <button>
+                                    Ingresar
+                                </button>
+                            </a>
                         </div>
                     </div>
-                    {% if forloop.counter|divisibleby:4 %}</div><div class="row">{% endif %}
-                    {% if forloop.last %}</div>{% endif %}
-                {% endfor %}
-            {% endif %}
+                
+            </div>
+        </div>
+        {% if forloop.counter|divisibleby:4 %}
+    </div>
+    <div class="row">{% endif %}
+        {% if forloop.last %}</div>{% endif %}
+    {% endfor %}
+    {% endif %}
 
-            <!-- ***** FIN FIN Ciclo para plantilla de recetas ***** 
+    <!-- ***** FIN FIN Ciclo para plantilla de recetas ***** 
             <img class="profile" src="{{ Receta.Usuario.foto.url }}" width="60" height="60"  alt="no hay">    
             -->
 
 
-        </div>
-    
+    </div>
+
     <!-- ***** Menu Area End ***** -->
 
     <!-- ***** Footer Area Start ***** -->
@@ -176,5 +191,5 @@
     <script src="{% static 'Recetas/js/others/plugins.js' %}"></script>
     <!-- Active js -->
     <script src="{% static 'Recetas/js/active.js' %}"></script>
-    
+
 </body>
