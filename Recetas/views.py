@@ -1,6 +1,6 @@
 from email import message
 from django.shortcuts import render, redirect
-from .models import Usuario,Receta,Nacionalidad,RolUsuario
+from .models import Usuario,Receta,Nacionalidad,RolUsuario,Comentario
 from django.contrib import messages
 # Create your views here.
 def Vista_de_Admin(request,id):
@@ -98,9 +98,6 @@ def Vista_de_Admin(request):
 
 def registrarse(request):
     return render(request,'Recetas/registrarse.html')
-
-def contact(request):
-    return render(request,'Recetas/contact.html')
 
 def recetas(request,id):
     receta1 = Receta.objects.get(idReceta=id)
@@ -306,3 +303,14 @@ def modificar(request):
 
     #messages.succes(request, 'Receta modificada')
     return redirect('Ver_Receta_Admin')
+
+def registrarComentario(request):
+    nomComen     = request.POST['nomComentario1']
+    correo       = request.POST['emailComentario1']
+    mensa        = request.POST['Mensaje1']
+
+    Comentario.objects.create(nomComentario = nomComen, emailComentario = correo, Mensaje = mensa)
+
+    messages.success(request, 'Mensaje Enviado')
+
+    return redirect('contact')

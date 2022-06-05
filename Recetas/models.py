@@ -45,7 +45,14 @@ class Receta(models.Model):
             return self.nomReceta
 
 
+class Comentario(models.Model):
+    idComentario        = models.AutoField(primary_key=True)
+    nomComentario       = models.CharField(max_length=30, blank=False, null=False)
+    emailComentario     = models.CharField(max_length=30, null=False)
+    Mensaje             = models.CharField(max_length=1000, null=False, blank=False)
 
+    def __str__(self) :
+            return self.nomComentario
 
 
 
