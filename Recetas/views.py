@@ -20,12 +20,18 @@ def registrarRecetas(request,id):
     
     messages.success(request, 'Receta Registrada')
 
+   
     sesion = Usuario.objects.get(idUsuario=id)
-    contexto={
-        "sesion":sesion
-    }
 
-    return redirect('index')
+    rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
+
+    if sesion.RolUsuario.nomRol == rol2.nomRol:
+        contexto ={"sesion":sesion}
+        return render(request, 'Recetas/inicioAdmin.html',contexto)
+    else:
+        contexto ={"sesion":sesion}
+        return render(request, 'Recetas/inicioUser.html',contexto)
+
 
 def Creacion_Recetas(request,id):
     sesion = Usuario.objects.get(idUsuario=id)
@@ -69,6 +75,12 @@ def inicioAdmin(request,sesion):
         "sesion":sesion
     }
     return render(request,'Recetas/inicioAdmin.html',contexto)
+def inicioUser(request,sesion):
+
+    contexto={
+        "sesion":sesion
+    }
+    return render(request,'Recetas/inicioUser.html',contexto)
 
 
 
@@ -314,11 +326,11 @@ def listadoComentario(request):
     return render(request,"Recetas/Ver_Comen_Admin.html", contexto)
 
 def eliminar_comentario(request,id):
-    usuar = Comentario.objects.get(idComentario = id)
+    usuar = Comentario.objects.get(idUsuario = id)
     usuar.delete() #Elimina registro
     messages.success(request,'Comentario Eliminado')
 
-    return redirect('Ver_Comen_Admin')
+    return redirect('Ver_Usuario_Admin')
 
 def eliminar_usuario(request,id):
     usuar = Usuario.objects.get(idUsuario = id)
@@ -333,14 +345,15 @@ def eliminar_receta(request,id,sesi):
     messages.success(request,'Receta Eliminada')
 
     sesion = Usuario.objects.get(idUsuario=sesi)
+
     rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
 
     if sesion.RolUsuario.nomRol == rol2.nomRol:
         contexto ={"sesion":sesion}
-        return render(request, 'Recetas/Ver_Receta_Admin.html',contexto)
+        return render(request, 'Recetas/inicioAdmin.html',contexto)
     else:
         contexto ={"sesion":sesion}
-        return render(request, 'Recetas/Ver_Receta_Usuario.html')
+        return render(request, 'Recetas/inicioUser.html',contexto)
 
 def modificar_receta_admin(request,id):
     receta1 = Receta.objects.get(idReceta = id)
@@ -353,7 +366,7 @@ def modificar_receta_admin(request,id):
     }
     return render(request,'Recetas/Editar_Recetas_Admin.html',contexto)
 
-def modificar(request):
+def modificar(request,sesi):
     iden      = request.POST['identificador']
     autor     = request.POST['autor']   
     imagen2   = request.FILES['imagen']
@@ -378,18 +391,19 @@ def modificar(request):
     
 
     #messages.succes(request, 'Receta modificada')
-    sesion = Usuario.objects.get(idUsuario=autor)
-
+    x = Usuario.objects.get(idUsuario=sesi)
     rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
 
-    if sesion.RolUsuario.nomRol == rol2.nomRol:
-        contexto ={"sesion":sesion}
+    if x.RolUsuario.nomRol == rol2.nomRol:
+        contexto ={"sesion":x}
         return render(request, 'Recetas/inicioAdmin.html',contexto)
     else:
-        contexto ={"sesion":sesion}
+        contexto ={"sesion":x}
         return render(request, 'Recetas/inicioUser.html',contexto)
 
-    return redirect('Ver_Receta_Admin')
+
+
+   
 
 def registrarComentario(request):
     nomComen     = request.POST['nomComentario1']
