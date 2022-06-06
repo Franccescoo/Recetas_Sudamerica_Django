@@ -221,7 +221,7 @@ def Ver_Comen_Admin(request,id):
     comen = Comentario.objects.all()
     contexto = {
         "sesion":sesion,
-        "comen":comen
+        "comentario":comen
         }
     return render(request,'Recetas/Ver_Comen_Admin.html',contexto)
 
@@ -325,19 +325,37 @@ def listadoComentario(request):
     contexto = {"lista_a":comen}
     return render(request,"Recetas/Ver_Comen_Admin.html", contexto)
 
-def eliminar_comentario(request,id):
-    usuar = Comentario.objects.get(idUsuario = id)
+def eliminar_comentario(request,id,sesi):
+    usuar = Comentario.objects.get(idComentario = id)
     usuar.delete() #Elimina registro
     messages.success(request,'Comentario Eliminado')
 
-    return redirect('Ver_Usuario_Admin')
+    x = Usuario.objects.get(idUsuario=sesi)
+    rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
 
-def eliminar_usuario(request,id):
+    if x.RolUsuario.nomRol == rol2.nomRol:
+        contexto ={"sesion":x}
+        return render(request, 'Recetas/inicioAdmin.html',contexto)
+    else:
+        contexto ={"sesion":x}
+        return render(request, 'Recetas/inicioUser.html',contexto)
+
+
+
+def eliminar_usuario(request,id,sesi):
     usuar = Usuario.objects.get(idUsuario = id)
     usuar.delete() #Elimina registro
     messages.success(request,'Usuario Eliminado')
 
-    return redirect('Ver_Usuario_Admin')
+    x = Usuario.objects.get(idUsuario=sesi)
+    rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
+
+    if x.RolUsuario.nomRol == rol2.nomRol:
+        contexto ={"sesion":x}
+        return render(request, 'Recetas/inicioAdmin.html',contexto)
+    else:
+        contexto ={"sesion":x}
+        return render(request, 'Recetas/inicioUser.html',contexto)
 
 def eliminar_receta(request,id,sesi):
     rec = Receta.objects.get(idReceta = id)

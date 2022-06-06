@@ -152,7 +152,10 @@
                                 
                                 <td>
                                     <a class="btn" href="{% url 'usuario' m.idUsuario sesion.idUsuario %}">Ver</a>
-                                    <a class="btn btn-danger" href="{% url 'eliminar_usuario' m.idUsuario %}">Eliminar</a><br>
+                                    {% if sesion.idUsuario == m.idUsuario%}
+                                    {% else %}
+                                    <a class="btn btn-danger" href="{% url 'eliminar_usuario' m.idUsuario sesion.idUsuario %}">Eliminar</a><br>
+                                    {% endif %}
 
 
                                 </td>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-    {% load static %}
+{% load static %}
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="">
@@ -72,9 +73,9 @@
                                             class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{% url 'Menu_Recetas' %}">Recetas</a>
-                                    </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'Menu_Recetas' %}">Recetas</a>
+                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'contact' %}">Contáctanos</a>
                                 </li>
@@ -89,7 +90,8 @@
     <!-- ***** Header Area End ***** -->
 
     <!-- ***** Breadcumb Area Start ***** -->
-    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(../../static/Recetas/img/imgEcuador/fondo_ecuador.jpg)">
+    <div class="breadcumb-area bg-img bg-overlay"
+        style="background-image: url(../../static/Recetas/img/imgEcuador/fondo_ecuador.jpg)">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -112,7 +114,7 @@
     <div class="caviar-food-menu section-padding-150 clearfix" style="padding-top: 50px;">
         <div class="container">
             <div class="row">
-    
+
                 <div class="container">
                     {% if messages %}
                     <div>
@@ -120,14 +122,16 @@
                         <p style="color: red;">{{ i }}</p>
                         {% endfor %}
                     </div>
-    
+
                     {% endif %}
-    
-    
+
+
                     <div class="row">
-                        <center><h1 style="color: rgb(179, 53, 53);">Listado de Comentarios</h1></center>
+                        <center>
+                            <h1 style="color: rgb(179, 53, 53);">Listado de Comentarios</h1>
+                        </center>
                     </div>
-    
+
                     <div class="row" style="overflow-x:auto;">
                         <table class="table table-striped">
                             <tr>
@@ -137,7 +141,8 @@
                                 <td>Mensaje</td>
                                 <td>Accion</td>
                             </tr>
-                            {% for m in comen %}
+                            {% if comentario %}
+                            {% for m in comentario %}
                             <tr>
                                 <td>{{ m.idComentario }}</td>
                                 <td>{{ m.nomComentario }}</td>
@@ -145,20 +150,22 @@
                                 <td>{{ m.Mensaje }}</td>
 
                                 <td>
-                                    <a class="btn btn-danger" href="{% url 'eliminar_comentario' m.idComentario %}">Eliminar</a><br>
+                                    <a class="btn btn-danger"
+                                        href="{% url 'eliminar_comentario' m.idComentario sesion.idUsuario %}">Eliminar</a><br>
                                 </td>
                             </tr>
                             {% endfor %}
-    
-    
+                            {% endif %}
+
+
                         </table>
                     </div>
-    
-    
+
+
                 </div>
-    
-    
-    
+
+
+
             </div>
         </div>
     </div>

@@ -57,8 +57,8 @@ urlpatterns = [
 
     path('listadoRecetas/',listadoRecetas, name="listadoRecetas"),
     path('registrarRecetas',registrarRecetas,name="registrarRecetas"),
-    path('eliminar_usuario/<int:id>',eliminar_usuario, name="eliminar_usuario"),
-    path('eliminar_comentario/<int:id>',eliminar_comentario, name="eliminar_comentario"),
+    path('eliminar_usuario/<int:id>/<int:sesi>',eliminar_usuario, name="eliminar_usuario"),
+    path('eliminar_comentario/<int:id>/<int:sesi>',eliminar_comentario, name="eliminar_comentario"),
     path('modificar_receta_admin',modificar_receta_admin,name="modificar_receta_admin"),
     
 ]
