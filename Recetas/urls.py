@@ -15,6 +15,7 @@ urlpatterns = [
     path('Vista_de_Usuario/<int:id>',views.Vista_de_Usuario,name="Vista_de_Usuario"),
     path('Ver_Comen_Admin/<int:id>',Ver_Comen_Admin,name="Ver_Comen_Admin"),
     path('Ver_Receta_Usuario/<int:id>',Ver_Receta_Usuario,name="Ver_Receta_Usuario"),
+        path('eliminar_receta/<int:id>/<int:sesi>',eliminar_receta, name="eliminar_receta"),
 
 
 
@@ -55,7 +56,6 @@ urlpatterns = [
     path('listadoRecetas/',listadoRecetas, name="listadoRecetas"),
     path('registrarRecetas',registrarRecetas,name="registrarRecetas"),
     path('eliminar_usuario/<int:id>',eliminar_usuario, name="eliminar_usuario"),
-    path('eliminar_receta/<int:id>',eliminar_receta, name="eliminar_receta"),
     path('modificar_receta_admin',modificar_receta_admin,name="modificar_receta_admin"),
     path('modificar',modificar,name="modificar"),
 ]

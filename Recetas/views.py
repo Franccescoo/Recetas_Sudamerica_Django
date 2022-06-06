@@ -121,7 +121,7 @@ def registrarUsuario(request):
 
     try:
         x = Usuario.objects.get(username = nick)
-        x = Usuario.objects.get(email = email2)
+        c = Usuario.objects.get(email = email2)
         messages.error(request, 'El nombre de usuario o correo ya estan ocupados')
         return redirect ('registrarse')
 
@@ -327,12 +327,20 @@ def eliminar_usuario(request,id):
 
     return redirect('Ver_Usuario_Admin')
 
-def eliminar_receta(request,id):
+def eliminar_receta(request,id,sesi):
     rec = Receta.objects.get(idReceta = id)
     rec.delete() #Elimina registro
     messages.success(request,'Receta Eliminada')
 
-    return redirect('Ver_Receta_Admin')
+    sesion = Usuario.objects.get(idUsuario=sesi)
+    rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
+
+    if sesion.RolUsuario.nomRol == rol2.nomRol:
+        contexto ={"sesion":sesion}
+        return render(request, 'Recetas/Ver_Receta_Admin.html',contexto)
+    else:
+        contexto ={"sesion":sesion}
+        return render(request, 'Recetas/Ver_Receta_Usuario.html')
 
 def modificar_receta_admin(request,id):
     receta1 = Receta.objects.get(idReceta = id)
