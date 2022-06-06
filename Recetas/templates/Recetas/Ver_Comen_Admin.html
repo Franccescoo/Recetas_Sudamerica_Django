@@ -145,7 +145,7 @@
                                 <td>{{ m.Mensaje }}</td>
 
                                 <td>
-                                    <a class="btn btn-danger" href="#">Eliminar</a><br>
+                                    <a class="btn btn-danger" href="{% url 'eliminar_comentario' m.idComentario %}">Eliminar</a><br>
                                 </td>
                             </tr>
                             {% endfor %}

@@ -314,11 +314,11 @@ def listadoComentario(request):
     return render(request,"Recetas/Ver_Comen_Admin.html", contexto)
 
 def eliminar_comentario(request,id):
-    usuar = Comentario.objects.get(idUsuario = id)
+    usuar = Comentario.objects.get(idComentario = id)
     usuar.delete() #Elimina registro
     messages.success(request,'Comentario Eliminado')
 
-    return redirect('Ver_Usuario_Admin')
+    return redirect('Ver_Comen_Admin')
 
 def eliminar_usuario(request,id):
     usuar = Usuario.objects.get(idUsuario = id)
