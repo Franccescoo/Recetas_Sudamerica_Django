@@ -191,6 +191,29 @@ def registrarse(request):
 def Ver_Receta_Usuario(request):
     return render(request,'Recetas/Ver_Receta_Usuario.html')
 
+def RecetaArgentina(request):
+    return render(request,'Recetas/RecetaArgentina.html')
+
+def RecetaChile(request):
+    return render(request,'Recetas/RecetaChile.html')
+
+def RecetaEcuador(request):
+    return render(request,'Recetas/RecetaEcuador.html')
+
+def RecetaPeru(request):
+    return render(request,'Recetas/RecetaPeru.html')
+
+def RecetasBrasil(request):
+    return render(request,'Recetas/RecetasBrasil.html')
+
+def RecetasColombia(request):
+    return render(request,'Recetas/RecetasColombia.html')
+
+def RecetasVenezuela(request):
+    return render(request,'Recetas/RecetasVenezuela.html')
+
+def RecetaUruguay(request):
+    return render(request,'Recetas/RecetaUruguay.html')
 
 
 
