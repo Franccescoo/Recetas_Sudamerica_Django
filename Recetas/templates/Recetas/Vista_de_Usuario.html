@@ -1,39 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        {% load static %}
-        <meta charset="UTF-8">
-        <meta name="description" content="">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    
-        <!-- Title -->
-        <title>Recetas de Sudamérica - Chile | Menu</title>
-    
-        <!-- Favicon -->
-        <link rel="icon" href="{% static 'Recetas/img/core-img/cocinero.png' %}">
-    
-        <!-- Core Stylesheet -->
-        <link href="{% static 'Recetas/css/style.css' %}" rel="stylesheet">
-        <!-- Core Stylesheet -->
-        <link href="{% static 'Recetas/css/boton.css' %}" rel="stylesheet">
-    
-        <!-- Responsive CSS -->
-        <link href="{% static 'Recetas/css/responsive/responsive.css' %}" rel="stylesheet">
-    
-        <!--Popup-->
-        <link rel="stylesheet" href="{% static 'Recetas/css/popup.css' %}" rel="stylesheet">
-    
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    
-    
-    </head>
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>Recetas de Sudamérica</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'Recetas/img/core-img/cocinero.png' %}">
+
+    <!-- Core Stylesheet -->
+    <link href="{% static 'Recetas/css/style.css' %}" rel="stylesheet">
+
+    <!-- Responsive CSS -->
+    <link href="{% static 'Recetas/css/responsive/responsive.css' %}" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'Recetas/css/Usuario.css' %}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+</head>
 
 <body>
-
-
     <!-- ***** Search Form Area ***** -->
     <div class="caviar-search-form d-flex align-items-center">
         <div class="container">
@@ -58,14 +52,15 @@
             <div class="row h-100">
                 <div class="col-12 h-100">
                     <nav class="h-100 navbar navbar-expand-lg align-items-center">
-                        <a class="navbar-brand" href="index.html">Recetas de Sudamérica</a>
+                        <a class="navbar-brand" href="{% url 'index' %}">Recetas de Sudamérica</a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#caviarNav"
                             aria-controls="caviarNav" aria-expanded="false" aria-label="Toggle navigation"><span
                                 class="fa fa-bars"></span></button>
                         <div class="collapse navbar-collapse" id="caviarNav">
                             <ul class="navbar-nav ml-auto" id="caviarMenu">
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="{% url 'index' %}">Inicio <span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="{% url 'index' %}">Inicio <span
+                                            class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'Menu_Recetas' %}">Recetas</a>
@@ -73,16 +68,8 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'contact' %}">Contáctanos</a>
                                 </li>
-                                <li class="nav-item dropdown active show">
-                                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa-solid fa-user"></i>  Mi Cuenta</a>
-                                    <div class="dropdown-menu show" aria-labelledby="navbarDropdown">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-md-12"><a class="dropdown-item" href="{% url 'Login' %}">Iniciar Sesión</a></div>
-                                                <div class="col-md-12"><a class="dropdown-item" href="{% url 'registrarse' %}">Registrarse</a></div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'index' %}">Cerrar Sesión</a>
                                 </li>
                             </ul>
 
@@ -99,9 +86,9 @@
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-md-7 col-sm-12">
-                    <img class="perfil" src="img/Token/Mattheus.png" alt="">
+                    <img class="perfil" src="/media/{{sesion.foto}}" alt="">
 
-                    <p id="texto">Mattheus1</p>
+                    <p id="texto_admin">{{sesion.username}}</p>
                 </div>
             </div>
         </div>
@@ -110,10 +97,11 @@
 
     <!-- ***** Contact Area Start ***** -->
     <div class="topnav">
-        <a href="Vista_de_Usuario.html">Ver Perfil</a>
-        <a href="Ver_Receta_Usuario.html">Ver Recetas</a>
-        <a href="Creacion_Recetas.html">Subir Recetas</a>
+        <a href="{% url 'Vista_de_Usuario' sesion.idUsuario %}">Ver Perfil</a>
+        <a href="{% url 'Ver_Receta_Usuario' sesion.idUsuario %}">Ver Recetas</a>
+        <a href="{% url 'Creacion_Recetas' sesion.idUsuario %}">Subir Recetas</a>
     </div>
+    
 
     <div class="caviar-contact-area d-md-flex align-items-center" id="contact">
         <div class="contact-form-area d-flex justify-content-end">
@@ -124,26 +112,22 @@
                 <form action="#">
                     <div class="row">
                         <div class="col-12">
-                            <p>Nombre(s): Matias Ignacio</p>
+                            <p>Nombre(s): {{sesion.nomUsuario}} </p>
 
                         </div>
                         <div class="col-12">
-                            <p>Apellido(s): Peñaloza Jara</p>
+                            <p>Apellido(s): {{sesion.apellidoCompleto}} </p>
 
                         </div>
                         <div class="col-12">
-                            <p>Nombre de Usuario: Mattheus1</p>
+                            <p>Nombre de Usuario: {{sesion.username}}</p>
 
                         </div>
                         <div class="col-12">
                             <p>Contraseña: ************</p>
                         </div>
                         <div class="col-12">
-                            <p>Email: matpenaloza@duocuc.cl</p>
-                        </div>
-                        <div class="col-12">
-                            <a href="modificar_vista_usuario.html" type="submit" class="gradient-button gradient-button-1"><span></span>Modificar
-                            </a>
+                            <p>Email: recetasdesudamerica@gmail.com</p>
                         </div>
                     </div>
                 </form>
@@ -158,7 +142,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="footer-text">
-                        <a href="index.html" class="navbar-brand">Recetas de Sudamérica</a>
+                        <a href="{% url 'index' %}" class="navbar-brand">Recetas de Sudamérica</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         <p style="color: beige;">Copyright Recetas de Sudamérica&copy;
                             <script>document.write(new Date().getFullYear());</script>
@@ -182,6 +166,7 @@
     <script src="{% static 'Recetas/js/bootstrap/bootstrap.min.js' %}"></script>
     <!-- All Plugins js -->
     <script src="{% static 'Recetas/js/others/plugins.js' %}"></script>
+   
     <!-- Active js -->
     <script src="{% static 'Recetas/js/active.js' %}"></script>
 </body>

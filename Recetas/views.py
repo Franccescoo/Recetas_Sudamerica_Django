@@ -3,6 +3,82 @@ from django.shortcuts import render, redirect
 from .models import Usuario,Receta,Nacionalidad,RolUsuario,Comentario
 from django.contrib import messages
 # Create your views here.
+def registrarRecetas(request,id):
+    Usuario2         = request.POST['autor']
+    imagen2          = request.FILES['imagen']
+    nomreceta2       = request.POST['nomreceta']
+    tiempo2          = request.POST['tiempo']
+    idNacionalidad2  = request.POST['idNacio']
+    ingredientes2    = request.POST['ingredientes']
+    preparacion2     = request.POST['preparacion']
+
+    Nacionalidad3    = Nacionalidad.objects.get(idNacionalidad = idNacionalidad2)
+    Usuario3         = Usuario.objects.get(idUsuario = Usuario2)
+
+
+    Receta.objects.create(Usuario=Usuario3,fotoReceta =imagen2, nomReceta =nomreceta2, ingrediente =ingredientes2, preparacion=preparacion2, tiempo=tiempo2, Nacionalidad=Nacionalidad3 )
+    
+    messages.success(request, 'Receta Registrada')
+
+    sesion = Usuario.objects.get(idUsuario=id)
+    contexto={
+        "sesion":sesion
+    }
+
+    return redirect('index')
+
+def Creacion_Recetas(request,id):
+    sesion = Usuario.objects.get(idUsuario=id)
+    Nacio = Nacionalidad.objects.all()
+    contexto = {
+        "sesion":sesion,
+        "lista_r":Nacio}
+    return render(request,"Recetas/Creacion_Recetas.html",contexto)
+
+def Ver_Usuario_Admin(request,id):
+    sesion = Usuario.objects.get(idUsuario = id)
+    UserAdmin = Usuario.objects.all()
+    contexto = {
+        "usuario":UserAdmin,
+        "sesion":sesion
+        }
+    return render(request,'Recetas/Ver_Usuario_Admin.html',contexto)
+
+def login_app(request):
+    us = request.POST['nomUser']
+    cl = request.POST['pass']
+    try:
+        x = Usuario.objects.get(username = us, contrasena = cl)
+        rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
+
+        if x.RolUsuario.nomRol == rol2.nomRol:
+            contexto ={"sesion":x}
+            return render(request, 'Recetas/inicioAdmin.html',contexto)
+        else:
+            contexto ={"sesion":x}
+            return render(request, 'Recetas/inicioUser.html',contexto)
+
+    except Usuario.DoesNotExist:
+        # messages.error(request, 'Usuario y/o clave incorrecta')
+        return redirect ('Login')
+
+
+def inicioAdmin(request,sesion):
+
+    contexto={
+        "sesion":sesion
+    }
+    return render(request,'Recetas/inicioAdmin.html',contexto)
+
+
+
+def Vista_de_Usuario(request,id):
+    sesion = Usuario.objects.get(idUsuario=id)
+    contexto={
+        "sesion":sesion
+    }
+    return render(request,'Recetas/Vista_de_Usuario.html',contexto)
+
 def Vista_de_Admin(request,id):
     sesion = Usuario.objects.get(idUsuario=id)
     contexto={
@@ -11,13 +87,15 @@ def Vista_de_Admin(request,id):
     return render(request,'Recetas/Vista_de_Admin.html',contexto)
 
 
-def usuario(request,id):
+def usuario(request,id,sesi):
+    sesion =Usuario.objects.get(idUsuario = sesi)
     usuario1 = Usuario.objects.get(idUsuario=id)
     receta1 = Receta.objects.all()
     RolUsuario1 = RolUsuario.objects.all()
     Recet = Receta.objects.all()
     
     contexto = {
+        "sesion":sesion,
         "receta":receta1,
         "RolUsuario":RolUsuario1,
         "usuario":usuario1,
@@ -43,7 +121,7 @@ def registrarUsuario(request):
 
     try:
         x = Usuario.objects.get(username = nick)
-        x = Usuario.objects.get(email = email2)
+        c = Usuario.objects.get(email = email2)
         messages.error(request, 'El nombre de usuario o correo ya estan ocupados')
         return redirect ('registrarse')
 
@@ -57,33 +135,12 @@ def registrarUsuario(request):
         messages.success(request, 'Cuenta registrada')
         return render(request,"Recetas/Vista_de_Usuario.html",contexto)
 
-def login_app(request):
-    us = request.POST['nomUser']
-    cl = request.POST['pass']
-    try:
-        x = Usuario.objects.get(username = us, contrasena = cl)
-        rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
 
-        if x.RolUsuario.nomRol == rol2.nomRol:
-            contexto ={"usuario":x}
-            return render(request, 'Recetas/Vista_de_Admin.html',contexto)
-        else:
-            contexto ={"usuario":x}
-            return render(request, 'Recetas/Vista_de_Usuario.html',contexto)
-
-    except Usuario.DoesNotExist:
-        # messages.error(request, 'Usuario y/o clave incorrecta')
-        return redirect ('Login')
         
 
 
 
 
-
-def Ver_Usuario_Admin(request):
-    UserAdmin = Usuario.objects.all()
-    contexto = {"usuario":UserAdmin}
-    return render(request,'Recetas/Ver_Usuario_Admin.html',contexto)
 
 
 def aamate(request):
@@ -92,8 +149,7 @@ def aamate(request):
 def index(request):
     return render(request,'Recetas/index.html')
 
-def Vista_de_Admin(request):
-    return render(request,'Recetas/Vista_de_Admin.html')
+
 
 
 def registrarse(request):
@@ -112,27 +168,49 @@ def recetas(request,id):
     
     return render(request,'Recetas/recetas.html',contexto)
 
-def modificar_receta(request,id):
+def modificar_receta(request,id,sesi):
+    sesion = Usuario.objects.get(idUsuario=sesi)
     receta1 = Receta.objects.get(idReceta=id)
     nacionalidad1 = Nacionalidad.objects.all()
     usuario1 = Usuario.objects.all()
 
     contexto = {
+        "sesion":sesion,
         "receta":receta1,
         "nacionalidad":nacionalidad1,
         "usuario":usuario1
     }
     
+    
     return render(request,'Recetas/modificar_receta.html',contexto)
 
-def Ver_Receta_Admin(request):
+def Ver_Receta_Usuario(request,id):
+    sesion = Usuario.objects.get(idUsuario=id)
+    recetas = Receta.objects.all()
+    contexto={
+        "recetas": recetas,
+        "sesion":sesion
+    }
+    return render(request,'Recetas/Ver_Receta_Usuario.html',contexto)
+
+def Ver_Receta_Admin(request,id):
+    
+    sesion = Usuario.objects.get(idUsuario=id)
     RecetasAdmin = Receta.objects.all()
-    return render(request,'Recetas/Ver_Receta_Admin.html', {"RecetasAdmin": RecetasAdmin})
+    contexto={
+        "RecetasAdmin": RecetasAdmin,
+        "sesion":sesion
+    }
+    return render(request,'Recetas/Ver_Receta_Admin.html', contexto)
 
 
-def Ver_Comen_Admin(request):
+def Ver_Comen_Admin(request,id):
+    sesion = Usuario.objects.get(idUsuario= id)
     comen = Comentario.objects.all()
-    contexto = {"comen":comen}
+    contexto = {
+        "sesion":sesion,
+        "comen":comen
+        }
     return render(request,'Recetas/Ver_Comen_Admin.html',contexto)
 
 
@@ -188,8 +266,7 @@ def modificar_vista_usuario(request):
 def registrarse(request):
     return render(request,'Recetas/registrarse.html')
 
-def Ver_Receta_Usuario(request):
-    return render(request,'Recetas/Ver_Receta_Usuario.html')
+
 
 def RecetaArgentina(request):
     return render(request,'Recetas/RecetaArgentina.html')
@@ -217,37 +294,13 @@ def RecetaUruguay(request):
 
 
 
-def Vista_de_Usuario(request):
-    return render(request,'Recetas/Vista_de_Usuario.html')
-    
-
-def Creacion_Recetas(request):
-    Nacio = Nacionalidad.objects.all()
-    contexto = {"lista_r":Nacio}
-    return render(request,"Recetas/Creacion_Recetas.html",contexto)
-
-
 def listadoRecetas(request):
     receta = Receta.objects.all()
     contexto = {"lista_m":receta}
     return render(request,"Recetas/Creacion_Recetas.html",contexto)
 
 
-def registrarRecetas(request):
-    imagen2          = request.FILES['imagen']
-    nomreceta2       = request.POST['nomreceta']
-    tiempo2          = request.POST['tiempo']
-    idNacionalidad2  = request.POST['idNacio']
-    ingredientes2    = request.POST['ingredientes']
-    preparacion2     = request.POST['preparacion']
 
-    Nacionalidad3    = Nacionalidad.objects.get(idNacionalidad = idNacionalidad2)
-
-    Receta.objects.create(fotoReceta =imagen2, nomReceta =nomreceta2, ingrediente =ingredientes2, preparacion=preparacion2, tiempo=tiempo2, Nacionalidad=Nacionalidad3 )
-
-    messages.success(request, 'Receta Registrada')
-
-    return redirect('Creacion_Recetas')
 
 
 def listadoUsuario(request):
@@ -261,11 +314,11 @@ def listadoComentario(request):
     return render(request,"Recetas/Ver_Comen_Admin.html", contexto)
 
 def eliminar_comentario(request,id):
-    usuar = Comentario.objects.get(idUsuario = id)
+    usuar = Comentario.objects.get(idComentario = id)
     usuar.delete() #Elimina registro
     messages.success(request,'Comentario Eliminado')
 
-    return redirect('Ver_Usuario_Admin')
+    return redirect('Ver_Comen_Admin')
 
 def eliminar_usuario(request,id):
     usuar = Usuario.objects.get(idUsuario = id)
@@ -274,12 +327,20 @@ def eliminar_usuario(request,id):
 
     return redirect('Ver_Usuario_Admin')
 
-def eliminar_receta(request,id):
+def eliminar_receta(request,id,sesi):
     rec = Receta.objects.get(idReceta = id)
     rec.delete() #Elimina registro
     messages.success(request,'Receta Eliminada')
 
-    return redirect('Ver_Receta_Admin')
+    sesion = Usuario.objects.get(idUsuario=sesi)
+    rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
+
+    if sesion.RolUsuario.nomRol == rol2.nomRol:
+        contexto ={"sesion":sesion}
+        return render(request, 'Recetas/Ver_Receta_Admin.html',contexto)
+    else:
+        contexto ={"sesion":sesion}
+        return render(request, 'Recetas/Ver_Receta_Usuario.html')
 
 def modificar_receta_admin(request,id):
     receta1 = Receta.objects.get(idReceta = id)
@@ -293,13 +354,14 @@ def modificar_receta_admin(request,id):
     return render(request,'Recetas/Editar_Recetas_Admin.html',contexto)
 
 def modificar(request):
-    iden          = request.POST['identificador']
-    imagen2          = request.FILES['imagen']
-    nom_r       = request.POST['nomreceta']
-    tiempo_r          = request.POST['tiempo']
-    idNacio_r  = request.POST['idNacio']
-    ingre_r    = request.POST['ingredientes']
-    prepa_r     = request.POST['preparacion']
+    iden      = request.POST['identificador']
+    autor     = request.POST['autor']   
+    imagen2   = request.FILES['imagen']
+    nom_r     = request.POST['nomreceta']
+    tiempo_r  = request.POST['tiempo']
+    idNacio_r = request.POST['idNacio']
+    ingre_r   = request.POST['ingredientes']
+    prepa_r   = request.POST['preparacion']
 
     receta = Receta.objects.get(idReceta = iden)
 
@@ -313,8 +375,20 @@ def modificar(request):
 
     receta.Nacionalidad = idNacio_r2
     receta.save() #update
+    
 
     #messages.succes(request, 'Receta modificada')
+    sesion = Usuario.objects.get(idUsuario=autor)
+
+    rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
+
+    if sesion.RolUsuario.nomRol == rol2.nomRol:
+        contexto ={"sesion":sesion}
+        return render(request, 'Recetas/inicioAdmin.html',contexto)
+    else:
+        contexto ={"sesion":sesion}
+        return render(request, 'Recetas/inicioUser.html',contexto)
+
     return redirect('Ver_Receta_Admin')
 
 def registrarComentario(request):

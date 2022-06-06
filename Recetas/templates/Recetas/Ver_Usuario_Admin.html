@@ -72,9 +72,9 @@
                                             class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item dropdown">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'menu' %}">Países</a>
-                                </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'Menu_Recetas' %}">Recetas</a>
+                                    </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'contact' %}">Contáctanos</a>
                                 </li>
@@ -102,10 +102,10 @@
     </div>
     <!-- ***** Breadcumb Area End ***** -->
     <div class="topnav">
-        <a href="{% url 'Vista_de_Admin' %}">Ver Perfil</a>
-        <a href="{% url 'Ver_Receta_Admin' %}">Ver Recetas</a>
-        <a href="{% url 'Ver_Usuario_Admin' %}">Ver Usuarios</a>
-        <a href="{% url 'Ver_Comen_Admin' %}">Ver Comentarios</a>
+        <a href="{% url 'Vista_de_Admin' sesion.idUsuario %}">Ver Perfil</a>
+        <a href="{% url 'Ver_Receta_Admin' sesion.idUsuario %}">Ver Recetas</a>
+        <a href="{% url 'Ver_Usuario_Admin' sesion.idUsuario %}">Ver Usuarios</a>
+        <a href="{% url 'Ver_Comen_Admin' sesion.idUsuario %}">Ver Comentarios</a>
     </div>
 
     <!-- ***** Menu Area Start ***** -->
@@ -151,7 +151,7 @@
                                 </td>
                                 
                                 <td>
-                                    <a class="btn" href="{% url 'usuario' m.idUsuario %}">Ver</a>
+                                    <a class="btn" href="{% url 'usuario' m.idUsuario sesion.idUsuario %}">Ver</a>
                                     <a class="btn btn-danger" href="{% url 'eliminar_usuario' m.idUsuario %}">Eliminar</a><br>
 
 
