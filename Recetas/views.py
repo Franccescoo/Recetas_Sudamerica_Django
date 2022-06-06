@@ -44,12 +44,11 @@ def registrarUsuario(request):
     try:
         x = Usuario.objects.get(username = nick)
         x = Usuario.objects.get(email = email2)
-        # messages.error(request, 'Nombre de usuario o correo ya ocupados')
-        messages.success(request, 'El nombre de usuario o correo ya estan ocupados')
+        messages.error(request, 'El nombre de usuario o correo ya estan ocupados')
         return redirect ('registrarse')
 
     except Usuario.DoesNotExist:
-        # messages.error(request, 'Cargando')
+        messages.error(request, 'Cargando')
         Usuario.objects.create(nomUsuario = nombre2, apellidoCompleto = apellido2, username = nick, email = email2, foto = foto2, contrasena = contra2)
         sesion = Usuario.objects.get(username=nick)
         contexto ={
