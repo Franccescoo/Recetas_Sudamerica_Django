@@ -87,7 +87,7 @@
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-md-7 col-sm-12">
-                    <img class="perfil" src="{% static 'Recetas/img/Token/perfil.png' %}" alt="">
+                    <img class="perfil" src="{{ sesion.foto.url }}" alt="">
 
                     <p id="texto_admin">{{ sesion.username }}</p>
                 </div>
@@ -114,10 +114,27 @@
         <div class="contact-form-area d-flex justify-content-end">
             <div class="contact-form">
                 <div class="contact-form-title">
-                    <p style="margin-top: 20px;">Datos </p>
+                    <p style="margin-top: 20px;">Bienvenid@ {{sesion}} </p>
                 </div>
-
-                Bienvenid@ {{sesion}}
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <img src="{{ sesion.foto.url }}" alt="" style="margin-bottom: 10px;">
+                        </div>
+                        <div class="col-md-12">
+                            <h5>ID: {{ sesion.idUsuario }}</h5>
+                        </div>
+                        <div class="col-md-12">
+                            <h5>Nombre: {{ sesion.username }}</h5>
+                        </div>
+                        <div class="col-md-12">
+                            <h5>Correo: {{ sesion.email }}</h5>
+                        </div>
+                        <div class="col-md-12">
+                            <h5>Rol: {{ sesion.RolUsuario }}</h5>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

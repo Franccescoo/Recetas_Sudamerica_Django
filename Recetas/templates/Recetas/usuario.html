@@ -118,15 +118,7 @@
 
                         </div>
                         <div class="col-12">
-                            <p>Apellido(s):
-
-                                {% if usuario.apellidoCompleto %}
-                                <option value="{{ x.codigo }}" selected>{{ usuario.apellidoCompleto }}</option>
-
-                                {% endif %}
-
-                                {{ usuario.username }}
-                            </p>
+                            <p>Apellido(s): {{ usuario.apellidoCompleto }}</p>
 
                         </div>
                         <div class="col-12">
