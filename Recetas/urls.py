@@ -1,17 +1,30 @@
 from unicodedata import name
 from django.urls import URLPattern, path
-from .views import modificar_receta, registrarComentario, Ver_Comen_Admin, usuario,recetas,login_app,aamate,eliminar_receta, Menu_Recetas, index, aatest, contact, registrarRecetas, Creacion_Recetas, registrarRecetas, Editar_Recetas_Admin, Editar_Recetas, Login, listadoRecetas, menu, modificar_usuario_admin, modificar_vista_usuario, RecetaArgentina, RecetaChile, RecetaEcuador, RecetaPeru, RecetasBrasil, RecetasColombia, RecetasVenezuela, RecetaUruguay, registrarse, Ver_Receta_Admin, Ver_Receta_Usuario, Ver_Usuario_Admin, Vista_de_Admin, Vista_de_Usuario, registrarUsuario,listadoRecetas,eliminar_usuario,modificar_receta_admin,modificar
+from .views import inicioAdmin,modificar_receta, registrarComentario, Ver_Comen_Admin, usuario,recetas,login_app,aamate,eliminar_receta, Menu_Recetas, index, aatest, contact, registrarRecetas, Creacion_Recetas, registrarRecetas, Editar_Recetas_Admin, Editar_Recetas, Login, listadoRecetas, menu, modificar_usuario_admin, modificar_vista_usuario, RecetaArgentina, RecetaChile, RecetaEcuador, RecetaPeru, RecetasBrasil, RecetasColombia, RecetasVenezuela, RecetaUruguay, registrarse, Ver_Receta_Admin, Ver_Receta_Usuario, Ver_Usuario_Admin, Vista_de_Admin, Vista_de_Usuario, registrarUsuario,listadoRecetas,eliminar_usuario,modificar_receta_admin,modificar
 from . import views
 from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
+
+    path('Ver_Usuario_Admin/<int:id>',Ver_Usuario_Admin,name="Ver_Usuario_Admin"),
+    path('Vista_de_Admin/<int:id>',Vista_de_Admin,name="Vista_de_Admin"),
+    path('Ver_Receta_Admin/<int:id>',Ver_Receta_Admin,name="Ver_Receta_Admin"),
+    path('inicioAdmin/',inicioAdmin,name="inicioAdmin"),
+    path('login_app/',login_app,name="login_app"),
+    path('Vista_de_Usuario/',views.Vista_de_Usuario,name="Vista_de_Usuario"),
+    path('Ver_Comen_Admin/<int:id>',Ver_Comen_Admin,name="Ver_Comen_Admin"),
+
+
+
+
+    
     path('modificar_receta/<int:id>',modificar_receta,name="modificar_receta"),
     path('Editar_Recetas_Admin/<int:id>',Editar_Recetas_Admin,name="Editar_Recetas_Admin"),
     path('usuario/<int:id>',usuario,name="usuario"),
     path('recetas/<int:id>',recetas,name="recetas"),
     path('Menu_Recetas/',Menu_Recetas,name="Menu_Recetas"),
     path('Login/',Login,name="Login"),
-    path('login_app/',login_app,name="login_app"),
+   
     path('aamate/',aamate,name="aamate"),
     path('',index,name="index"),
     path('aatest/',aatest,name="aatest"),
@@ -35,12 +48,10 @@ urlpatterns = [
     path('registrarUsuario', views.registrarUsuario, name="registrarUsuario"),
     path('registrarRecetas', views.registrarRecetas, name="registrarRecetas"),
     path('registrarComentario', views.registrarComentario, name="registrarComentario"),
-    path('Ver_Receta_Admin/',Ver_Receta_Admin,name="Ver_Receta_Admin"),
     path('Ver_Receta_Usuario/',Ver_Receta_Usuario,name="Ver_Receta_Usuario"),
-    path('Ver_Usuario_Admin/',Ver_Usuario_Admin,name="Ver_Usuario_Admin"),
-    path('Ver_Comen_Admin/',Ver_Comen_Admin,name="Ver_Comen_Admin"),
-    path('Vista_de_Admin/',Vista_de_Admin,name="Vista_de_Admin"),
-    path('Vista_de_Usuario/',views.Vista_de_Usuario,name="Vista_de_Usuario"),
+  
+
+
     path('listadoRecetas/',listadoRecetas, name="listadoRecetas"),
     path('registrarRecetas',registrarRecetas,name="registrarRecetas"),
     path('eliminar_usuario/<int:id>',eliminar_usuario, name="eliminar_usuario"),

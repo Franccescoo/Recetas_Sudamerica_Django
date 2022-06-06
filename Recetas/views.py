@@ -3,6 +3,46 @@ from django.shortcuts import render, redirect
 from .models import Usuario,Receta,Nacionalidad,RolUsuario,Comentario
 from django.contrib import messages
 # Create your views here.
+
+def Ver_Usuario_Admin(request,id):
+    sesion = Usuario.objects.get(idUsuario = id)
+    UserAdmin = Usuario.objects.all()
+    contexto = {
+        "usuario":UserAdmin,
+        "sesion":sesion
+        }
+    return render(request,'Recetas/Ver_Usuario_Admin.html',contexto)
+
+def login_app(request):
+    us = request.POST['nomUser']
+    cl = request.POST['pass']
+    try:
+        x = Usuario.objects.get(username = us, contrasena = cl)
+        rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
+
+        if x.RolUsuario.nomRol == rol2.nomRol:
+            contexto ={"sesion":x}
+            return render(request, 'Recetas/inicioAdmin.html',contexto)
+        else:
+            contexto ={"sesion":x}
+            return render(request, 'Recetas/Vista_de_Usuario.html',contexto)
+
+    except Usuario.DoesNotExist:
+        # messages.error(request, 'Usuario y/o clave incorrecta')
+        return redirect ('Login')
+
+
+def inicioAdmin(request,sesion):
+
+    contexto={
+        "sesion":sesion
+    }
+    return render(request,'Recetas/inicioAdmin.html',contexto)
+
+
+
+
+
 def Vista_de_Admin(request,id):
     sesion = Usuario.objects.get(idUsuario=id)
     contexto={
@@ -57,33 +97,12 @@ def registrarUsuario(request):
         messages.success(request, 'Cuenta registrada')
         return render(request,"Recetas/Vista_de_Usuario.html",contexto)
 
-def login_app(request):
-    us = request.POST['nomUser']
-    cl = request.POST['pass']
-    try:
-        x = Usuario.objects.get(username = us, contrasena = cl)
-        rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
 
-        if x.RolUsuario.nomRol == rol2.nomRol:
-            contexto ={"usuario":x}
-            return render(request, 'Recetas/Vista_de_Admin.html',contexto)
-        else:
-            contexto ={"usuario":x}
-            return render(request, 'Recetas/Vista_de_Usuario.html',contexto)
-
-    except Usuario.DoesNotExist:
-        # messages.error(request, 'Usuario y/o clave incorrecta')
-        return redirect ('Login')
         
 
 
 
 
-
-def Ver_Usuario_Admin(request):
-    UserAdmin = Usuario.objects.all()
-    contexto = {"usuario":UserAdmin}
-    return render(request,'Recetas/Ver_Usuario_Admin.html',contexto)
 
 
 def aamate(request):
@@ -92,8 +111,7 @@ def aamate(request):
 def index(request):
     return render(request,'Recetas/index.html')
 
-def Vista_de_Admin(request):
-    return render(request,'Recetas/Vista_de_Admin.html')
+
 
 
 def registrarse(request):
@@ -125,14 +143,23 @@ def modificar_receta(request,id):
     
     return render(request,'Recetas/modificar_receta.html',contexto)
 
-def Ver_Receta_Admin(request):
+def Ver_Receta_Admin(request,id):
+    sesion = Usuario.objects.get(idUsuario=id)
     RecetasAdmin = Receta.objects.all()
-    return render(request,'Recetas/Ver_Receta_Admin.html', {"RecetasAdmin": RecetasAdmin})
+    contexto={
+        "RecetasAdmin": RecetasAdmin,
+        "sesion":sesion
+    }
+    return render(request,'Recetas/Ver_Receta_Admin.html', contexto)
 
 
-def Ver_Comen_Admin(request):
+def Ver_Comen_Admin(request,id):
+    sesion = Usuario.objects.get(idUsuario= id)
     comen = Comentario.objects.all()
-    contexto = {"comen":comen}
+    contexto = {
+        "sesion":sesion,
+        "comen":comen
+        }
     return render(request,'Recetas/Ver_Comen_Admin.html',contexto)
 
 

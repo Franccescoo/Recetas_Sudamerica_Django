@@ -97,10 +97,10 @@
 
     <!-- ***** Contact Area Start ***** -->
     <div class="topnav">
-        <a href="{% url 'Vista_de_Admin' %}">Ver Perfil</a>
-        <a href="{% url 'Ver_Receta_Admin' %}">Ver Recetas</a>
-        <a href="{% url 'Ver_Usuario_Admin' %}">Ver Usuarios</a>
-        <a href="{% url 'Ver_Comen_Admin' %}">Ver Comentarios</a>
+        <a href="{% url 'Vista_de_Admin' sesion.idUsuario %}">Ver Perfil</a>
+        <a href="{% url 'Ver_Receta_Admin' sesion.idUsuario %}">Ver Recetas</a>
+        <a href="{% url 'Ver_Usuario_Admin' sesion.idUsuario %}">Ver Usuarios</a>
+        <a href="{% url 'Ver_Comen_Admin' sesion.idUsuario %}">Ver Comentarios</a>
     </div>
     </div>
 
@@ -113,7 +113,7 @@
                 <form action="#">
                     <div class="row">
                         <div class="col-12">
-                            <p>Nombre(s): {{ Usuario.username }}</p>
+                            <p>Nombre(s): </p>
 
                         </div>
                         <div class="col-12">
