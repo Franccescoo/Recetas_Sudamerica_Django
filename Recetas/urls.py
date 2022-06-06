@@ -1,16 +1,18 @@
 from unicodedata import name
 from django.urls import URLPattern, path
-from .views import inicioAdmin,modificar_receta, eliminar_comentario, registrarComentario, Ver_Comen_Admin, usuario,recetas,login_app,aamate,eliminar_receta, Menu_Recetas, index, aatest, contact, registrarRecetas, Creacion_Recetas, registrarRecetas, Editar_Recetas_Admin, Editar_Recetas, Login, listadoRecetas, menu, modificar_usuario_admin, modificar_vista_usuario, RecetaArgentina, RecetaChile, RecetaEcuador, RecetaPeru, RecetasBrasil, RecetasColombia, RecetasVenezuela, RecetaUruguay, registrarse, Ver_Receta_Admin, Ver_Receta_Usuario, Ver_Usuario_Admin, Vista_de_Admin, Vista_de_Usuario, registrarUsuario,listadoRecetas,eliminar_usuario,modificar_receta_admin,modificar
+from .views import inicioUser,inicioAdmin,modificar_receta, eliminar_comentario, registrarComentario, Ver_Comen_Admin, usuario,recetas,login_app,aamate,eliminar_receta, Menu_Recetas, index, aatest, contact, registrarRecetas, Creacion_Recetas, registrarRecetas, Editar_Recetas_Admin, Editar_Recetas, Login, listadoRecetas, menu, modificar_usuario_admin, modificar_vista_usuario, RecetaArgentina, RecetaChile, RecetaEcuador, RecetaPeru, RecetasBrasil, RecetasColombia, RecetasVenezuela, RecetaUruguay, registrarse, Ver_Receta_Admin, Ver_Receta_Usuario, Ver_Usuario_Admin, Vista_de_Admin, Vista_de_Usuario, registrarUsuario,listadoRecetas,eliminar_usuario,modificar_receta_admin,modificar
 from . import views
 from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
 
+    path('modificar/<int:sesi>',modificar,name="modificar"),
     path('Creacion_Recetas/<int:id>',Creacion_Recetas,name="Creacion_Recetas"),
     path('Ver_Usuario_Admin/<int:id>',Ver_Usuario_Admin,name="Ver_Usuario_Admin"),
     path('Vista_de_Admin/<int:id>',Vista_de_Admin,name="Vista_de_Admin"),
     path('Ver_Receta_Admin/<int:id>',Ver_Receta_Admin,name="Ver_Receta_Admin"),
     path('inicioAdmin/',inicioAdmin,name="inicioAdmin"),
+    path('inicioUser/',inicioUser,name="inicioUser"),
     path('login_app/',login_app,name="login_app"),
     path('Vista_de_Usuario/<int:id>',views.Vista_de_Usuario,name="Vista_de_Usuario"),
     path('Ver_Comen_Admin/<int:id>',Ver_Comen_Admin,name="Ver_Comen_Admin"),
@@ -58,5 +60,5 @@ urlpatterns = [
     path('eliminar_usuario/<int:id>',eliminar_usuario, name="eliminar_usuario"),
     path('eliminar_comentario/<int:id>',eliminar_comentario, name="eliminar_comentario"),
     path('modificar_receta_admin',modificar_receta_admin,name="modificar_receta_admin"),
-    path('modificar',modificar,name="modificar"),
+    
 ]

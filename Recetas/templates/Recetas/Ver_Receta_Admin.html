@@ -144,7 +144,7 @@
                                 <h6 class="card-subtittle">País: {{ Receta.Nacionalidad }}</h6>
                                 <div class="container">
                                     <div class="col-md-12">
-                                        <a class="gradient-button gradient-button-2" style="margin-bottom: 10px;" href="{% url 'eliminar_receta' Receta.idReceta %} ">Eliminar</a><br>
+                                        <a class="gradient-button gradient-button-2" style="margin-bottom: 10px;" href="{% url 'eliminar_receta' Receta.idReceta sesion.idUsuario %} ">Eliminar</a><br>
                                     </div>
                                     <div class="col-md-12">
                                         <a class="gradient-button gradient-button-1" href="{% url 'modificar_receta' Receta.idReceta sesion.idUsuario %}">Modificar</a><br>
