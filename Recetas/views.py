@@ -87,7 +87,6 @@ def Ver_Usuario_Admin(request):
     return render(request,'Recetas/Ver_Usuario_Admin.html',contexto)
 
 
-
 def aamate(request):
     return render(request,'Recetas/aamate.html')
 
@@ -131,6 +130,13 @@ def Ver_Receta_Admin(request):
     RecetasAdmin = Receta.objects.all()
     return render(request,'Recetas/Ver_Receta_Admin.html', {"RecetasAdmin": RecetasAdmin})
 
+
+def Ver_Comen_Admin(request):
+    comen = Comentario.objects.all()
+    contexto = {"comen":comen}
+    return render(request,'Recetas/Ver_Comen_Admin.html',contexto)
+
+
 def Menu_Recetas(request):
     RecetasChile = Receta.objects.all()
     return render(request,'Recetas/Menu_Recetas.html', {"RecetasChile": RecetasChile})
@@ -151,6 +157,7 @@ def Editar_Recetas_Admin(request,id):
 
 def menu(request):
     return render(request,'Recetas/menu.html')
+
     
 def aatest(request):
     return render(request,'Recetas/aatest.html')
@@ -178,30 +185,6 @@ def modificar_usuario_admin(request):
 
 def modificar_vista_usuario(request):
     return render(request,'Recetas/modificar_vista_usuario.html')
-
-def RecetaArgentina(request):
-    return render(request,'Recetas/RecetaArgentina.html')
-
-def RecetaChile(request):
-    return render(request,'Recetas/RecetaChile.html')
-
-def RecetaEcuador(request):
-    return render(request,'Recetas/RecetaEcuador.html')
-
-def RecetaPeru(request):
-    return render(request,'Recetas/RecetaPeru.html')
-
-def RecetasBrasil(request):
-    return render(request,'Recetas/RecetasBrasil.html')
-
-def RecetasColombia(request):
-    return render(request,'Recetas/RecetasColombia.html')
-
-def RecetasVenezuela(request):
-    return render(request,'Recetas/RecetasVenezuela.html')
-
-def RecetaUruguay(request):
-    return render(request,'Recetas/RecetaUruguay.html')
 
 def registrarse(request):
     return render(request,'Recetas/registrarse.html')
@@ -250,11 +233,17 @@ def listadoUsuario(request):
     contexto = {"lista_u":usuario}
     return render(request,"Recetas/Ver_Usuario_Admin.html", contexto)
 
+def listadoComentario(request):
+    comen = Comentario.objects.all()
+    contexto = {"lista_a":comen}
+    return render(request,"Recetas/Ver_Comen_Admin.html", contexto)
 
+def eliminar_comentario(request,id):
+    usuar = Comentario.objects.get(idUsuario = id)
+    usuar.delete() #Elimina registro
+    messages.success(request,'Comentario Eliminado')
 
-    
-    
-
+    return redirect('Ver_Usuario_Admin')
 
 def eliminar_usuario(request,id):
     usuar = Usuario.objects.get(idUsuario = id)

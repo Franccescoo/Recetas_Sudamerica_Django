@@ -1,6 +1,6 @@
 from unicodedata import name
 from django.urls import URLPattern, path
-from .views import modificar_receta, registrarComentario, usuario,recetas,login_app,aamate,eliminar_receta, Menu_Recetas, index, aatest, contact, registrarRecetas, Creacion_Recetas, registrarRecetas, Editar_Recetas_Admin, Editar_Recetas, Login, listadoRecetas, menu, modificar_usuario_admin, modificar_vista_usuario, RecetaArgentina, RecetaChile, RecetaEcuador, RecetaPeru, RecetasBrasil, RecetasColombia, RecetasVenezuela, RecetaUruguay, registrarse, Ver_Receta_Admin, Ver_Receta_Usuario, Ver_Usuario_Admin, Vista_de_Admin, Vista_de_Usuario, registrarUsuario,listadoRecetas,eliminar_usuario,modificar_receta_admin,modificar
+from .views import modificar_receta, registrarComentario, Ver_Comen_Admin, usuario,recetas,login_app,aamate,eliminar_receta, Menu_Recetas, index, aatest, contact, registrarRecetas, Creacion_Recetas, registrarRecetas, Editar_Recetas_Admin, Editar_Recetas, Login, listadoRecetas, menu, modificar_usuario_admin, modificar_vista_usuario, RecetaArgentina, RecetaChile, RecetaEcuador, RecetaPeru, RecetasBrasil, RecetasColombia, RecetasVenezuela, RecetaUruguay, registrarse, Ver_Receta_Admin, Ver_Receta_Usuario, Ver_Usuario_Admin, Vista_de_Admin, Vista_de_Usuario, registrarUsuario,listadoRecetas,eliminar_usuario,modificar_receta_admin,modificar
 from . import views
 from django.contrib.auth.views import LoginView, LogoutView
 
@@ -38,6 +38,7 @@ urlpatterns = [
     path('Ver_Receta_Admin/',Ver_Receta_Admin,name="Ver_Receta_Admin"),
     path('Ver_Receta_Usuario/',Ver_Receta_Usuario,name="Ver_Receta_Usuario"),
     path('Ver_Usuario_Admin/',Ver_Usuario_Admin,name="Ver_Usuario_Admin"),
+    path('Ver_Comen_Admin/',Ver_Comen_Admin,name="Ver_Comen_Admin"),
     path('Vista_de_Admin/',Vista_de_Admin,name="Vista_de_Admin"),
     path('Vista_de_Usuario/',views.Vista_de_Usuario,name="Vista_de_Usuario"),
     path('listadoRecetas/',listadoRecetas, name="listadoRecetas"),
