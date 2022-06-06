@@ -51,13 +51,15 @@ def Vista_de_Admin(request,id):
     return render(request,'Recetas/Vista_de_Admin.html',contexto)
 
 
-def usuario(request,id):
+def usuario(request,id,sesi):
+    sesion =Usuario.objects.get(idUsuario = sesi)
     usuario1 = Usuario.objects.get(idUsuario=id)
     receta1 = Receta.objects.all()
     RolUsuario1 = RolUsuario.objects.all()
     Recet = Receta.objects.all()
     
     contexto = {
+        "sesion":sesion,
         "receta":receta1,
         "RolUsuario":RolUsuario1,
         "usuario":usuario1,
@@ -130,12 +132,14 @@ def recetas(request,id):
     
     return render(request,'Recetas/recetas.html',contexto)
 
-def modificar_receta(request,id):
+def modificar_receta(request,id,sesi):
+    sesion = Usuario.objects.get(idUsuario=sesi)
     receta1 = Receta.objects.get(idReceta=id)
     nacionalidad1 = Nacionalidad.objects.all()
     usuario1 = Usuario.objects.all()
 
     contexto = {
+        "sesion":sesion,
         "receta":receta1,
         "nacionalidad":nacionalidad1,
         "usuario":usuario1

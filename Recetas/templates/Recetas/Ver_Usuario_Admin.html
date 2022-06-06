@@ -151,7 +151,7 @@
                                 </td>
                                 
                                 <td>
-                                    <a class="btn" href="{% url 'usuario' m.idUsuario %}">Ver</a>
+                                    <a class="btn" href="{% url 'usuario' m.idUsuario sesion.idUsuario %}">Ver</a>
                                     <a class="btn btn-danger" href="{% url 'eliminar_usuario' m.idUsuario %}">Eliminar</a><br>
 
 
