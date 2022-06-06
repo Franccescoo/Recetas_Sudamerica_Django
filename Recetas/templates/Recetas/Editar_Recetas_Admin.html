@@ -104,8 +104,10 @@
     </div>
 
     <div class="topnav">
-        <a href="Vista_de_Admin.html">Ver Perfil</a>
-        <a href="Ver_Receta_Admin.html">Ver Recetas</a>
+        <a href="{% url 'Vista_de_Admin' %}">Ver Perfil</a>
+        <a href="{% url 'Ver_Receta_Admin' %}">Ver Recetas</a>
+        <a href="{% url 'Ver_Usuario_Admin' %}">Ver Usuarios</a>
+        <a href="{% url 'Ver_Comen_Admin' %}">Ver Comentarios</a>
     </div>
     <!-- ***** Breadcumb Area End ***** -->
     <h3 style="text-align: center; margin-top: 40px;">Cambio de recetas</h3>
