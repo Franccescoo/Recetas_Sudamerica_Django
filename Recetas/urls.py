@@ -6,13 +6,15 @@ from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
 
+    path('Creacion_Recetas/<int:id>',Creacion_Recetas,name="Creacion_Recetas"),
     path('Ver_Usuario_Admin/<int:id>',Ver_Usuario_Admin,name="Ver_Usuario_Admin"),
     path('Vista_de_Admin/<int:id>',Vista_de_Admin,name="Vista_de_Admin"),
     path('Ver_Receta_Admin/<int:id>',Ver_Receta_Admin,name="Ver_Receta_Admin"),
     path('inicioAdmin/',inicioAdmin,name="inicioAdmin"),
     path('login_app/',login_app,name="login_app"),
-    path('Vista_de_Usuario/',views.Vista_de_Usuario,name="Vista_de_Usuario"),
+    path('Vista_de_Usuario/<int:id>',views.Vista_de_Usuario,name="Vista_de_Usuario"),
     path('Ver_Comen_Admin/<int:id>',Ver_Comen_Admin,name="Ver_Comen_Admin"),
+    path('Ver_Receta_Usuario/<int:id>',Ver_Receta_Usuario,name="Ver_Receta_Usuario"),
 
 
 
@@ -29,8 +31,6 @@ urlpatterns = [
     path('',index,name="index"),
     path('aatest/',aatest,name="aatest"),
     path('contact/',contact,name="contact"),
-    path('Creacion_Recetas/',Creacion_Recetas,name="Creacion_Recetas"),
-    
     path('Editar_Recetas/',Editar_Recetas,name="Editar_Recetas"),
     
     path('menu/',menu,name="menu"),
@@ -46,9 +46,9 @@ urlpatterns = [
     path('RecetaUruguay/',RecetaUruguay,name="RecetaUruguay"),
     path('registrarse/',registrarse,name="registrarse"),
     path('registrarUsuario', views.registrarUsuario, name="registrarUsuario"),
-    path('registrarRecetas', views.registrarRecetas, name="registrarRecetas"),
+    path('registrarRecetas/<int:id>', views.registrarRecetas, name="registrarRecetas"),
     path('registrarComentario', views.registrarComentario, name="registrarComentario"),
-    path('Ver_Receta_Usuario/',Ver_Receta_Usuario,name="Ver_Receta_Usuario"),
+    
   
 
 

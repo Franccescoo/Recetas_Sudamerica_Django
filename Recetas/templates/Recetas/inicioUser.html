@@ -82,13 +82,14 @@
     <!-- ***** Header Area End ***** -->
 
     <!-- ***** Breadcumb Area Start ***** -->
-    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(../../static/Recetas/img/bg-img/hero-4.jpg)">
+    <div class="breadcumb-area bg-img bg-overlay"
+        style="background-image: url(../../static/Recetas/img/bg-img/hero-4.jpg)">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-md-7 col-sm-12">
-                    <img class="perfil" src="/media/{{sesion.foto}}" alt="">
+                    <img class="perfil" src="{% static 'Recetas/img/Token/perfil.png' %}" alt="">
 
-                    <p id="texto_admin">{{sesion.username}}</p>
+                    <p id="texto_admin">{{ sesion.username }}</p>
                 </div>
             </div>
         </div>
@@ -99,9 +100,9 @@
     <div class="topnav">
         <a href="{% url 'Vista_de_Usuario' sesion.idUsuario %}">Ver Perfil</a>
         <a href="{% url 'Ver_Receta_Usuario' sesion.idUsuario %}">Ver Recetas</a>
-        <a href="{% url 'Creacion_Recetas' sesion.idUsuario %}">Subir Recetas</a>
+        
     </div>
-    
+
 
     <div class="caviar-contact-area d-md-flex align-items-center" id="contact">
         <div class="contact-form-area d-flex justify-content-end">
@@ -109,28 +110,8 @@
                 <div class="contact-form-title">
                     <p style="margin-top: 20px;">Datos </p>
                 </div>
-                <form action="#">
-                    <div class="row">
-                        <div class="col-12">
-                            <p>Nombre(s): {{sesion.nomUsuario}} </p>
 
-                        </div>
-                        <div class="col-12">
-                            <p>Apellido(s): {{sesion.apellidoCompleto}} </p>
-
-                        </div>
-                        <div class="col-12">
-                            <p>Nombre de Usuario: {{sesion.username}}</p>
-
-                        </div>
-                        <div class="col-12">
-                            <p>Contraseña: ************</p>
-                        </div>
-                        <div class="col-12">
-                            <p>Email: recetasdesudamerica@gmail.com</p>
-                        </div>
-                    </div>
-                </form>
+                Bienvenid@ {{sesion}}
             </div>
         </div>
     </div>
@@ -166,7 +147,7 @@
     <script src="{% static 'Recetas/js/bootstrap/bootstrap.min.js' %}"></script>
     <!-- All Plugins js -->
     <script src="{% static 'Recetas/js/others/plugins.js' %}"></script>
-   
+
     <!-- Active js -->
     <script src="{% static 'Recetas/js/active.js' %}"></script>
 </body>

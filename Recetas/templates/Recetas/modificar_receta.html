@@ -128,9 +128,15 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="contact-form-title">
-                                <p style="margin-bottom: 10px;">Id:</p>
+                                <p style="margin-bottom: 10px;">Numero Unico Receta:</p>
                             </div>
                             <input type="number" class="form-control" value="{{ receta.idReceta }}" id="identificador" name="identificador" required readonly>
+                        </div>
+                        <div class="col-12">
+                            <div class="contact-form-title">
+                                <p style="margin-bottom: 10px;">Numero Unico del Autor:</p>
+                            </div>
+                            <input type="number" class="form-control" value="{{ receta.Usuario.idUsuario}}" id="autor" name="autor" required readonly>
                         </div>
                         <div class="col-12">
                             <div class="contact-form-title">

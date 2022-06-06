@@ -91,10 +91,10 @@
         </div>
     </div>
 
-    <div class="topnav">
-        <a href="Vista_de_Usuario.html">Ver Perfil</a>
-        <a href="Ver_Receta_Usuario.html">Ver Recetas</a>
-        <a href="Creacion_Recetas.html">Subir Recetas</a>
+    <div class="topnav"> 
+        <a href="{% url 'Vista_de_Usuario' sesion.idUsuario %}">Ver Perfil</a>
+        <a href="{% url 'Ver_Receta_Usuario' sesion.idUsuario %}">Ver Recetas</a>
+        <a href="{% url 'Creacion_Recetas' sesion.idUsuario %}">Subir Recetas</a>
     </div>
     <!-- ***** Breadcumb Area End ***** -->
     <h3 style="text-align: center; margin-top: 40px;">Creación de recetas</h3>
@@ -115,14 +115,21 @@
             {% endif %}
 
                 </div>
-                <form action="{% url 'registrarRecetas' %}" method="POST" name="formRegiRec" id="formRegiRec" enctype="multipart/form-data">
+                <form action="{% url 'registrarRecetas' sesion.idUsuario %}" method="POST" name="formRegiRec" id="formRegiRec" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="row">
                         <div class="col-12">
                             <div class="contact-form-title">
+                                <p style="margin-bottom: 10px;">Usuario:</p>
+                            </div>
+                            
+                            <input type="text" class="form-control" value="{{sesion.idUsuario}}" id="autor" name="autor" readonly>
+                        </div>
+                        <div class="col-12">
+                            <div class="contact-form-title">
                                 <p style="margin-bottom: 10px;">Imagen:</p>
                             </div>
-                            <input type="file" class="form-control" placeholder="Ej: Alexander" id="imagen" name="imagen" required>
+                            <input type="file" class="form-control" id="imagen" name="imagen" required>
                         </div>
 
                         <div class="col-12">
