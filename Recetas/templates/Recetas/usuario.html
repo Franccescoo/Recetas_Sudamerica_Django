@@ -112,68 +112,56 @@
     </div>
 
 
-    <div class="caviar-contact-area d-md-flex align-items-center" id="contact">
-        <div class="contact-form-area d-flex justify-content-end">
-            <div class="contact-form">
-                <div class="contact-form-title">
-                    <p style="margin-top: 20px;">Datos </p>
-                </div>
-                <form action="#">
-                    <div class="row">
-                        <div class="col-12">
-                            <p>Nombre(s): {{ usuario.nomUsuario }}</p>
-
-                        </div>
-                        <div class="col-12">
-                            <p>Apellido(s): {{ usuario.apellidoCompleto }}</p>
-
-                        </div>
-                        <div class="col-12">
-                            <p>Nombre de Usuario: {{ usuario.username }}</p>
-
-                        </div>
-                        <div class="col-12">
-                            <p>Email: {{ usuario.email }}</p>
-                        </div>
-
-
-                        <div class="col-12">
-
-                            {% if Recetas %}
-                            {% for Receta in Recetas %}
-                            {% if usuario.idUsuario == Receta.Usuario.idUsuario %}
-                            {% if forloop.first %}<div class="row">{% endif %}
-                                <div class="col-12" style="padding-top: 20px;">
-
-                                    <div class="card">
-                                        <img class="card-img-top" src="{{ Receta.fotoReceta.url }}"
-                                            style="height: 220px;" alt="{{ Receta.nomReceta }}">
-                                        <div class="card-body">
-                                            <h5 class="card-tittle">{{ Receta.nomReceta}}</h5>
-                                            <hr />
-                                            <h6 class="card-subtittle">Autor: {{ Receta.Usuario.nomUsuario }}</h6>
-                                            <h6 class="card-subtittle">País: {{ Receta.Nacionalidad }}</h6>
-                                          
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            {% if forloop.counter|divisibleby:4 %}
-                        </div>
-                        <div class="row">{% endif %}
-                            {% if forloop.last %}</div>{% endif %}
-                        {% endif %}
-                        {% endfor %}
-                        {% endif %}
-                        
-
-                    </div>
+    <div class="container" style="margin-bottom: 100px;">
+        <div class="container">
+            <div class="row">
+            <div class="contact-form-title">
+                <p style="margin-top: 20px;">Datos </p>
             </div>
-            </form>
         </div>
+        <div class="row">
+            <p>Nombre(s): {{ usuario.nomUsuario }}</p>
+        </div>
+        <div class="row">
+            <p>Apellido(s): {{ usuario.apellidoCompleto }}</p>
+        </div>
+        <div class="row">
+            <p>Nombre de Usuario: {{ usuario.username }}</p>
+        </div>
+        <div class="row">
+            <p>Email: {{ usuario.email }}</p>
+        </div>
+        </div>
+        
+
+        {% if Recetas %}
+            {% for Receta in Recetas %}
+            {% if forloop.first %}<div class="row">{% endif %}
+                {% if usuario.idUsuario == Receta.Usuario.idUsuario %}
+                    <div class="col-lg-3 col-md-5 col-sm-12" style="padding-top: 20px;">
+                    
+                        <div class="card">
+                            <img class="card-img-top" src="{{ Receta.fotoReceta.url }}" style="height: 220px;"alt="{{ Receta.nomReceta }}">
+                            <div class="card-body">
+                                <h5 class="card-tittle">{{ Receta.nomReceta}}</h5>
+                                <hr />
+                                <h6 class="card-subtittle">Autor: {{ Receta.Usuario.nomUsuario }}</h6>
+                                <h6 class="card-subtittle">País: {{ Receta.Nacionalidad }}</h6>
+                            </div>
+                        </div>
+                    </div>
+                    {% if forloop.counter|divisibleby:4 %}</div><div class="row">{% endif %}
+                    {% if forloop.last %}</div>{% endif %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
     </div>
-    </div>
+</div>
+
+    
+        <!-- ***** Ciclo para plantilla de recetas ***** -->
+
     <!-- ***** Contact Area End ***** -->
 
     <!-- ***** Footer Area Start ***** -->
