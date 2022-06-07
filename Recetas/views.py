@@ -4,6 +4,20 @@ from .models import Usuario,Receta,Nacionalidad,RolUsuario,Comentario
 from django.contrib import messages
 # Create your views here.
 
+def modificar_receta(request,id,sesi):
+    sesion = Usuario.objects.get(idUsuario=sesi)
+    receta1 = Receta.objects.get(idReceta=id)
+    nacionalidad1 = Nacionalidad.objects.all()
+    usuario1 = Usuario.objects.all()
+
+    contexto = {
+        "sesion":sesion,
+        "receta":receta1,
+        "nacionalidad":nacionalidad1,
+        "usuario":usuario1
+    }
+    return render(request,'Recetas/modificar_receta.html',contexto)
+
 def modificar(request,sesi):
     iden      = request.POST['identificador']
     autor     = request.POST['autor']   
@@ -39,6 +53,15 @@ def modificar(request,sesi):
         contexto ={"sesion":x}
         return render(request, 'Recetas/inicioUser.html',contexto)
 
+def modificarPerfil(request,id):
+    sesion = Usuario.objects.get(idUsuario = id)
+
+    contexto = {
+        "sesion":sesion
+    }
+
+    return render(request,'Recetas/ModificarPerfil.html',contexto)
+
 def perfilModificado(request,id):
     idUsuario2        = id
     nomUsuario2       = request.POST['nomUser']
@@ -53,30 +76,14 @@ def perfilModificado(request,id):
     usuario.apellidoCompleto = apellidoCompleto2
     usuario.username = username2
     usuario.email = email2
- 
+
     
 
     usuario.save() #update
 
-    x = Usuario.objects.get(idUsuario=id)
-    rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
-
-    if x.RolUsuario.nomRol == rol2.nomRol:
-        contexto ={"sesion":x}
-        return render(request, 'Recetas/inicioAdmin.html',contexto)
-    else:
-        contexto ={"sesion":x}
-        return render(request, 'Recetas/inicioUser.html',contexto)
-
-
-def modificarPerfil(request,id):
-    sesion = Usuario.objects.get(idUsuario = id)
-
-    contexto = {
-        "sesion":sesion
-    }
-
-    return render(request,'Recetas/ModificarPerfil.html',contexto)
+    
+    return render(request, 'Recetas/index.html')
+    
 
 
 def registrarRecetas(request,id):
@@ -256,21 +263,7 @@ def recetas(request,id):
     
     return render(request,'Recetas/recetas.html',contexto)
 
-def modificar_receta(request,id,sesi):
-    sesion = Usuario.objects.get(idUsuario=sesi)
-    receta1 = Receta.objects.get(idReceta=id)
-    nacionalidad1 = Nacionalidad.objects.all()
-    usuario1 = Usuario.objects.all()
 
-    contexto = {
-        "sesion":sesion,
-        "receta":receta1,
-        "nacionalidad":nacionalidad1,
-        "usuario":usuario1
-    }
-    
-    
-    return render(request,'Recetas/modificar_receta.html',contexto)
 
 def Ver_Receta_Usuario(request,id):
     sesion = Usuario.objects.get(idUsuario=id)

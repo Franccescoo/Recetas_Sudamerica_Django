@@ -2,6 +2,7 @@ $(document).ready(function () {
 
     $("#formRegi").submit(function (e) {
         
+        
         var nombre = $("#nomUser").val();
         var ape = $("#apeUser").val();
         var nick = $("#nickUserName").val();
@@ -52,27 +53,15 @@ $(document).ready(function () {
             entrar = false;
         }
 
-        if ((pass1.length > 60 || pass1.length < 4)) {
-            mensajeMostrar += "La contraseña debe tener entre 4 y 60 caracteres<br>----------------<br>";
-            entrar = false; 
-        }
-
-        if (!(isUpper(pass1))) {
-            mensajeMostrar += "Una letra de la contraseña debe ser mayúscula<br>----------------<br>";
-            entrar = false;
-        }
-
-        if (!tieneNumero(pass1)) {
-            mensajeMostrar += "Un dígito de la contraseña debe ser un número<br>----------------<br>";
-            entrar = false;
-        }
+        
 
         if (entrar) {
             $("#mensajeReg").html("Cargando...");
         }
         else {
-            $("#mensajeReg").html(mensajeMostrar);
             e.preventDefault();
+            $("#mensajeReg").html(mensajeMostrar);
+            
         }
     });
 })

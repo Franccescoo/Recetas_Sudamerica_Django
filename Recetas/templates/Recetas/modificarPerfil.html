@@ -12,15 +12,15 @@
     <!-- Title -->
     <title>Recetas de Sudamérica - Editar</title>
 
-<!-- Botones -->
+    <!-- Botones -->
     <link href="{% static 'Recetas/css/boton.css' %}" rel="stylesheet">
     
 
-   <!-- Title -->
-   <title>Recetas de Sudamérica</title>
-
    <!-- Favicon -->
    <link rel="icon" href="{% static 'Recetas/img/core-img/cocinero.png' %}">
+
+   <!-- Botones -->
+   <link href="{% static 'Recetas/css/boton.css' %}" rel="stylesheet">
 
    <!-- Core Stylesheet -->
    <link href="{% static 'Recetas/css/style.css' %}" rel="stylesheet">
@@ -28,8 +28,7 @@
    <!-- Responsive CSS -->
    <link href="{% static 'Recetas/css/responsive/responsive.css' %}" rel="stylesheet">
 
-   <!--Popup-->
-   <link rel="stylesheet" href="{% static 'Recetas/css/popup.css' %}" rel="stylesheet">
+   <link rel="stylesheet" href="{% static 'Recetas/css/Usuario.css' %}">
 
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
@@ -124,9 +123,7 @@
     <div class="caviar-contact-area d-md-flex align-items-center" id="contact">
         <div class="contact-form-area d-flex justify-content-end">
             <div class="contact-form">
-                <div class="contact-form-title">
-                    <p style="margin-top: 20px;">Datos </p>
-                </div>
+                
                 <form action="{% url 'perfilModificado' sesion.idUsuario %}" method="post" id="formRegi">
                     {% csrf_token %}
                     <div class="row">
@@ -135,7 +132,7 @@
                                 <p style="margin-bottom: 10px;">Foto:</p>
                             </div>
                             <img src="/media/{{sesion.foto}}" alt="Imagen no encontrada">
-                            <input type="file" class="form-control" value="{{ sesion.foto }}" id="imagen" name="imagen" required>
+                            <input type="file" class="form-control" id="foto" name="foto" required>
                         </div>
                         <div class="col-12">
                             <p>Nombre(s): {{sesion.nomUsuario}} </p>
@@ -157,12 +154,13 @@
                         </div>
 
                         <div class="col-12" style="text-align: center;">
+                            <p id="mensajeReg" name="mensajeReg"></p>
                    
                             <input type="submit" class="gradient-button gradient-button-1" value="Confirmar">
                                 
                           
                             <input type="reset" class="gradient-button gradient-button-2" value="Cancelar">
-                            <p id="mensajeReg" style="color: white;"></p>
+                            
                         </div> 
                     </div>
                 </form>
@@ -203,4 +201,6 @@
     <script src="{%static 'Recetas/js/others/plugins.js'%}"></script>
     <!-- Active js -->
     <script src="{%static 'Recetas/js/active.js'%}"></script>
+    <!-- Mod User -->
+    <script src="{%static 'Recetas/js/jquery/ModUser.js'%}"></script>
 </body>
