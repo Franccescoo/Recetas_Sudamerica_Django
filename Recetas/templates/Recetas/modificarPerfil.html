@@ -124,15 +124,16 @@
         <div class="contact-form-area d-flex justify-content-end">
             <div class="contact-form">
                 
-                <form action="{% url 'perfilModificado' sesion.idUsuario %}" method="post" id="formRegi">
+                <form action="{% url 'perfilModificado' sesion.idUsuario %}" method="POST" id="formRegi" name="formRegi" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="row">
                         <div class="col-12">
                             <div class="contact-form-title">
-                                <p style="margin-bottom: 10px;">Foto:</p>
+                                <p style="margin-bottom: 10px;">Imagen:</p>
                             </div>
                             <img src="/media/{{sesion.foto}}" alt="Imagen no encontrada">
-                            <input type="file" class="form-control" id="foto" name="foto" required>
+                            <input type="file" class="form-control" id="fot"
+                                name="fot" required>
                         </div>
                         <div class="col-12">
                             <p>Nombre(s): {{sesion.nomUsuario}} </p>

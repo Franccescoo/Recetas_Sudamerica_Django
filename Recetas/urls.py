@@ -18,7 +18,7 @@ urlpatterns = [
     path('Vista_de_Usuario/<int:id>',views.Vista_de_Usuario,name="Vista_de_Usuario"),
     path('Ver_Comen_Admin/<int:id>',Ver_Comen_Admin,name="Ver_Comen_Admin"),
     path('Ver_Receta_Usuario/<int:id>',Ver_Receta_Usuario,name="Ver_Receta_Usuario"),
-        path('eliminar_receta/<int:id>/<int:sesi>',eliminar_receta, name="eliminar_receta"),
+    path('eliminar_receta/<int:id>/<int:sesi>',eliminar_receta, name="eliminar_receta"),
 
 
 

@@ -64,18 +64,19 @@ def modificarPerfil(request,id):
 
 def perfilModificado(request,id):
     idUsuario2        = id
+    usuario = Usuario.objects.get(idUsuario = idUsuario2)
     nomUsuario2       = request.POST['nomUser']
     apellidoCompleto2 = request.POST['apeUser']
     username2         = request.POST['nickUserName']
     email2            = request.POST['email']
-  
-
-    usuario = Usuario.objects.get(idUsuario = idUsuario2)
+    foto2 = request.FILES['fot']
+      
 
     usuario.nomUsuario = nomUsuario2
     usuario.apellidoCompleto = apellidoCompleto2
     usuario.username = username2
     usuario.email = email2
+    usuario.foto = foto2
 
     
 

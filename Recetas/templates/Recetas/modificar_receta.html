@@ -128,8 +128,7 @@
                 <div class="contact-form-title">
 
                 </div>
-                <form action="{% url 'modificar' sesion.idUsuario %}" method="POST" name="formRegiRec" id="formRegiRec"
-                    enctype="multipart/form-data">
+                <form action="{% url 'modificar' sesion.idUsuario %}" method="POST" name="formRegiRec" id="formRegiRec" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="row">
                         <div class="col-12">
