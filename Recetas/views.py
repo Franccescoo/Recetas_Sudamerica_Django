@@ -76,7 +76,15 @@ def contraModificado(request,id):
 
     usuario.save() #update
     x = Usuario.objects.get(idUsuario = id)    
-    return render(request, 'Recetas/index.html')
+    rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
+
+    if x.RolUsuario.nomRol == rol2.nomRol:
+        contexto ={"sesion":x}
+        return render(request, 'Recetas/inicioAdmin.html',contexto)
+    else:
+        contexto ={"sesion":x}
+        return render(request, 'Recetas/inicioUser.html',contexto)
+
 
 
 
@@ -110,7 +118,14 @@ def perfilModificado(request,id):
     usuario.save() #update
 
     
-    return render(request, 'Recetas/index.html')
+    rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
+
+    if usuario.RolUsuario.nomRol == rol2.nomRol:
+        contexto ={"sesion":usuario}
+        return render(request, 'Recetas/inicioAdmin.html',contexto)
+    else:
+        contexto ={"sesion":usuario}
+        return render(request, 'Recetas/inicioUser.html',contexto)
     
 
 
