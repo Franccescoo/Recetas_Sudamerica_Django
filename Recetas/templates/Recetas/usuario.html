@@ -141,6 +141,7 @@
 
                             {% if Recetas %}
                             {% for Receta in Recetas %}
+                            {% if sesion.idUsuario == Receta.Usuario.idUsuario %}
                             {% if forloop.first %}<div class="row">{% endif %}
                                 <div class="col-12" style="padding-top: 20px;">
 
@@ -162,8 +163,10 @@
                         </div>
                         <div class="row">{% endif %}
                             {% if forloop.last %}</div>{% endif %}
+                        {% endif %}
                         {% endfor %}
                         {% endif %}
+                        
 
                     </div>
             </div>

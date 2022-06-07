@@ -15,6 +15,9 @@
     <!-- Favicon -->
     <link rel="icon" href="{% static 'Recetas/img/core-img/cocinero.png' %}">
 
+    <!-- Botones -->
+    <link href="{% static 'Recetas/css/boton.css' %}" rel="stylesheet">
+
     <!-- Core Stylesheet -->
     <link href="{% static 'Recetas/css/style.css' %}" rel="stylesheet">
 
@@ -135,6 +138,15 @@
                         </div>
                     </div>
                 </div>
+                <div style="text-align: center;">
+                    <div class="contact-form-title">
+                        <p>Editar: </p>
+                    </div>
+                    <a href="{% url 'modificarPerfil' sesion.idUsuario %}" >
+                    <button class="gradient-button gradient-button-1" value="Perfil">Perfil</button></a>
+                    <a href="{% url 'modificarContra' sesion.idUsuario %}" >
+                    <button class="gradient-button gradient-button-1" value="Perfil">Contraseña</button></a>
+                </div> 
             </div>
         </div>
     </div>
