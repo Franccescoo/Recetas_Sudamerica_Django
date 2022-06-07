@@ -15,12 +15,12 @@ $(document).ready(function () {
 
         
         if (!esMayuscula(nombre.charAt(0))) {
-            mensajeMostrar += "<br>La primera letra del nombre debe ser mayúscula<br>----------------<br>";
+            mensajeMostrar += "<br>La primera letra del nombre debe ser mayúscula<br>";
             entrar = false;
         }
 
         if (nombre.length > 50) {
-            mensajeMostrar += "El nombre puede contener un máximo de 50 caracteres<br>----------------<br>";
+            mensajeMostrar += "El nombre puede contener un máximo de 50 caracteres<br>";
             entrar = false;
         }
 
@@ -28,11 +28,11 @@ $(document).ready(function () {
         if (!ape == "") {
 
             if (!esMayuscula(ape.charAt(0))) {
-                mensajeMostrar += "La primera letra del apellido debe ser mayúscula<br>----------------<br>";
+                mensajeMostrar += "La primera letra del apellido debe ser mayúscula<br>";
                 entrar = false;
             }
             if (ape.length > 50) {
-                mensajeMostrar += "El apellido puede contener un máximo de 50 caracteres<br>----------------<br>";
+                mensajeMostrar += "El apellido puede contener un máximo de 50 caracteres<br>";
                 entrar = false;
             }
         }
@@ -41,12 +41,12 @@ $(document).ready(function () {
         
 
         if (nick.length < 4 || nick.length > 60) {
-            mensajeMostrar += "El nombre de usuario debe tener entre 4 y 60 caracteres<br>----------------<br>";
+            mensajeMostrar += "El nombre de usuario debe tener entre 4 y 60 caracteres<br>";
             entrar = false;
         }
 
         if (mail.length > 70) {
-            mensajeMostrar += "El correo no puede contener mas de 70 dígitos<br>----------------<br>";
+            mensajeMostrar += "El correo no puede contener mas de 70 dígitos<br>";
             entrar = false;
         }
 
