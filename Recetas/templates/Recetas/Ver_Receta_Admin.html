@@ -146,9 +146,11 @@
                                     <div class="col-md-12">
                                         <a class="gradient-button gradient-button-2" style="margin-bottom: 10px;" href="{% url 'eliminar_receta' Receta.idReceta sesion.idUsuario %} ">Eliminar</a><br>
                                     </div>
+                                    {% if sesion.idUsuario == Receta.Usuario.idUsuario %}
                                     <div class="col-md-12">
                                         <a class="gradient-button gradient-button-1" href="{% url 'modificar_receta' Receta.idReceta sesion.idUsuario %}">Modificar</a><br>
                                     </div>
+                                    {% endif %}
                                 </div>
                                
                                 

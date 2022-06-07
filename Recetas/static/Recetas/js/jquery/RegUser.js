@@ -38,10 +38,6 @@ $(document).ready(function () {
         }
 
         
-        if (!tieneNumero(nick)) {
-            mensajeMostrar += "Un dígito del nombre de usuario debe ser un número<br>";
-            entrar = false;
-        }
 
         if (nick.length < 4 || nick.length > 60) {
             mensajeMostrar += "El nombre de usuario debe tener entre 4 y 60 caracteres<br>";

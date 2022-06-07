@@ -1,8 +1,7 @@
 $(document).ready(function () {
 
     $("#formCreRec").submit(function (e) {
-        e.preventDefault();   
-        var img = $("#imagen").val();
+           
         var nomRec = $("#nombreReceta").val();
         
         var ingre = $("#ingredientes").val();
@@ -11,10 +10,7 @@ $(document).ready(function () {
         let mensajeMostrar = "";
         let entrar = true;
 
-        if(img.length > 70){
-            mensajeMostrar += "La longitud de la url no puede contener mas de 70 caracteres";
-            entrar = false;
-        }
+   
 
         if(nomRec.length > 50){
             mensajeMostrar += "La longitud del nombre no puede contener mas de 50 caracteres";
@@ -35,6 +31,7 @@ $(document).ready(function () {
             $("#mensaje").html("Receta registrada con exito");
         }
         else {
+            e.preventDefault();
             $("#mensaje").html(mensajeMostrar);
         }
 
