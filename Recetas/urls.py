@@ -1,11 +1,12 @@
 from unicodedata import name
 from django.urls import URLPattern, path
-from .views import inicioUser,inicioAdmin,modificar_receta, eliminar_comentario, registrarComentario, Ver_Comen_Admin, usuario,recetas,login_app,aamate,eliminar_receta, Menu_Recetas, index, aatest, contact, registrarRecetas, Creacion_Recetas, registrarRecetas, Editar_Recetas_Admin, Editar_Recetas, Login, listadoRecetas, menu, modificar_usuario_admin, modificar_vista_usuario, RecetaArgentina, RecetaChile, RecetaEcuador, RecetaPeru, RecetasBrasil, RecetasColombia, RecetasVenezuela, RecetaUruguay, registrarse, Ver_Receta_Admin, Ver_Receta_Usuario, Ver_Usuario_Admin, Vista_de_Admin, Vista_de_Usuario, registrarUsuario,listadoRecetas,eliminar_usuario,modificar_receta_admin,modificar
+from .views import perfilModificado,modificarPerfil,inicioUser,inicioAdmin,modificar_receta, eliminar_comentario, registrarComentario, Ver_Comen_Admin, usuario,recetas,login_app,aamate,eliminar_receta, Menu_Recetas, index, aatest, contact, registrarRecetas, Creacion_Recetas, registrarRecetas, Editar_Recetas_Admin, Editar_Recetas, Login, listadoRecetas, menu, modificar_usuario_admin, modificar_vista_usuario, RecetaArgentina, RecetaChile, RecetaEcuador, RecetaPeru, RecetasBrasil, RecetasColombia, RecetasVenezuela, RecetaUruguay, registrarse, Ver_Receta_Admin, Ver_Receta_Usuario, Ver_Usuario_Admin, Vista_de_Admin, Vista_de_Usuario, registrarUsuario,listadoRecetas,eliminar_usuario,modificar_receta_admin,modificar
 from . import views
 from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
-
+    path('perfilModificado/<int:id>',perfilModificado,name="perfilModificado"),
+    path('modificarPerfil/<int:id>',modificarPerfil,name="modificarPerfil"),
     path('modificar/<int:sesi>',modificar,name="modificar"),
     path('Creacion_Recetas/<int:id>',Creacion_Recetas,name="Creacion_Recetas"),
     path('Ver_Usuario_Admin/<int:id>',Ver_Usuario_Admin,name="Ver_Usuario_Admin"),

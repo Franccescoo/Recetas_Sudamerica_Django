@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
 
 <head>
-    {% load static %}
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,27 +10,34 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Recetas de Sudamérica</title>
+    <title>Recetas de Sudamérica - Editar</title>
 
-    <!-- Favicon -->
-    <link rel="icon" href="{% static 'Recetas/img/core-img/cocinero.png' %}">
-
-    <!-- Core Stylesheet -->
-    <link href="{% static 'Recetas/css/style.css' %}" rel="stylesheet">
-
-    <!-- Botones -->
+<!-- Botones -->
     <link href="{% static 'Recetas/css/boton.css' %}" rel="stylesheet">
+    
 
-    <!-- Responsive CSS -->
-    <link href="{% static 'Recetas/css/responsive/responsive.css' %}" rel="stylesheet">
+   <!-- Title -->
+   <title>Recetas de Sudamérica</title>
 
-    <link rel="stylesheet" href="{% static 'Recetas/css/Usuario.css' %}">
+   <!-- Favicon -->
+   <link rel="icon" href="{% static 'Recetas/img/core-img/cocinero.png' %}">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+   <!-- Core Stylesheet -->
+   <link href="{% static 'Recetas/css/style.css' %}" rel="stylesheet">
+
+   <!-- Responsive CSS -->
+   <link href="{% static 'Recetas/css/responsive/responsive.css' %}" rel="stylesheet">
+
+   <!--Popup-->
+   <link rel="stylesheet" href="{% static 'Recetas/css/popup.css' %}" rel="stylesheet">
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
 </head>
 
 <body>
+
+
     <!-- ***** Search Form Area ***** -->
     <div class="caviar-search-form d-flex align-items-center">
         <div class="container">
@@ -65,14 +72,12 @@
                                     <a class="nav-link" href="{% url 'index' %}">Inicio <span
                                             class="sr-only">(current)</span></a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'Menu_Recetas' %}">Recetas</a>
-                                </li>
+                                <li class="nav-item dropdown">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'Menu_Recetas' %}">Recetas</a>
+                                    </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'contact' %}">Contáctanos</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'index' %}">Cerrar Sesión</a>
                                 </li>
                             </ul>
 
@@ -85,20 +90,20 @@
     <!-- ***** Header Area End ***** -->
 
     <!-- ***** Breadcumb Area Start ***** -->
-    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(../../static/Recetas/img/bg-img/hero-4.jpg)">
+    <div class="breadcumb-area bg-img bg-overlay"
+        style="background-image: url(../../static/Recetas/img/food/FondoChile.png)">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
-                <div class="col-md-7 col-sm-12">
-                    <img class="perfil" src="/media/{{sesion.foto}}" alt="" >
+                <div class="col-12">
+                    <div class="breadcumb-content">
+                        <h2>Editar</h2>
 
-                    <p id="texto_admin">{{sesion.username}}</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- ***** Breadcumb Area End ***** -->
 
-    <!-- ***** Contact Area Start ***** -->
     <div class="topnav">
         {%if sesion.RolUsuario.nomRol == "Administrador" %}
         <a href="{% url 'Vista_de_Admin' sesion.idUsuario %}">Ver Perfil</a>
@@ -111,46 +116,60 @@
         <a href="{% url 'Creacion_Recetas' sesion.idUsuario %}">Subir Recetas</a>
         {% endif %}
     </div>
-    
+    <!-- ***** Breadcumb Area End ***** -->
+    <h3 style="text-align: center; margin-top: 40px;">Editar Perfil</h3>
+
+    <!-- ***** Menu Area Start ***** -->
 
     <div class="caviar-contact-area d-md-flex align-items-center" id="contact">
         <div class="contact-form-area d-flex justify-content-end">
             <div class="contact-form">
                 <div class="contact-form-title">
-                    <p style="margin-top: 20px;">Bienvenid@ {{sesion}} </p>
+                    <p style="margin-top: 20px;">Datos </p>
                 </div>
-                <div class="container">
+                <form action="{% url 'perfilModificado' sesion.idUsuario %}" method="post" id="formRegi">
+                    {% csrf_token %}
                     <div class="row">
-                        <div class="col-md-12">
-                            <img src="{{ sesion.foto.url }}" alt="" style="margin-bottom: 10px;">
+                        <div class="col-12">
+                            <div class="contact-form-title">
+                                <p style="margin-bottom: 10px;">Foto:</p>
+                            </div>
+                            <img src="/media/{{sesion.foto}}" alt="Imagen no encontrada">
+                            <input type="file" class="form-control" value="{{ sesion.foto }}" id="imagen" name="imagen" required>
                         </div>
-                        <div class="col-md-12">
-                            <h5>Nombre: {{ sesion.nomUsuario }}  {{ sesion.apellidoCompleto }}</h5>
+                        <div class="col-12">
+                            <p>Nombre(s): {{sesion.nomUsuario}} </p>
+                            <input type="text" class="form-control" placeholder="Ej: Alexander" value="{{sesion.nomUsuario}}" id="nomUser" name="nomUser" required>
                         </div>
-                        <div class="col-md-12">
-                            <h5>Nombre de Usuario: {{ sesion.username }}</h5>
+                        <div class="col-12">
+                            <p>Apellido(s): {{sesion.apellidoCompleto}}</p>
+                            <input type="text" class="form-control" placeholder="Ej: Lara" value="{{sesion.apellidoCompleto}}" id="apeUser" name="apeUser">
                         </div>
-                        <div class="col-md-12">
-                            <h5>Correo: {{ sesion.email }}</h5><br>
+                        <div class="col-12">
+                            <p>Nombre de Usuario: {{sesion.username}}</p>
+                            <input type="text" class="form-control" placeholder="Ej: Noditian1" value="{{sesion.username}}" id="nickUserName" name="nickUserName"
+                                required>
                         </div>
+                        <div class="col-12">
+                            <p>Email: {{sesion.email}}</p>
+                            <input type="email" class="form-control" placeholder="Ej: Alexios@gmail.com" value="{{sesion.email}}" id="email" name="email"
+                                required>
+                        </div>
+
+                        <div class="col-12" style="text-align: center;">
+                   
+                            <input type="submit" class="gradient-button gradient-button-1" value="Confirmar">
+                                
+                          
+                            <input type="reset" class="gradient-button gradient-button-2" value="Cancelar">
+                            <p id="mensajeReg" style="color: white;"></p>
+                        </div> 
                     </div>
-                </div>
-                <div style="text-align: center;">
-                    <div class="contact-form-title">
-                        <p>Editar: </p>
-                    </div>
-                    <a href="{% url 'modificarPerfil' sesion.idUsuario %}" >
-                    <button class="gradient-button gradient-button-1" value="Perfil">Perfil</button></a>
-                    <button class="gradient-button gradient-button-1" value="Perfil">Contraseña</button>
-                </div> 
-                
+                </form>
             </div>
-            
         </div>
-        
     </div>
-    
-    <!-- ***** Contact Area End ***** -->
+    <!-- ***** Menu Area End ***** -->
 
     <!-- ***** Footer Area Start ***** -->
     <footer class="caviar-footer-area">
@@ -158,7 +177,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="footer-text">
-                        <a href="{% url 'index' %}" class="navbar-brand">Recetas de Sudamérica</a>
+                        <a href="index.html" class="navbar-brand">Recetas de Sudamérica</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         <p style="color: beige;">Copyright Recetas de Sudamérica&copy;
                             <script>document.write(new Date().getFullYear());</script>
@@ -175,14 +194,13 @@
     <!-- ***** Footer Area End ***** -->
 
     <!-- jQuery-2.2.4 js -->
-    <script src="{% static 'Recetas/js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <script src="{%static 'Recetas/js/jquery/jquery-2.2.4.min.js'%} "></script>
     <!-- Popper js -->
-    <script src="{% static 'Recetas/js/bootstrap/popper.min.js' %}"></script>
+    <script src="{%static 'Recetas/js/bootstrap/popper.min.js'%}"></script>
     <!-- Bootstrap js -->
-    <script src="{% static 'Recetas/js/bootstrap/bootstrap.min.js' %}"></script>
+    <script src="{%static 'Recetas/js/bootstrap/bootstrap.min.js'%}"></script>
     <!-- All Plugins js -->
-    <script src="{% static 'Recetas/js/others/plugins.js' %}"></script>
-   
+    <script src="{%static 'Recetas/js/others/plugins.js'%}"></script>
     <!-- Active js -->
-    <script src="{% static 'Recetas/js/active.js' %}"></script>
+    <script src="{%static 'Recetas/js/active.js'%}"></script>
 </body>

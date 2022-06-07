@@ -3,6 +3,82 @@ from django.shortcuts import render, redirect
 from .models import Usuario,Receta,Nacionalidad,RolUsuario,Comentario
 from django.contrib import messages
 # Create your views here.
+
+def modificar(request,sesi):
+    iden      = request.POST['identificador']
+    autor     = request.POST['autor']   
+    imagen2   = request.FILES['imagen']
+    nom_r     = request.POST['nomreceta']
+    tiempo_r  = request.POST['tiempo']
+    idNacio_r = request.POST['idNacio']
+    ingre_r   = request.POST['ingredientes']
+    prepa_r   = request.POST['preparacion']
+
+    receta = Receta.objects.get(idReceta = iden)
+
+    receta.nomReceta = nom_r
+    receta.ingrediente = ingre_r
+    receta.preparacion = prepa_r
+    receta.tiempo = tiempo_r
+    receta.fotoReceta = imagen2
+    
+    idNacio_r2 = Nacionalidad.objects.get(idNacionalidad = idNacio_r)
+
+    receta.Nacionalidad = idNacio_r2
+    receta.save() #update
+    
+
+    #messages.succes(request, 'Receta modificada')
+    x = Usuario.objects.get(idUsuario=sesi)
+    rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
+
+    if x.RolUsuario.nomRol == rol2.nomRol:
+        contexto ={"sesion":x}
+        return render(request, 'Recetas/inicioAdmin.html',contexto)
+    else:
+        contexto ={"sesion":x}
+        return render(request, 'Recetas/inicioUser.html',contexto)
+
+def perfilModificado(request,id):
+    idUsuario2        = id
+    nomUsuario2       = request.POST['nomUser']
+    apellidoCompleto2 = request.POST['apeUser']
+    username2         = request.POST['nickUserName']
+    email2            = request.POST['email']
+  
+
+    usuario = Usuario.objects.get(idUsuario = idUsuario2)
+
+    usuario.nomUsuario = nomUsuario2
+    usuario.apellidoCompleto = apellidoCompleto2
+    usuario.username = username2
+    usuario.email = email2
+ 
+    
+
+    usuario.save() #update
+
+    x = Usuario.objects.get(idUsuario=id)
+    rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
+
+    if x.RolUsuario.nomRol == rol2.nomRol:
+        contexto ={"sesion":x}
+        return render(request, 'Recetas/inicioAdmin.html',contexto)
+    else:
+        contexto ={"sesion":x}
+        return render(request, 'Recetas/inicioUser.html',contexto)
+
+
+def modificarPerfil(request,id):
+    sesion = Usuario.objects.get(idUsuario = id)
+
+    contexto = {
+        "sesion":sesion
+    }
+
+    return render(request,'Recetas/ModificarPerfil.html',contexto)
+
+
 def registrarRecetas(request,id):
     Usuario2         = request.POST['autor']
     imagen2          = request.FILES['imagen']
@@ -384,40 +460,7 @@ def modificar_receta_admin(request,id):
     }
     return render(request,'Recetas/Editar_Recetas_Admin.html',contexto)
 
-def modificar(request,sesi):
-    iden      = request.POST['identificador']
-    autor     = request.POST['autor']   
-    imagen2   = request.FILES['imagen']
-    nom_r     = request.POST['nomreceta']
-    tiempo_r  = request.POST['tiempo']
-    idNacio_r = request.POST['idNacio']
-    ingre_r   = request.POST['ingredientes']
-    prepa_r   = request.POST['preparacion']
 
-    receta = Receta.objects.get(idReceta = iden)
-
-    receta.nomReceta = nom_r
-    receta.ingrediente = ingre_r
-    receta.preparacion = prepa_r
-    receta.tiempo = tiempo_r
-    receta.fotoReceta = imagen2
-    
-    idNacio_r2 = Nacionalidad.objects.get(idNacionalidad = idNacio_r)
-
-    receta.Nacionalidad = idNacio_r2
-    receta.save() #update
-    
-
-    #messages.succes(request, 'Receta modificada')
-    x = Usuario.objects.get(idUsuario=sesi)
-    rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
-
-    if x.RolUsuario.nomRol == rol2.nomRol:
-        contexto ={"sesion":x}
-        return render(request, 'Recetas/inicioAdmin.html',contexto)
-    else:
-        contexto ={"sesion":x}
-        return render(request, 'Recetas/inicioUser.html',contexto)
 
 
 

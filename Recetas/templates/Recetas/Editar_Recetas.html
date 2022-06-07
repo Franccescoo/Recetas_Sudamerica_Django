@@ -61,21 +61,21 @@
             <div class="row h-100">
                 <div class="col-12 h-100">
                     <nav class="h-100 navbar navbar-expand-lg align-items-center">
-                        <a class="navbar-brand" href="index.html">Recetas de Sudamérica</a>
+                        <a class="navbar-brand" href="{% url 'index' %}">Recetas de Sudamérica</a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#caviarNav"
                             aria-controls="caviarNav" aria-expanded="false" aria-label="Toggle navigation"><span
                                 class="fa fa-bars"></span></button>
                         <div class="collapse navbar-collapse" id="caviarNav">
                             <ul class="navbar-nav ml-auto" id="caviarMenu">
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="{% url 'index' %}">Inicio <span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <li class="nav-item">
                                         <a class="nav-link" href="{% url 'Menu_Recetas' %}">Recetas</a>
                                     </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Contáctanos</a>
+                                    <a class="nav-link" href="{% url 'contact' %}">Contáctanos</a>
                                 </li>
                                 <li class="nav-item dropdown active show">
                                     <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa-solid fa-user"></i>  Mi Cuenta</a>
