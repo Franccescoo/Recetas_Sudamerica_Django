@@ -110,7 +110,13 @@ def perfilModificado(request,id):
         x = Usuario.objects.get(username = username2)
         c = Usuario.objects.get(email = email2)
         messages.error(request, 'El nombre de usuario o correo ya estan ocupados')
-        return redirect ('registrarse')
+        rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
+        if usuario.RolUsuario.nomRol == rol2.nomRol:
+            contexto ={"sesion":usuario}
+            return render(request, 'Recetas/inicioAdmin.html',contexto)
+        else:
+            contexto ={"sesion":usuario}
+            return render(request, 'Recetas/inicioUser.html',contexto)
 
     except Usuario.DoesNotExist:
         messages.error(request, 'Cargando')

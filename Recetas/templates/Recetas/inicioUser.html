@@ -119,7 +119,14 @@
         <div class="contact-form-area d-flex justify-content-end">
             <div class="contact-form">
                 <div class="contact-form-title">
-                    <p style="margin-top: 20px;">Bienvenid@ {{sesion}} </p>
+                    {% if messages %}
+                    <div>
+                        {% for i in messages %}
+                        <p style="color: red;">{{ i }}</p>
+                        {% endfor %}
+                    </div>
+
+                    {% endif %}
                 </div>
                 <div class="container">
                     <div class="row">
