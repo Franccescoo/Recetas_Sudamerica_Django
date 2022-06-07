@@ -2,8 +2,9 @@ $(document).ready(function () {
 
     $("#formRegi").submit(function (e) {
         
-        var pass1 = $("#password1").val();
-        var pass2 = $("#password2").val();
+        
+        var pass1 = $("#pass1").val();
+        var pass2 = $("#pass2").val();
       
 
         let mensajeMostrar = "";

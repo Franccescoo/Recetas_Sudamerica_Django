@@ -89,8 +89,7 @@
     <!-- ***** Header Area End ***** -->
 
     <!-- ***** Breadcumb Area Start ***** -->
-    <div class="breadcumb-area bg-img bg-overlay"
-        style="background-image: url(../../static/Recetas/img/food/FondoChile.png)">
+    <div class="breadcumb-area bg-img bg-overlay foto12">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -116,7 +115,7 @@
         {% endif %}
     </div>
     <!-- ***** Breadcumb Area End ***** -->
-    <h3 style="text-align: center; margin-top: 40px;">Editar Contraseña</h3>
+    <h3 style="text-align: center; margin-top: 40px;">Editar Perfil</h3>
 
     <!-- ***** Menu Area Start ***** -->
 
@@ -124,22 +123,27 @@
         <div class="contact-form-area d-flex justify-content-end">
             <div class="contact-form">
                 
-                <form action="{% url 'contraModificado' sesion.idUsuario %}" method="POST" id="formRegi" name="formRegi" >
+                <form action="{% url 'contraModificado' sesion.idUsuario %}" method="POST" id="formRegi" name="formRegi" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="row">
+                        
                         <div class="col-12">
-                            <p>Ingresar Nueva Contraseña</p>
-                            <input type="password" class="form-control" placeholder="Ej: Patatun1" id="pass" name="pass"
+                            <p>Nueva Contraseña:</p>
+                            <input type="password" class="form-control" placeholder="Ej: Patatun1" value="{{sesion.contrasena}}" id="pass1" name="pass1"
                                 required>
-                            <p>Confirmar Contraseña</p>
-                            <input type="password" class="form-control" placeholder="Ej: Patatun1" id="pass2" name="pass2"
+                        </div>
+                        <div class="col-12">
+                            <p>Confirmar Contraseña:</p>
+                            <input type="password" class="form-control" placeholder="Ej: Patatun1" value="{{sesion.contrasena}}" id="pass2" name="pass2"
                                 required>
                         </div>
 
                         <div class="col-12" style="text-align: center;">
-                            <p id="mensajeReg" name="mensajeReg"></p>
+                            <p id="mensajeReg" name="mensajeReg">Hola</p>
                    
                             <input type="submit" class="gradient-button gradient-button-1" value="Confirmar">
+                                
+                          
                             <input type="reset" class="gradient-button gradient-button-2" value="Cancelar">
                             
                         </div> 
@@ -156,7 +160,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="footer-text">
-                        <a href="{% url 'index' %}" class="navbar-brand">Recetas de Sudamérica</a>
+                        <a href="{% url 'index' %} " class="navbar-brand">Recetas de Sudamérica</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         <p style="color: beige;">Copyright Recetas de Sudamérica&copy;
                             <script>document.write(new Date().getFullYear());</script>
@@ -184,5 +188,4 @@
     <script src="{%static 'Recetas/js/active.js'%}"></script>
     <!-- Mod User -->
     <script src="{%static 'Recetas/js/jquery/ModPass.js'%}"></script>
-    
 </body>

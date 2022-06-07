@@ -65,15 +65,12 @@ def modificarContra(request,id):
 
 def contraModificado(request,id):
     
-    contrasena2       = request.POST['pass'] 
+    contrasena2       = request.POST['pass1'] 
 
     usuario = Usuario.objects.get(idUsuario=id)
       
 
     usuario.contrasena = contrasena2
-
-    
-
     usuario.save() #update
     x = Usuario.objects.get(idUsuario = id)    
     rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
