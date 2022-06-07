@@ -53,6 +53,33 @@ def modificar(request,sesi):
         contexto ={"sesion":x}
         return render(request, 'Recetas/inicioUser.html',contexto)
 
+def modificarContra(request,id):
+    sesion = Usuario.objects.get(idUsuario = id)
+
+    contexto = {
+        "sesion":sesion
+    }
+
+    return render(request,'Recetas/ModificarContra.html',contexto)
+
+
+def contraModificado(request,id):
+    
+    contrasena2       = request.POST['pass'] 
+
+    usuario = Usuario.objects.get(idUsuario=id)
+      
+
+    usuario.contrasena = contrasena2
+
+    
+
+    usuario.save() #update
+    x = Usuario.objects.get(idUsuario = id)    
+    return render(request, 'Recetas/index.html')
+
+
+
 def modificarPerfil(request,id):
     sesion = Usuario.objects.get(idUsuario = id)
 
