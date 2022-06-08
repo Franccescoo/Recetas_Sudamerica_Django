@@ -44,8 +44,8 @@ $(document).ready(function () {
             entrar = false;
         }
 
-        if (mail.length > 70) {
-            mensajeMostrar += "El correo no puede contener mas de 70 dígitos<br>";
+        if (mail.length > 30) {
+            mensajeMostrar += "El correo no puede contener mas de 30 dígitos<br>";
             entrar = false;
         }
 
