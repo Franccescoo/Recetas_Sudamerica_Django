@@ -148,7 +148,8 @@
                     </div>
                     <a href="{% url 'modificarPerfil' sesion.idUsuario %}" >
                     <button class="gradient-button gradient-button-1" value="Perfil">Perfil</button></a>
-                    <button class="gradient-button gradient-button-1" value="Perfil">Contraseña</button>
+                    <a href="{% url 'modificarContra' sesion.idUsuario %}"">
+                    <button class="gradient-button gradient-button-1" value="Perfil">Contraseña</button></a>
                 </div> 
                 
             </div>
