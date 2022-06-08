@@ -4,7 +4,7 @@ $(document).ready(function () {
         
         var nombre = $("#nomComentario1").val();
         var mensaje = $("#Mensaje1").val();    
-        var mail = $("#emailComentario1")  
+        var mail = $("#emailComentario1").val(); 
 
         let mensajeMostrar = "";
         let entrar = true;
