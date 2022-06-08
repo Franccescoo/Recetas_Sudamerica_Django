@@ -85,74 +85,7 @@ def contraModificado(request,id):
 
 
 
-def modificarPerfil(request,id):
-    sesion = Usuario.objects.get(idUsuario = id)
 
-    contexto = {
-        "sesion":sesion
-    }
-
-    return render(request,'Recetas/ModificarPerfil.html',contexto)
-
-def perfilModificado(request,id):
-    idUsuario2        = id
-    usuario           = Usuario.objects.get(idUsuario = idUsuario2)
-    nomUsuario2       = request.POST['nomUser']
-    apellidoCompleto2 = request.POST['apeUser']
-    username2         = request.POST['nickUserName']
-    email2            = request.POST['email']
-    foto2 = request.FILES['fot']
-
-    try:
-        x = Usuario.objects.get(username = username2)
-        c = Usuario.objects.get(email = email2)
-
-        if idUsuario2 != x.idUsuario or idUsuario2 != c.idUsuario:
-            messages.error(request, 'El nombre de usuario o correo ya estan ocupados')
-            rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
-            if usuario.RolUsuario.nomRol == rol2.nomRol:
-                contexto ={"sesion":usuario}
-                return render(request, 'Recetas/inicioAdmin.html',contexto)
-            else:
-                contexto ={"sesion":usuario}
-                return render(request, 'Recetas/inicioUser.html',contexto)
-        else:
-            messages.error(request, 'Perfil modificado')
-            usuario.nomUsuario = nomUsuario2
-            usuario.apellidoCompleto = apellidoCompleto2
-            usuario.username = username2
-            usuario.email = email2
-            usuario.foto = foto2
-            usuario.save() #update
-            rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
-            if usuario.RolUsuario.nomRol == rol2.nomRol:
-                contexto ={"sesion":usuario}
-                return render(request, 'Recetas/inicioAdmin.html',contexto)
-            else:
-                contexto ={"sesion":usuario}
-                return render(request, 'Recetas/inicioUser.html',contexto)
-
-
-
-
-
-
-            
-    except Usuario.DoesNotExist:
-        messages.error(request, 'Perfil Modificado')
-        usuario.nomUsuario = nomUsuario2
-        usuario.apellidoCompleto = apellidoCompleto2
-        usuario.username = username2
-        usuario.email = email2
-        usuario.foto = foto2
-        usuario.save() #update
-        rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
-        if usuario.RolUsuario.nomRol == rol2.nomRol:
-            contexto ={"sesion":usuario}
-            return render(request, 'Recetas/inicioAdmin.html',contexto)
-        else:
-            contexto ={"sesion":usuario}
-            return render(request, 'Recetas/inicioUser.html',contexto)
 
 
 def registrarRecetas(request,id):
@@ -299,7 +232,68 @@ def registrarUsuario(request):
         messages.success(request, 'Cuenta registrada')
         return render(request,"Recetas/Vista_de_Usuario.html",contexto)
 
+def modificarPerfil(request,id):
+    sesion = Usuario.objects.get(idUsuario = id)
 
+    contexto = {
+        "sesion":sesion
+    }
+
+    return render(request,'Recetas/ModificarPerfil.html',contexto)
+
+def perfilModificado(request,id):
+    idUsuario2        = id
+    usuario           = Usuario.objects.get(idUsuario = idUsuario2)
+    nomUsuario2       = request.POST['nomUser']
+    apellidoCompleto2 = request.POST['apeUser']
+    username2         = request.POST['nickUserName']
+    email2            = request.POST['email']
+    foto2 = request.FILES['fot']
+
+    try:
+        x = Usuario.objects.get(username = username2)
+        c = Usuario.objects.get(email = email2)
+
+        if idUsuario2 != x.idUsuario or idUsuario2 != c.idUsuario:
+            messages.error(request, 'El nombre de usuario o correo ya estan ocupados')
+            rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
+            if usuario.RolUsuario.nomRol == rol2.nomRol:
+                contexto ={"sesion":usuario}
+                return render(request, 'Recetas/inicioAdmin.html',contexto)
+            else:
+                contexto ={"sesion":usuario}
+                return render(request, 'Recetas/inicioUser.html',contexto)
+        else:
+            messages.error(request, 'Perfil modificado')
+            usuario.nomUsuario = nomUsuario2
+            usuario.apellidoCompleto = apellidoCompleto2
+            usuario.username = username2
+            usuario.email = email2
+            usuario.foto = foto2
+            usuario.save() #update
+            rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
+            if usuario.RolUsuario.nomRol == rol2.nomRol:
+                contexto ={"sesion":usuario}
+                return render(request, 'Recetas/inicioAdmin.html',contexto)
+            else:
+                contexto ={"sesion":usuario}
+                return render(request, 'Recetas/inicioUser.html',contexto)
+            
+    except Usuario.DoesNotExist:
+        messages.error(request, 'Perfil Modificado')
+        usuario.nomUsuario = nomUsuario2
+        usuario.apellidoCompleto = apellidoCompleto2
+        usuario.username = username2
+        usuario.email = email2
+        usuario.foto = foto2
+        usuario.save() #update
+        rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
+        if usuario.RolUsuario.nomRol == rol2.nomRol:
+            contexto ={"sesion":usuario}
+            return render(request, 'Recetas/inicioAdmin.html',contexto)
+        else:
+            contexto ={"sesion":usuario}
+            return render(request, 'Recetas/inicioUser.html',contexto)
         
 
 
@@ -315,9 +309,6 @@ def index(request):
 
 
 
-
-def registrarse(request):
-    return render(request,'Recetas/registrarse.html')
 
 def recetas(request,id):
     receta1 = Receta.objects.get(idReceta=id)

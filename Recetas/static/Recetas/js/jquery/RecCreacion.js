@@ -12,17 +12,17 @@ $(document).ready(function () {
 
    
 
-        if(nomRec.length > 50){
+        if(nomRec.length > 30){
             mensajeMostrar += "La longitud del nombre no puede contener mas de 50 caracteres";
             entrar = false;
         }
 
-        if(ingre.length > 200){
+        if(ingre.length > 1000){
             mensajeMostrar += "La longitud de los ingredientes no puede contener mas de 50 caracteres";
             entrar = false;
         }
 
-        if(prepa.length > 500){
+        if(prepa.length > 2000){
             mensajeMostrar += "La longitud de la preparacion no puede contener mas de 500 caracteres";
             entrar = false;
         }
