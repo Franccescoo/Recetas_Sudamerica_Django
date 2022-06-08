@@ -28,7 +28,7 @@ $(document).ready(function () {
         }
 
         if (entrar) {
-            $("#mensaje").html("Receta registrada con exito");
+            $("#mensaje").html("Cargando...");
         }
         else {
             e.preventDefault();

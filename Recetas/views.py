@@ -1,4 +1,5 @@
 from email import message
+from tkinter.tix import Tree
 from django.shortcuts import render, redirect
 from .models import Usuario,Receta,Nacionalidad,RolUsuario,Comentario
 from django.contrib import messages
@@ -215,14 +216,17 @@ def registrarUsuario(request):
     foto2       = request.FILES['foto1']
     email2      = request.POST['email']
     contra2     = request.POST['password1']
-
+    try:
+        c = Usuario.objects.get(email = email2)
+        c1 = False
+    except Usuario.DoesNotExist:
+        c1 = True      
     try:
         x = Usuario.objects.get(username = nick)
-        c = Usuario.objects.get(email = email2)
-        messages.error(request, 'El nombre de usuario o correo ya estan ocupados')
-        return redirect ('registrarse')
-
+        x1 = False
     except Usuario.DoesNotExist:
+        x1 = True
+    if c1 == True and x1 == True:
         messages.error(request, 'Cargando')
         Usuario.objects.create(nomUsuario = nombre2, apellidoCompleto = apellido2, username = nick, email = email2, foto = foto2, contrasena = contra2)
         sesion = Usuario.objects.get(username=nick)
@@ -231,6 +235,10 @@ def registrarUsuario(request):
         }
         messages.success(request, 'Cuenta registrada')
         return render(request,"Recetas/Vista_de_Usuario.html",contexto)
+    else:
+        messages.error(request, 'El nombre de usuario o correo ya estan ocupados')
+        return redirect ('registrarse')
+
 
 def modificarPerfil(request,id):
     sesion = Usuario.objects.get(idUsuario = id)
@@ -251,36 +259,25 @@ def perfilModificado(request,id):
     foto2 = request.FILES['fot']
 
     try:
-        x = Usuario.objects.get(username = username2)
         c = Usuario.objects.get(email = email2)
-
-        if idUsuario2 != x.idUsuario or idUsuario2 != c.idUsuario:
-            messages.error(request, 'El nombre de usuario o correo ya estan ocupados')
-            rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
-            if usuario.RolUsuario.nomRol == rol2.nomRol:
-                contexto ={"sesion":usuario}
-                return render(request, 'Recetas/inicioAdmin.html',contexto)
-            else:
-                contexto ={"sesion":usuario}
-                return render(request, 'Recetas/inicioUser.html',contexto)
+        if idUsuario2 == c.idUsuario:
+            c1 = True
         else:
-            messages.error(request, 'Perfil modificado')
-            usuario.nomUsuario = nomUsuario2
-            usuario.apellidoCompleto = apellidoCompleto2
-            usuario.username = username2
-            usuario.email = email2
-            usuario.foto = foto2
-            usuario.save() #update
-            rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
-            if usuario.RolUsuario.nomRol == rol2.nomRol:
-                contexto ={"sesion":usuario}
-                return render(request, 'Recetas/inicioAdmin.html',contexto)
-            else:
-                contexto ={"sesion":usuario}
-                return render(request, 'Recetas/inicioUser.html',contexto)
-            
+            c1 = False
     except Usuario.DoesNotExist:
-        messages.error(request, 'Perfil Modificado')
+        c1 = True
+    try:
+        x = Usuario.objects.get(username = username2)
+        if idUsuario2 == x.idUsuario:
+            x1 = True
+        else:
+            x1 = False
+    except Usuario.DoesNotExist:
+        x1 = True
+
+
+    if c1 == True and x1 == True:
+        messages.error(request, 'Perfil modificado')
         usuario.nomUsuario = nomUsuario2
         usuario.apellidoCompleto = apellidoCompleto2
         usuario.username = username2
@@ -294,10 +291,21 @@ def perfilModificado(request,id):
         else:
             contexto ={"sesion":usuario}
             return render(request, 'Recetas/inicioUser.html',contexto)
+    else:
+        messages.error(request, 'El nombre de usuario o correo ya estan ocupados')
+        rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
+        if usuario.RolUsuario.nomRol == rol2.nomRol:
+            contexto ={"sesion":usuario}
+            return render(request, 'Recetas/inicioAdmin.html',contexto)
+        else:
+            contexto ={"sesion":usuario}
+            return render(request, 'Recetas/inicioUser.html',contexto)
+
+
         
+            
 
-
-
+        
 
 
 

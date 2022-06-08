@@ -70,7 +70,7 @@ $(document).ready(function () {
             entrar = false;
         }
         if (entrar) {
-            $("#mensajeReg").html("Registro exitoso");
+            $("#mensajeReg").html("Cargando...");
         }
         else {
             $("#mensajeReg").html(mensajeMostrar);
