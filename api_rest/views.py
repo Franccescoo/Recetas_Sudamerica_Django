@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework.parsers import JSONParser
 from django.views.decorators.csrf import csrf_exempt
 from Recetas.models import Usuario
-from .serializers import UsuarioSerializers
+from .serializers import UsuarioSerializers,RecetaSerializers,ComentarioSerializers
 
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
@@ -30,7 +30,7 @@ def listado_usuarios(request):
 
 @api_view(['POST'])
 @permission_classes((IsAuthenticated,))
-def addMascota(request):
+def addUsuario(request):
     data = JSONParser().parse(request)
     serializer = UsuarioSerializers(data = data)
     if serializer.is_valid():
@@ -41,9 +41,9 @@ def addMascota(request):
 
 @api_view(['GET','PUT','DELETE'])
 @permission_classes((IsAuthenticated,))
-def modEliminarMascota(request,codigo):
+def modEliminarUsuario(request,id):
     try:
-        m = Usuario.objects.get(codigoChip = codigo)
+        m = Usuario.objects.get(idUsuario = id)
     except Usuario.DoesNotExist:
         return Response(status = status.HTTP_404_NOT_FOUND)
     
