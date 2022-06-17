@@ -1,5 +1,5 @@
 from django.urls import path
-from api_rest.views import listado_usuarios, addUsuario, modEliminarUsuario, listado_recetas, addReceta,modEliminarReceta
+from api_rest.views import listado_comentarios,addComentario,modEliminarComentario,listado_usuarios, addUsuario, modEliminarUsuario, listado_recetas, addReceta,modEliminarReceta
 from api_rest.viewsLogin import ini_user
 urlpatterns = [
     path('ini_user/',ini_user,name="ini_user"),
@@ -12,4 +12,7 @@ urlpatterns = [
     path('addReceta/',addReceta,name="addReceta"),
     path('modEliminarReceta/<id>',modEliminarReceta,name="modEliminarReceta"),
     
+    path('listado_comentarios/',listado_comentarios,name="listado_comentarios"),
+    path('addComentario/',addComentario,name="addComentario"),
+    path('modEliminarComentario/<id>',modEliminarComentario,name="modEliminarComentario"),
 ]

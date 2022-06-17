@@ -19,11 +19,11 @@ def ini_user(request):
     try:
         user = User.objects.get(username = usuario)
     except User.DoesNotExist:
-        return Response("Usuario incorrecto") # A futuro que no especifique en que se equivoco ("Usuario y/o clave incorrecta") 
+        return Response("Usuario y/o contraseña incorrecto/s") # A futuro que no especifique en que se equivoco ("Usuario y/o clave incorrecta") 
 
     pass_valido = check_password(clave, user.password)
     if not pass_valido:
-        return Response("Clave Incorrecta")
+        return Response("Usuario y/o contraseña incorrecto/s")
 
     #Crear el token
     token,created = Token.objects.get_or_create(user = user)
