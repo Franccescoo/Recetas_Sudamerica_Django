@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Recetas',
+    'api_rest',
+    'rest_framework',
+    'rest_framework.authtoken',
     
 ]
 
@@ -71,6 +74,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Recetas_Sudamerica.wsgi.application'
 
+REST_FRAMEWORK={
+    'DEFAULT_AUTHENTICATION_CLASSES':[
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -78,7 +86,7 @@ WSGI_APPLICATION = 'Recetas_Sudamerica.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
-        'NAME': '127.0.0.1:1521/xe',
+        'NAME': '192.168.1.16/xe', # 'NAME': '127.0.0.1:1521/xe',
         'USER': 'RecetaPresentacion3',
         'PASSWORD': 'oracle',
         'TEST':{
