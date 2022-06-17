@@ -31,11 +31,11 @@ geocoder_map.geocode({
             position: map.getCenter()
         });
     } else {
-        alert("Geocode was not successful for the following reason: " + status);
+//        alert("Geocode no tuvo éxito por la siguiente razón:  " + status);
     }
 });
 var mapType = new google.maps.StyledMapType(stylez, {
     name: "Grayscale"
 });
 map.mapTypes.set('gMap', mapType);
-map.setMapTypeId('gMap');
+map.setMapTypeId('gMap'); 
