@@ -22,6 +22,8 @@
 
     <!-- Core Stylesheet -->
     <link href="{% static 'Recetas/css/style.css' %} " rel="stylesheet">
+    <link href="{% static 'Recetas/css/valora.css' %} " rel="stylesheet">
+    <link href="{% static 'Recetas/css/boton.css' %} " rel="stylesheet">
 
     <!-- Responsive CSS -->
     <link href="{% static 'Recetas/css/responsive/responsive.css' %}" rel="stylesheet">
@@ -103,6 +105,62 @@
 
    {% block cuerpo %}
    {% endblock cuerpo%}
+
+    <!-- ***** Contact Area Start ***** -->
+    <div class="caviar-contact-area d-md-flex align-items-center" id="contact">
+        <div class="contact-form-area d-flex justify-content-end">
+            <div class="contact-form" style="padding-bottom: 80px;">
+                {% if messages %}
+                <div>
+                    {% for i in messages %}
+                    <p style="color: red;">{{ i }}</p>
+                    {% endfor %}
+                </div>
+
+                {% endif %}
+                <div class="contact-form-title">
+                    <p style="margin-top: 20px;">Escribir Comentario</p>
+                </div>
+                <form action="{% url 'registrarValoracion' %}" method="POST"  name="formValo" id="formValo" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12">
+                            <input type="text" class="form-control" placeholder="Nombre" name="nomComentario1" id="nomComentario1" required>
+                        </div>
+                        <div class="col-12">
+                            <input type="email" class="form-control" placeholder="Correo electrónico (no se publicará)" name="emailComentario1" id="emailComentario1" required>
+                        </div>
+                        <div class="col-12">
+                            <textarea  name="Mensaje1" class="form-control" id="Mensaje1" cols="30" rows="10" placeholder="Comentario o pregunta" required></textarea>
+                        </div>
+                        <div class="col-12">
+                            <center>
+                                <p class="clasificacion" id="formu" name="formu">
+                                    <input id="radio1" type="radio" name="estrellas" value="5" required><!--
+                                    --><label for="radio1">★</label><!--
+                                    --><input id="radio2" type="radio" name="estrellas" value="4" required><!--
+                                    --><label for="radio2">★</label><!--
+                                    --><input id="radio3" type="radio" name="estrellas" value="3" required><!--
+                                    --><label for="radio3">★</label><!--
+                                    --><input id="radio4" type="radio" name="estrellas" value="2" required><!--
+                                    --><label for="radio4">★</label><!--
+                                    --><input id="radio5" type="radio" name="estrellas" value="1" required><!--
+                                    --><label for="radio5">★</label>
+                                </p>
+                            </center>
+                        </div>
+                        <div class="col-12" style="padding-top: 30px;">
+                            <center>
+                                <input type="submit" class="gradient-button gradient-button-1" value="Enviar" >
+                                <p id="mensajeReg"></p>
+                            </center>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Contact Area End ***** -->
 
 
     <!-- ***** Footer Area Start ***** -->

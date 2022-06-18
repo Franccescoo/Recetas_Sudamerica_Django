@@ -54,6 +54,19 @@ class Comentario(models.Model):
     def __str__(self) :
             return self.nomComentario
 
+class Valoracion(models.Model):
+    idValoracion        = models.AutoField(primary_key=True)
+    nomValoracion       = models.CharField(max_length=30, blank=False, null=False)
+    emailValoracion     = models.CharField(max_length=30, null=False)
+    mensajeValoracion   = models.CharField(max_length=1000, null=False, blank=False)
+    estrellaValoracion  = models.IntegerField(null=False, blank=False)
+    Usuario             = models.ForeignKey(Usuario, on_delete= models.CASCADE)
+    Receta              = models.ForeignKey(Receta, on_delete= models.CASCADE)
+
+
+    def __str__(self) :
+            return self.nomValoracion
+
 
 
 

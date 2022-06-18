@@ -1,7 +1,7 @@
 from email import message
 from tkinter.tix import Tree
 from django.shortcuts import render, redirect
-from .models import Usuario,Receta,Nacionalidad,RolUsuario,Comentario
+from .models import Usuario,Receta,Nacionalidad,RolUsuario,Comentario,Valoracion
 from django.contrib import messages
 # Create your views here.
 
@@ -313,7 +313,11 @@ def aamate(request):
     return render(request,'Recetas/aamate.html')
 
 def index(request):
-    return render(request,'Recetas/index.html')
+    sesion = Usuario.objects.get(idUsuario=id)
+    contexto={
+        "sesion":sesion
+    }
+    return render(request,'Recetas/index.html', contexto)
 
 
 
@@ -537,3 +541,16 @@ def registrarComentario(request):
     messages.success(request, 'Mensaje Enviado')
 
     return redirect('contact')
+
+
+def registrarValoracion(request):
+    nomComen     = request.POST['nomComentario1']
+    correo       = request.POST['emailComentario1']
+    mensa        = request.POST['Mensaje1']
+    valo         = request.POST['estrellas']
+
+    Valoracion.objects.create(nomValoracion = nomComen, emailValoracion = correo, mensajeValoracion = mensa, estrellaValoracion = valo)
+
+    messages.success(request, 'Valoracion Enviada')
+
+    return redirect('Menu_Recetas')
