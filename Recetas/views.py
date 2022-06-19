@@ -21,7 +21,6 @@ def modificar_receta(request,id,sesi):
 
 def modificar(request,sesi):
     iden      = request.POST['identificador']
-    autor     = request.POST['autor']   
     imagen2   = request.FILES['imagen']
     nom_r     = request.POST['nomreceta']
     tiempo_r  = request.POST['tiempo']
@@ -44,15 +43,9 @@ def modificar(request,sesi):
     
 
     #messages.succes(request, 'Receta modificada')
-    x = Usuario.objects.get(idUsuario=sesi)
-    rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
 
-    if x.RolUsuario.nomRol == rol2.nomRol:
-        contexto ={"sesion":x}
-        return render(request, 'Recetas/inicioAdmin.html',contexto)
-    else:
-        contexto ={"sesion":x}
-        return render(request, 'Recetas/inicioUser.html',contexto)
+    return redirect ('modificar_receta',receta.idReceta,sesi)
+   
 
 def modificarContra(request,id):
     sesion = Usuario.objects.get(idUsuario = id)
@@ -106,17 +99,7 @@ def registrarRecetas(request,id):
     
     messages.success(request, 'Receta Registrada')
 
-   
-    sesion = Usuario.objects.get(idUsuario=id)
-
-    rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
-
-    if sesion.RolUsuario.nomRol == rol2.nomRol:
-        contexto ={"sesion":sesion}
-        return render(request, 'Recetas/inicioAdmin.html',contexto)
-    else:
-        contexto ={"sesion":sesion}
-        return render(request, 'Recetas/inicioUser.html',contexto)
+    return redirect ('Creacion_Recetas',id)
 
 
 def Creacion_Recetas(request,id):
@@ -144,11 +127,9 @@ def login_app(request):
         rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
 
         if x.RolUsuario.nomRol == rol2.nomRol:
-            contexto ={"sesion":x}
-            return render(request, 'Recetas/inicioAdmin.html',contexto)
+            return redirect ('Vista_de_Admin',x.idUsuario)
         else:
-            contexto ={"sesion":x}
-            return render(request, 'Recetas/inicioUser.html',contexto)
+            return redirect ('Vista_de_Usuario',x.idUsuario)
 
     except Usuario.DoesNotExist:
         # messages.error(request, 'Usuario y/o clave incorrecta')
