@@ -109,27 +109,19 @@
     <!-- ***** Contact Area Start ***** -->
     <div class="caviar-contact-area d-md-flex align-items-center" id="contact">
         <div class="contact-form-area d-flex justify-content-end">
-            <div class="contact-form" style="padding-bottom: 80px;">
-                {% if messages %}
-                <div>
-                    {% for i in messages %}
-                    <p style="color: red;">{{ i }}</p>
-                    {% endfor %}
-                </div>
-
-                {% endif %}
+            <div class="contact-form" style="padding-bottom: 10px;">
                 <div class="contact-form-title">
                     <p style="margin-top: 20px;">Escribir Comentario</p>
                 </div>
                 <form action="{% url 'registrarValoracion' %}" method="POST"  name="formValo" id="formValo" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="row">
-                        <div class="col-12">
+                       <!--<div class="col-12">
                             <input type="text" class="form-control" placeholder="Nombre" name="nomComentario1" id="nomComentario1" required>
                         </div>
                         <div class="col-12">
                             <input type="email" class="form-control" placeholder="Correo electrónico (no se publicará)" name="emailComentario1" id="emailComentario1" required>
-                        </div>
+                        </div>--> 
                         <div class="col-12">
                             <textarea  name="Mensaje1" class="form-control" id="Mensaje1" cols="30" rows="10" placeholder="Comentario o pregunta" required></textarea>
                         </div>
@@ -148,6 +140,10 @@
                                     --><label for="radio5">★</label>
                                 </p>
                             </center>
+                            <center>
+                                <p>Tu valoración: ¿Qué te ha parecido la receta?</p>
+                            </center>
+                            
                         </div>
                         <div class="col-12" style="padding-top: 30px;">
                             <center>
@@ -157,6 +153,36 @@
                         </div>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+    <div class="caviar-food-menu section-padding-150 clearfix" style="padding-top: 10px;">
+        <div class="container">
+            <div class="row">
+
+                <div class="container">
+                    <div class="row">
+                        <center>
+                            <h3 style="color: rgb(179, 53, 53);">Comentarios</h3>
+                        </center>
+                    </div>
+                    <div class="row" style="overflow-x:auto;">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>Nombre</td>
+                                <td>Mensaje</td>
+                            </tr>
+                            {% if comentario %}
+                            {% for m in comentario %}
+                            <tr>
+                                <td>{{ m.nomComentario }}</td>
+                                <td>{{ m.Mensaje }}</td>
+                            </tr>
+                            {% endfor %}
+                            {% endif %}
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
