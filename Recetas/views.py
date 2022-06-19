@@ -466,6 +466,11 @@ def listadoComentario(request):
     contexto = {"lista_a":comen}
     return render(request,"Recetas/Ver_Comen_Admin.html", contexto)
 
+def listadoValoracion(request):
+    comen = Valoracion.objects.all()
+    contexto = {"lista_a":comen}
+    return render(request,"Recetas/plantillaNueva.html", contexto)
+
 def eliminar_comentario(request,id,sesi):
     usuar = Comentario.objects.get(idComentario = id)
     usuar.delete() #Elimina registro
@@ -544,12 +549,10 @@ def registrarComentario(request):
 
 
 def registrarValoracion(request):
-    nomComen     = request.POST['nomComentario1']
-    correo       = request.POST['emailComentario1']
     mensa        = request.POST['Mensaje1']
     valo         = request.POST['estrellas']
 
-    Valoracion.objects.create(nomValoracion = nomComen, emailValoracion = correo, mensajeValoracion = mensa, estrellaValoracion = valo)
+    Valoracion.objects.create(mensajeValoracion = mensa, estrellaValoracion = valo)
 
     messages.success(request, 'Valoracion Enviada')
 
