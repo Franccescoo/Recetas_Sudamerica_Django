@@ -62,9 +62,6 @@ class Valoracion(models.Model):
     Receta              = models.ForeignKey(Receta, on_delete= models.CASCADE)
 
 
-    def __str__(self) :
-            return self.nomValoracion
-
 
 
 

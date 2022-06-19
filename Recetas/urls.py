@@ -1,10 +1,11 @@
 from unicodedata import name
 from django.urls import URLPattern, path
-from .views import contraModificado, registrarValoracion, listadoValoracion,  modificarContra,perfilModificado,modificarPerfil,inicioUser,inicioAdmin,modificar_receta, eliminar_comentario, registrarComentario, Ver_Comen_Admin, usuario,recetas,login_app,aamate,eliminar_receta, Menu_Recetas, index, aatest, contact, registrarRecetas, Creacion_Recetas, registrarRecetas, Editar_Recetas_Admin, Editar_Recetas, Login, listadoRecetas, menu, modificar_usuario_admin, modificar_vista_usuario, RecetaArgentina, RecetaChile, RecetaEcuador, RecetaPeru, RecetasBrasil, RecetasColombia, RecetasVenezuela, RecetaUruguay, registrarse, Ver_Receta_Admin, Ver_Receta_Usuario, Ver_Usuario_Admin, Vista_de_Admin, Vista_de_Usuario, registrarUsuario,listadoRecetas,eliminar_usuario,modificar_receta_admin,modificar
+from .views import Menu_RecetasSesion, recetasSesion, contraModificado, registrarValoracion, listadoValoracion,  modificarContra,perfilModificado,modificarPerfil,inicioUser,inicioAdmin,modificar_receta, eliminar_comentario, registrarComentario, Ver_Comen_Admin, usuario,recetas,login_app,aamate,eliminar_receta, Menu_Recetas, index, aatest, contact, registrarRecetas, Creacion_Recetas, registrarRecetas, Editar_Recetas_Admin, Editar_Recetas, Login, listadoRecetas, menu, modificar_usuario_admin, modificar_vista_usuario, RecetaArgentina, RecetaChile, RecetaEcuador, RecetaPeru, RecetasBrasil, RecetasColombia, RecetasVenezuela, RecetaUruguay, registrarse, Ver_Receta_Admin, Ver_Receta_Usuario, Ver_Usuario_Admin, Vista_de_Admin, Vista_de_Usuario, registrarUsuario,listadoRecetas,eliminar_usuario,modificar_receta_admin,modificar
 from . import views
 from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
+    path('registrarValoracion/<int:idUser>/<int:idRec>',registrarValoracion,name="registrarValoracion"),
     path('contraModificado/<int:id>',contraModificado,name="contraModificado"),
     path('modificarContra/<int:id>',modificarContra,name="modificarContra"),
     path('perfilModificado/<int:id>',perfilModificado,name="perfilModificado"),
@@ -24,8 +25,8 @@ urlpatterns = [
 
 
 
-
-    
+    path('Menu_RecetasSesion/<int:idUser>',Menu_RecetasSesion,name="Menu_RecetasSesion"),
+    path('recetasSesion/<int:idUser>/<int:idRec>',recetasSesion,name="recetasSesion"),
     path('modificar_receta/<int:id>/<int:sesi>',modificar_receta,name="modificar_receta"),
     path('Editar_Recetas_Admin/<int:id>',Editar_Recetas_Admin,name="Editar_Recetas_Admin"),
     path('usuario/<int:id>/<int:sesi>',usuario,name="usuario"),

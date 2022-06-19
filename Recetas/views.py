@@ -319,18 +319,42 @@ def index(request):
     }
     return render(request,'Recetas/index.html', contexto)
 
+def Menu_RecetasSesion(request,idUser):
+    sesion = Usuario.objects.get(idUsuario=idUser)
+    RecetasChile = Receta.objects.all()
+    contexto={
+        "RecetasChile": RecetasChile,
+        "sesion" : sesion
 
+    }
+    return render(request,'Recetas/Menu_RecetasSesion.html', contexto)
 
+def recetasSesion(request, idUser ,idRec):
+    sesion = Usuario.objects.get(idUsuario=idUser)
+    receta1 = Receta.objects.get(idReceta=idRec)
+    nacionalidad1 = Nacionalidad.objects.all()
+    usuario1 = Usuario.objects.all()
+    valo = Valoracion.objects.all()
+    contexto = {
+        "receta":receta1,
+        "nacionalidad":nacionalidad1,
+        "usuario":usuario1,
+        "valo":valo,
+        "sesion" : sesion
+    }
+    return render(request,'Recetas/recetasSesion.html',contexto)
 
 def recetas(request,id):
     receta1 = Receta.objects.get(idReceta=id)
     nacionalidad1 = Nacionalidad.objects.all()
     usuario1 = Usuario.objects.all()
+    valo = Valoracion.objects.all()
 
     contexto = {
         "receta":receta1,
         "nacionalidad":nacionalidad1,
-        "usuario":usuario1
+        "usuario":usuario1,
+        "valo":valo
     }
     
     return render(request,'Recetas/recetas.html',contexto)
@@ -548,12 +572,15 @@ def registrarComentario(request):
     return redirect('contact')
 
 
-def registrarValoracion(request):
+def registrarValoracion(request,idUser,idRec):
+    user         = Usuario.objects.get(idUsuario=idUser)
+    Rece         = Receta.objects.get(idReceta=idRec)
     mensa        = request.POST['Mensaje1']
     valo         = request.POST['estrellas']
+    
 
-    Valoracion.objects.create(mensajeValoracion = mensa, estrellaValoracion = valo)
+    Valoracion.objects.create(Usuario = user ,Receta = Rece ,mensajeValoracion = mensa, estrellaValoracion = valo)
 
     messages.success(request, 'Valoracion Enviada')
 
-    return redirect('Menu_Recetas')
+    return redirect('recetasSesion',idUser,idRec)

@@ -1,0 +1,68 @@
+{% extends 'Recetas/plantillaNuevaSesion.html' %}
+{% load static %}
+
+
+{% block titulo %}
+<title>{{receta.nomReceta}} - Recetas de Sudamérica</title>
+{% endblock titulo %}
+
+{% block cuerpo %}
+<!-- ***** Breadcumb Area Start ***** -->
+<div class="breadcumb-area bg-img bg-overlay" style="background-image: url(../../static/Recetas/img/bg-img/hero-5.jpg)">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="breadcumb-content">
+                    <h2>{{receta.Nacionalidad.nomNacionalidad}}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ***** Breadcumb Area End ***** -->
+
+<!-- ***** Regular Page Area Start ***** -->
+<section class="caviar-regular-page section-padding-100" style="padding-bottom: 10px;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8">
+                <div class="regular-page-content">
+                    <div class="post-title">
+                        <center>
+                            <img src="/media/{{receta.fotoReceta}}" alt="">
+                            <h2>{{receta.nomReceta}}</h2>
+                        </center>
+
+                        
+                        <div>
+                            <div style="text-align: center;">
+                                <i class="bi-alarm"></i>Tiempo : {{receta.tiempo}}M |
+                                <i class="bi bi-bar-chart-fill"></i>Autor de la receta : {{receta.Usuario.username}}
+                                <!-- poner el usuario --> |
+                            </div>
+                            <div style="text-align: center;">
+                                <i class="bi bi-map"></i> Pais : {{receta.Nacionalidad.nomNacionalidad}} |
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h2>Ingredientes</h2>
+                        <ul>
+                            {{receta.ingrediente}}
+                        </ul>
+
+                        <h2>Pasos a seguir</h2>
+                        <ol>
+
+                            {{receta.preparacion}}
+
+
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock cuerpo %}

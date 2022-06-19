@@ -10,7 +10,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Recetas de Sudamérica</title>
+    <title>Recetas de Sudamérica - Chile | Menu</title>
 
     <!-- Favicon -->
     <link rel="icon" href="{% static 'Recetas/img/core-img/cocinero.png' %}">
@@ -18,15 +18,14 @@
     <!-- Core Stylesheet -->
     <link href="{% static 'Recetas/css/style.css' %}" rel="stylesheet">
 
-    <!-- Botones -->
-    <link href="{% static 'Recetas/css/boton.css' %}" rel="stylesheet">
-
     <!-- Responsive CSS -->
     <link href="{% static 'Recetas/css/responsive/responsive.css' %}" rel="stylesheet">
 
-    <link rel="stylesheet" href="{% static 'Recetas/css/Usuario.css' %}">
+    <!--Popup-->
+    <link rel="stylesheet" href="{% static 'Recetas/css/popup.css' %}" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
 
 </head>
 
@@ -65,14 +64,24 @@
                                     <a class="nav-link" href="{% url 'index' %}">Inicio <span
                                             class="sr-only">(current)</span></a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'Menu_RecetasSesion' sesion.idUsuario %}">Recetas</a>
-                                </li>
+                                <li class="nav-item dropdown">
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'contact' %}">Contáctanos</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'index' %}">Cerrar Sesión</a>
+                                <li class="nav-item dropdown active show">
+                                    <a class="nav-link" href="#" id="navbarDropdown" role="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i
+                                            class="fa-solid fa-user"></i> Mi Cuenta</a>
+                                    <div class="dropdown-menu show" aria-labelledby="navbarDropdown">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-12"><a class="dropdown-item"
+                                                        href="{% url 'Login' %}">Iniciar Sesión</a></div>
+                                                <div class="col-md-12"><a class="dropdown-item"
+                                                        href="{% url 'registrarse' %}">Registrarse</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </li>
                             </ul>
 
@@ -85,81 +94,60 @@
     <!-- ***** Header Area End ***** -->
 
     <!-- ***** Breadcumb Area Start ***** -->
-    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(../../static/Recetas/img/bg-img/hero-4.jpg)">
+    <div class="breadcumb-area bg-img bg-overlay"
+        style="background-image: url(../../static/Recetas/img/food/FondoChile.png)">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
-                <div class="col-md-7 col-sm-12">
-                    <img class="perfil" src="/media/{{sesion.foto}}" alt="" >
-
-                    <p id="texto_admin">{{sesion.username}}</p>
+                <div class="col-12">
+                    <div class="breadcumb-content">
+                        <h2>Recetas</h2>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- ***** Breadcumb Area End ***** -->
+    <h3 style="text-align: center; margin-top: 40px; margin-bottom: 40px;">Recetas Registradas</h3>
 
-    <!-- ***** Contact Area Start ***** -->
-    <div class="topnav">
-        {%if sesion.RolUsuario.nomRol == "Administrador" %}
-        <a href="{% url 'Vista_de_Admin' sesion.idUsuario %}">Ver Perfil</a>
-        <a href="{% url 'Ver_Receta_Admin' sesion.idUsuario %}">Ver Recetas</a>
-        <a href="{% url 'Ver_Usuario_Admin' sesion.idUsuario %}">Ver Usuarios</a>
-        <a href="{% url 'Creacion_Recetas' sesion.idUsuario %}">Subir Recetas</a>
-        <a href="{% url 'Ver_Comen_Admin' sesion.idUsuario %}">Ver Comentarios</a>
-        {% else %}
-        <a href="{% url 'Vista_de_Usuario' sesion.idUsuario %}">Ver Perfil</a>
-        <a href="{% url 'Ver_Receta_Usuario' sesion.idUsuario %}">Ver Recetas</a>
-        <a href="{% url 'Creacion_Recetas' sesion.idUsuario %}">Subir Recetas</a>
-        {% endif %}
-    </div>
-    
-
-    <div class="caviar-contact-area d-md-flex align-items-center" id="contact">
-        <div class="contact-form-area d-flex justify-content-end">
-            <div class="contact-form">
-                <div class="contact-form-title">
-                    {% if messages %}
-                    <div>
-                        {% for i in messages %}
-                        <p style="color: red;">{{ i }}</p>
-                        {% endfor %}
-                    </div>
-
-                    {% endif %}
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <img src="{{ sesion.foto.url }}" alt="" style="margin-bottom: 10px;">
-                        </div>
-                        <div class="col-md-12">
-                            <h5>Nombre: {{ sesion.nomUsuario }}  {{ sesion.apellidoCompleto }}</h5>
-                        </div>
-                        <div class="col-md-12">
-                            <h5>Nombre de Usuario: {{ sesion.username }}</h5>
-                        </div>
-                        <div class="col-md-12">
-                            <h5>Correo: {{ sesion.email }}</h5><br>
-                        </div>
-                    </div>
-                </div>
-                <div style="text-align: center;">
-                    <div class="contact-form-title">
-                        <p>Editar: </p>
-                    </div>
-                    <a href="{% url 'modificarPerfil' sesion.idUsuario %}" >
-                    <button class="gradient-button gradient-button-1" value="Perfil">Perfil</button></a>
-                    <a href="{% url 'modificarContra' sesion.idUsuario %}"">
-                    <button class="gradient-button gradient-button-1" value="Perfil">Contraseña</button></a>
-                </div> 
-                
-            </div>
+    <!-- ***** Menu Area Start ***** -->
+    <div class="container" style="margin-bottom: 220px;">
+        <div class="row">
             
         </div>
-        
+
+        <!-- ***** Ciclo para plantilla de recetas ***** -->
+
+        {% if RecetasChile %}
+            {% for Receta in RecetasChile %}
+            {% if forloop.first %}<div class="row">{% endif %}
+                <div class="col-lg-3 col-md-5 col-sm-12" style="padding-top: 20px;">
+                    <a class="" href="{% url 'recetasSesion' sesion.idUsuario Receta.idReceta %}">
+                        <div class="card">
+                            <img class="card-img-top" src="{{ Receta.fotoReceta.url }}"
+                                style="height: 220px;" alt="{{ Receta.nomReceta }}">
+                            <div class="card-body">
+                                <h5 class="card-tittle">{{ Receta.nomReceta}}</h5>
+                                <hr />
+                                <h6 class="card-subtittle">Autor: {{ Receta.Usuario.nomUsuario }}</h6>
+                                <h6 class="card-subtittle">País: {{ Receta.Nacionalidad }}</h6>                                                  
+                            </div>      
+                </div>
+                 </a><br>
+            </div>
+            {% if forloop.counter|divisibleby:4 %}
+        </div>
+        <div class="row">{% endif %}
+            {% if forloop.last %}</div>{% endif %}
+        {% endfor %}
+        {% endif %}
+
+        <!-- ***** FIN FIN Ciclo para plantilla de recetas ***** 
+        <img class="profile" src="{{ Receta.Usuario.foto.url }}" width="60" height="60"  alt="no hay">    
+        -->
+
+
     </div>
-    
-    <!-- ***** Contact Area End ***** -->
+    <!-- ***** Menu Area End ***** -->
 
     <!-- ***** Footer Area Start ***** -->
     <footer class="caviar-footer-area">
@@ -191,7 +179,7 @@
     <script src="{% static 'Recetas/js/bootstrap/bootstrap.min.js' %}"></script>
     <!-- All Plugins js -->
     <script src="{% static 'Recetas/js/others/plugins.js' %}"></script>
-   
     <!-- Active js -->
     <script src="{% static 'Recetas/js/active.js' %}"></script>
+
 </body>
