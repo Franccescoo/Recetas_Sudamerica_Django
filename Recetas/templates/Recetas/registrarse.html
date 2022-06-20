@@ -30,6 +30,23 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!--Implentar los datos de API-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //Agrego el evento click al botón
+            $("#boton").click(function () {
+                //Consultar el servicio web
+                $.get("https://randomuser.me/api/", function (data) {
+                    //Recorrer una lista mediante el ciclo for (each)
+                    $.each(data.results, function (i, item) {
+                        //Mostrar la informacion de cada elemento de a lista en a tabla
+                       $("#nickUserName").val(item.login.username);
+                    });
+                    
+                });
+            });
+        })
+    </script>
 </head>
 
 <body>
@@ -110,6 +127,7 @@
                 <div class="contact-form-title">
                     <center><p style="margin-top: 10px; font-size: 20px; color: black;">Registrarse</p></center>
                 </div>
+                <button id="boton" class="gradient-button gradient-button-1">Nombre aleatorio</button>
                 <form action="{% url 'registrarUsuario' %}" method="POST" name="formRegi" id="formRegi" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% if messages %}
@@ -121,6 +139,10 @@
     
                     {% endif %}
                     <div class="row">
+                        <div class="col-12 contact-form-title">
+                            <p style="margin-bottom: 10px;">Nombre de Usuario</p>
+                            <input type="text" class="form-control" placeholder="Ej: Noditian1" name="nickUserName" id="nickUserName" required>
+                        </div>
                         
                         <div class="col-12 contact-form-title" >
                             <p style="margin-bottom: 10px;">Nombre(s):</p>
@@ -130,10 +152,8 @@
                             <p style="margin-bottom: 10px;">Apellido(s)</p>
                             <input type="text" class="form-control" placeholder="Ej: Lara" id="apeUser" name="apeUser">
                         </div>
-                        <div class="col-12 contact-form-title">
-                            <p style="margin-bottom: 10px;">Nombre de Usuario</p>
-                            <input type="text" class="form-control" placeholder="Ej: Noditian1" name="nickUserName" id="nickUserName" required>
-                        </div>
+                        
+                        
                         <div class="col-12 contact-form-title">
                             <p style="margin-bottom: 10px;">Email</p>
                             <input type="email" class="form-control" placeholder="Ej: Alexios@gmail.com" name="email" id="email" required>

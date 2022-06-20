@@ -150,11 +150,13 @@
                     <div class="contact-form-title">
                         <p>Editar: </p>
                     </div>
-                    <a href="{% url 'modificarPerfil' sesion.idUsuario %}" >
-                    <button class="gradient-button gradient-button-1" value="Perfil">Perfil</button></a>
-                    <a href="{% url 'modificarContra' sesion.idUsuario %}" >
-                    <button class="gradient-button gradient-button-1" value="Perfil">Contraseña</button></a>
-                </div> 
+                    <a href="{% url 'modificarPerfil' sesion.idUsuario %}">
+                        <button class="gradient-button gradient-button-1" value="Perfil">Perfil</button></a>
+                    <a href="{% url 'modificarContra' sesion.idUsuario %}"">
+                        <button class=" gradient-button gradient-button-1" value="Perfil">Contraseña</button></a>
+                    <a href="{% url 'modificarFotoUser' sesion.idUsuario %}"">
+                            <button class=" gradient-button gradient-button-1" value="Perfil">Foto</button></a>
+                </div>
             </div>
         </div>
     </div>
@@ -190,7 +192,7 @@
     <script src="{% static 'Recetas/js/bootstrap/bootstrap.min.js' %}"></script>
     <!-- All Plugins js -->
     <script src="{% static 'Recetas/js/others/plugins.js' %}"></script>
-   
+
     <!-- Active js -->
     <script src="{% static 'Recetas/js/active.js' %}"></script>
 </body>

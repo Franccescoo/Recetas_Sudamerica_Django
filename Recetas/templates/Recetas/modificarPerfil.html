@@ -123,18 +123,15 @@
     <div class="caviar-contact-area d-md-flex align-items-center" id="contact">
         <div class="contact-form-area d-flex justify-content-end">
             <div class="contact-form">
-                
                 <form action="{% url 'perfilModificado' sesion.idUsuario %}" method="POST" id="formRegi" name="formRegi" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="row">
                         <div class="col-12">
-                            <div class="contact-form-title">
-                                <p style="margin-bottom: 10px;">Imagen:</p>
-                            </div>
-                            <img src="/media/{{sesion.foto}}" alt="Imagen no encontrada">
-                            <input type="file" class="form-control" id="fot"
-                                name="fot" required>
+                            <p>Nombre de Usuario: {{sesion.username}}</p>
+                            <input type="text" class="form-control" placeholder="Ej: Noditian1" value="{{sesion.username}}" id="nickUserName" name="nickUserName"
+                                required>
                         </div>
+                        
                         <div class="col-12">
                             <p>Nombre(s): {{sesion.nomUsuario}} </p>
                             <input type="text" class="form-control" placeholder="Ej: Alexander" value="{{sesion.nomUsuario}}" id="nomUser" name="nomUser" required>
@@ -143,11 +140,7 @@
                             <p>Apellido(s): {{sesion.apellidoCompleto}}</p>
                             <input type="text" class="form-control" placeholder="Ej: Lara" value="{{sesion.apellidoCompleto}}" id="apeUser" name="apeUser">
                         </div>
-                        <div class="col-12">
-                            <p>Nombre de Usuario: {{sesion.username}}</p>
-                            <input type="text" class="form-control" placeholder="Ej: Noditian1" value="{{sesion.username}}" id="nickUserName" name="nickUserName"
-                                required>
-                        </div>
+                        
                         <div class="col-12">
                             <p>Email: {{sesion.email}}</p>
                             <input type="email" class="form-control" placeholder="Ej: Alexios@gmail.com" value="{{sesion.email}}" id="email" name="email"

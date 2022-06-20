@@ -5,6 +5,26 @@ from .models import Usuario,Receta,Nacionalidad,RolUsuario,Comentario,Valoracion
 from django.contrib import messages
 # Create your views here.
 
+
+def modificarFotoUser(request,id):
+    sesion = Usuario.objects.get(idUsuario = id)
+
+    contexto = {
+        "sesion":sesion
+    }
+
+    return render(request,'Recetas/modificarFotoUser.html',contexto)
+
+def fotoUserModificada(request,id):
+    
+    usuario = Usuario.objects.get(idUsuario=id)
+    foto2 = request.FILES['fot']
+      
+    usuario.foto = foto2
+    usuario.save() #update
+    
+    return redirect ('modificarFotoUser',id)
+
 def modificar_receta(request,id,sesi):
     sesion = Usuario.objects.get(idUsuario=sesi)
     receta1 = Receta.objects.get(idReceta=id)
@@ -66,15 +86,7 @@ def contraModificado(request,id):
 
     usuario.contrasena = contrasena2
     usuario.save() #update
-    x = Usuario.objects.get(idUsuario = id)    
-    rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
-
-    if x.RolUsuario.nomRol == rol2.nomRol:
-        contexto ={"sesion":x}
-        return render(request, 'Recetas/inicioAdmin.html',contexto)
-    else:
-        contexto ={"sesion":x}
-        return render(request, 'Recetas/inicioUser.html',contexto)
+    return redirect ('modificarContra',id)
 
 
 
@@ -237,7 +249,6 @@ def perfilModificado(request,id):
     apellidoCompleto2 = request.POST['apeUser']
     username2         = request.POST['nickUserName']
     email2            = request.POST['email']
-    foto2 = request.FILES['fot']
 
     try:
         c = Usuario.objects.get(email = email2)
@@ -263,24 +274,11 @@ def perfilModificado(request,id):
         usuario.apellidoCompleto = apellidoCompleto2
         usuario.username = username2
         usuario.email = email2
-        usuario.foto = foto2
         usuario.save() #update
-        rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
-        if usuario.RolUsuario.nomRol == rol2.nomRol:
-            contexto ={"sesion":usuario}
-            return render(request, 'Recetas/inicioAdmin.html',contexto)
-        else:
-            contexto ={"sesion":usuario}
-            return render(request, 'Recetas/inicioUser.html',contexto)
+        return redirect ('modificarPerfil',id)
     else:
         messages.error(request, 'El nombre de usuario o correo ya estan ocupados')
-        rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
-        if usuario.RolUsuario.nomRol == rol2.nomRol:
-            contexto ={"sesion":usuario}
-            return render(request, 'Recetas/inicioAdmin.html',contexto)
-        else:
-            contexto ={"sesion":usuario}
-            return render(request, 'Recetas/inicioUser.html',contexto)
+        return redirect ('modificarPerfil',id)
 
 
         
