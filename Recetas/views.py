@@ -483,11 +483,9 @@ def eliminar_comentario(request,id,sesi):
     rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
 
     if x.RolUsuario.nomRol == rol2.nomRol:
-        contexto ={"sesion":x}
-        return render(request, 'Recetas/inicioAdmin.html',contexto)
+        return redirect ('Ver_Comen_Admin',sesi)
     else:
-        contexto ={"sesion":x}
-        return render(request, 'Recetas/inicioUser.html',contexto)
+        return redirect ('Ver_Comen_Admin',sesi)
 
 
 
@@ -500,11 +498,9 @@ def eliminar_usuario(request,id,sesi):
     rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
 
     if x.RolUsuario.nomRol == rol2.nomRol:
-        contexto ={"sesion":x}
-        return render(request, 'Recetas/inicioAdmin.html',contexto)
+        return redirect ('Ver_Usuario_Admin',sesi)
     else:
-        contexto ={"sesion":x}
-        return render(request, 'Recetas/inicioUser.html',contexto)
+        return redirect ('Ver_Usuario_Admin',sesi)
 
 def eliminar_receta(request,id,sesi):
     rec = Receta.objects.get(idReceta = id)
@@ -516,11 +512,9 @@ def eliminar_receta(request,id,sesi):
     rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
 
     if sesion.RolUsuario.nomRol == rol2.nomRol:
-        contexto ={"sesion":sesion}
-        return render(request, 'Recetas/inicioAdmin.html',contexto)
+        return redirect ('Ver_Receta_Admin',sesi)
     else:
-        contexto ={"sesion":sesion}
-        return render(request, 'Recetas/inicioUser.html',contexto)
+        return redirect ('Ver_Receta_Usuario',sesi)
 
 def modificar_receta_admin(request,id):
     receta1 = Receta.objects.get(idReceta = id)
