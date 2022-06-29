@@ -18,6 +18,8 @@
     <!-- Core Stylesheet -->
     <link href="{% static 'Recetas/css/style.css' %}" rel="stylesheet">
 
+    <link rel="stylesheet" href="{% static 'Recetas/css/Usuario.css' %}">
+
     <!-- Responsive CSS -->
     <link href="{% static 'Recetas/css/responsive/responsive.css' %}" rel="stylesheet">
 
@@ -47,6 +49,7 @@
             </div>
         </div>
     </div>
+    
 
     <!-- ***** Header Area Start ***** -->
     <header class="header_area" id="header">
@@ -111,6 +114,22 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="topnav"> 
+        <div class="topnav">
+            {%if sesion.RolUsuario.nomRol == "Administrador" %}
+            <a href="{% url 'Vista_de_Admin' sesion.idUsuario %}">Ver Perfil</a>
+            <a href="{% url 'Ver_Receta_Admin' sesion.idUsuario %}">Ver Recetas</a>
+            <a href="{% url 'Ver_Usuario_Admin' sesion.idUsuario %}">Ver Usuarios</a>
+            <a href="{% url 'Creacion_Recetas' sesion.idUsuario %}">Subir Recetas</a>
+            <a href="{% url 'Ver_Comen_Admin' sesion.idUsuario %}">Ver Comentarios</a>
+            {% else %}
+            <a href="{% url 'Vista_de_Usuario' sesion.idUsuario %}">Ver Perfil</a>
+            <a href="{% url 'Ver_Receta_Usuario' sesion.idUsuario %}">Ver Recetas</a>
+            <a href="{% url 'Creacion_Recetas' sesion.idUsuario %}">Subir Recetas</a>
+            {% endif %}
         </div>
     </div>
     <!-- ***** Breadcumb Area End ***** -->

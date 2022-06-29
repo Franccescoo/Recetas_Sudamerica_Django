@@ -86,7 +86,7 @@ REST_FRAMEWORK={
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
-         'NAME': '127.0.0.1:1521/xe',#  'NAME': '192.168.1.16/xe',
+         #'NAME': '127.0.0.1:1521/xe', 'NAME': '192.168.1.16/xe',
         'USER': 'RecetaPresentacion3',  # 'USER' 'Sudamerica_Recetas'
         'PASSWORD': 'oracle',
         'TEST':{

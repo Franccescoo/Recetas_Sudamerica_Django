@@ -105,7 +105,6 @@
             <a href="{% url 'Creacion_Recetas' sesion.idUsuario %}">Subir Recetas</a>
             {% endif %}
         </div>
-        
     </div>
     <!-- ***** Breadcumb Area End ***** -->
     <h3 style="text-align: center; margin-top: 40px;">Creación de recetas</h3>
@@ -129,13 +128,7 @@
                 <form action="{% url 'registrarRecetas' sesion.idUsuario %}" method="POST" name="formRegiRec" id="formRegiRec" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="row">
-                        <div class="col-12">
-                            <div class="contact-form-title">
-                                <p style="margin-bottom: 10px;">Usuario:</p>
-                            </div>
-                            
-                            <input type="text" class="form-control" value="{{sesion.idUsuario}}" id="autor" name="autor" readonly>
-                        </div>
+                        
                         <div class="col-12">
                             <div class="contact-form-title">
                                 <p style="margin-bottom: 10px;">Imagen:</p>

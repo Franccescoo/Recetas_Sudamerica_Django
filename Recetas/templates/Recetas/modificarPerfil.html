@@ -126,11 +126,6 @@
                 <form action="{% url 'perfilModificado' sesion.idUsuario %}" method="POST" id="formRegi" name="formRegi" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="row">
-                        <div class="col-12">
-                            <p>Nombre de Usuario: {{sesion.username}}</p>
-                            <input type="text" class="form-control" placeholder="Ej: Noditian1" value="{{sesion.username}}" id="nickUserName" name="nickUserName"
-                                required>
-                        </div>
                         
                         <div class="col-12">
                             <p>Nombre(s): {{sesion.nomUsuario}} </p>

@@ -95,7 +95,6 @@ def contraModificado(request,id):
 
 
 def registrarRecetas(request,id):
-    Usuario2         = request.POST['autor']
     imagen2          = request.FILES['imagen']
     nomreceta2       = request.POST['nomreceta']
     tiempo2          = request.POST['tiempo']
@@ -104,7 +103,7 @@ def registrarRecetas(request,id):
     preparacion2     = request.POST['preparacion']
 
     Nacionalidad3    = Nacionalidad.objects.get(idNacionalidad = idNacionalidad2)
-    Usuario3         = Usuario.objects.get(idUsuario = Usuario2)
+    Usuario3         = Usuario.objects.get(idUsuario = id)
 
 
     Receta.objects.create(Usuario=Usuario3,fotoReceta =imagen2, nomReceta =nomreceta2, ingrediente =ingredientes2, preparacion=preparacion2, tiempo=tiempo2, Nacionalidad=Nacionalidad3 )
@@ -247,7 +246,6 @@ def perfilModificado(request,id):
     usuario           = Usuario.objects.get(idUsuario = idUsuario2)
     nomUsuario2       = request.POST['nomUser']
     apellidoCompleto2 = request.POST['apeUser']
-    username2         = request.POST['nickUserName']
     email2            = request.POST['email']
 
     try:
@@ -258,21 +256,13 @@ def perfilModificado(request,id):
             c1 = False
     except Usuario.DoesNotExist:
         c1 = True
-    try:
-        x = Usuario.objects.get(username = username2)
-        if idUsuario2 == x.idUsuario:
-            x1 = True
-        else:
-            x1 = False
-    except Usuario.DoesNotExist:
-        x1 = True
+    
 
 
-    if c1 == True and x1 == True:
+    if c1 == True :
         messages.error(request, 'Perfil modificado')
         usuario.nomUsuario = nomUsuario2
         usuario.apellidoCompleto = apellidoCompleto2
-        usuario.username = username2
         usuario.email = email2
         usuario.save() #update
         return redirect ('modificarPerfil',id)

@@ -5,7 +5,6 @@ $(document).ready(function () {
         
         var nombre = $("#nomUser").val();
         var ape = $("#apeUser").val();
-        var nick = $("#nickUserName").val();
         var mail = $("#email")
 
       
@@ -39,11 +38,6 @@ $(document).ready(function () {
 
         
         
-
-        if (nick.length < 4 || nick.length > 60) {
-            mensajeMostrar += "El nombre de usuario debe tener entre 4 y 60 caracteres<br>";
-            entrar = false;
-        }
 
         if (mail.length > 70) {
             mensajeMostrar += "El correo no puede contener mas de 70 dígitos<br>";

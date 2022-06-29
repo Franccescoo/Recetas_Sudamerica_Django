@@ -24,6 +24,7 @@
     <link href="{% static 'Recetas/css/style.css' %} " rel="stylesheet">
     <link href="{% static 'Recetas/css/valora.css' %} " rel="stylesheet">
     <link href="{% static 'Recetas/css/boton.css' %} " rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'Recetas/css/Usuario.css' %}">
 
     <!-- Responsive CSS -->
     <link href="{% static 'Recetas/css/responsive/responsive.css' %}" rel="stylesheet">
@@ -109,9 +110,12 @@
             </div>
         </header>
         <!-- ***** Header Area End ***** -->
-
+        
+        
    {% block cuerpo %}
+   
    {% endblock cuerpo%}
+   
 
     <!-- ***** Contact Area Start ***** -->
     <div class="caviar-contact-area d-md-flex align-items-center" id="contact">

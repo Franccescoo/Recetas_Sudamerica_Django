@@ -21,7 +21,7 @@ class Usuario(models.Model):
     RolUsuario = models.ForeignKey(RolUsuario, on_delete= models.CASCADE, default=1)
 
     def __str__(self) :
-            return self.nomUsuario
+            return self.username
 
 class Nacionalidad(models.Model):
     idNacionalidad = models.AutoField(primary_key=True)
@@ -60,6 +60,8 @@ class Valoracion(models.Model):
     estrellaValoracion  = models.IntegerField(null=False, blank=False)
     Usuario             = models.ForeignKey(Usuario, on_delete= models.CASCADE)
     Receta              = models.ForeignKey(Receta, on_delete= models.CASCADE)
+    def __str__(self) :
+            return self.Usuario.username
 
 
 
