@@ -37,7 +37,7 @@ class Receta(models.Model):
     ingrediente = models.CharField(max_length=1000, null=False, blank=False)
     preparacion = models.CharField(max_length=2000, null=False, blank=False)
     tiempo = models.IntegerField(null=False, blank=False)
-    fotoReceta = models.ImageField(upload_to='foto_receta',default="foto_receta/foto_default_receta.png", blank='')
+    fotoReceta = models.ImageField(upload_to='foto_receta',default="../../static/Recetas/img/Token/foto_default_receta.png", blank='')
     detalle = models.CharField(max_length=1000, default="")
     Usuario = models.ForeignKey(Usuario, on_delete= models.CASCADE)
     Nacionalidad = models.ForeignKey(Nacionalidad, on_delete= models.CASCADE)

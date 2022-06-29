@@ -96,7 +96,10 @@ def contraModificado(request,id):
 
 
 def registrarRecetas(request,id):
-    imagen2          = request.FILES['imagen']
+    try:
+        imagen2          = request.FILES['imagen']
+    except:
+        imagen2="../../static/Recetas/img/Token/foto_default_receta.png"
     nomreceta2       = request.POST['nomreceta']
     tiempo2          = request.POST['tiempo']
     idNacionalidad2  = request.POST['idNacio']
