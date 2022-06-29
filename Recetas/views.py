@@ -1,3 +1,4 @@
+from asyncio.windows_events import NULL
 from email import message
 from tkinter.tix import Tree
 from django.shortcuts import render, redirect
@@ -205,7 +206,10 @@ def registrarUsuario(request):
     nombre2     = request.POST['nomUser']
     apellido2   = request.POST['apeUser']
     nick        = request.POST['nickUserName']
-    foto2       = request.FILES['foto1']
+    try:
+        foto2       = request.FILES['foto1']
+    except:
+        foto2 = "../../static/Recetas/img/Token/pngwing.com.png"
     email2      = request.POST['email']
     contra2     = request.POST['password1']
     try:

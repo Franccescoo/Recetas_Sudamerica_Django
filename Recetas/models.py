@@ -16,7 +16,7 @@ class Usuario(models.Model):
     apellidoCompleto = models.CharField(max_length=50, blank=True, null=True)
     username = models.CharField(max_length=20, null=False, blank=False)
     email = models.CharField(max_length=30, null=False)
-    foto = models.ImageField(upload_to="foto_perfil", default="foto_perfil/foto_perfil_default.png", blank='')
+    foto = models.ImageField(upload_to="foto_perfil", default="../../static/Recetas/img/Token/pngwing.com.png", blank='')
     contrasena = models.CharField(max_length=20, null=False, blank=False)
     RolUsuario = models.ForeignKey(RolUsuario, on_delete= models.CASCADE, default=1)
 
@@ -38,6 +38,7 @@ class Receta(models.Model):
     preparacion = models.CharField(max_length=2000, null=False, blank=False)
     tiempo = models.IntegerField(null=False, blank=False)
     fotoReceta = models.ImageField(upload_to='foto_receta',default="foto_receta/foto_default_receta.png", blank='')
+    detalle = models.CharField(max_length=1000, default="")
     Usuario = models.ForeignKey(Usuario, on_delete= models.CASCADE)
     Nacionalidad = models.ForeignKey(Nacionalidad, on_delete= models.CASCADE)
 
