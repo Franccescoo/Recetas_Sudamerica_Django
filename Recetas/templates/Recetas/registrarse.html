@@ -127,7 +127,7 @@
                 <div class="contact-form-title">
                     <center><p style="margin-top: 10px; font-size: 20px; color: black;">Registrarse</p></center>
                 </div>
-                <button id="boton" class="gradient-button gradient-button-1">Nombre aleatorio</button>
+                
                 <form action="{% url 'registrarUsuario' %}" method="POST" name="formRegi" id="formRegi" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% if messages %}
@@ -140,16 +140,29 @@
                     {% endif %}
                     <div class="row">
                         <div class="col-12 contact-form-title">
-                            <p style="margin-bottom: 10px;">Nombre de Usuario</p>
+                            <div class="row">
+                                <div class="col-6"><p style="margin-bottom: 10px;">Nombre de Usuario</p></div>
+                                <div class="col-6"><button id="boton" class="btn btn-danger" style="font-size: 10px;">NOMBRE ALEATORIO</button></div>
+                            </div>
                             <input type="text" class="form-control" placeholder="Ej: Noditian1" name="nickUserName" id="nickUserName" required>
                         </div>
                         
                         <div class="col-12 contact-form-title" >
                             <p style="margin-bottom: 10px;">Nombre(s):</p>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h1 class="requisitos" style="font-size: 12px; font-family:'Courier New', Courier, monospace;"><span style="color: red;">*</span> La primera letra del nombre debe ser mayúscula</h1>
+                                </div>
+                            </div>
                             <input type="text" class="form-control" placeholder="Ej: Alexander" id="nomUser" name="nomUser" required>
                         </div>
                         <div class="col-12 contact-form-title">
                             <p style="margin-bottom: 10px;">Apellido(s)</p>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h1 class="requisitos" style="font-size: 12px; font-family:'Courier New', Courier, monospace;"><span style="color: red;">*</span> La primera letra del apellido debe ser mayúscula</h1>
+                                </div>
+                            </div>
                             <input type="text" class="form-control" placeholder="Ej: Lara" id="apeUser" name="apeUser">
                         </div>
                         
@@ -164,6 +177,16 @@
                         </div>
                         <div class="col-12 contact-form-title">
                             <p style="margin-bottom: 10px;">Contraseña</p>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h1 class="requisitos" style="font-size: 12px; font-family:'Courier New', Courier, monospace;"><span style="color: red;">*</span> Una letra de las contraseñas debe ser mayúscula</h1>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h1 class="requisitos" style="font-size: 12px; font-family:'Courier New', Courier, monospace;"><span style="color: red;">*</span> Un dígito de las contraseñas debe ser un número</h1>
+                                </div>
+                            </div>
                             <input type="password" class="form-control" placeholder="Ej: Patatun1" name="password1" id="password1" required>
                         </div>
                         <div class="col-12 contact-form-title">
