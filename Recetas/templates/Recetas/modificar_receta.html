@@ -131,28 +131,17 @@
                 <div class="contact-form-title">
 
                 </div>
-                <form action="{% url 'modificar' sesion.idUsuario %}" method="POST" name="formRegiRec" id="formRegiRec" enctype="multipart/form-data">
+                <form action="{% url 'modificar' receta.idReceta sesion.idUsuario %}" method="POST" name="formRegiRec" id="formRegiRec" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="row">
-                        <div class="col-12">
-                            <div class="contact-form-title">
-                                <p style="margin-bottom: 10px;">Numero Unico Receta:</p>
-                            </div>
-                            <input type="number" class="form-control" value="{{ receta.idReceta }}" id="identificador" name="identificador" required readonly>
-                        </div>
-                        <div class="col-12">
-                            <div class="contact-form-title">
-                                <p style="margin-bottom: 10px;">Numero Unico del Autor:</p>
-                            </div>
-                            <input type="number" class="form-control" value="{{ receta.Usuario.idUsuario}}" id="autor" name="autor" required readonly>
-                        </div>
+                        
                         <div class="col-12">
                             <div class="contact-form-title">
                                 <p style="margin-bottom: 10px;">Imagen:</p>
                             </div>
                             <img src="/media/{{receta.fotoReceta}}" alt="Imagen no encontrada" style="max-width: 300px;">
                             <input type="file" class="form-control" value="{{ receta.fotoReceta }}" id="imagen"
-                                name="imagen" required>
+                                name="imagen">
                         </div>
 
                         <div class="col-12">

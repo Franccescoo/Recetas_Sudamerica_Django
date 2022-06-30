@@ -40,23 +40,26 @@ def modificar_receta(request,id,sesi):
     }
     return render(request,'Recetas/modificar_receta.html',contexto)
 
-def modificar(request,sesi):
-    iden      = request.POST['identificador']
-    imagen2   = request.FILES['imagen']
+def modificar(request,id,sesi):
+    receta = Receta.objects.get(idReceta = id)
+    
     nom_r     = request.POST['nomreceta']
     tiempo_r  = request.POST['tiempo']
     idNacio_r = request.POST['idNacio']
     ingre_r   = request.POST['ingredientes']
     prepa_r   = request.POST['preparacion']
 
-    receta = Receta.objects.get(idReceta = iden)
+    
 
     receta.nomReceta = nom_r
     receta.ingrediente = ingre_r
     receta.preparacion = prepa_r
     receta.tiempo = tiempo_r
-    receta.fotoReceta = imagen2
-    
+    try:
+        imagen2   = request.FILES['imagen']
+        receta.fotoReceta = imagen2
+    except:
+        imagen2 = NULL
     idNacio_r2 = Nacionalidad.objects.get(idNacionalidad = idNacio_r)
 
     receta.Nacionalidad = idNacio_r2
