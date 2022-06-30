@@ -343,6 +343,23 @@ def recetasSesion(request, idUser ,idRec):
     }
     return render(request,'Recetas/recetasSesion.html',contexto)
 
+def indexSesion(request, idUser):
+    sesion = Usuario.objects.get(idUsuario=idUser)
+
+    contexto = {
+        "sesion" : sesion
+    }
+    return render(request,'Recetas/indexSesion.html',contexto)
+
+def contactSesion(request, idUser):
+    sesion = Usuario.objects.get(idUsuario=idUser)
+
+    contexto = {
+        "sesion" : sesion
+    }
+    return render(request,'Recetas/contactSesion.html',contexto)
+
+
 def recetas(request,id):
     receta1 = Receta.objects.get(idReceta=id)
     nacionalidad1 = Nacionalidad.objects.all()

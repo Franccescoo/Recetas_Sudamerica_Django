@@ -14,23 +14,35 @@
 
     <!-- Favicon -->
     <link rel="icon" href="{% static 'Recetas/img/core-img/cocinero.png' %}">
+    
+    
+    
 
     <!-- Core Stylesheet -->
     <link href="{% static 'Recetas/css/style.css' %}" rel="stylesheet">
-
-    <!-- Botones -->
+    <!-- Core Stylesheet -->
     <link href="{% static 'Recetas/css/boton.css' %}" rel="stylesheet">
 
     <!-- Responsive CSS -->
     <link href="{% static 'Recetas/css/responsive/responsive.css' %}" rel="stylesheet">
-
-    <link rel="stylesheet" href="{% static 'Recetas/css/Usuario.css' %}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
 </head>
 
 <body>
+    <!-- Preloader -->
+    <!--
+    <div id="preloader">
+        <div class="caviar-load"></div>
+        <div class="preload-icons">
+            <img class="preload-1" src="img/core-img/preload-1.png" alt="">
+            <img class="preload-2" src="img/core-img/preload-2.png" alt="">
+            <img class="preload-3" src="img/core-img/preload-3.png" alt="">
+        </div>
+    </div>
+    -->
+
     <!-- ***** Search Form Area ***** -->
     <div class="caviar-search-form d-flex align-items-center">
         <div class="container">
@@ -40,8 +52,7 @@
                         <i class="pe-7s-close-circle" aria-hidden="true"></i>
                     </div>
                     <form action="#" method="get">
-                        <input type="search" name="caviarSearch" id="search"
-                            placeholder="Search Your Favourite Dish ...">
+                        <input type="search" name="caviarSearch" id="search" placeholder="Busca tu platillo favorito ...">
                         <input type="submit" class="d-none" value="submit">
                     </form>
                 </div>
@@ -56,23 +67,29 @@
                 <div class="col-12 h-100">
                     <nav class="h-100 navbar navbar-expand-lg align-items-center">
                         <a class="navbar-brand" href="{% url 'indexSesion' sesion.idUsuario %}">Recetas de Sudamérica</a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#caviarNav"
-                            aria-controls="caviarNav" aria-expanded="false" aria-label="Toggle navigation"><span
-                                class="fa fa-bars"></span></button>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#caviarNav" aria-controls="caviarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
                         <div class="collapse navbar-collapse" id="caviarNav">
                             <ul class="navbar-nav ml-auto" id="caviarMenu">
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="{% url 'indexSesion' sesion.idUsuario %}">Inicio <span
-                                            class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="{% url 'indexSesion' sesion.idUsuario %}">Inicio <span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'Menu_RecetasSesion' sesion.idUsuario %}">Recetas</a>
                                 </li>
+                                <li class="nav-item dropdown">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'contactSesion' sesion.idUsuario %}">Contáctanos</a>
+                                    <a class="nav-link" href="#">Contáctanos</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'index' %}">Cerrar Sesión</a>
+                                <li class="nav-item dropdown active show">
+                                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa-solid fa-user"></i>  Mi Cuenta</a>
+                                    <div class="dropdown-menu show" aria-labelledby="navbarDropdown">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-12"><a class="dropdown-item" href="{% url 'Vista_de_Usuario' sesion.idUsuario %}">Ver Perfil</a></div>
+                                                <div class="col-md-12"><a class="dropdown-item" href="{% url 'index' %}">Cerrar Sesión</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </li>
                             </ul>
 
@@ -85,13 +102,15 @@
     <!-- ***** Header Area End ***** -->
 
     <!-- ***** Breadcumb Area Start ***** -->
-    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(../../static/Recetas/img/bg-img/hero-4.jpg)">
+    <div class="breadcumb-area bg-img bg-overlay foto12">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
-                <div class="col-md-7 col-sm-12">
-                    <img class="perfil" src="/media/{{sesion.foto}}" alt="" >
-
-                    <p id="texto_admin">{{sesion.username}}</p>
+                <div class="col-12">
+                    <div class="breadcumb-content">
+                        <h2>Contáctanos</h2>
+                        <p><i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:+1234567890">+569 79066489</a> <a href="tel:+1234567890">+569 34334614</a></p>
+                        <p><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:someone@yoursite.com">recetasdesudamerica@gmail.com</a></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -99,68 +118,43 @@
     <!-- ***** Breadcumb Area End ***** -->
 
     <!-- ***** Contact Area Start ***** -->
-    <div class="topnav">
-        {%if sesion.RolUsuario.nomRol == "Administrador" %}
-        <a href="{% url 'Vista_de_Admin' sesion.idUsuario %}">Ver Perfil</a>
-        <a href="{% url 'Ver_Receta_Admin' sesion.idUsuario %}">Ver Recetas</a>
-        <a href="{% url 'Ver_Usuario_Admin' sesion.idUsuario %}">Ver Usuarios</a>
-        <a href="{% url 'Creacion_Recetas' sesion.idUsuario %}">Subir Recetas</a>
-        <a href="{% url 'Ver_Comen_Admin' sesion.idUsuario %}">Ver Comentarios</a>
-        {% else %}
-        <a href="{% url 'Vista_de_Usuario' sesion.idUsuario %}">Ver Perfil</a>
-        <a href="{% url 'Ver_Receta_Usuario' sesion.idUsuario %}">Ver Recetas</a>
-        <a href="{% url 'Creacion_Recetas' sesion.idUsuario %}">Subir Recetas</a>
-        {% endif %}
-    </div>
-    
-
     <div class="caviar-contact-area d-md-flex align-items-center" id="contact">
         <div class="contact-form-area d-flex justify-content-end">
             <div class="contact-form">
-                <div class="contact-form-title">
-                    {% if messages %}
-                    <div>
-                        {% for i in messages %}
-                        <p style="color: red;">{{ i }}</p>
-                        {% endfor %}
-                    </div>
+                {% if messages %}
+                <div>
+                    {% for i in messages %}
+                    <p style="color: red;">{{ i }}</p>
+                    {% endfor %}
+                </div>
 
-                    {% endif %}
+                {% endif %}
+                <div class="contact-form-title">
+                    <p style="margin-top: 20px;">Ponerse en contacto </p>
                 </div>
-                <div class="container">
+                <form action="{% url 'registrarComentario' %}" method="POST"  name="formRegi1" id="formRegi1" enctype="multipart/form-data">
+                    {% csrf_token %}
                     <div class="row">
-                        <div class="col-md-12">
-                            <img src="{{ sesion.foto.url }}" alt="" style="margin-bottom: 10px;">
+                        <div class="col-12">
+                            <input type="text" class="form-control" placeholder="Su nombre" name="nomComentario1" id="nomComentario1" required>
                         </div>
-                        <div class="col-md-12">
-                            <h5>Nombre: {{ sesion.nomUsuario }}  {{ sesion.apellidoCompleto }}</h5>
+                        <div class="col-12">
+                            <input type="email" class="form-control" placeholder="Su email" name="emailComentario1" id="emailComentario1" required>
                         </div>
-                        <div class="col-md-12">
-                            <h5>Nombre de usuario: {{ sesion.username }}</h5>
+                        <div class="col-12">
+                            <textarea  name="Mensaje1" class="form-control" id="Mensaje1" cols="30" rows="10" placeholder="Su mensaje" required></textarea>
                         </div>
-                        <div class="col-md-12">
-                            <h5>Correo: {{ sesion.email }}</h5><br>
+                        <div class="col-12">
+                            <center>
+                                <input type="submit" class="gradient-button gradient-button-1" value="Enviar" >
+                                <p id="mensajeReg"></p>
+                            </center>
                         </div>
                     </div>
-                </div>
-                <div style="text-align: center;">
-                    <div class="contact-form-title">
-                        <p>Editar: </p>
-                    </div>
-                    <a href="{% url 'modificarPerfil' sesion.idUsuario %}" >
-                    <button class="gradient-button gradient-button-1" value="Perfil">Perfil</button></a>
-                    <a href="{% url 'modificarContra' sesion.idUsuario %}"">
-                    <button class="gradient-button gradient-button-1" value="Perfil">Contraseña</button></a>
-                    <a href="{% url 'modificarFotoUser' sesion.idUsuario %}"">
-                        <button class="gradient-button gradient-button-1" value="Perfil">Foto</button></a>
-                </div> 
-                
+                </form>
             </div>
-            
         </div>
-        
     </div>
-    
     <!-- ***** Contact Area End ***** -->
 
     <!-- ***** Footer Area Start ***** -->
@@ -169,13 +163,16 @@
             <div class="row">
                 <div class="col-12">
                     <div class="footer-text">
-                        <a href="{% url 'index' %}" class="navbar-brand">Recetas de Sudamérica</a>
+                        <a href="{% url 'index'%}" class="navbar-brand">Recetas de Sudamérica</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         <p style="color: beige;">Copyright Recetas de Sudamérica&copy;
                             <script>document.write(new Date().getFullYear());</script>
                         </p>
                         <p style="color: beige;">
                             Todos los derechos reservados
+                        </p>
+                        <p style="color: beige;">
+                            Av. Apoquindo 4800, Torre 2, piso 21, Las Condes, Santiago - Chile.
                         </p>
                     </div>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -193,7 +190,8 @@
     <script src="{% static 'Recetas/js/bootstrap/bootstrap.min.js' %}"></script>
     <!-- All Plugins js -->
     <script src="{% static 'Recetas/js/others/plugins.js' %}"></script>
-   
     <!-- Active js -->
     <script src="{% static 'Recetas/js/active.js' %}"></script>
+    <!--Validaciones-->
+    <script src="/static/Recetas/js/jquery/ValiContacto.js"></script>
 </body>

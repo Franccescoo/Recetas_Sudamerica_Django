@@ -1,6 +1,6 @@
 from unicodedata import name
 from django.urls import URLPattern, path
-from .views import fotoUserModificada, modificarFotoUser, Menu_RecetasSesion, recetasSesion, contraModificado, registrarValoracion, listadoValoracion,  modificarContra,perfilModificado,modificarPerfil,inicioUser,inicioAdmin,modificar_receta, eliminar_comentario, registrarComentario, Ver_Comen_Admin, usuario,recetas,login_app,aamate,eliminar_receta, Menu_Recetas, index, aatest, contact, registrarRecetas, Creacion_Recetas, registrarRecetas, Editar_Recetas_Admin, Editar_Recetas, Login, listadoRecetas, menu, modificar_usuario_admin, modificar_vista_usuario, RecetaArgentina, RecetaChile, RecetaEcuador, RecetaPeru, RecetasBrasil, RecetasColombia, RecetasVenezuela, RecetaUruguay, registrarse, Ver_Receta_Admin, Ver_Receta_Usuario, Ver_Usuario_Admin, Vista_de_Admin, Vista_de_Usuario, registrarUsuario,listadoRecetas,eliminar_usuario,modificar_receta_admin,modificar
+from .views import fotoUserModificada, indexSesion, contactSesion, modificarFotoUser, Menu_RecetasSesion, recetasSesion, contraModificado, registrarValoracion, listadoValoracion,  modificarContra,perfilModificado,modificarPerfil,inicioUser,inicioAdmin,modificar_receta, eliminar_comentario, registrarComentario, Ver_Comen_Admin, usuario,recetas,login_app,aamate,eliminar_receta, Menu_Recetas, index, aatest, contact, registrarRecetas, Creacion_Recetas, registrarRecetas, Editar_Recetas_Admin, Editar_Recetas, Login, listadoRecetas, menu, modificar_usuario_admin, modificar_vista_usuario, RecetaArgentina, RecetaChile, RecetaEcuador, RecetaPeru, RecetasBrasil, RecetasColombia, RecetasVenezuela, RecetaUruguay, registrarse, Ver_Receta_Admin, Ver_Receta_Usuario, Ver_Usuario_Admin, Vista_de_Admin, Vista_de_Usuario, registrarUsuario,listadoRecetas,eliminar_usuario,modificar_receta_admin,modificar
 from . import views
 from django.contrib.auth.views import LoginView, LogoutView
 
@@ -27,8 +27,10 @@ urlpatterns = [
 
 
 
+    path('contactSesion/<int:idUser>',contactSesion,name="contactSesion"),
     path('Menu_RecetasSesion/<int:idUser>',Menu_RecetasSesion,name="Menu_RecetasSesion"),
     path('recetasSesion/<int:idUser>/<int:idRec>',recetasSesion,name="recetasSesion"),
+    path('indexSesion/<int:idUser>',indexSesion,name="indexSesion"),
     path('modificar_receta/<int:id>/<int:sesi>',modificar_receta,name="modificar_receta"),
     path('Editar_Recetas_Admin/<int:id>',Editar_Recetas_Admin,name="Editar_Recetas_Admin"),
     path('usuario/<int:id>/<int:sesi>',usuario,name="usuario"),

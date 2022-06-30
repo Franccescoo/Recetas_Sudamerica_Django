@@ -49,14 +49,14 @@
             <div class="row h-100">
                 <div class="col-12 h-100">
                     <nav class="h-100 navbar navbar-expand-lg align-items-center">
-                        <a class="navbar-brand" href="{% url 'index' %}">Recetas de Sudamérica</a>
+                        <a class="navbar-brand" href="{% url 'indexSesion' sesion.idUsuario %}">Recetas de Sudamérica</a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#caviarNav"
                             aria-controls="caviarNav" aria-expanded="false" aria-label="Toggle navigation"><span
                                 class="fa fa-bars"></span></button>
                         <div class="collapse navbar-collapse" id="caviarNav">
                             <ul class="navbar-nav ml-auto" id="caviarMenu">
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="{% url 'index' %}">Inicio <span
+                                    <a class="nav-link" href="{% url 'indexSesion' sesion.idUsuario %}">Inicio <span
                                             class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item dropdown">
@@ -64,7 +64,7 @@
                                         <a class="nav-link" href="{% url 'Menu_RecetasSesion' sesion.idUsuario %}">Recetas</a>
                                     </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'contact' %} ">Contáctanos</a>
+                                    <a class="nav-link" href="{% url 'contactSesion' sesion.idUsuario %}">Contáctanos</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'index' %}">Cerrar Sesión</a>
