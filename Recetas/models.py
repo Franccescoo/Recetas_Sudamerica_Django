@@ -29,6 +29,20 @@ class Nacionalidad(models.Model):
 
     def __str__(self) :
             return self.nomNacionalidad
+
+class Dieta(models.Model):
+    idDieta = models.AutoField(primary_key=True)
+    nomDieta = models.CharField(max_length=20, null=False, blank=False)
+
+    def __str__(self) :
+            return self.nomDieta
+
+class Alimento(models.Model):
+    idAlimento = models.AutoField(primary_key=True)
+    nomAlimento = models.CharField(max_length=20, null=False, blank=False)
+
+    def __str__(self) :
+            return self.nomAlimento
             
 
 class Receta(models.Model):
@@ -41,6 +55,8 @@ class Receta(models.Model):
     detalle = models.CharField(max_length=1000, default="")
     Usuario = models.ForeignKey(Usuario, on_delete= models.CASCADE)
     Nacionalidad = models.ForeignKey(Nacionalidad, on_delete= models.CASCADE)
+    Dieta = models.ForeignKey(Dieta, on_delete= models.CASCADE)
+    Alimento = models.ForeignKey(Alimento, on_delete= models.CASCADE)
 
     def __str__(self) :
             return self.nomReceta
