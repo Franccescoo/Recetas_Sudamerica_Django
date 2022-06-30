@@ -66,6 +66,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'contact' %} ">Contáctanos</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'index' %}">Cerrar Sesión</a>
+                                </li>
                             </ul>
 
                         </div>
@@ -133,7 +136,7 @@
                             <div class="contact-form-title">
                                 <p style="margin-bottom: 10px;">Imagen:</p>
                             </div>
-                            <input type="file" class="form-control" id="imagen" name="imagen" required>
+                            <input type="file" class="form-control" id="imagen" name="imagen">
                         </div>
 
                         <div class="col-12">
@@ -192,7 +195,8 @@
                                 </div>
                                 
                                 <textarea class="form-control" id="ingredientes" name="ingredientes" rows="5" cols="40"
-                                    placeholder="EJ: 1 Camello. 
+                                    placeholder="EJ: --
+ 1 Carne de Camello. 
  10 oregano. 
  1 litro de aceite. 
  3 calamares. 
@@ -204,8 +208,21 @@
                                 </div>
                                 
                                 <textarea class="form-control" id="preparacion" name="preparacion" rows="5" cols="40"
-                                    placeholder="Ej: -- Paso 1 
+                                    placeholder="Ej: -- 
+Paso 1 
 Poner a calentar el agua y retirar del fuego antes de que hierva." required></textarea> <br>
+                                <br>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="contact-form-title">
+                                    <p style="margin-bottom: 10px;">Detalle (opcional):</p>
+                                </div>
+
+                                <textarea class="form-control" id="detalle" name="detalle" rows="5" cols="40"
+                                    placeholder="Ej: -- Detalle del alimento."></textarea> <br>
                                 <br>
                             </div>
                         </div>
