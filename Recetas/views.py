@@ -1,8 +1,9 @@
+from ast import alias
 from asyncio.windows_events import NULL
 from email import message
 from tkinter.tix import Tree
 from django.shortcuts import render, redirect
-from .models import Usuario,Receta,Nacionalidad,RolUsuario,Comentario,Valoracion
+from .models import Usuario,Receta,Nacionalidad,RolUsuario,Comentario,Valoracion,Dieta,Alimento
 from django.contrib import messages
 # Create your views here.
 
@@ -31,14 +32,19 @@ def modificar_receta(request,id,sesi):
     receta1 = Receta.objects.get(idReceta=id)
     nacionalidad1 = Nacionalidad.objects.all()
     usuario1 = Usuario.objects.all()
+    alias3           = Alimento.objects.all()
+    ali3             = Dieta.objects.all()
 
     contexto = {
         "sesion":sesion,
         "receta":receta1,
         "nacionalidad":nacionalidad1,
-        "usuario":usuario1
+        "usuario":usuario1,
+        "alim": alias3,
+        "diets": ali3
     }
     return render(request,'Recetas/modificar_receta.html',contexto)
+
 
 def modificar(request,id,sesi):
     receta = Receta.objects.get(idReceta = id)
@@ -108,12 +114,15 @@ def registrarRecetas(request,id):
     idNacionalidad2  = request.POST['idNacio']
     ingredientes2    = request.POST['ingredientes']
     preparacion2     = request.POST['preparacion']
+    alias            = request.POST['idAli']
+    dietas           = request.POST['idDiet']
 
     Nacionalidad3    = Nacionalidad.objects.get(idNacionalidad = idNacionalidad2)
+    alias3           = Alimento.objects.get(idAlimento = alias)
+    ali3             = Dieta.objects.get(idDieta = dietas)
     Usuario3         = Usuario.objects.get(idUsuario = id)
 
-
-    Receta.objects.create(Usuario=Usuario3,fotoReceta =imagen2, nomReceta =nomreceta2, ingrediente =ingredientes2, preparacion=preparacion2, tiempo=tiempo2, Nacionalidad=Nacionalidad3 )
+    Receta.objects.create(Usuario=Usuario3,fotoReceta =imagen2, nomReceta =nomreceta2, ingrediente =ingredientes2, preparacion=preparacion2, tiempo=tiempo2, Nacionalidad=Nacionalidad3, Alimento = alias3, Dieta = ali3)
     
     messages.success(request, 'Receta Registrada')
 
@@ -123,9 +132,13 @@ def registrarRecetas(request,id):
 def Creacion_Recetas(request,id):
     sesion = Usuario.objects.get(idUsuario=id)
     Nacio = Nacionalidad.objects.all()
+    ali = Alimento.objects.all()
+    diet = Dieta.objects.all()
     contexto = {
         "sesion":sesion,
-        "lista_r":Nacio}
+        "lista_r":Nacio,
+        "lista_a":ali,
+        "lista_d":diet}
     return render(request,"Recetas/Creacion_Recetas.html",contexto)
 
 def Ver_Usuario_Admin(request,id):
@@ -517,12 +530,17 @@ def eliminar_receta(request,id,sesi):
         return redirect ('Ver_Receta_Usuario',sesi)
 
 def modificar_receta_admin(request,id):
-    receta1 = Receta.objects.get(idReceta = id)
-    Nacio1 = Nacionalidad.objects.all()
+    receta1          = Receta.objects.get(idReceta = id)
+    Nacio1           = Nacionalidad.objects.all()
+    alias3           = Alimento.objects.all()
+    ali3             = Dieta.objects.all()
     
     contexto = {
         "receta" :receta1,
-        'nacionalidades' : Nacio1
+        'nacionalidades' : Nacio1,
+        'alim': alias3,
+        'diets': ali3
+        
 
     }
     return render(request,'Recetas/Editar_Recetas_Admin.html',contexto)

@@ -163,6 +163,28 @@
                             </select>
                         </div>
 
+                        <div class="col-12">
+                            <div class="contact-form-title">
+                                <p style="margin-bottom: 10px;">Alimento:</p>
+                            </div>    
+                            <select class="form-control" style="height: 50px;" name="idAli" id="idAli">
+                                {% for i in lista_a %}
+                                <option value="{{i.idAlimento}}">{{i.nomAlimento}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="contact-form-title">
+                                <p style="margin-bottom: 10px;">Tipo de Dieta:</p>
+                            </div>    
+                            <select class="form-control" style="height: 50px;" name="idDiet" id="idDiet">
+                                {% for i in lista_d %}
+                                <option value="{{i.idDieta}}">{{i.nomDieta}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
                         <div class="row">
                             <div class="col-md-6 col-sm-12">
                                 <div class="contact-form-title">

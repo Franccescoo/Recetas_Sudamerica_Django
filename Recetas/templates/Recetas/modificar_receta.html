@@ -177,6 +177,38 @@
                             </select>
                         </div>
 
+                        <div class="col-12">
+                            <div class="contact-form-title">
+                                <p style="margin-bottom: 10px;">Alimento:</p>
+                            </div>
+                            <select class="form-control" style="height: 50px;" name="idAli" id="idAli">
+                                {% for x in alim %}
+                                {% if x.idAlimento == Receta.Alimento.idAlimento %}
+                                <option value="{{ x.idAlimento }}" selected>{{ x.nomAlimento }}</option>
+                                {% else %}
+                                <option value="{{ x.idAlimento }}">{{ x.nomAlimento }}
+                                <option>
+                                    {% endif %}
+                                    {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="contact-form-title">
+                                <p style="margin-bottom: 10px;">Tipo de Dieta:</p>
+                            </div>
+                            <select class="form-control" style="height: 50px;" name="idAli" id="idAli">
+                                {% for x in diets %}
+                                {% if x.idDieta == Receta.Dieta.idDieta %}
+                                <option value="{{ x.idDieta }}" selected>{{ x.nomDieta }}</option>
+                                {% else %}
+                                <option value="{{ x.idDieta }}">{{ x.nomDieta }}
+                                <option>
+                                    {% endif %}
+                                    {% endfor %}
+                            </select>
+                        </div>
+
 
 
                         <div class="row">
