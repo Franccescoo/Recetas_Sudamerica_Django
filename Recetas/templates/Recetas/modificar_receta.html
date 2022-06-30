@@ -170,7 +170,7 @@
                             </div>
                             <select class="form-control" style="height: 50px;" name="idNacio" id="idNacio">
                                 {% for x in nacionalidad %}
-                                {% if x.idNacionalidad == Receta.Nacionalidad.idNacionalidad %}
+                                {% if x.idNacionalidad == receta.Nacionalidad.idNacionalidad %}
                                 <option value="{{ x.idNacionalidad }}" selected>{{ x.nomNacionalidad }}</option>
                                 {% else %}
                                 <option value="{{ x.idNacionalidad }}">{{ x.nomNacionalidad }}
@@ -185,7 +185,7 @@
                             </div>
                             <select class="form-control" style="height: 50px;" name="idAli" id="idAli">
                                 {% for x in alim %}
-                                {% if x.idAlimento == Receta.Alimento.idAlimento %}
+                                {% if x.idAlimento == receta.Alimento.idAlimento %}
                                 <option value="{{ x.idAlimento }}" selected>{{ x.nomAlimento }}</option>
                                 {% else %}
                                 <option value="{{ x.idAlimento }}">{{ x.nomAlimento }}
@@ -200,7 +200,7 @@
                             </div>
                             <select class="form-control" style="height: 50px;" name="idDiet" id="idDiet">
                                 {% for x in diets %}
-                                {% if x.idDieta == Receta.Dieta.idDieta %}
+                                {% if x.idDieta == receta.Dieta.idDieta %}
                                 <option value="{{ x.idDieta }}" selected>{{ x.nomDieta }}</option>
                                 {% else %}
                                 <option value="{{ x.idDieta }}">{{ x.nomDieta }}
