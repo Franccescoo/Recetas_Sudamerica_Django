@@ -152,7 +152,7 @@
                     {% if sesion.idUsuario == r.Usuario.idUsuario %}
 
                     <div class="col-lg-3 col-md-5 col-sm-12" style="padding-top: 20px;">
-
+                        <a class="" href="{% url 'recetasSesion' sesion.idUsuario r.Receta.idReceta %}">
                         <div class="card">
                             <img class="card-img-top" src="/media/{{r.Receta.fotoReceta}}" style="height: 220px;"
                                 alt="{{ r.nomReceta }}">
@@ -170,6 +170,7 @@
                             </div>
 
                         </div>
+                    </a>
                     </div>
                     {% if forloop.counter|divisibleby:4 %}
                 </div>

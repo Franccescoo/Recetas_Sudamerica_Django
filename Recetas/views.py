@@ -7,6 +7,21 @@ from .models import Favorito,Usuario,Receta,Nacionalidad,RolUsuario,Comentario,V
 from django.contrib import messages
 # Create your views here.
 
+def registrarFavorito(request,id,sesi):
+    usu        = Usuario.objects.get(idUsuario=sesi)
+    rece       = Receta.objects.get(idReceta=id)
+    Favorito.objects.create(Usuario = usu, Receta = rece)
+
+    return redirect('recetasSesion',sesi,id)
+
+def eliminarFavorito(request,id,sesi):
+    usu        = Usuario.objects.get(idUsuario=sesi)
+    rece       = Receta.objects.get(idReceta=id)
+
+    favo = Favorito.objects.get(Usuario = usu, Receta = rece)
+    favo.delete() #Elimina registro
+    return redirect('recetasSesion',sesi,id)
+
 
 def MisFavoritos(request,id):
     sesion = Usuario.objects.get(idUsuario=id)
@@ -343,12 +358,17 @@ def recetasSesion(request, idUser ,idRec):
     nacionalidad1 = Nacionalidad.objects.all()
     usuario1 = Usuario.objects.all()
     valo = Valoracion.objects.all()
+    try:
+        favo = Favorito.objects.get(Usuario = sesion, Receta = receta1)
+    except:
+        favo = NULL
     contexto = {
         "receta":receta1,
         "nacionalidad":nacionalidad1,
         "usuario":usuario1,
         "valo":valo,
-        "sesion" : sesion
+        "sesion" : sesion,
+        "favorito": favo,
     }
     return render(request,'Recetas/recetasSesion.html',contexto)
 
@@ -581,7 +601,16 @@ def modificar_receta_admin(request,id):
 
 
 
+def registrarComentarioSesion(request,id):
+    nomComen     = request.POST['nomComentario1']
+    correo       = request.POST['emailComentario1']
+    mensa        = request.POST['Mensaje1']
 
+    Comentario.objects.create(nomComentario = nomComen, emailComentario = correo, Mensaje = mensa)
+
+    messages.success(request, 'Mensaje Enviado')
+
+    return redirect('contactSesion',id)
    
 
 def registrarComentario(request):

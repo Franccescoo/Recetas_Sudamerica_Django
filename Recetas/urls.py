@@ -1,10 +1,13 @@
 from unicodedata import name
 from django.urls import URLPattern, path
-from .views import MisFavoritos,fotoUserModificada, indexSesion, contactSesion, modificarFotoUser, Menu_RecetasSesion, recetasSesion, contraModificado, registrarValoracion, listadoValoracion,  modificarContra,perfilModificado,modificarPerfil,inicioUser,inicioAdmin,modificar_receta, eliminar_comentario, registrarComentario, Ver_Comen_Admin, usuario,recetas,login_app,aamate,eliminar_receta, Menu_Recetas, index, aatest, contact, registrarRecetas, Creacion_Recetas, registrarRecetas, Editar_Recetas_Admin, Editar_Recetas, Login, listadoRecetas, menu, modificar_usuario_admin, modificar_vista_usuario, RecetaArgentina, RecetaChile, RecetaEcuador, RecetaPeru, RecetasBrasil, RecetasColombia, RecetasVenezuela, RecetaUruguay, registrarse, Ver_Receta_Admin, Ver_Receta_Usuario, Ver_Usuario_Admin, Vista_de_Admin, Vista_de_Usuario, registrarUsuario,listadoRecetas,eliminar_usuario,modificar_receta_admin,modificar
+from .views import eliminarFavorito,registrarFavorito,registrarComentarioSesion,MisFavoritos,fotoUserModificada, indexSesion, contactSesion, modificarFotoUser, Menu_RecetasSesion, recetasSesion, contraModificado, registrarValoracion, listadoValoracion,  modificarContra,perfilModificado,modificarPerfil,inicioUser,inicioAdmin,modificar_receta, eliminar_comentario, registrarComentario, Ver_Comen_Admin, usuario,recetas,login_app,aamate,eliminar_receta, Menu_Recetas, index, aatest, contact, registrarRecetas, Creacion_Recetas, registrarRecetas, Editar_Recetas_Admin, Editar_Recetas, Login, listadoRecetas, menu, modificar_usuario_admin, modificar_vista_usuario, RecetaArgentina, RecetaChile, RecetaEcuador, RecetaPeru, RecetasBrasil, RecetasColombia, RecetasVenezuela, RecetaUruguay, registrarse, Ver_Receta_Admin, Ver_Receta_Usuario, Ver_Usuario_Admin, Vista_de_Admin, Vista_de_Usuario, registrarUsuario,listadoRecetas,eliminar_usuario,modificar_receta_admin,modificar
 from . import views
 from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
+    path('eliminarFavorito/<int:id>/<int:sesi>',eliminarFavorito, name="eliminarFavorito"),
+    path('registrarFavorito/<int:id>/<int:sesi>',registrarFavorito, name="registrarFavorito"),
+    path('registrarComentarioSesion/<int:id>', registrarComentarioSesion, name="registrarComentarioSesion"),
     path('MisFavoritos/<int:id>',MisFavoritos,name="MisFavoritos"),
     path('fotoUserModificada/<int:id>',fotoUserModificada,name="fotoUserModificada"),
     path('modificarFotoUser/<int:id>',modificarFotoUser,name="modificarFotoUser"),

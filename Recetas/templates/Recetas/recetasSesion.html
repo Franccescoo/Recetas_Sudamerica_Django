@@ -66,6 +66,19 @@
                             <div style="text-align: center;">
                                 <i class="bi bi-map"></i> Pais : {{receta.Nacionalidad.nomNacionalidad}} |
                             </div>
+                            <div style="text-align: center;">
+                                <i class="fa-solid fa-star"></i> Favorito : 
+                            
+                                {% if favorito%}
+                                <a href="{% url 'eliminarFavorito' receta.idReceta sesion.idUsuario %}">
+                                <i class="fa-solid fa-heart" style="color: red;"></i></a> |
+                                {% else %}
+                                <a href="{% url 'registrarFavorito' receta.idReceta sesion.idUsuario %}">
+                                <i class="fa-solid fa-heart" style="color: black;"></i></a> |
+                                {% endif %}
+                                
+                                
+                            </div>
                         </div>
                     </div>
                     <div class="post-content">
