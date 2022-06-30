@@ -63,6 +63,18 @@
 
 
                         </ol>
+
+                        {% if receta.detalle %}
+                        <h2>Comentarios del Autor</h2>
+                        <ol>
+
+                            {{receta.detalle}}
+
+
+                        </ol>
+
+                        {% else %}
+                        {% endif %}
                     </div>
                 </div>
             </div>

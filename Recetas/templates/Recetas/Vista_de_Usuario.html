@@ -120,10 +120,20 @@
     <div class="caviar-contact-area d-md-flex align-items-center" id="contact">
         <div class="contact-form-area d-flex justify-content-end">
             <div class="contact-form">
+                <div class="contact-form-title">
+                    {% if messages %}
+                    <div>
+                        {% for i in messages %}
+                        <p style="color: red;">{{ i }}</p>
+                        {% endfor %}
+                    </div>
+
+                    {% endif %}
+                </div>
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <img src="{{ sesion.foto.url }}" alt="" style="margin-bottom: 10px;">
+                            <img src="/media/{{sesion.foto}}" alt="" style="margin-bottom: 10px;">
                         </div>
                         <div class="col-md-12">
                             <h5>Nombre: {{ sesion.nomUsuario }}  {{ sesion.apellidoCompleto }}</h5>
