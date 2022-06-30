@@ -54,21 +54,28 @@ def modificar(request,id,sesi):
     idNacio_r = request.POST['idNacio']
     ingre_r   = request.POST['ingredientes']
     prepa_r   = request.POST['preparacion']
-
+    alias     = request.POST['idAli']
+    dietas    = request.POST['idDiet']
     
 
     receta.nomReceta = nom_r
     receta.ingrediente = ingre_r
     receta.preparacion = prepa_r
     receta.tiempo = tiempo_r
+
     try:
         imagen2   = request.FILES['imagen']
         receta.fotoReceta = imagen2
     except:
         imagen2 = NULL
-    idNacio_r2 = Nacionalidad.objects.get(idNacionalidad = idNacio_r)
+
+    idNacio_r2  = Nacionalidad.objects.get(idNacionalidad = idNacio_r)
+    dietas2     = Dieta.objects.get(idDieta = dietas)
+    alias2      = Alimento.objects.get(idAlimento = alias)
 
     receta.Nacionalidad = idNacio_r2
+    receta.Dieta = dietas2
+    receta.Alimento = alias2
     receta.save() #update
     
 

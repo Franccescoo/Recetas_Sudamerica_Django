@@ -195,7 +195,7 @@
                             <div class="contact-form-title">
                                 <p style="margin-bottom: 10px;">Tipo de Dieta:</p>
                             </div>
-                            <select class="form-control" style="height: 50px;" name="idAli" id="idAli">
+                            <select class="form-control" style="height: 50px;" name="idDiet" id="idDiet">
                                 {% for x in diets %}
                                 {% if x.idDieta == Receta.Dieta.idDieta %}
                                 <option value="{{ x.idDieta }}" selected>{{ x.nomDieta }}</option>
