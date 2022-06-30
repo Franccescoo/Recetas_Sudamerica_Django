@@ -146,7 +146,7 @@
                 <div class="col-lg-3 col-md-5 col-sm-12" style="padding-top: 20px;">
                    
                         <div class="card">
-                            <img class="card-img-top" src="{{ Receta.fotoReceta.url }}"
+                            <img class="card-img-top" src="/media/{{Receta.fotoReceta}}"
                                 style="height: 220px;" alt="{{ Receta.nomReceta }}">
                             <div class="card-body">
                                 <h5 class="card-tittle">{{ Receta.nomReceta}}</h5>
@@ -154,14 +154,14 @@
                                 <h6 class="card-subtittle">Autor: {{ Receta.Usuario.nomUsuario }}</h6>
                                 <h6 class="card-subtittle">País: {{ Receta.Nacionalidad }}</h6>
                                 <div class="container">
-                                    <div class="col-md-12">
-                                        <a class="gradient-button gradient-button-2" style="margin-bottom: 10px;" href="{% url 'eliminar_receta' Receta.idReceta sesion.idUsuario %} ">Eliminar</a><br>
-                                    </div>
                                     {% if sesion.idUsuario == Receta.Usuario.idUsuario %}
                                     <div class="col-md-12">
                                         <a class="gradient-button gradient-button-1" href="{% url 'modificar_receta' Receta.idReceta sesion.idUsuario %}">Modificar</a><br>
                                     </div>
                                     {% endif %}
+                                    <div class="col-md-12">
+                                        <a class="gradient-button gradient-button-2" style="margin-bottom: 10px;" href="{% url 'eliminar_receta' Receta.idReceta sesion.idUsuario %} ">Eliminar</a><br>
+                                    </div>
                                 </div>
                                
                                 

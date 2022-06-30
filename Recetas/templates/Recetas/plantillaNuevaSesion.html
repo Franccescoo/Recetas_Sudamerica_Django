@@ -185,6 +185,7 @@
                             </tr>
                             {% if valo %}
                             {% for m in valo %}
+                            {% if m.Receta.idReceta == receta.idReceta %}
                             <tr>
                                 <td>{{ m.Usuario.username }}</td>
                                 <td>{{ m.mensajeValoracion }}</td>
@@ -226,6 +227,7 @@
                                 {% endif %}
                                 </td>
                             </tr>
+                            {% endif %}
                             {% endfor %}
                             {% endif %}
                         </table>
