@@ -79,6 +79,11 @@ class Valoracion(models.Model):
     Receta              = models.ForeignKey(Receta, on_delete= models.CASCADE)
     def __str__(self) :
             return self.Usuario.username
+class Favorito(models.Model):
+    idFavorito       = models.AutoField(primary_key=True)
+    Usuario             = models.ForeignKey(Usuario, on_delete= models.CASCADE)
+    Receta              = models.ForeignKey(Receta, on_delete= models.CASCADE)
+    
 
 
 

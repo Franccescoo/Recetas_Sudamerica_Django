@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Usuario, Nacionalidad, Alimento, Dieta, Receta, RolUsuario, Comentario, Valoracion
+from .models import Favorito,Usuario, Nacionalidad, Alimento, Dieta, Receta, RolUsuario, Comentario, Valoracion
 # Register your models here.
 admin.site.register(Usuario)
 admin.site.register(Nacionalidad)
@@ -9,3 +9,4 @@ admin.site.register(Comentario)
 admin.site.register(Valoracion)
 admin.site.register(Dieta)
 admin.site.register(Alimento)
+admin.site.register(Favorito)

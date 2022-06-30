@@ -3,10 +3,19 @@ from asyncio.windows_events import NULL
 from email import message
 from tkinter.tix import Tree
 from django.shortcuts import render, redirect
-from .models import Usuario,Receta,Nacionalidad,RolUsuario,Comentario,Valoracion,Dieta,Alimento
+from .models import Favorito,Usuario,Receta,Nacionalidad,RolUsuario,Comentario,Valoracion,Dieta,Alimento
 from django.contrib import messages
 # Create your views here.
 
+
+def MisFavoritos(request,id):
+    sesion = Usuario.objects.get(idUsuario=id)
+    favorito = Favorito.objects.all()
+    contexto={
+        "recetas": favorito,
+        "sesion": sesion
+    }
+    return render(request,'Recetas/MisFavoritos.html',contexto)
 
 def modificarFotoUser(request,id):
     sesion = Usuario.objects.get(idUsuario = id)
@@ -256,7 +265,7 @@ def registrarUsuario(request):
         "sesion":sesion
         }
         messages.success(request, 'Cuenta registrada')
-        return render(request,"Recetas/Vista_de_Usuario.html",contexto)
+        return redirect ('Vista_de_Usuario',sesion.idUsuario)
     else:
         messages.error(request, 'El nombre de usuario o correo ya estan ocupados')
         return redirect ('registrarse')
