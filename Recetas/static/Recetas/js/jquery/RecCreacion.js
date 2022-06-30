@@ -18,12 +18,12 @@ $(document).ready(function () {
         }
 
         if(ingre.length > 1000){
-            mensajeMostrar += "La longitud de los ingredientes no puede contener mas de 50 caracteres";
+            mensajeMostrar += "La longitud de los ingredientes no puede contener mas de 1000 caracteres";
             entrar = false;
         }
 
         if(prepa.length > 2000){
-            mensajeMostrar += "La longitud de la preparacion no puede contener mas de 500 caracteres";
+            mensajeMostrar += "La longitud de la preparacion no puede contener mas de 2000 caracteres";
             entrar = false;
         }
 
