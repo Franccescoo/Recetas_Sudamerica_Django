@@ -132,12 +132,50 @@
                             <tr>
                                 <td>Nombre</td>
                                 <td>Mensaje</td>
+                                <td>Valoracion</td>
                             </tr>
                             {% if valo %}
                             {% for m in valo %}
                             <tr>
                                 <td>{{ m.Usuario.username }}</td>
                                 <td>{{ m.mensajeValoracion }}</td>
+                                <td>
+                                    {% if m.estrellaValoracion == 1 %}
+                                    <i class="fa-solid fa-star" style="color: rgb(231, 231, 35);"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    {% endif %}
+                                    {% if m.estrellaValoracion == 2 %}
+                                    <i class="fa-solid fa-star" style="color: rgb(231, 231, 35);"></i>
+                                    <i class="fa-solid fa-star" style="color: rgb(231, 231, 35);"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    {% endif %}
+                                    {% if m.estrellaValoracion == 3 %}
+                                    <i class="fa-solid fa-star" style="color: rgb(231, 231, 35);"></i>
+                                    <i class="fa-solid fa-star" style="color: rgb(231, 231, 35);"></i>
+                                    <i class="fa-solid fa-star" style="color: rgb(231, 231, 35);"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    {% endif %}
+                                    {% if m.estrellaValoracion == 4 %}
+                                    <i class="fa-solid fa-star" style="color: rgb(231, 231, 35);"></i>
+                                    <i class="fa-solid fa-star" style="color: rgb(231, 231, 35);"></i>
+                                    <i class="fa-solid fa-star" style="color: rgb(231, 231, 35);"></i>
+                                    <i class="fa-solid fa-star" style="color: rgb(231, 231, 35);"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    {% endif %}
+                                    {% if m.estrellaValoracion == 5 %}
+                                    <i class="fa-solid fa-star" style="color: rgb(231, 231, 35);"></i>
+                                    <i class="fa-solid fa-star" style="color: rgb(231, 231, 35);"></i>
+                                    <i class="fa-solid fa-star" style="color: rgb(231, 231, 35);"></i>
+                                    <i class="fa-solid fa-star" style="color: rgb(231, 231, 35);"></i>
+                                    <i class="fa-solid fa-star" style="color: rgb(231, 231, 35);"></i>
+                                    {% endif %}
+                                    </td>
                             </tr>
                             {% endfor %}
                             {% endif %}
