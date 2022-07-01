@@ -1,23 +1,23 @@
 $(document).ready(function () {
 
-    $("#formCreRec").submit(function (e) {
+    $("#formModRec").submit(function (e) {
            
         var nomRec = $("#nomreceta").val();
-        var deta   = $("detalle").val();
+        var deta   =$("detalle").val();
         var ingre = $("#ingredientes").val();
         var prepa = $("#preparacion").val();
 
         let mensajeMostrar = "";
         let entrar = true;
 
-        if(deta.length > 1000){
+        if(deta.length > 30){
             mensajeMostrar += "La longitud del detalle no puede contener mas de 1000 caracteres";
             entrar = false;
         }
    
 
         if(nomRec.length > 30){
-            mensajeMostrar += "La longitud del nombre no puede contener mas de 30 caracteres";
+            mensajeMostrar += "La longitud del nombre no puede contener mas de 50 caracteres";
             entrar = false;
         }
 
@@ -35,8 +35,8 @@ $(document).ready(function () {
             $("#mensaje").html("Cargando...");
         }
         else {
-            $("#mensaje").html(mensajeMostrar);
             e.preventDefault();
+            $("#mensaje").html(mensajeMostrar);
         }
     });
 })

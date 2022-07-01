@@ -113,13 +113,15 @@
         </div>
     </div>
     <!-- ***** Breadcumb Area End ***** -->
-    <h3 style="text-align: center; margin-top: 40px;">Creación de recetas</h3>
 
     <!-- ***** Menu Area Start ***** -->
 
     <div class="caviar-contact-area d-md-flex align-items-center" id="contact">
         <div class="contact-form-area d-flex justify-content-end">
             <div class="contact-form">
+                <div class="contact-form-title">
+                    <center><p style="margin-top: 10px; font-size: 20px; color: black;">Creación de recetas</p></center>
+                </div>
                 <div class="contact-form-title">
                     {% if messages %}
             <div>
@@ -131,7 +133,7 @@
             {% endif %}
 
                 </div>
-                <form action="{% url 'registrarRecetas' sesion.idUsuario %}" method="POST" name="formRegiRec" id="formRegiRec" enctype="multipart/form-data">
+                <form action="{% url 'registrarRecetas' sesion.idUsuario %}" method="POST" name="formCreRec" id="formCreRec" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="row">
                         
@@ -232,11 +234,9 @@ Poner a calentar el agua y retirar del fuego antes de que hierva." required></te
 
 
                         <div class="col-12" style="text-align: center;">
-                            <div class="popup" onclick="myFunction1()">
-                                <input type="submit" class="gradient-button gradient-button-1" value="Confirmar">
-                                <span class="popupcre" id="myPopup1"><p id="mensajeReg" style="color: white;"></p></span>
-                            </div>
+                            <input type="submit" class="gradient-button gradient-button-1" value="Confirmar">
                             <input type="reset" class="gradient-button gradient-button-2" value="Cancelar">
+                            <p id="mensaje"></p>
                         </div> 
                 </form>
             </div>
@@ -282,12 +282,5 @@ Poner a calentar el agua y retirar del fuego antes de que hierva." required></te
     <script src="/static/Recetas/js/active.js"></script>
     <!-- Creacion de recetas js -->
     <script src="/static/Recetas/js/jquery/RecCreacion.js"></script>
-    <!--Popup-->
-    <script>
-        // When the user clicks on div, open the popup
-        function myFunction1() {
-            var popup = document.getElementById("myPopup1");
-            popup.classList.toggle("show");
-        }
-    </script>
+
 </body>
