@@ -192,9 +192,13 @@ def login_app(request):
         rol2 = RolUsuario.objects.get(nomRol = 'Administrador')
 
         if x.RolUsuario.nomRol == rol2.nomRol:
+            messages.success(request, ' Bienvenido '+ us)
             return redirect ('Vista_de_Admin',x.idUsuario)
+            
         else:
+            messages.success(request, ' Bienvenido '+ us)
             return redirect ('Vista_de_Usuario',x.idUsuario)
+            
 
     except Usuario.DoesNotExist:
         # messages.error(request, 'Usuario y/o clave incorrecta')
@@ -276,7 +280,7 @@ def registrarUsuario(request):
     except Usuario.DoesNotExist:
         x1 = True
     if c1 == True and x1 == True:
-        messages.error(request, 'Cargando')
+        messages.success(request, ' Bienvenido '+ nick)
         Usuario.objects.create(nomUsuario = nombre2, apellidoCompleto = apellido2, username = nick, email = email2, foto = foto2, contrasena = contra2)
         sesion = Usuario.objects.get(username=nick)
         contexto ={
