@@ -144,7 +144,7 @@
                         
                         <div class="col-12">
                             <div class="contact-form-title">
-                                <p style="margin-bottom: 10px;">Imagen:</p>
+                                <p style="margin-bottom: 10px;">Imagen</p>
                             </div>
                             <img src="/media/{{receta.fotoReceta}}" alt="Imagen no encontrada" style="max-width: 300px;">
                             <input type="file" class="form-control" value="{{ receta.fotoReceta }}" id="imagen"
@@ -153,7 +153,7 @@
 
                         <div class="col-12">
                             <div class="contact-form-title">
-                                <p style="margin-bottom: 10px;">Nombre De La Receta:</p>
+                                <p style="margin-bottom: 10px;">Nombre De La Receta*</p>
                             </div>
 
                             <input type="text" class="form-control" value="{{ receta.nomReceta }}" id="nomreceta"
@@ -161,7 +161,7 @@
                         </div>
                         <div class="col-12">
                             <div class="contact-form-title">
-                                <p style="margin-bottom: 10px;">Tiempo De Preparacion (minutos):</p>
+                                <p style="margin-bottom: 10px;">Tiempo De Preparacion (minutos)*</p>
                             </div>
 
                             <input type="number" class="form-control" value="{{ receta.tiempo }}" id="tiempo"
@@ -170,7 +170,7 @@
 
                         <div class="col-12">
                             <div class="contact-form-title">
-                                <p style="margin-bottom: 10px;">Nacionalidad:</p>
+                                <p style="margin-bottom: 10px;">Nacionalidad*</p>
                             </div>
                             <select class="form-control" style="height: 50px;" name="idNacio" id="idNacio">
                                 {% for x in nacionalidad %}
@@ -185,7 +185,7 @@
 
                         <div class="col-12">
                             <div class="contact-form-title">
-                                <p style="margin-bottom: 10px;">Alimento:</p>
+                                <p style="margin-bottom: 10px;">Alimento*</p>
                             </div>
                             <select class="form-control" style="height: 50px;" name="idAli" id="idAli">
                                 {% for x in alim %}
@@ -200,7 +200,7 @@
 
                         <div class="col-12">
                             <div class="contact-form-title">
-                                <p style="margin-bottom: 10px;">Tipo de Dieta:</p>
+                                <p style="margin-bottom: 10px;">Tipo de Dieta*</p>
                             </div>
                             <select class="form-control" style="height: 50px;" name="idDiet" id="idDiet">
                                 {% for x in diets %}
@@ -219,7 +219,7 @@
 
                             <div class="col-12">
                                 <div class="contact-form-title">
-                                    <p style="margin-bottom: 10px;">Ingredientes:</p>
+                                    <p style="margin-bottom: 10px;">Ingredientes*</p>
                                 </div>
 
                                 <textarea class="form-control" id="ingredientes" name="ingredientes" rows="5" cols="40"
@@ -230,7 +230,7 @@
                             
                             <div class="col-12">
                                 <div class="contact-form-title">
-                                    <p style="margin-bottom: 10px;">Preparación:</p>
+                                    <p style="margin-bottom: 10px;">Preparación*</p>
                                 </div>
 
                                 <textarea class="form-control" id="preparacion" name="preparacion" rows="5" cols="40"
@@ -240,7 +240,7 @@
 
                             <div class="col-12">
                                 <div class="contact-form-title">
-                                    <p style="margin-bottom: 10px;">Detalle (opcional):</p>
+                                    <p style="margin-bottom: 10px;">Detalle</p>
                                 </div>
 
                                 <textarea class="form-control" id="detalle" name="detalle" rows="5" cols="40"
