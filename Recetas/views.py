@@ -78,6 +78,7 @@ def modificar(request,id,sesi):
     idNacio_r = request.POST['idNacio']
     ingre_r   = request.POST['ingredientes']
     prepa_r   = request.POST['preparacion']
+    detalle2   = request.POST['detalle']
     alias     = request.POST['idAli']
     dietas    = request.POST['idDiet']
     
@@ -86,6 +87,7 @@ def modificar(request,id,sesi):
     receta.ingrediente = ingre_r
     receta.preparacion = prepa_r
     receta.tiempo = tiempo_r
+    receta.detalle = detalle2
 
     try:
         imagen2   = request.FILES['imagen']
@@ -144,7 +146,8 @@ def registrarRecetas(request,id):
     tiempo2          = request.POST['tiempo']
     idNacionalidad2  = request.POST['idNacio']
     ingredientes2    = request.POST['ingredientes']
-    preparacion2     = request.POST['preparacion']
+    preparacion2     = request.POST['preparacion'] 
+    detalle2         = request.POST['detalle'] 
     alias            = request.POST['idAli']
     dietas           = request.POST['idDiet']
 
@@ -153,7 +156,7 @@ def registrarRecetas(request,id):
     ali3             = Dieta.objects.get(idDieta = dietas)
     Usuario3         = Usuario.objects.get(idUsuario = id)
 
-    Receta.objects.create(Usuario=Usuario3,fotoReceta =imagen2, nomReceta =nomreceta2, ingrediente =ingredientes2, preparacion=preparacion2, tiempo=tiempo2, Nacionalidad=Nacionalidad3, Alimento = alias3, Dieta = ali3)
+    Receta.objects.create(Usuario=Usuario3,fotoReceta =imagen2, nomReceta =nomreceta2, ingrediente =ingredientes2, preparacion=preparacion2, tiempo=tiempo2, Nacionalidad=Nacionalidad3, Alimento = alias3, Dieta = ali3,detalle = detalle2)
     
     messages.success(request, 'Receta Registrada')
 

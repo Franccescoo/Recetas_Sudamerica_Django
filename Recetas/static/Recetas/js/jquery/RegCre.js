@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
-    $("#formModRec").submit(function (e) {
-           
+    $("#formRegi").submit(function (e) {
+        
         var nomRec = $("#nomreceta").val();
         var deta   = $("#detalle").val();
         var ingre = $("#ingredientes").val();
@@ -37,13 +37,14 @@ $(document).ready(function () {
                 entrar = false;
             }
         }
+        
 
         if (entrar) {
-            $("#mensaje").html("Cargando...");
+            $("#mensajeReg").html("Cargando...");
         }
         else {
+            $("#mensajeReg").html(mensajeMostrar);
             e.preventDefault();
-            $("#mensaje").html(mensajeMostrar);
         }
     });
 })

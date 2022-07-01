@@ -52,7 +52,8 @@
             <div class="row h-100">
                 <div class="col-12 h-100">
                     <nav class="h-100 navbar navbar-expand-lg align-items-center">
-                        <a class="navbar-brand" href="{% url 'indexSesion' sesion.idUsuario %}">Recetas de Sudamérica</a>
+                        <a class="navbar-brand" href="{% url 'indexSesion' sesion.idUsuario %}">Recetas de
+                            Sudamérica</a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#caviarNav"
                             aria-controls="caviarNav" aria-expanded="false" aria-label="Toggle navigation"><span
                                 class="fa fa-bars"></span></button>
@@ -63,10 +64,12 @@
                                             class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'Menu_RecetasSesion' sesion.idUsuario %}">Recetas</a>
+                                    <a class="nav-link"
+                                        href="{% url 'Menu_RecetasSesion' sesion.idUsuario %}">Recetas</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'contactSesion' sesion.idUsuario %}">Contáctanos</a>
+                                    <a class="nav-link"
+                                        href="{% url 'contactSesion' sesion.idUsuario %}">Contáctanos</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'index' %}">Cerrar Sesión</a>
@@ -119,53 +122,57 @@
     <div class="container" style="margin-bottom: 100px;">
         <div class="container">
             <div class="row">
-            <div class="contact-form-title">
-                <p style="margin-top: 20px;">Datos </p>
+                <div class="contact-form-title">
+                    <p style="margin-top: 20px;">Datos </p>
+                </div>
+            </div>
+            <div class="row">
+                <p>Nombre(s): {{ usuario.nomUsuario }}</p>
+            </div>
+            <div class="row">
+                <p>Apellido(s): {{ usuario.apellidoCompleto }}</p>
+            </div>
+            <div class="row">
+                <p>Nombre de Usuario: {{ usuario.username }}</p>
+            </div>
+            <div class="row">
+                <p>Email: {{ usuario.email }}</p>
             </div>
         </div>
-        <div class="row">
-            <p>Nombre(s): {{ usuario.nomUsuario }}</p>
-        </div>
-        <div class="row">
-            <p>Apellido(s): {{ usuario.apellidoCompleto }}</p>
-        </div>
-        <div class="row">
-            <p>Nombre de Usuario: {{ usuario.username }}</p>
-        </div>
-        <div class="row">
-            <p>Email: {{ usuario.email }}</p>
-        </div>
-        </div>
-        
+
 
         {% if Recetas %}
-            {% for Receta in Recetas %}
-            {% if forloop.first %}<div class="row">{% endif %}
-                {% if usuario.idUsuario == Receta.Usuario.idUsuario %}
-                    <div class="col-lg-3 col-md-5 col-sm-12" style="padding-top: 20px;">
-                    
-                        <div class="card">
-                            <img class="card-img-top" src="/media/{{Receta.fotoReceta}}"
-                            style="width: 100%;height: 100%; max-width: 200px; max-height: 200px; min-width: 200px; min-height: 200px; align-self: center;" alt="{{ Receta.nomReceta }}">
-                            <div class="card-body">
-                                <h5 class="card-tittle">{{ Receta.nomReceta}}</h5>
-                                <hr />
-                                <h6 class="card-subtittle">Autor: {{ Receta.Usuario.nomUsuario }}</h6>
-                                <h6 class="card-subtittle">País: {{ Receta.Nacionalidad }}</h6>
-                            </div>
+        {% for Receta in Recetas %}
+        {% if forloop.first %}<div class="row">{% endif %}
+            {% if usuario.idUsuario == Receta.Usuario.idUsuario %}
+            <div class="col-lg-3 col-md-5 col-sm-12" style="padding-top: 20px;">
+                <a class="" href="{% url 'recetasSesion' sesion.idUsuario Receta.idReceta %}">
+                    <div class="card">
+                        <img class="card-img-top" src="/media/{{Receta.fotoReceta}}"
+                            style="width: 100%;height: 100%; max-width: 200px; max-height: 200px; min-width: 200px; min-height: 200px; align-self: center;"
+                            alt="{{ Receta.nomReceta }}">
+                        <div class="card-body">
+                            <h5 class="card-tittle">{{ Receta.nomReceta}}</h5>
+                            <hr />
+                            <h6 class="card-subtittle">Autor: {{ Receta.Usuario.nomUsuario }}</h6>
+                            <h6 class="card-subtittle">País: {{ Receta.Nacionalidad }}</h6>
                         </div>
                     </div>
-                    {% if forloop.counter|divisibleby:4 %}</div><div class="row">{% endif %}
-                    {% if forloop.last %}</div>{% endif %}
-                {% endif %}
-            {% endfor %}
+                </a>
+            </div>
+            {% if forloop.counter|divisibleby:4 %}
+        </div>
+        <div class="row">{% endif %}
+            {% if forloop.last %}</div>{% endif %}
+        {% endif %}
+        {% endfor %}
         {% endif %}
 
     </div>
-</div>
+    </div>
 
-    
-        <!-- ***** Ciclo para plantilla de recetas ***** -->
+
+    <!-- ***** Ciclo para plantilla de recetas ***** -->
 
     <!-- ***** Contact Area End ***** -->
 
