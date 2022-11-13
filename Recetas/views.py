@@ -199,7 +199,6 @@ def login_app(request):
             messages.success(request, ' Bienvenido '+ us)
             return redirect ('Vista_de_Usuario',x.idUsuario)
             
-
     except Usuario.DoesNotExist:
         # messages.error(request, 'Usuario y/o clave incorrecta')
         return redirect ('Login')
