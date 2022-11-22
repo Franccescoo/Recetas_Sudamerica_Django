@@ -34,11 +34,9 @@ def MisFavoritos(request,id):
 
 def modificarFotoUser(request,id):
     sesion = Usuario.objects.get(idUsuario = id)
-
     contexto = {
         "sesion":sesion
     }
-
     return render(request,'Recetas/modificarFotoUser.html',contexto)
 
 def fotoUserModificada(request,id):
